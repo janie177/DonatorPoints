@@ -49,7 +49,7 @@ public class MobSpawnManager implements Listener {
             break;
             case ENDERMAN: {
                 spawn = true;
-                name = " Fallen Villager";
+                name = " Fallen Citizen";
             }
             break;
             case CREEPER: {
