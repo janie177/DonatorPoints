@@ -1,0 +1,14 @@
+main: com.minegusta.donatorpoints.DonatorPointsPlugin
+author: janie177
+version: ${project.version}
+name: DonatorPoints
+softdepend: [CensoredLib, WorldEdit, WorldGuard]
+commands:
+  points:
+    usage: /<command>
+    permission: minegusta.donator
+permissions:
+  minegusta.donator:
+    default: op
+  minegusta.desc:
+    default: op
