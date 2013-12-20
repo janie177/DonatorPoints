@@ -1,10 +1,8 @@
 package com.minegusta.donatorpoints;
 
 import com.google.common.collect.Maps;
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
-import org.bukkit.Material;
-import org.bukkit.World;
+import org.bukkit.*;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -23,165 +21,208 @@ public class MobSpawnManager implements Listener {
 
     @EventHandler
     public void onMobSpawn(CreatureSpawnEvent e) {
-        if (!DonatorPointsPlugin.world.equals(e.getEntity().getWorld().getName()))return;
-        boolean spawn;
-        String name;
+        if (!e.getEntity().getWorld().getName().toLowerCase().equals(DonatorPointsPlugin.world)) return;
         LivingEntity mob = e.getEntity();
+        if (!WorldGuardManager.canSpawnMob(mob.getLocation(), "+")) {
+            boolean spawn;
+            String name;
 
+            switch (mob.getType()) {
 
-        switch (mob.getType()) {
+                case SKELETON: {
+                    spawn = true;
+                    name = " Skeletal Warrior";
+                }
+                break;
+                case ZOMBIE: {
+                    spawn = true;
+                    name = " Undead Of The Woods";
+                }
+                break;
+                case SPIDER: {
+                    spawn = true;
+                    name = " Dark Crawler";
+                }
+                break;
+                case ENDERMAN: {
+                    spawn = true;
+                    name = " Fallen Citizen";
+                }
+                break;
+                case CREEPER: {
+                    spawn = true;
+                    name = " Skeletal WarLord";
+                }
+                break;
+                default: {
+                    spawn = false;
+                    name = "noname";
+                }
+                break;
+            }
 
+            if (!spawn) {
+                e.setCancelled(true);
+                return;
+            }
 
-            case SKELETON: {
-                spawn = true;
-                name = " Skeletal Warrior";
-            }
-            break;
-            case ZOMBIE: {
-                spawn = true;
-                name = " Undead Of The Woods";
-            }
-            break;
-            case SPIDER: {
-                spawn = true;
-                name = " Dark Crawler";
-            }
-            break;
-            case ENDERMAN: {
-                spawn = true;
-                name = " Fallen Citizen";
-            }
-            break;
-            case CREEPER: {
-                spawn = true;
-                name = " Skeletal WarLord";
-            }
-            break;
-            case BLAZE: {
-                spawn = true;
-                name = " DemonSpawn";
-            }
-            break;
-            case GIANT: {
-                spawn = true;
-                name = " Giant";
-            }
-            break;
-            case GHAST: {
-                spawn = true;
-                name = " Angry Spirit";
-            }
-            break;
-            case WOLF: {
-                spawn = true;
-                name = " Wild TimberWolf";
-            }
-            break;
-            default: {
-                spawn = false;
-                name = "noname";
-            }
-            break;
-        }
-
-        if (!spawn){
-            e.setCancelled(true);
-            return;
-        }
-
-        //generate a random that defines the level. This is only used for default spawning outside of regions containing _
+            //generate a random that defines the level. This is only used for default spawning outside of regions containing _
 
             Random rand = new Random();
-            int number = rand.nextInt(51);
+            int number = rand.nextInt(45);
             int level = 1;
             if (number < 30) {
                 level = 1;
             } else if (29 < number && number < 41) {
                 level = 2;
             } else if (40 < number && number < 45) {
-                level = 2;
-            } else if (number > 44 && number < 44) {
-                level = 4;
-            } else if (number > 43) {
-                level = 5;
+                level = 3;
             }
 
-        //Set the mobs name and set it visible. The level used for awarding points and also for assigning more HitPoints.
+            //Set the mobs name and set it visible. The level used for awarding points and also for assigning more HitPoints.
 
             mob.setCustomName(ChatColor.RED + "Level: " + level + name);
             mob.setCustomNameVisible(true);
 
-        if(!DonatorPointsPlugin.WORLD_GUARD_ENABLED || !WorldGuardManager.isInRegion(mob.getLocation(), "_")){
-
-            //Default spawning in regions that are not mob-defininf. Levels go from 1-5.
+            //Default spawning in regions that are not mob-defining. Levels go from 1-3.
 
             if (e.getEntity() instanceof Spider) {
                 monsterHealth.put(mob.getUniqueId(), level);
-                } else if (e.getEntity() instanceof Zombie) {
-                    Random rand3 = new Random();
-                    int le = rand3.nextInt(31);
-                    if (le < 15 && le > 9) mob.getEquipment().setItemInHand(new ItemStack(Material.BOW, 1));
-                    if (le < 10) mob.getEquipment().setItemInHand(new ItemStack(Material.WOOD_SWORD, 1));
-                    if (le == 15) mob.getEquipment().setItemInHand(new ItemStack(Material.WOOD_AXE, 1));
-                    if (le > 15) mob.getEquipment().setItemInHand(new ItemStack(Material.WOOD_SPADE, 1));
-                    monsterHealth.put(mob.getUniqueId(), level);
-                } else if (e.getEntity() instanceof Skeleton) {
-                    Random rand2 = new Random();
-                    int number2 = rand2.nextInt(21);
-                    if (number2 < 11) mob.getEquipment().setItemInHand(new ItemStack(Material.WOOD_PICKAXE, 1));
-                    if (number2 == 11) mob.getEquipment().setItemInHand(new ItemStack(Material.STONE_SWORD, 1));
-                    if (number2 > 11) mob.getEquipment().setItemInHand(new ItemStack(Material.BOW, 1));
-                    mob.getEquipment().setItemInHandDropChance(0.02F);
-                    monsterHealth.put(mob.getUniqueId(), level);
-                } else if (e.getEntity() instanceof Enderman) {
-                    Entity villager = e.getEntity().getWorld().spawnEntity(e.getLocation(), EntityType.ZOMBIE);
-                    Zombie fallenVillager = (Zombie) villager;
-                    fallenVillager.setVillager(true);
-                    fallenVillager.setCustomName(ChatColor.RED + "Level: " + level + name);
-                    fallenVillager.setCustomNameVisible(true);
-                    e.setCancelled(true);
-                    monsterHealth.put(fallenVillager.getUniqueId(), level);
-                } else if (e.getEntity() instanceof Creeper) {
-                    Entity warLord = e.getEntity().getWorld().spawnEntity(e.getLocation(), EntityType.SKELETON);
-                    Skeleton skellyLord = (Skeleton) warLord;
-                    skellyLord.setSkeletonType(Skeleton.SkeletonType.WITHER);
-                    skellyLord.setCustomName(ChatColor.RED + "Level: " + level + name);
-                    skellyLord.setCustomNameVisible(true);
-                    skellyLord.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 6000, 0, false));
-                    skellyLord.getEquipment().setItemInHand(new ItemStack(Material.WOOD_SWORD, 1));
-                    skellyLord.getEquipment().setItemInHandDropChance(0.02F);
-                    e.setCancelled(true);
-                    monsterHealth.put(skellyLord.getUniqueId(), level);
-                //Normal spawning level 1-5 mobs.
-
-                }
-            else if(WorldGuardManager.isInRegion(mob.getLocation(), "_")){
-
-                /*Get world guard region name.
-                  If the region name contains _, which is already the case here because of the "else if" above, then do the following.
-                  Then check if it contains the letters G Z S W B C F B A D  and the number which is the level cap.
-                  If number = 30, make the lowest possible one (number - 10) which is 20 in this case.
-                  The highest possible level of mobs to spawn would be 30.
-                  This way regions can be high/low level and thus more dangerous.
-                  The letters above (G Z S W B C F B A D) stand for mob type.
-                  G = Giant.
-                  Z = Zombie.
-                  Etc.
-                  When it contains the letter of a mob, that mob can spawn in that region.
-                  Biomes should not matter since I want it to be fully world guard dependent.
-
-                  Mobs should have random items as well. (Zombies and skeletons that is).
-
-                  Level 1-5  has either nothing or wood.
-                  Level 6-10 has wood or stone.
-                  Level 11-15 has stone/iron.
-                  Level 16-20 has Stone/iron and sometimes Diamond.
-                  Level 21-25 has Iron/Diamond or Enchanted iron.
-                  Level 26-30 has Diamond or Enchanted Diamond or Enchanted iron.
-
-                  Rewarding points is already done.
-                */
+            } else if (e.getEntity() instanceof Zombie) {
+                Random rand3 = new Random();
+                int le = rand3.nextInt(31);
+                if (le < 15 && le > 9) mob.getEquipment().setItemInHand(new ItemStack(Material.BOW, 1));
+                if (le < 10) mob.getEquipment().setItemInHand(new ItemStack(Material.WOOD_SWORD, 1));
+                if (le == 15) mob.getEquipment().setItemInHand(new ItemStack(Material.WOOD_AXE, 1));
+                if (le > 15) mob.getEquipment().setItemInHand(new ItemStack(Material.WOOD_SPADE, 1));
+                monsterHealth.put(mob.getUniqueId(), level * 2);
+            } else if (e.getEntity() instanceof Skeleton) {
+                Random rand2 = new Random();
+                int number2 = rand2.nextInt(21);
+                if (number2 < 11) mob.getEquipment().setItemInHand(new ItemStack(Material.WOOD_PICKAXE, 1));
+                if (number2 == 11) mob.getEquipment().setItemInHand(new ItemStack(Material.STONE_SWORD, 1));
+                if (number2 > 11) mob.getEquipment().setItemInHand(new ItemStack(Material.BOW, 1));
+                mob.getEquipment().setItemInHandDropChance(0.02F);
+                monsterHealth.put(mob.getUniqueId(), level * 2);
+            } else if (e.getEntity() instanceof Enderman || e.getEntity() instanceof Witch || e.getEntity() instanceof Slime || e.getEntity() instanceof Wolf || e.getEntity() instanceof Giant || e.getEntity() instanceof Blaze || e.getEntity() instanceof Ghast) {
+                Entity villager = e.getEntity().getWorld().spawnEntity(e.getLocation(), EntityType.ZOMBIE);
+                Zombie fallenVillager = (Zombie) villager;
+                fallenVillager.setVillager(true);
+                fallenVillager.setCustomName(ChatColor.RED + "Level: " + level + name);
+                fallenVillager.setCustomNameVisible(true);
+                e.setCancelled(true);
+                monsterHealth.put(fallenVillager.getUniqueId(), level * 2);
+            } else if (e.getEntity() instanceof Creeper) {
+                Entity warLord = e.getEntity().getWorld().spawnEntity(e.getLocation(), EntityType.SKELETON);
+                Skeleton skellyLord = (Skeleton) warLord;
+                skellyLord.setSkeletonType(Skeleton.SkeletonType.WITHER);
+                skellyLord.setCustomName(ChatColor.RED + "Level: " + level + name);
+                skellyLord.setCustomNameVisible(true);
+                skellyLord.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 6000, 0, false));
+                skellyLord.getEquipment().setItemInHand(new ItemStack(Material.WOOD_SWORD, 1));
+                skellyLord.getEquipment().setItemInHandDropChance(0.02F);
+                e.setCancelled(true);
+                monsterHealth.put(skellyLord.getUniqueId(), level * 2);
             }
+        } else if (WorldGuardManager.isInRegion(mob.getLocation(), "+")) {
+
+            final Location location = mob.getLocation();
+
+            EntityType type = EntityType.ZOMBIE;
+            String mobType = "Z";
+            String mobName = "Error MissingNo.";
+
+            Random random3 = new Random();
+            int i = random3.nextInt(11);
+
+            switch (i) {
+
+                case 1: {
+                    type = EntityType.SKELETON;
+                    mobName = " Skeletal Warrior";
+                    mobType = "s";
+                }
+                break;
+                case 2: {
+                    type = EntityType.ZOMBIE;
+                    mobName = " Undead Of The Woods";
+                    mobType = "z";
+                }
+                break;
+                case 3: {
+                    type = EntityType.SPIDER;
+                    mobName = " Dark Crawler";
+                    mobType = "d";
+                }
+                break;
+                case 4: {
+                    type = EntityType.ZOMBIE;
+                    mobName = " Fallen Citizen";
+                    mobType = "v";
+                }
+                break;
+                case 5: {
+                    type = EntityType.SKELETON;
+                    mobName = " Skeletal WarLord";
+                    mobType = "w";
+                }
+                break;
+                case 6: {
+                    type = EntityType.BLAZE;
+                    mobName = " DemonSpawn";
+                    mobType = "b";
+                }
+                break;
+                case 7: {
+                    type = EntityType.GIANT;
+                    mobName = " Giant";
+                    mobType = "g";
+                }
+                break;
+                case 8: {
+                    type = EntityType.GHAST;
+                    mobName = " Angry Spirit";
+                    mobType = "a";
+                }
+                break;
+                case 9: {
+                    type = EntityType.WOLF;
+                    mobName = " Wild TimberWolf";
+                    mobType = "t";
+                }
+                break;
+                case 10: {
+                    type = EntityType.WITCH;
+                    mobName = " Tortured Mage";
+                    mobType = "m";
+                }
+                break;
+
+            }
+            if (!WorldGuardManager.canSpawnMob(location, mobType)) {
+                e.setCancelled(true);
+                return;
+            }
+            String regionName = "nothing";
+            int levelCap = 10;
+            for (String r : WorldGuardManager.getRegionNames(location)) {
+
+                int maxLevel = Integer.parseInt(r.replaceAll("[\\D]", ""));
+                for (int le = 0; le < 31; le++) {
+                    if (le == maxLevel) {
+                        levelCap = maxLevel;
+                    }
+                }
+            }
+
+            Random levelRandom = new Random();
+            int monsterLevelMinus = levelRandom.nextInt(12);
+            int monsterLevel = levelCap - monsterLevelMinus + 1;
+            if (monsterLevel < 1) monsterLevel = 1;
+
+
+            spawnMobs(location, mobType, type, monsterLevel, mobName);
+            mob.remove();
         }
     }
 
@@ -198,6 +239,277 @@ public class MobSpawnManager implements Listener {
                     wow.damage(wow.getHealth()); // setting health won't trigger death
                 }
             }
+        }
+    }
+
+    public ItemStack getRandomItem(Integer level) {
+
+        Random rand = new Random();
+        ItemStack item = new ItemStack(Material.WOOD_AXE, 1);
+
+        if (level < 11) {
+            int number = rand.nextInt(15);
+            switch (number) {
+                case 1:
+                    item = new ItemStack(Material.WOOD_SWORD, 1);
+                    break;
+                case 2:
+                    item = new ItemStack(Material.WOOD_SPADE, 1);
+                    break;
+                case 3:
+                    item = new ItemStack(Material.WOOD_PICKAXE, 1);
+                    break;
+                case 4:
+                    item = new ItemStack(Material.WOOD_HOE, 1);
+                    break;
+                case 5:
+                    item = new ItemStack(Material.STICK, 1);
+                    break;
+                case 6:
+                    item = new ItemStack(Material.BOW, 1);
+                    break;
+                case 7:
+                    item = new ItemStack(Material.AIR, 1);
+                    break;
+                case 8:
+                    item = new ItemStack(Material.STONE_SWORD, 1);
+                    break;
+                case 9:
+                    item = new ItemStack(Material.STONE_HOE, 1);
+                    break;
+                case 10:
+                    item = new ItemStack(Material.WOOD_SWORD, 1);
+                    break;
+                case 11:
+                    item = new ItemStack(Material.AIR, 1);
+                    break;
+                case 12:
+                    item = new ItemStack(Material.AIR, 1);
+                    break;
+                case 13:
+                    item = new ItemStack(Material.AIR, 1);
+                    break;
+                case 14:
+                    item = new ItemStack(Material.AIR, 1);
+                    break;
+
+            }
+
+        } else if (level > 10 && level < 21) {
+
+            int number = rand.nextInt(15);
+            switch (number) {
+                case 1:
+                    item = new ItemStack(Material.IRON_SWORD, 1);
+                    break;
+                case 2:
+                    item = new ItemStack(Material.STONE_AXE, 1);
+                    break;
+                case 3:
+                    item = new ItemStack(Material.STONE_SWORD, 1);
+                    break;
+                case 4:
+                    item = new ItemStack(Material.STONE_HOE, 1);
+                    break;
+                case 5:
+                    item = new ItemStack(Material.STONE_PICKAXE, 1);
+                    break;
+                case 6:
+                    item = new ItemStack(Material.IRON_PICKAXE, 1);
+                    break;
+                case 7:
+                    item = new ItemStack(Material.STONE_SWORD, 1);
+                    break;
+                case 8:
+                    item = new ItemStack(Material.BOW, 1);
+                    break;
+                case 9:
+                    item = new ItemStack(Material.BOW, 1);
+                    break;
+                case 10:
+                    item = new ItemStack(Material.BOW, 1);
+                    break;
+                case 11:
+                    item = new ItemStack(Material.STONE_SWORD, 1);
+                    break;
+                case 12:
+                    item = new ItemStack(Material.BOW, 1);
+                    break;
+                case 13:
+                    item = new ItemStack(Material.AIR, 1);
+                    break;
+                case 14:
+                    item = new ItemStack(Material.AIR, 1);
+                    break;
+
+            }
+        } else if (level > 20 && level < 26) {
+
+            int number = rand.nextInt(15);
+            switch (number) {
+                case 1:
+                    item = new ItemStack(Material.IRON_SWORD, 1);
+                    break;
+                case 2:
+                    item = new ItemStack(Material.IRON_SPADE, 1);
+                    break;
+                case 3:
+                    item = new ItemStack(Material.IRON_PICKAXE, 1);
+                    break;
+                case 4:
+                    item = new ItemStack(Material.IRON_HOE, 1);
+                    break;
+                case 5:
+                    item = new ItemStack(Material.IRON_SWORD, 1);
+                    break;
+                case 6:
+                    item = new ItemStack(Material.BOW, 1) {
+                        @Override
+                        public void addEnchantment(Enchantment ench, int level) {
+                            super.addEnchantment(Enchantment.ARROW_DAMAGE, 2);
+                        }
+                    };
+                    break;
+                case 7:
+                    item = new ItemStack(Material.AIR, 1);
+                    break;
+                case 8:
+                    item = new ItemStack(Material.DIAMOND_HOE, 1);
+                    break;
+                case 9:
+                    item = new ItemStack(Material.IRON_SWORD, 1);
+                    break;
+                case 10:
+                    item = new ItemStack(Material.STONE_SWORD, 1);
+                    break;
+                case 11:
+                    item = new ItemStack(Material.BOW, 1);
+                    break;
+                case 12:
+                    item = new ItemStack(Material.BOW, 1);
+                    break;
+                case 13:
+                    item = new ItemStack(Material.BOW, 1);
+                    break;
+                case 14:
+                    item = new ItemStack(Material.BOW, 1);
+                    break;
+
+            }
+
+        } else if (level > 25) {
+
+            int number = rand.nextInt(12);
+            switch (number) {
+                case 1:
+                    item = new ItemStack(Material.DIAMOND_SWORD, 1);
+                    break;
+                case 2:
+                    item = new ItemStack(Material.DIAMOND_AXE, 1);
+                    break;
+                case 3:
+                    item = new ItemStack(Material.DIAMOND_HOE, 1);
+                    break;
+                case 4:
+                    item = new ItemStack(Material.DIAMOND_SPADE, 1) {
+                        @Override
+                        public void addEnchantment(Enchantment ench, int level) {
+                            super.addEnchantment(Enchantment.FIRE_ASPECT, 2);
+                        }
+                    };
+                    break;
+                case 5:
+                    item = new ItemStack(Material.DIAMOND_PICKAXE, 1);
+                    break;
+                case 6:
+                    item = new ItemStack(Material.BOW, 1) {
+                        @Override
+                        public void addEnchantment(Enchantment ench, int level) {
+                            super.addEnchantment(Enchantment.ARROW_DAMAGE, 3);
+                        }
+                    };
+                    break;
+                case 7:
+                    item = new ItemStack(Material.IRON_SWORD, 1) {
+                        @Override
+                        public void addEnchantment(Enchantment ench, int level) {
+                            super.addEnchantment(Enchantment.KNOCKBACK, 2);
+                            super.addEnchantment(Enchantment.DAMAGE_ALL, 4);
+                            super.addEnchantment(Enchantment.FIRE_ASPECT, 2);
+                        }
+                    };
+                    break;
+                case 8:
+                    item = new ItemStack(Material.IRON_AXE, 1);
+                    break;
+                case 9:
+                    item = new ItemStack(Material.IRON_HOE, 1);
+                    break;
+                case 10:
+                    item = new ItemStack(Material.DIAMOND_SWORD, 1) {
+                        @Override
+                        public void addEnchantment(Enchantment ench, int level) {
+                            super.addEnchantment(Enchantment.DAMAGE_ALL, 5);
+                        }
+                    };
+                    break;
+                case 11:
+                    item = new ItemStack(Material.IRON_SWORD, 1);
+                    break;
+            }
+        }
+
+        return item;
+    }
+
+    //Spawn mobs
+
+    public void spawnMobs(Location location, String mobType, EntityType type, int monsterLevel, String mobName) {
+
+        Entity spawnedMob = location.getWorld().spawnEntity(location, type);
+        LivingEntity monster = (LivingEntity) spawnedMob;
+        monster.setCustomName(ChatColor.RED + "Level: " + monsterLevel + mobName);
+        monster.setCustomNameVisible(true);
+        monsterHealth.put(spawnedMob.getUniqueId(), monsterLevel);
+
+        if (mobType.equals("z")) {
+
+            monster.getEquipment().setItemInHand(getRandomItem(monsterLevel));
+            if (monsterLevel > 15) monster.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 6000, 0));
+
+        } else if (mobType.equals("v")) {
+
+            Zombie zombie = (Zombie) monster;
+            zombie.setVillager(true);
+
+        } else if (mobType.equals("w")) {
+
+            Skeleton skeleton = (Skeleton) monster;
+            skeleton.setSkeletonType(Skeleton.SkeletonType.WITHER);
+            monster.getEquipment().setItemInHand(getRandomItem(monsterLevel));
+
+        } else if (mobType.equals("b")) {
+
+            monster.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 6000, 0));
+
+        } else if (mobType.equals("g")) {
+
+            monster.addPotionEffect(new PotionEffect(PotionEffectType.WEAKNESS, 6000, 1));
+
+        } else if (mobType.equals("s")) {
+
+            monster.getEquipment().setItemInHand(getRandomItem(monsterLevel));
+            if (monsterLevel > 15) monster.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 6000, 0));
+
+        } else if (mobType.equals("t")) {
+
+            Wolf wolf = (Wolf) monster;
+            wolf.setAngry(true);
+
+        } else if (mobType.equals("m")) {
+
+            monster.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 6000, 0));
+
         }
     }
 

@@ -19,8 +19,9 @@ public class PointsListener implements Listener {
         LivingEntity entity = event.getEntity();
 
         // check region
-        if (DonatorPointsPlugin.WORLD_GUARD_ENABLED && !WorldGuardManager.isInRegion(entity.getLocation(), "donator"))
+        if (!entity.getWorld().getName().toLowerCase().equals(DonatorPointsPlugin.world)) {
             return;
+        }
 
         // get cause
         EntityDamageEvent damageEvent = entity.getLastDamageCause();
@@ -30,11 +31,13 @@ public class PointsListener implements Listener {
             if (damageByEntityEvent.getDamager() instanceof Player) {
                 Player superMan = (Player) damager;
                 int points = 0;
+                if (entity.getCustomName() == null) {
+                    return;
+                }
                 String name = event.getEntity().getCustomName();
                 // set points based on cause
-
-                int level = Integer.parseInt(name.replaceAll("[\\D]", ""));
-
+                String colorlessName = ChatColor.stripColor(name);
+                int level = Integer.parseInt(colorlessName.replaceAll("[\\D]", ""));
                 switch (entity.getType()) {
                     case ENDERMAN:
                         points = 0;
@@ -94,15 +97,14 @@ public class PointsListener implements Listener {
                         points = 0;
                         break;
                     default:
-                        if (name == null || level < 5) points = 1;
-                        else if(level > 4 && level < 10) points = 2;
-                        else if(level > 9 && level < 15) points = 3;
-                        else if(level > 14 && level < 20) points = 4;
-                        else if(level > 19 && level < 25) points = 5;
-                        else if(level > 24 && level < 30) points = 6;
-                        else if(level == 30) points = 7;
+                        if (level < 5) points = 1;
+                        else if (level > 4 && level < 10) points = 2;
+                        else if (level > 9 && level < 15) points = 3;
+                        else if (level > 14 && level < 20) points = 4;
+                        else if (level > 19 && level < 25) points = 5;
+                        else if (level > 24 && level < 30) points = 6;
+                        else if (level == 30) points = 7;
                         break;
-
                 }
                 if (points > 0)
                     DataManager.setPointsFromPlayer(superMan, DataManager.getPointsFromPlayer(superMan) + points);

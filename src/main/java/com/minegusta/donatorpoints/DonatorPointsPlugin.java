@@ -42,6 +42,7 @@ public class DonatorPointsPlugin extends CensoredJavaPlugin {
 
             // listener
             manager.registerEvents(new PointsListener(), this);
+            manager.registerEvents(new MobHealthManager(), this);
             manager.registerEvents(new ShopListener(), this);
             manager.registerEvents(new MobSpawnManager(), this);
             manager.registerEvents(new NPCManager(), this);
@@ -99,6 +100,6 @@ public class DonatorPointsPlugin extends CensoredJavaPlugin {
 
 
     //Which world is enabled?
-    final static String world = "Donator";
+    final static String world = "donator";
 
 }

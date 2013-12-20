@@ -58,7 +58,7 @@ public class ShopListener implements Listener {
     //Open Inventory when clicking the player.
     @EventHandler
     public void villagerRightClickEvent(PlayerInteractEntityEvent e) {
-        if (e.getRightClicked().getType() == EntityType.VILLAGER && e.getPlayer().getWorld().getName().equals(DonatorPointsPlugin.world)) {
+        if (e.getRightClicked().getType() == EntityType.VILLAGER && e.getPlayer().getWorld().getName().toLowerCase().equals(DonatorPointsPlugin.world)) {
             LivingEntity villager = (LivingEntity) e.getRightClicked();
             String name = villager.getCustomName();
             if (name != null && (name.contains("Donator Trader"))) {

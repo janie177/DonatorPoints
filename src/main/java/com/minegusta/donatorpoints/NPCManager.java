@@ -17,7 +17,7 @@ public class NPCManager implements Listener {
 
     @EventHandler
     public void talkToNPCEvent(PlayerInteractEntityEvent e) {
-        if (e.getRightClicked().getType() == EntityType.VILLAGER && e.getPlayer().getWorld().getName().equals(DonatorPointsPlugin.world)) {
+        if (e.getRightClicked().getType() == EntityType.VILLAGER && e.getPlayer().getWorld().getName().toLowerCase().equals(DonatorPointsPlugin.world)) {
 
 
             LivingEntity villager = (LivingEntity) e.getRightClicked();
