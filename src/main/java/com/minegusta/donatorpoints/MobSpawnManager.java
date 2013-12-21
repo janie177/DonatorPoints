@@ -22,7 +22,10 @@ public class MobSpawnManager implements Listener {
     @EventHandler
     public void onMobSpawn(CreatureSpawnEvent e) {
         if (!e.getEntity().getWorld().getName().toLowerCase().equals(DonatorPointsPlugin.world)) return;
+        if (e.getSpawnReason().equals(CreatureSpawnEvent.SpawnReason.CUSTOM)) return;
         LivingEntity mob = e.getEntity();
+        Location location = mob.getLocation();
+        World world = location.getWorld();
         if (!WorldGuardManager.canSpawnMob(mob.getLocation(), "+")) {
             boolean spawn;
             String name;
@@ -66,7 +69,7 @@ public class MobSpawnManager implements Listener {
                 return;
             }
 
-            //generate a random that defines the level. This is only used for default spawning outside of regions containing _
+            //generate a random that defines the level. This is only used for default spawning outside of regions containing +
 
             Random rand = new Random();
             int number = rand.nextInt(45);
@@ -86,7 +89,7 @@ public class MobSpawnManager implements Listener {
 
             //Default spawning in regions that are not mob-defining. Levels go from 1-3.
 
-            if (e.getEntity() instanceof Spider) {
+            if (mob instanceof Spider) {
                 monsterHealth.put(mob.getUniqueId(), level);
             } else if (e.getEntity() instanceof Zombie) {
                 Random rand3 = new Random();
@@ -96,7 +99,7 @@ public class MobSpawnManager implements Listener {
                 if (le == 15) mob.getEquipment().setItemInHand(new ItemStack(Material.WOOD_AXE, 1));
                 if (le > 15) mob.getEquipment().setItemInHand(new ItemStack(Material.WOOD_SPADE, 1));
                 monsterHealth.put(mob.getUniqueId(), level * 2);
-            } else if (e.getEntity() instanceof Skeleton) {
+            } else if (mob instanceof Skeleton) {
                 Random rand2 = new Random();
                 int number2 = rand2.nextInt(21);
                 if (number2 < 11) mob.getEquipment().setItemInHand(new ItemStack(Material.WOOD_PICKAXE, 1));
@@ -104,7 +107,7 @@ public class MobSpawnManager implements Listener {
                 if (number2 > 11) mob.getEquipment().setItemInHand(new ItemStack(Material.BOW, 1));
                 mob.getEquipment().setItemInHandDropChance(0.02F);
                 monsterHealth.put(mob.getUniqueId(), level * 2);
-            } else if (e.getEntity() instanceof Enderman || e.getEntity() instanceof Witch || e.getEntity() instanceof Slime || e.getEntity() instanceof Wolf || e.getEntity() instanceof Giant || e.getEntity() instanceof Blaze || e.getEntity() instanceof Ghast) {
+            } else if (mob instanceof Enderman || e.getEntity() instanceof Witch || e.getEntity() instanceof Slime || e.getEntity() instanceof Wolf || e.getEntity() instanceof Giant || e.getEntity() instanceof Blaze || e.getEntity() instanceof Ghast) {
                 Entity villager = e.getEntity().getWorld().spawnEntity(e.getLocation(), EntityType.ZOMBIE);
                 Zombie fallenVillager = (Zombie) villager;
                 fallenVillager.setVillager(true);
@@ -112,7 +115,7 @@ public class MobSpawnManager implements Listener {
                 fallenVillager.setCustomNameVisible(true);
                 e.setCancelled(true);
                 monsterHealth.put(fallenVillager.getUniqueId(), level * 2);
-            } else if (e.getEntity() instanceof Creeper) {
+            } else if (mob instanceof Creeper) {
                 Entity warLord = e.getEntity().getWorld().spawnEntity(e.getLocation(), EntityType.SKELETON);
                 Skeleton skellyLord = (Skeleton) warLord;
                 skellyLord.setSkeletonType(Skeleton.SkeletonType.WITHER);
@@ -125,16 +128,15 @@ public class MobSpawnManager implements Listener {
                 monsterHealth.put(skellyLord.getUniqueId(), level * 2);
             }
         } else if (WorldGuardManager.isInRegion(mob.getLocation(), "+")) {
-
-            final Location location = mob.getLocation();
-
-            EntityType type = EntityType.ZOMBIE;
-            String mobType = "Z";
-            String mobName = "Error MissingNo.";
+            e.setCancelled(true);
+            EntityType type;
+            String mobType;
+            String mobName;
 
             Random random3 = new Random();
             int i = random3.nextInt(11);
 
+            //Select a random type of mob to spawn
             switch (i) {
 
                 case 1: {
@@ -191,7 +193,7 @@ public class MobSpawnManager implements Listener {
                     mobType = "t";
                 }
                 break;
-                case 10: {
+                default: {
                     type = EntityType.WITCH;
                     mobName = " Tortured Mage";
                     mobType = "m";
@@ -199,11 +201,14 @@ public class MobSpawnManager implements Listener {
                 break;
 
             }
+
+            //is the mob in a mob-region?
             if (!WorldGuardManager.canSpawnMob(location, mobType)) {
                 e.setCancelled(true);
                 return;
             }
-            String regionName = "nothing";
+
+            //Define the max level from that region.
             int levelCap = 10;
             for (String r : WorldGuardManager.getRegionNames(location)) {
 
@@ -215,14 +220,14 @@ public class MobSpawnManager implements Listener {
                 }
             }
 
+            //Set the mobs level
             Random levelRandom = new Random();
             int monsterLevelMinus = levelRandom.nextInt(12);
             int monsterLevel = levelCap - monsterLevelMinus + 1;
             if (monsterLevel < 1) monsterLevel = 1;
 
-
-            spawnMobs(location, mobType, type, monsterLevel, mobName);
-            mob.remove();
+            //Spawn mobs
+            defineMobs(mobType, monsterLevel, world, mobName, type, location);
         }
     }
 
@@ -236,11 +241,13 @@ public class MobSpawnManager implements Listener {
                 if (monsterHealth.containsKey(soId)) {
                     LivingEntity wow = (LivingEntity) suchMob;
                     monsterHealth.remove(soId);
-                    wow.damage(wow.getHealth()); // setting health won't trigger death
+                    wow.remove(); // setting health won't trigger death
                 }
             }
         }
     }
+
+    //Get a random item based on level.
 
     public ItemStack getRandomItem(Integer level) {
 
@@ -464,26 +471,29 @@ public class MobSpawnManager implements Listener {
 
     //Spawn mobs
 
-    public void spawnMobs(Location location, String mobType, EntityType type, int monsterLevel, String mobName) {
+    public void defineMobs(String mobType, int monsterLevel, World world, String mobName, EntityType type, Location location) {
 
-        Entity spawnedMob = location.getWorld().spawnEntity(location, type);
+        Entity spawnedMob = world.spawnEntity(location.add(0, 0.2, 0), type);
         LivingEntity monster = (LivingEntity) spawnedMob;
         monster.setCustomName(ChatColor.RED + "Level: " + monsterLevel + mobName);
         monster.setCustomNameVisible(true);
         monsterHealth.put(spawnedMob.getUniqueId(), monsterLevel);
 
         if (mobType.equals("z")) {
-
             monster.getEquipment().setItemInHand(getRandomItem(monsterLevel));
             if (monsterLevel > 15) monster.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 6000, 0));
 
         } else if (mobType.equals("v")) {
-
             Zombie zombie = (Zombie) monster;
             zombie.setVillager(true);
 
-        } else if (mobType.equals("w")) {
+        } else if (mobType.equals("a")) {
 
+
+        } else if (mobType.equals("d")) {
+
+
+        } else if (mobType.equals("w")) {
             Skeleton skeleton = (Skeleton) monster;
             skeleton.setSkeletonType(Skeleton.SkeletonType.WITHER);
             monster.getEquipment().setItemInHand(getRandomItem(monsterLevel));
@@ -509,8 +519,7 @@ public class MobSpawnManager implements Listener {
         } else if (mobType.equals("m")) {
 
             monster.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 6000, 0));
-
         }
+        if (monster.getCustomName() == null) monster.remove();
     }
-
 }
