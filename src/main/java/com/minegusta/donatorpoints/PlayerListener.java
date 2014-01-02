@@ -12,7 +12,7 @@ public class PlayerListener implements Listener {
     @EventHandler(priority = EventPriority.HIGHEST)
     public void playerButcherVillies(PlayerCommandPreprocessEvent e) {
         if (e.getPlayer().getWorld().getName().equals(DonatorPointsPlugin.world)) {
-            if (e.getMessage().toLowerCase().contains("butcher") && e.getMessage().toLowerCase().contains("-n")) {
+            if (e.getMessage().toLowerCase().contains("butcher") && (e.getMessage().toLowerCase().contains("-n") || e.getMessage().contains("-f"))) {
                 e.setCancelled(true);
             }
         }

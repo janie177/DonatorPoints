@@ -9,7 +9,7 @@ import java.util.Map;
 
 public enum DefaultNPC implements NPC {
 
-    TOWN_GUARD(new DetailedNPC(DetailedNPC.Type.RANDOM, "Town Guard", Lists.newArrayList("These vampires are becoming a real menace.", "No lollygaggin'.", "Helgen... destroyed by a dragon. Hard to believe, isn't it?", "Wait... I know you.", "I used to be an adventurer like you. Then I took an arrow in the knee....", "Let me guess... someone stole your sweetroll.", "Citizen.", "Disrespect the law, you disrespect me.", "Trouble?"))),
+    TOWN_GUARD(new DetailedNPC(DetailedNPC.Type.RANDOM, "Town Guard", Lists.newArrayList("These vampires are becoming a real menace.", "No lollygaggin'.", "Helgen... destroyed by a dragon. Hard to believe, isn't it?", "Wait... I know you.", "I used to be an adventurer like you. Then I took an arrow in the knee....", "Let me guess... someone stole your sweetroll.", "Citizen.", "Disrespect the law, you disrespect me.", "Trouble?"), false, null, null, null, null)),
     VETERAN_STINKY_JOE(new DetailedNPC(DetailedNPC.Type.NORMAL, "Veteran StinkyJoe", new ArrayList<String>() {
         {
             add("When I was young, nobody wore clothes.");
@@ -22,7 +22,18 @@ public enum DefaultNPC implements NPC {
             add("%beat%");  // wait twice as long
             add("Oh, and check out /points because I was paid a few emeralds to say that.");
         }
-    }));
+    }, false, null, null, null, null)),
+    MAGIC_STORE_OWNER(new DetailedNPC(DetailedNPC.Type.NORMAL, "Magic Store Owner", new ArrayList<String>() {
+        {
+            add("Hello there adventurer!");
+            add("I am the Owner of this store... And I could use your help.");
+            add("You see, I am running out of DeathWeed, which I use to bake cookies for pesky children.");
+            add("I heard there is some DeathWeed in the dungeon of Azaran, which is relatively close.");
+            add("Spiders have taken over though. If you are willing to take the risk to get me the DeathWeed, I would reward you.");
+            add("Just click me with the DeathWeed when you have obtained it.");
+            add("Good day lad!");
+        }
+    }, true, 31, 3, "DeathWeed", "Well done! Here is 3 points for the efford!"));
 
     private DetailedNPC nPC;
 

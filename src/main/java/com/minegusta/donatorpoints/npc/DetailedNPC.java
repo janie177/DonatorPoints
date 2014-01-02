@@ -14,8 +14,13 @@ import java.util.Map;
 
 public class DetailedNPC implements NPC {
     private Type type;
+    private Boolean trader;
     private String name;
     private List<String> dialog;
+    private Integer rewardPoints;
+    private Integer item;
+    private String rewardMessage;
+    private String meta;
 
     public enum Type {
         RANDOM, NORMAL
@@ -25,12 +30,23 @@ public class DetailedNPC implements NPC {
         type = Type.valueOf(conf.getString("type"));
         this.name = name;
         dialog = conf.getStringList("dialog");
+        trader = conf.getBoolean("isTrader");
+        item = conf.getInt("item");
+        rewardPoints = conf.getInt("rewardPoints");
+        meta = conf.getString("meta");
+        rewardMessage = conf.getString("rewardMessage");
     }
 
-    public DetailedNPC(Type type, String name, List<String> dialog) {
+    public DetailedNPC(Type type, String name, List<String> dialog, Boolean trader, Integer item, Integer rewardPoints, String meta, String rewardMessage) {
         this.type = type;
         this.name = name;
         this.dialog = dialog;
+        this.trader = trader;
+        this.item = item;
+        this.rewardPoints = rewardPoints;
+        this.meta = meta;
+        this.rewardMessage = rewardMessage;
+
     }
 
     @Override
@@ -74,6 +90,11 @@ public class DetailedNPC implements NPC {
         Map<String, Object> map = Maps.newHashMap();
         map.put("type", type.name());
         map.put("dialog", dialog);
+        map.put("isTrader", trader);
+        map.put("item", item);
+        map.put("rewardPoints", rewardPoints);
+        map.put("meta", meta);
+        map.put("rewardMessage", rewardMessage);
         return map;
     }
 }
