@@ -9,6 +9,7 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityCombustEvent;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
+import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
@@ -52,6 +53,16 @@ public class MobHealthManager implements Listener {
                 LivingEntity mob = (LivingEntity) e.getEntity();
                 mob.addPotionEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, 6000, 1));
             }
+        }
+    }
+
+
+    //Stop the map from filling up.
+    @EventHandler
+    public void onEntityDeathInMap(EntityDeathEvent e) {
+        LivingEntity entity = e.getEntity();
+        if (MobSpawnManager.monsterHealth.containsKey(entity.getUniqueId())) {
+            MobSpawnManager.monsterHealth.remove(entity.getUniqueId());
         }
     }
 }

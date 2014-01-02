@@ -54,6 +54,18 @@ public class ShopListener implements Listener {
         }
     }
 
+    public void openInventoryOfFreeTrader(Player user) {
+        String title = "Free ShopKeeper's inventory";
+        Inventory inv = Bukkit.getServer().createInventory(null, 18, title);
+        user.openInventory(inv);
+
+        int count = 0;
+        for (FreeRewardItem shopItem : FreeRewardItem.values()) {
+            inv.setItem(count, shopItem.getShopItem());
+            count++;
+        }
+    }
+
 
     //Open Inventory when clicking the player.
     @EventHandler
@@ -61,7 +73,7 @@ public class ShopListener implements Listener {
         if (e.getRightClicked().getType() == EntityType.VILLAGER && e.getPlayer().getWorld().getName().toLowerCase().equals(DonatorPointsPlugin.world)) {
             LivingEntity villager = (LivingEntity) e.getRightClicked();
             String name = villager.getCustomName();
-            if (name != null && (name.contains("Donator Trader"))) {
+            if (name != null) {
                 e.setCancelled(true);
                 Player p = e.getPlayer();
 
@@ -73,6 +85,15 @@ public class ShopListener implements Listener {
                         p.sendMessage(ChatColor.AQUA + "[Trader]" + ChatColor.GRAY + " You begin trading with the ShopKeeper.");
                         p.sendMessage(ChatColor.AQUA + "[Trader]" + ChatColor.GRAY + " You have " + ChatColor.LIGHT_PURPLE + DataManager.getPointsFromPlayer(p) + ChatColor.GRAY + " points.");
                         openInventoryOfTrader(e.getPlayer());
+                    }
+                } else if (name.contains("Reward Trader")) {
+                    if (!e.getPlayer().getItemInHand().getType().equals(Material.AIR)) {
+                        e.getPlayer().sendMessage(ChatColor.RED + "You can only trade with an empty hand!");
+                    } else {
+                        if (DataManager.getPointsFromPlayer(p) == null) DataManager.setPointsFromPlayer(p, 0);
+                        p.sendMessage(ChatColor.AQUA + "[Trader]" + ChatColor.GRAY + " You begin trading with the ShopKeeper.");
+                        p.sendMessage(ChatColor.AQUA + "[Trader]" + ChatColor.GRAY + " You have " + ChatColor.LIGHT_PURPLE + DataManager.getPointsFromPlayer(p) + ChatColor.GRAY + " points.");
+                        openInventoryOfFreeTrader(e.getPlayer());
                     }
                 }
             }
@@ -281,7 +302,7 @@ public class ShopListener implements Listener {
             }
 
             LivingEntity villager = (LivingEntity) e.getEntity();
-            if (DataManager.isNPC(villager)) {
+            if (DataManager.isNPC(villager) || villager.getCustomName().contains("Reward Trader")) {
                 e.setCancelled(true);
             }
         }
@@ -295,7 +316,45 @@ public class ShopListener implements Listener {
     public void onBuyItem(InventoryClickEvent e) {
         try {
             String invName = e.getClickedInventory().getName();
-            if (invName != null && invName.equals("ShopKeeper's inventory")) {
+            if (invName != null && invName.equals("ShopKeeper's inventory") && e.getWhoClicked().hasPermission("minegusta.donator")) {
+                if (e.getCurrentItem().getType() == Material.AIR) return;
+                if (e.getCurrentItem() == null || e.getCurrentItem().getItemMeta().getDisplayName() == null) return;
+
+                e.setCancelled(true);
+                HumanEntity player = e.getWhoClicked();
+
+                ItemStack theItemToAdd = null;
+                int points = 0;
+                for (RewardItem item : RewardItem.values()) {
+                    if (!Items.areEqual(item.getShopItem(), e.getCurrentItem())) continue;
+                    points = item.getPoints();
+                    theItemToAdd = item.getItem();
+                    break;
+                }
+
+                if (theItemToAdd == null) return;
+
+                String playerString = e.getWhoClicked().getName();
+                Player entityPlayer = Bukkit.getOfflinePlayer(playerString).getPlayer();
+
+                int pointsPresent = DataManager.getPointsFromPlayer(entityPlayer);
+
+                if (points > pointsPresent) {
+                    entityPlayer.sendMessage(ChatColor.RED + "You do not have enough points to buy that item. Use " + ChatColor.AQUA + "/points" + ChatColor.RED + ".");
+                    player.closeInventory();
+                    return;
+                }
+
+                if (player.getInventory().firstEmpty() == -1) {
+                    entityPlayer.sendMessage(ChatColor.RED + "You do not have enough space in your inventory.");
+                    player.closeInventory();
+                    return;
+                }
+                DataManager.setPointsFromPlayer(entityPlayer, pointsPresent - points);
+                player.getInventory().addItem(theItemToAdd);
+                entityPlayer.sendMessage(ChatColor.AQUA + "You have successfully bought an item!");
+                player.closeInventory();
+            } else if (invName != null && invName.equals("Free ShopKeeper's inventory")) {
                 if (e.getCurrentItem().getType() == Material.AIR) return;
                 if (e.getCurrentItem() == null || e.getCurrentItem().getItemMeta().getDisplayName() == null) return;
 
@@ -455,6 +514,108 @@ public class ShopListener implements Listener {
         }
 
         private RewardItem(ItemStack itemStack, int points, List<String> saleInfo, PotionEffect potionEffect, Effect effect, Event... events) {
+            this.itemStack = itemStack;
+            this.points = points;
+            shopItem = getItem().clone();
+            ItemMeta meta = shopItem.getItemMeta();
+            meta.setLore(saleInfo);
+            shopItem.setItemMeta(meta);
+            this.potionEffect = potionEffect;
+            this.effect = effect;
+            this.events = Collections2.transform(Sets.newHashSet(events), new Function<Event, String>() {
+                @Override
+                public String apply(Event event) {
+                    return event.getEventName();
+                }
+            });
+        }
+
+        public ItemStack getItem() {
+            return itemStack;
+        }
+
+        public int getPoints() {
+            return points;
+        }
+
+        public ItemStack getShopItem() {
+            return shopItem;
+        }
+
+        public boolean hasEffects() {
+            return potionEffect != null && effect != null;
+        }
+
+        public PotionEffect getPotionEffect() {
+            return potionEffect;
+        }
+
+        public Effect getEffect() {
+            return effect;
+        }
+    }
+
+    public enum FreeRewardItem {
+
+        APPLE(new ItemStack(Material.GOLDEN_APPLE, 1) {
+            {
+                ItemMeta meta = getItemMeta();
+                List<String> appleLore = Lists.newArrayList();
+                appleLore.add(ChatColor.GOLD + "God Apple");
+                meta.setLore(appleLore);
+                meta.setDisplayName(ChatColor.GOLD + "God Apple");
+                setItemMeta(meta);
+            }
+        }, 45, Lists.newArrayList(ChatColor.LIGHT_PURPLE + "Cost: " + ChatColor.AQUA + "45 points.", ChatColor.GOLD + "God Apple")),
+        PANTS(new ItemStack(Material.DIAMOND_LEGGINGS, 1) {
+            {
+                ItemMeta meta = getItemMeta();
+                List<String> lore = Lists.newArrayList();
+                lore.add(ChatColor.AQUA + "Normal Diamond Pants");
+                meta.setLore(lore);
+                meta.setDisplayName(ChatColor.AQUA + "Normal Diamond Pants");
+                setItemMeta(meta);
+            }
+        }, 200, Lists.newArrayList(ChatColor.LIGHT_PURPLE + "Cost: " + ChatColor.AQUA + "200 points.", ChatColor.AQUA + "Normal Diamond Pants")),
+        PLATE(new ItemStack(Material.DIAMOND_CHESTPLATE, 1) {
+            {
+                ItemMeta meta = getItemMeta();
+                List<String> lore = Lists.newArrayList();
+                lore.add(ChatColor.AQUA + "Normal Diamond ChestPlate");
+                meta.setLore(lore);
+                meta.setDisplayName(ChatColor.AQUA + "Normal Diamond ChestPlate");
+                setItemMeta(meta);
+            }
+        }, 200, Lists.newArrayList(ChatColor.LIGHT_PURPLE + "Cost: " + ChatColor.AQUA + "200 points.", ChatColor.AQUA + "Normal Diamond ChestPlate")),
+        BOX(new ItemStack(Material.CHEST, 1) {
+            {
+                ArrayList<String> mysteryBox = new ArrayList<String>();
+                mysteryBox.add(ChatColor.GREEN + "Mystery Box");
+                mysteryBox.add(ChatColor.GRAY + "Right-click to open for a random item!");
+                ItemMeta meta = getItemMeta();
+                meta.setLore(mysteryBox);
+                meta.setDisplayName(ChatColor.GREEN + "Mystery Box");
+                setItemMeta(meta);
+            }
+        }, 40, Lists.newArrayList(ChatColor.LIGHT_PURPLE + "Cost: " + ChatColor.AQUA + "40 points.", ChatColor.GREEN + "Mystery Box"));
+
+
+        private ItemStack itemStack, shopItem;
+        private int points;
+        private PotionEffect potionEffect;
+        private Effect effect;
+        private Collection<String> events;
+
+        private FreeRewardItem(ItemStack itemStack, int points, List<String> saleInfo) {
+            this.itemStack = itemStack;
+            this.points = points;
+            shopItem = getItem().clone();
+            ItemMeta meta = shopItem.getItemMeta();
+            meta.setLore(saleInfo);
+            shopItem.setItemMeta(meta);
+        }
+
+        private FreeRewardItem(ItemStack itemStack, int points, List<String> saleInfo, PotionEffect potionEffect, Effect effect, Event... events) {
             this.itemStack = itemStack;
             this.points = points;
             shopItem = getItem().clone();

@@ -46,6 +46,7 @@ public class DonatorPointsPlugin extends CensoredJavaPlugin {
             manager.registerEvents(new ShopListener(), this);
             manager.registerEvents(new MobSpawnManager(), this);
             manager.registerEvents(new NPCManager(), this);
+            manager.registerEvents(new PlayerListener(), this);
 
             // command
             getCommand("points").setExecutor(new PointsCommand());
