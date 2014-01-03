@@ -24,7 +24,7 @@ public class NPCSpawnCommand implements CommandExecutor {
                 Player p = (Player) s;
                 Entity entity = p.getWorld().spawnEntity(p.getLocation(), EntityType.VILLAGER);
                 Villager villager = (Villager) entity;
-                villager.setCustomName(name);
+                villager.setCustomName(ChatColor.translateAlternateColorCodes('&', name));
                 villager.setCustomNameVisible(true);
                 villager.setAdult();
                 villager.setBreed(false);

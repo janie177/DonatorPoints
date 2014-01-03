@@ -122,15 +122,9 @@ public class DetailedNPC implements NPC {
             if (leItem == null || leItem.getType().equals(Material.AIR) || !leItem.getItemMeta().hasLore())
                 return false;
             else if (leItem.getType().equals(material) && leItem.getItemMeta().getLore().toString().contains(meta)) {
-
-                if (player.getItemInHand().getAmount() > 1) {
-                    final int oldAmount = leItem.getAmount();
-                    int newAmount = oldAmount - 1;
-                    leItem.setAmount(newAmount);
-                } else {
-                    player.getInventory().remove(new ItemStack(Material.getMaterial(item), 1));
-                    player.updateInventory();
-                }
+                final int oldAmount = leItem.getAmount();
+                int newAmount = oldAmount - 1;
+                leItem.setAmount(newAmount);
                 player.sendMessage(ChatColor.DARK_RED + "[Trade] " + ChatColor.YELLOW + getRewardMessage());
                 player.sendMessage(ChatColor.DARK_RED + "[Trade] " + ChatColor.YELLOW + "Traded 1 " + meta + " for " + rewardPoints + " points.");
                 int oldPoints = DataManager.getPointsFromPlayer(player);
