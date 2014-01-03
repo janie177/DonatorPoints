@@ -487,11 +487,10 @@ public class ShopListener implements Listener {
         }, 280, Lists.newArrayList(ChatColor.LIGHT_PURPLE + "Cost: " + ChatColor.AQUA + "280 points.", ChatColor.DARK_RED + "Blade Of The Slayer")),
         BOX(new ItemStack(Material.CHEST, 1) {
             {
-                ArrayList<String> mysteryBox = new ArrayList<String>();
-                mysteryBox.add(ChatColor.GREEN + "Mystery Box");
-                mysteryBox.add(ChatColor.GRAY + "Right-click to open for a random item!");
                 ItemMeta meta = getItemMeta();
-                meta.setLore(mysteryBox);
+                List<String> lore = Lists.newArrayList();
+                lore.add(ChatColor.GRAY + "Rightclick the air to open!");
+                meta.setLore(lore);
                 meta.setDisplayName(ChatColor.GREEN + "Mystery Box");
                 setItemMeta(meta);
             }
@@ -589,15 +588,24 @@ public class ShopListener implements Listener {
         }, 200, Lists.newArrayList(ChatColor.LIGHT_PURPLE + "Cost: " + ChatColor.AQUA + "200 points.", ChatColor.AQUA + "Normal Diamond ChestPlate")),
         BOX(new ItemStack(Material.CHEST, 1) {
             {
-                ArrayList<String> mysteryBox = new ArrayList<String>();
-                mysteryBox.add(ChatColor.GREEN + "Mystery Box");
-                mysteryBox.add(ChatColor.GRAY + "Right-click to open for a random item!");
                 ItemMeta meta = getItemMeta();
-                meta.setLore(mysteryBox);
+                List<String> lore = Lists.newArrayList();
+                lore.add(ChatColor.GRAY + "Rightclick the air to open!");
+                meta.setLore(lore);
                 meta.setDisplayName(ChatColor.GREEN + "Mystery Box");
                 setItemMeta(meta);
             }
-        }, 40, Lists.newArrayList(ChatColor.LIGHT_PURPLE + "Cost: " + ChatColor.AQUA + "40 points.", ChatColor.GREEN + "Mystery Box"));
+        }, 40, Lists.newArrayList(ChatColor.LIGHT_PURPLE + "Cost: " + ChatColor.AQUA + "40 points.", ChatColor.GREEN + "Mystery Box")),
+        BOOTS(new ItemStack(Material.DIAMOND_BOOTS, 1) {
+            {
+                ItemMeta meta = getItemMeta();
+                List<String> lore = Lists.newArrayList();
+                lore.add(ChatColor.AQUA + "Normal Diamond Boots");
+                meta.setLore(lore);
+                meta.setDisplayName(ChatColor.AQUA + "Normal Diamond Boots");
+                setItemMeta(meta);
+            }
+        }, 100, Lists.newArrayList(ChatColor.LIGHT_PURPLE + "Cost: " + ChatColor.AQUA + "100 points.", ChatColor.AQUA + "Normal Diamond Boots"));
 
 
         private ItemStack itemStack, shopItem;
