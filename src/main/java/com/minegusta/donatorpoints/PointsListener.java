@@ -12,6 +12,8 @@ import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityDeathEvent;
 
+import java.util.Random;
+
 public class PointsListener implements Listener {
     @EventHandler(priority = EventPriority.MONITOR)
     public void onEntityDeath(EntityDeathEvent event) {
@@ -98,16 +100,24 @@ public class PointsListener implements Listener {
                         break;
                     default:
                         if (level < 5) points = 1;
-                        else if (level > 4 && level < 10) points = 2;
-                        else if (level > 9 && level < 15) points = 3;
-                        else if (level > 14 && level < 20) points = 4;
-                        else if (level > 19 && level < 25) points = 5;
-                        else if (level > 24 && level < 30) points = 6;
-                        else if (level == 30) points = 7;
+                        else if (level > 4 && level < 10) points = 1;
+                        else if (level > 9 && level < 15) points = 1;
+                        else if (level > 14 && level < 20) points = 2;
+                        else if (level > 19 && level < 25) points = 2;
+                        else if (level > 24 && level < 30) points = 3;
+                        else if (level == 30) points = 4;
                         break;
                 }
+                Random rand = new Random();
                 if (points > 0)
-                    DataManager.setPointsFromPlayer(superMan, DataManager.getPointsFromPlayer(superMan) + points);
+                    if (points == 1) {
+                        if (rand.nextInt(3) == 2)
+                            DataManager.setPointsFromPlayer(superMan, DataManager.getPointsFromPlayer(superMan) + points);
+
+                    } else if (points > 1) {
+                        if (rand.nextInt(2) == 1)
+                            DataManager.setPointsFromPlayer(superMan, DataManager.getPointsFromPlayer(superMan) + points);
+                    }
             }
         }
     }

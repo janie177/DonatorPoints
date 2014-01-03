@@ -54,7 +54,7 @@ public class MobSpawnManager implements Listener {
                 break;
                 case CREEPER: {
                     spawn = true;
-                    name = " Skeletal WarLord";
+                    name = " TimberWolf";
                 }
                 break;
                 default: {
@@ -116,16 +116,14 @@ public class MobSpawnManager implements Listener {
                 e.setCancelled(true);
                 monsterHealth.put(fallenVillager.getUniqueId(), level * 2);
             } else if (mob instanceof Creeper) {
-                Entity warLord = e.getEntity().getWorld().spawnEntity(e.getLocation(), EntityType.SKELETON);
-                Skeleton skellyLord = (Skeleton) warLord;
-                skellyLord.setSkeletonType(Skeleton.SkeletonType.WITHER);
-                skellyLord.setCustomName(ChatColor.RED + "Level: " + level + name);
-                skellyLord.setCustomNameVisible(true);
-                skellyLord.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 6000, 0, false));
-                skellyLord.getEquipment().setItemInHand(new ItemStack(Material.WOOD_SWORD, 1));
-                skellyLord.getEquipment().setItemInHandDropChance(0.02F);
+                Entity wolf = e.getEntity().getWorld().spawnEntity(e.getLocation(), EntityType.WOLF);
+                Wolf angryWolf = (Wolf) wolf;
+                angryWolf.setAngry(true);
+                angryWolf.setCustomName(ChatColor.RED + "Level: " + level + name);
+                angryWolf.setCustomNameVisible(true);
+                angryWolf.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 6000, 0, false));
                 e.setCancelled(true);
-                monsterHealth.put(skellyLord.getUniqueId(), level * 2);
+                monsterHealth.put(angryWolf.getUniqueId(), level * 2);
             }
         } else if (WorldGuardManager.isInRegion(mob.getLocation(), "+")) {
             e.setCancelled(true);

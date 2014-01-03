@@ -129,7 +129,7 @@ public class DetailedNPC implements NPC {
                 } else {
                     leItem.setAmount(newAmount);
                 }
-                player.sendMessage(ChatColor.DARK_RED + "[Trade] " + ChatColor.YELLOW + getRewardMessage());
+                player.sendMessage(ChatColor.DARK_PURPLE + "[" + name + "] " + ChatColor.YELLOW + ChatColor.ITALIC + getRewardMessage());
                 player.sendMessage(ChatColor.DARK_RED + "[Trade] " + ChatColor.YELLOW + "Traded 1 " + meta + " for " + rewardPoints + " points.");
                 int oldPoints = DataManager.getPointsFromPlayer(player);
                 int newPoints = oldPoints + getRewardPoints();
