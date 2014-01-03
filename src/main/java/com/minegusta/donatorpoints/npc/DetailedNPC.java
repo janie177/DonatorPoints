@@ -3,10 +3,14 @@ package com.minegusta.donatorpoints.npc;
 import com.censoredsoftware.censoredlib.util.Randoms;
 import com.google.common.collect.Maps;
 import com.minegusta.donatorpoints.DonatorPointsPlugin;
+import com.minegusta.donatorpoints.data.DataManager;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Material;
 import org.bukkit.configuration.ConfigurationSection;
+import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
 
 import java.util.Collection;
 import java.util.List;
@@ -83,6 +87,57 @@ public class DetailedNPC implements NPC {
     @Override
     public boolean is(String name) {
         return name != null && ChatColor.stripColor(name).equals(ChatColor.stripColor(this.name));
+    }
+
+    @Override
+    public boolean isTrader(String name) {
+        return trader;
+    }
+
+    @Override
+    public String getRewardMeta(String name) {
+        return meta;
+    }
+
+    @Override
+    public String getRewardMessage(String name) {
+        return rewardMessage;
+    }
+
+    @Override
+    public int getRewardPoints(String name) {
+        return rewardPoints;
+    }
+
+    @Override
+    public int getRewardItem(String name) {
+        return item;
+    }
+
+    @Override
+    public boolean awardItem(Player player, LivingEntity villager) {
+
+        String name = villager.getCustomName();
+        ItemStack item = player.getItemInHand();
+        if (is(name) && isTrader(name)) {
+            if (getRewardItem(name) == item.getTypeId() && getRewardMeta(name).contains(item.getItemMeta().getLore().toString())) {
+                if (player.getItemInHand().getAmount() > 1) {
+                    final int oldAmount = item.getAmount();
+                    int newAmount = oldAmount - 1;
+                    item.setAmount(newAmount);
+                } else {
+                    player.getItemInHand().setType(Material.AIR);
+                }
+                player.sendMessage(ChatColor.DARK_RED + "[Trade] " + ChatColor.AQUA + getRewardMessage(name));
+                player.sendMessage(ChatColor.DARK_RED + "[Trade] " + ChatColor.AQUA + "Traded 1 " + getRewardMeta(name) + " for " + getRewardPoints(name) + " points.");
+                int oldPoints = DataManager.getPointsFromPlayer(player);
+                int newPoints = oldPoints + getRewardPoints(name);
+                DataManager.setPointsFromPlayer(player, newPoints);
+                return true;
+
+            }
+        }
+        return false;
     }
 
     @Override

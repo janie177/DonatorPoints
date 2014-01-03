@@ -1,6 +1,7 @@
 package com.minegusta.donatorpoints.npc;
 
 import com.google.common.collect.Lists;
+import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
@@ -59,6 +60,37 @@ public enum DefaultNPC implements NPC {
     @Override
     public boolean is(String name) {
         return nPC.is(name);
+    }
+
+    @Override
+    public boolean isTrader(String name) {
+        return nPC.isTrader(name);
+    }
+
+    @Override
+    public String getRewardMeta(String name) {
+        return nPC.getRewardMeta(name);
+    }
+
+    @Override
+    public String getRewardMessage(String name) {
+        return nPC.getRewardMessage(name);
+    }
+
+    @Override
+    public int getRewardPoints(String name) {
+        return nPC.getRewardPoints(name);
+    }
+
+    @Override
+    public int getRewardItem(String name) {
+        return nPC.getRewardItem(name);
+    }
+
+    @Override
+    public boolean awardItem(Player player, LivingEntity villager) {
+        nPC.awardItem(player, villager);
+        return true;
     }
 
     @Override

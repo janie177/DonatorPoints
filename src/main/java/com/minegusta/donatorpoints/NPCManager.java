@@ -37,6 +37,7 @@ public class NPCManager implements Listener {
             if (DataManager.hasTimed(e.getPlayer().getName(), "talking with " + nPC.getName())) return;
 
             // send the message/dialog
+            if (nPC.awardItem(e.getPlayer(), villager)) return;
             nPC.sendDialog(Sets.newHashSet(e.getPlayer()));
             DataManager.saveTimed(e.getPlayer().getName(), "talking with " + nPC.getName(), true, 12);
         }
