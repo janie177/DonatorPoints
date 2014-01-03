@@ -15,15 +15,15 @@ public interface NPC extends ConfigurationSerializable {
 
     public boolean is(String name);
 
-    public String getRewardMeta(String name);
+    public String getRewardMeta();
 
-    public String getRewardMessage(String name);
+    public String getRewardMessage();
 
-    public int getRewardPoints(String name);
+    public int getRewardPoints();
 
-    public int getRewardItem(String name);
+    public int getRewardItem();
 
-    public boolean isTrader(String name);
+    public boolean isTrader();
 
     public boolean awardItem(Player player, LivingEntity villager);
 

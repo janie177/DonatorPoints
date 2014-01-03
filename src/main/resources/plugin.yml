@@ -5,8 +5,10 @@ name: DonatorPoints
 softdepend: [CensoredLib, WorldEdit, WorldGuard]
 commands:
   points:
-    usage: /<command>
+    usage: /Points
     permission: minegusta.donator
+  npc:
+    usage: /NPC Name
 permissions:
   minegusta.donator:
     default: op

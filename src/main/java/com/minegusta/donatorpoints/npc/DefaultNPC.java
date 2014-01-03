@@ -63,34 +63,32 @@ public enum DefaultNPC implements NPC {
     }
 
     @Override
-    public boolean isTrader(String name) {
-        return nPC.isTrader(name);
+    public boolean isTrader() {
+        return nPC.isTrader();
     }
 
     @Override
-    public String getRewardMeta(String name) {
-        return nPC.getRewardMeta(name);
+    public String getRewardMeta() {
+        return nPC.getRewardMeta();
     }
 
     @Override
-    public String getRewardMessage(String name) {
-        return nPC.getRewardMessage(name);
+    public String getRewardMessage() {
+        return nPC.getRewardMessage();
     }
 
     @Override
-    public int getRewardPoints(String name) {
-        return nPC.getRewardPoints(name);
+    public int getRewardPoints() {
+        return nPC.getRewardPoints();
     }
 
-    @Override
-    public int getRewardItem(String name) {
-        return nPC.getRewardItem(name);
+    public int getRewardItem() {
+        return nPC.getRewardItem();
     }
 
     @Override
     public boolean awardItem(Player player, LivingEntity villager) {
-        nPC.awardItem(player, villager);
-        return true;
+        return nPC.awardItem(player, villager);
     }
 
     @Override

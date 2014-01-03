@@ -50,6 +50,7 @@ public class DonatorPointsPlugin extends CensoredJavaPlugin {
 
             // command
             getCommand("points").setExecutor(new PointsCommand());
+            getCommand("npc").setExecutor(new NPCSpawnCommand());
 
             // data
             DataManager.load();

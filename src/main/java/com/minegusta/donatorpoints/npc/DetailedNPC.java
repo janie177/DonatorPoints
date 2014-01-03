@@ -63,7 +63,7 @@ public class DetailedNPC implements NPC {
         return dialog;
     }
 
-    @Override
+
     public void sendDialog(Collection<Player> players) {
         for (final Player listening : players) {
             if (type.equals(Type.RANDOM))
@@ -75,7 +75,7 @@ public class DetailedNPC implements NPC {
                         Bukkit.getScheduler().scheduleSyncDelayedTask(DonatorPointsPlugin.PLUGIN, new Runnable() {
                             @Override
                             public void run() {
-                                listening.sendMessage(ChatColor.DARK_PURPLE + "[" + name + "] " + ChatColor.YELLOW + line);
+                                listening.sendMessage(ChatColor.DARK_PURPLE + "[" + name + "] " + ChatColor.YELLOW + ChatColor.ITALIC + line);
                             }
                         }, count * 20 + Randoms.generateIntRange(20, 60));
                     count += line.equals("%beat%") ? 2 : 1;
@@ -90,48 +90,50 @@ public class DetailedNPC implements NPC {
     }
 
     @Override
-    public boolean isTrader(String name) {
+    public boolean isTrader() {
         return trader;
     }
 
     @Override
-    public String getRewardMeta(String name) {
+    public String getRewardMeta() {
         return meta;
     }
 
     @Override
-    public String getRewardMessage(String name) {
+    public String getRewardMessage() {
         return rewardMessage;
     }
 
     @Override
-    public int getRewardPoints(String name) {
+    public int getRewardPoints() {
         return rewardPoints;
     }
 
     @Override
-    public int getRewardItem(String name) {
+    public int getRewardItem() {
         return item;
     }
 
     @Override
     public boolean awardItem(Player player, LivingEntity villager) {
+        ItemStack leItem = player.getItemInHand();
+        if (trader) {
+            Material material = Material.getMaterial(item);
+            if (leItem == null || leItem.getType().equals(Material.AIR) || !leItem.getItemMeta().hasLore())
+                return false;
+            else if (leItem.getType().equals(material) && leItem.getItemMeta().getLore().toString().contains(meta)) {
 
-        String name = villager.getCustomName();
-        ItemStack item = player.getItemInHand();
-        if (is(name) && isTrader(name)) {
-            if (getRewardItem(name) == item.getTypeId() && getRewardMeta(name).contains(item.getItemMeta().getLore().toString())) {
                 if (player.getItemInHand().getAmount() > 1) {
-                    final int oldAmount = item.getAmount();
+                    final int oldAmount = leItem.getAmount();
                     int newAmount = oldAmount - 1;
-                    item.setAmount(newAmount);
+                    leItem.setAmount(newAmount);
                 } else {
-                    player.getItemInHand().setType(Material.AIR);
+                    player.getItemInHand().setAmount(0);
                 }
-                player.sendMessage(ChatColor.DARK_RED + "[Trade] " + ChatColor.AQUA + getRewardMessage(name));
-                player.sendMessage(ChatColor.DARK_RED + "[Trade] " + ChatColor.AQUA + "Traded 1 " + getRewardMeta(name) + " for " + getRewardPoints(name) + " points.");
+                player.sendMessage(ChatColor.DARK_RED + "[Trade] " + ChatColor.YELLOW + getRewardMessage());
+                player.sendMessage(ChatColor.DARK_RED + "[Trade] " + ChatColor.YELLOW + "Traded 1 " + meta + " for " + rewardPoints + " points.");
                 int oldPoints = DataManager.getPointsFromPlayer(player);
-                int newPoints = oldPoints + getRewardPoints(name);
+                int newPoints = oldPoints + getRewardPoints();
                 DataManager.setPointsFromPlayer(player, newPoints);
                 return true;
 
