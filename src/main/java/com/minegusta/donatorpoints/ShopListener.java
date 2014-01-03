@@ -363,7 +363,7 @@ public class ShopListener implements Listener {
 
                 ItemStack theItemToAdd = null;
                 int points = 0;
-                for (RewardItem item : RewardItem.values()) {
+                for (FreeRewardItem item : FreeRewardItem.values()) {
                     if (!Items.areEqual(item.getShopItem(), e.getCurrentItem())) continue;
                     points = item.getPoints();
                     theItemToAdd = item.getItem();

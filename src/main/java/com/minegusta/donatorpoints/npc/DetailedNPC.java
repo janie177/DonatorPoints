@@ -128,7 +128,8 @@ public class DetailedNPC implements NPC {
                     int newAmount = oldAmount - 1;
                     leItem.setAmount(newAmount);
                 } else {
-                    player.getItemInHand().setAmount(0);
+                    player.getInventory().remove(new ItemStack(Material.getMaterial(item), 1));
+                    player.updateInventory();
                 }
                 player.sendMessage(ChatColor.DARK_RED + "[Trade] " + ChatColor.YELLOW + getRewardMessage());
                 player.sendMessage(ChatColor.DARK_RED + "[Trade] " + ChatColor.YELLOW + "Traded 1 " + meta + " for " + rewardPoints + " points.");
