@@ -3,14 +3,12 @@ package com.minegusta.donatorpoints;
 import com.censoredsoftware.censoredlib.CensoredLibPlugin;
 import com.censoredsoftware.censoredlib.helper.CensoredJavaPlugin;
 import com.censoredsoftware.censoredlib.helper.QuitReasonHandler;
+import com.minegusta.donatorpoints.commands.HorseCommand;
 import com.minegusta.donatorpoints.commands.NPCSpawnCommand;
 import com.minegusta.donatorpoints.commands.PointsCommand;
 import com.minegusta.donatorpoints.data.DataManager;
 import com.minegusta.donatorpoints.data.TimedDatas;
-import com.minegusta.donatorpoints.listeners.PlayerListener;
-import com.minegusta.donatorpoints.listeners.PointsListener;
-import com.minegusta.donatorpoints.listeners.QuitListener;
-import com.minegusta.donatorpoints.listeners.ShopListener;
+import com.minegusta.donatorpoints.listeners.*;
 import com.minegusta.donatorpoints.playerdata.PlayerData;
 import com.sk89q.worldguard.bukkit.WorldGuardPlugin;
 import org.bukkit.Bukkit;
@@ -54,10 +52,13 @@ public class DonatorPointsPlugin extends CensoredJavaPlugin {
             manager.registerEvents(new MobSpawnManager(), this);
             manager.registerEvents(new NPCManager(), this);
             manager.registerEvents(new PlayerListener(), this);
+            manager.registerEvents(new HorseShopListener(), this);
+            manager.registerEvents(new HorseListener(), this);
 
             // command
             getCommand("points").setExecutor(new PointsCommand());
             getCommand("npc").setExecutor(new NPCSpawnCommand());
+            getCommand("horse").setExecutor(new HorseCommand());
 
             // data
             DataManager.load();

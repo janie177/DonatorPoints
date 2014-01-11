@@ -38,11 +38,18 @@ public class HorseCommand implements CommandExecutor {
             Location location = player.getLocation();
 
             if (!player.getWorld().getName().toLowerCase().equals(DonatorPointsPlugin.world)) return true;
+            //With args
 
-            else if (args[0].equalsIgnoreCase("Summon")) {
+            if (args.length == 0) {
+                List<String> helpMenu = Lists.newArrayList("/Horse " + ChatColor.GRAY + "- Shows this menu.", "/Horse Summon " + ChatColor.GRAY + "- Summon your horse. Has 15 minute cooldown.", "/Horse Cooldown " + ChatColor.GRAY + "- Shows cooldown time remaining.", "/Horse Info " + ChatColor.GRAY + "- Shows your horse's current look.", "/Horse Customize " + ChatColor.GRAY + "- Customize your horse's look.");
+                sendText(player, helpMenu);
+            } else if (args[0].equalsIgnoreCase("Summon")) {
 
                 boolean hasHorse = Data.getHasHorse(uuid);
-                if (!hasHorse) return true;
+                if (!hasHorse) {
+                    player.sendMessage(ChatColor.RED + "You do not have a horse to summon!");
+                    return true;
+                }
 
                 long lastCall = Data.getLastCallHorse(uuid);
                 long time = System.currentTimeMillis();
@@ -86,36 +93,41 @@ public class HorseCommand implements CommandExecutor {
 
             } else if (args[0].equalsIgnoreCase("Info")) {
 
-                List<String> horseInfo = Lists.newArrayList("Name: " + ChatColor.AQUA + name, "Speed: " + ChatColor.AQUA + speed, "Name: " + ChatColor.AQUA + name, "Jump power: " + ChatColor.AQUA + jump, "Armour: " + ChatColor.AQUA + armour, "Style: " + ChatColor.AQUA + style, "Color: " + ChatColor.AQUA + color);
+                List<String> horseInfo = Lists.newArrayList("Name: " + ChatColor.AQUA + name, "Speed: " + ChatColor.AQUA + speed, "Jump power: " + ChatColor.AQUA + jump, "Armour: " + ChatColor.AQUA + armour, "Style: " + ChatColor.AQUA + style, "Color: " + ChatColor.AQUA + color);
                 sendText(player, horseInfo);
 
             } else if (args[0].equalsIgnoreCase("Customize")) {
-                if (args[1].equalsIgnoreCase("style")) {
+
+                if (args.length == 1) {
+                    List<String> customizehelp = Lists.newArrayList("Name: " + ChatColor.GRAY + "- /Horse Customize Name <Name>", "Style: " + ChatColor.GRAY + "- /Horse Customize Style <Style>", "Color: " + ChatColor.GRAY + "- /Horse Customize Color <Color>");
+
+                    sendText(player, customizehelp);
+
+                } else if (args[1].equalsIgnoreCase("style")) {
                     if (args.length > 2) {
                         String newStyle = args[2];
                         Data.setHorseStyle(uuid, args[2].toLowerCase());
+                        player.sendMessage(ChatColor.YELLOW + "Style set!");
                     } else {
                         List<String> horseStyleHelp = Lists.newArrayList("None", "BlackDots", "WhiteDots", "WhiteField", "White");
                         sendText(player, horseStyleHelp);
                     }
                 } else if (args[1].equalsIgnoreCase("color")) {
                     if (args.length > 2) {
-                        String newColor = args[2];
                         Data.setHorseColor(uuid, args[2].toLowerCase());
+                        player.sendMessage(ChatColor.YELLOW + "Color set!");
                     } else {
                         List<String> horseColorHelp = Lists.newArrayList("Brown", "Black", "Gray", "White", "ChestNut", "DarkBrown", "Creamy", "None");
                         sendText(player, horseColorHelp);
                     }
-
-
                 } else if (args[1].equalsIgnoreCase("name")) {
                     if (args.length > 2) {
                         List<String> newArgs = Lists.newArrayList(args);
                         newArgs.remove(args[0]);
                         newArgs.remove(args[1]);
-                        newArgs.remove(args[2]);
                         Joiner joiner = Joiner.on(" ").skipNulls();
                         String horseNewName = joiner.join(newArgs);
+                        player.sendMessage(ChatColor.YELLOW + "Name set to " + ChatColor.GOLD + horseNewName + ChatColor.YELLOW + ".");
                         if (horseNewName.length() > 27)
                             player.sendMessage(ChatColor.DARK_RED + "You cannot set your horses name to be longer than 27 characters.");
                         Data.setHorseName(uuid, horseNewName);
@@ -123,16 +135,12 @@ public class HorseCommand implements CommandExecutor {
                         List<String> horseNameHelp = Lists.newArrayList("Name: " + ChatColor.GRAY + "- /Horse Customize Name <Name>");
                         sendText(player, horseNameHelp);
                     }
-
                 } else {
                     List<String> customizehelp = Lists.newArrayList("Name: " + ChatColor.GRAY + "- /Horse Customize Name <Name>", "Style: " + ChatColor.GRAY + "- /Horse Customize Style <Style>", "Color: " + ChatColor.GRAY + "- /Horse Customize Color <Color>");
 
                     sendText(player, customizehelp);
-                }
 
-            } else {
-                List<String> helpMenu = Lists.newArrayList("/Horse " + ChatColor.GRAY + "- Shows this menu.", "/Horse Summon " + ChatColor.GRAY + "- Summon your horse. Has 15 minute cooldown.", "/Horse Cooldown " + ChatColor.GRAY + "- Shows cooldown time remaining.", "/Horse Info " + ChatColor.GRAY + "- Shows your horse's current look.", "/Horse Customize " + ChatColor.GRAY + "- Customize your horse's look.");
-                sendText(player, helpMenu);
+                }
             }
         }
         return true;

@@ -60,6 +60,7 @@ public class MobHealthManager implements Listener {
     @EventHandler
     public void onEntityDeathInMap(EntityDeathEvent e) {
         LivingEntity entity = e.getEntity();
+        if (entity.getLastDamageCause() instanceof EntityDamageByEntityEvent) return;
         if (MobSpawnManager.monsterHealth.containsKey(entity.getUniqueId())) {
             MobSpawnManager.monsterHealth.remove(entity.getUniqueId());
         }

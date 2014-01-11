@@ -75,22 +75,27 @@ public class Data {
     }
 
     public static double getHorseSpeed(UUID mojangID) {
+        if (!getConfig().isSet(mojangID + ".horse.horsespeed")) return 0.0;
         return getConfig().getDouble(mojangID + ".horse.horsespeed");
     }
 
     public static double getHorseJump(UUID mojangID) {
+        if (!getConfig().isSet(mojangID + ".horse.horsejump")) return 0.0;
         return getConfig().getDouble(mojangID + ".horse.horsejump");
     }
 
     public static String getHorseStyle(UUID mojangID) {
+        if (!getConfig().isSet(mojangID + ".horse.horsestyle")) return "None";
         return getConfig().getString(mojangID + ".horse.horsestyle");
     }
 
     public static String getHorseArmour(UUID mojangID) {
+        if (!getConfig().isSet(mojangID + ".horse.horsearmor")) return "None";
         return getConfig().getString(mojangID + ".horse.horsearmor");
     }
 
     public static boolean getHasHorse(UUID mojangID) {
+        if (!getConfig().isSet(mojangID + ".horse.hashorse")) return false;
         return getConfig().getBoolean(mojangID + ".horse.hashorse");
     }
 

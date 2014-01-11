@@ -88,6 +88,9 @@ public class HorseShopListener implements Listener {
                     theItemToAdd = item.getItem();
                     break;
                 }
+                //TODO REMOVE
+                Bukkit.getLogger().info("The Item To add is: " + theItemToAdd);
+                //TODO REMOVE
 
                 if (theItemToAdd == null) return;
 
