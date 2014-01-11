@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="abad91f1-1a3d-48e5-bcab-a35a6579d945" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/playerdata/Data.java" afterPath="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/playerdata/Data.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/commands/HorseCommand.java" afterPath="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/commands/HorseCommand.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/listeners/HorseShopListener.java" afterPath="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/listeners/HorseShopListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/playerdata.yml" afterPath="$PROJECT_DIR$/src/main/resources/playerdata.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="DonatorPoints.iws" />
@@ -75,51 +72,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Data.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/playerdata/Data.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="70" column="31" selection-start="2212" selection-end="2212" vertical-scroll-proportion="0.0" vertical-offset="731" max-vertical-offset="2788">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="playerdata.yml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/playerdata.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="13" selection-start="178" selection-end="178" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="459">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HorseListener.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/listeners/HorseListener.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="13" selection-start="61" selection-end="61" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="170">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HorseShopListener.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/listeners/HorseShopListener.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="137" column="31" selection-start="6434" selection-end="6434" vertical-scroll-proportion="0.0" vertical-offset="1749" max-vertical-offset="4097">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HorseCommand.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="HorseCommand.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/commands/HorseCommand.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="231" column="27" selection-start="9854" selection-end="9854" vertical-scroll-proportion="0.5670241" vertical-offset="3504" max-vertical-offset="4318">
+            <state line="128" column="52" selection-start="6829" selection-end="6829" vertical-scroll-proportion="0.0" vertical-offset="1464" max-vertical-offset="3961">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DonatorPoints.iml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DonatorPoints.iml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="748">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="8" column="18" selection-start="400" selection-end="400" vertical-scroll-proportion="0.17918314" vertical-offset="0" max-vertical-offset="2754">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -174,24 +151,24 @@
         <option value="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/MobSpawnManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/ShopListener.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/PlayerListener.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/player/PlayerData.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/player/PlayerSave.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/playerdata/playerData.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/MobHealthManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/data/DataManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/playerdata/PlayerDataContent.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/playerdata/PlayerData.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/TeleportManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/WorldGuardManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/listeners/TeleportListener.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/DonatorPointsPlugin.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/listeners/HorseListener.java" />
         <option value="$PROJECT_DIR$/src/main/resources/plugin.yml" />
+        <option value="$PROJECT_DIR$/src/main/resources/playerdata.yml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/listeners/HorseListener.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/DonatorPointsPlugin.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/MobHealthManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/listeners/HorseShopListener.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/playerdata/Data.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/playerdata.yml" />
         <option value="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/commands/HorseCommand.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
   </component>
@@ -797,7 +774,15 @@
       <created>1389411493676</created>
       <updated>1389411493676</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Finished horse spawning commands.&#10;">
+      <created>1389463744688</created>
+      <updated>1389463744688</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Varous fixed around HorseCommands&#10;">
+      <created>1389467859115</created>
+      <updated>1389467859115</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -834,17 +819,17 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26937738" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23761117" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32909784" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1621787" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19951041" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18849449" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.0" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24235006" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.0" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3299363" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23761117" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="CVS" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32242423" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.249694" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -903,7 +888,9 @@
     <MESSAGE value="Replaced Skeletal Warlord default spawning with wolves. A little less deadly." />
     <MESSAGE value="Replaced Skeletal Warlord default spawning with wolves. A little less deadly.&#10;" />
     <MESSAGE value="Added a ton of things. Added a start for horses." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added a ton of things. Added a start for horses." />
+    <MESSAGE value="Finished horse spawning commands.&#10;" />
+    <MESSAGE value="Varous fixed around HorseCommands&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Varous fixed around HorseCommands&#10;" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -915,11 +902,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/listeners/ShopListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="45" selection-start="862" selection-end="862" vertical-scroll-proportion="0.0" vertical-offset="1859" max-vertical-offset="6885" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/commands/PointsCommand.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="20" column="34" selection-start="775" selection-end="775" vertical-scroll-proportion="0.0" vertical-offset="340" max-vertical-offset="442" />
@@ -1062,54 +1044,9 @@
         <state line="42" column="111" selection-start="2825" selection-end="2825" vertical-scroll-proportion="0.77272725" vertical-offset="0" max-vertical-offset="986" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/listeners/PlayerListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="41" selection-start="839" selection-end="839" vertical-scroll-proportion="0.36363637" vertical-offset="0" max-vertical-offset="748" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/NPCManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="44" selection-start="2485" selection-end="2485" vertical-scroll-proportion="1.2043597" vertical-offset="0" max-vertical-offset="1088">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/data/TimedDatas.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="18" column="20" selection-start="509" selection-end="509" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="867" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="42" selection-start="1569" selection-end="1569" vertical-scroll-proportion="0.0" vertical-offset="170" max-vertical-offset="2754">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/MobHealthManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="5" selection-start="2243" selection-end="2243" vertical-scroll-proportion="0.64613366" vertical-offset="272" max-vertical-offset="1037" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/npc/DefaultNPC.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="48" selection-start="2218" selection-end="2218" vertical-scroll-proportion="0.6363636" vertical-offset="0" max-vertical-offset="1666">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/npc/NPC.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="37" selection-start="655" selection-end="655" vertical-scroll-proportion="0.51379764" vertical-offset="0" max-vertical-offset="761">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/npc/DetailedNPC.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="138" column="22" selection-start="4785" selection-end="4785" vertical-scroll-proportion="0.45454547" vertical-offset="1479" max-vertical-offset="2227">
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/data/DataManager.java">
@@ -1142,16 +1079,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/DonatorPointsPlugin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="63" selection-start="2222" selection-end="2222" vertical-scroll-proportion="0.116" vertical-offset="542" max-vertical-offset="1751">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/plugin.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="28" selection-start="308" selection-end="308" vertical-scroll-proportion="0.29784366" vertical-offset="0" max-vertical-offset="742" />
+        <state line="13" column="28" selection-start="308" selection-end="308" vertical-scroll-proportion="0.29784366" vertical-offset="0" max-vertical-offset="742">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/listeners/ShopListener.java">
@@ -1170,20 +1102,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/commands/NPCSpawnCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="52" selection-start="1363" selection-end="1363" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="561">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/playerdata/Data.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="70" column="31" selection-start="2212" selection-end="2212" vertical-scroll-proportion="0.0" vertical-offset="731" max-vertical-offset="2788">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/playerdata.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="13" selection-start="178" selection-end="178" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="459">
@@ -1191,28 +1109,105 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/listeners/HorseListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="40" selection-start="123" selection-end="123" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="204">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/DonatorPointsPlugin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="54" column="124" selection-start="2347" selection-end="2410" vertical-scroll-proportion="0.63244355" vertical-offset="338" max-vertical-offset="1802">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/MobHealthManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="67" column="54" selection-start="2596" selection-end="2596" vertical-scroll-proportion="1.9874738" vertical-offset="0" max-vertical-offset="1071">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/NPCManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="93" selection-start="795" selection-end="795" vertical-scroll-proportion="-0.85010266" vertical-offset="601" max-vertical-offset="1088">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/npc/NPC.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="37" selection-start="655" selection-end="655" vertical-scroll-proportion="0.782" vertical-offset="0" max-vertical-offset="544">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/npc/DefaultNPC.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="48" selection-start="2218" selection-end="2218" vertical-scroll-proportion="0.97741276" vertical-offset="0" max-vertical-offset="1666">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/npc/DetailedNPC.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="138" column="22" selection-start="4785" selection-end="4785" vertical-scroll-proportion="0.69815195" vertical-offset="1479" max-vertical-offset="2227">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/listeners/PlayerListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="41" selection-start="899" selection-end="899" vertical-scroll-proportion="0.523614" vertical-offset="0" max-vertical-offset="487">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/commands/NPCSpawnCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="52" selection-start="1363" selection-end="1363" vertical-scroll-proportion="0.66" vertical-offset="61" max-vertical-offset="561">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/listeners/HorseShopListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="137" column="31" selection-start="6434" selection-end="6434" vertical-scroll-proportion="0.0" vertical-offset="1749" max-vertical-offset="4097">
+        <state line="127" column="43" selection-start="5897" selection-end="5897" vertical-scroll-proportion="0.0" vertical-offset="1326" max-vertical-offset="4148">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/listeners/HorseListener.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/playerdata/Data.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="13" selection-start="61" selection-end="61" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="170">
+        <state line="26" column="60" selection-start="651" selection-end="651" vertical-scroll-proportion="0.15678525" vertical-offset="255" max-vertical-offset="2839">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/commands/HorseCommand.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="231" column="27" selection-start="9854" selection-end="9854" vertical-scroll-proportion="0.5670241" vertical-offset="3504" max-vertical-offset="4318">
+        <state line="128" column="52" selection-start="6829" selection-end="6829" vertical-scroll-proportion="0.0" vertical-offset="1464" max-vertical-offset="3961">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DonatorPoints.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="748">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="18" selection-start="400" selection-end="400" vertical-scroll-proportion="0.17918314" vertical-offset="0" max-vertical-offset="2754">
+          <folding />
         </state>
       </provider>
     </entry>
