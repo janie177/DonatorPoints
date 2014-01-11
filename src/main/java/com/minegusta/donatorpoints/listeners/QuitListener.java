@@ -1,4 +1,4 @@
-package com.minegusta.donatorpoints;
+package com.minegusta.donatorpoints.listeners;
 
 import com.censoredsoftware.censoredlib.helper.QuitReasonHandler;
 import org.bukkit.ChatColor;

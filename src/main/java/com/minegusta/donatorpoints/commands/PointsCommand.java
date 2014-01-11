@@ -1,4 +1,4 @@
-package com.minegusta.donatorpoints;
+package com.minegusta.donatorpoints.commands;
 
 import com.minegusta.donatorpoints.data.DataManager;
 import org.bukkit.Bukkit;

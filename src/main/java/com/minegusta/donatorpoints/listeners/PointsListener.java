@@ -1,5 +1,6 @@
-package com.minegusta.donatorpoints;
+package com.minegusta.donatorpoints.listeners;
 
+import com.minegusta.donatorpoints.DonatorPointsPlugin;
 import com.minegusta.donatorpoints.data.DataManager;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Entity;

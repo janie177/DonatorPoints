@@ -3,8 +3,15 @@ package com.minegusta.donatorpoints;
 import com.censoredsoftware.censoredlib.CensoredLibPlugin;
 import com.censoredsoftware.censoredlib.helper.CensoredJavaPlugin;
 import com.censoredsoftware.censoredlib.helper.QuitReasonHandler;
+import com.minegusta.donatorpoints.commands.NPCSpawnCommand;
+import com.minegusta.donatorpoints.commands.PointsCommand;
 import com.minegusta.donatorpoints.data.DataManager;
 import com.minegusta.donatorpoints.data.TimedDatas;
+import com.minegusta.donatorpoints.listeners.PlayerListener;
+import com.minegusta.donatorpoints.listeners.PointsListener;
+import com.minegusta.donatorpoints.listeners.QuitListener;
+import com.minegusta.donatorpoints.listeners.ShopListener;
+import com.minegusta.donatorpoints.playerdata.PlayerData;
 import com.sk89q.worldguard.bukkit.WorldGuardPlugin;
 import org.bukkit.Bukkit;
 import org.bukkit.event.HandlerList;
@@ -62,6 +69,10 @@ public class DonatorPointsPlugin extends CensoredJavaPlugin {
                 }
             }, 0, 1);
 
+            //playerData
+
+            PlayerData.loadPlayerData(this);
+
             // quit reason handler
             boolean provideQuitReason = true;
             for (Handler handler : Bukkit.getLogger().getHandlers())
@@ -102,6 +113,6 @@ public class DonatorPointsPlugin extends CensoredJavaPlugin {
 
 
     //Which world is enabled?
-    final static String world = "donator";
+    public final static String world = "donator";
 
 }

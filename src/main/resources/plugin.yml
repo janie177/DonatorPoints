@@ -9,6 +9,8 @@ commands:
     permission: minegusta.donator
   npc:
     usage: /NPC Name
+  horse:
+    usage: /Horse
 permissions:
   minegusta.donator:
     default: op

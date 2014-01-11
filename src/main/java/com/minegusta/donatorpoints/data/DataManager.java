@@ -11,6 +11,7 @@ import com.minegusta.donatorpoints.DonatorPointsPlugin;
 import com.minegusta.donatorpoints.npc.DefaultNPC;
 import com.minegusta.donatorpoints.npc.DetailedNPC;
 import com.minegusta.donatorpoints.npc.NPC;
+import com.minegusta.donatorpoints.playerdata.PlayerData;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.OfflinePlayer;
@@ -49,6 +50,7 @@ public class DataManager {
         pointsSave.saveToFile();
         nPCSave.saveToFile();
         timedDataSave.saveToFile();
+        PlayerData.savePlayerData();
     }
 
     public static int startSaveTask() {

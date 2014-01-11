@@ -1,10 +1,11 @@
-package com.minegusta.donatorpoints;
+package com.minegusta.donatorpoints.listeners;
 
 import com.censoredsoftware.censoredlib.util.Items;
 import com.google.common.base.Function;
 import com.google.common.collect.Collections2;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
+import com.minegusta.donatorpoints.DonatorPointsPlugin;
 import com.minegusta.donatorpoints.data.DataManager;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -302,7 +303,7 @@ public class ShopListener implements Listener {
             }
 
             LivingEntity villager = (LivingEntity) e.getEntity();
-            if (DataManager.isNPC(villager) || villager.getCustomName().contains("Reward Trader")) {
+            if (DataManager.isNPC(villager) || villager.getCustomName().contains("Trader")) {
                 e.setCancelled(true);
             }
         }

@@ -1,4 +1,4 @@
-package com.minegusta.donatorpoints;
+package com.minegusta.donatorpoints.commands;
 
 
 import com.google.common.base.Joiner;

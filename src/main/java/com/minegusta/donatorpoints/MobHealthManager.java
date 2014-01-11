@@ -56,7 +56,6 @@ public class MobHealthManager implements Listener {
         }
     }
 
-
     //Stop the map from filling up.
     @EventHandler
     public void onEntityDeathInMap(EntityDeathEvent e) {
