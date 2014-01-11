@@ -88,9 +88,6 @@ public class HorseShopListener implements Listener {
                     theItemToAdd = item.getItem();
                     break;
                 }
-                //TODO REMOVE
-                Bukkit.getLogger().info("The Item To add is: " + theItemToAdd);
-                //TODO REMOVE
 
                 if (theItemToAdd == null) return;
 
@@ -106,40 +103,43 @@ public class HorseShopListener implements Listener {
                 }
                 DataManager.setPointsFromPlayer(entityPlayer, pointsPresent - points);
                 UUID uuid = entityPlayer.getUniqueId();
-                if (theItemToAdd.getType().equals(Material.SADDLE)) {
+                if (theItemToAdd.getType().equals(Material.LEATHER_CHESTPLATE)) {
                     Data.setHorseColor(uuid, "black");
                     Data.setHorseName(uuid, "Default Name");
                     Data.setHorseJump(uuid, 1.0);
-                    Data.setHorseSpeed(uuid, 2.2);
+                    Data.setHorseSpeed(uuid, 1.0);
                     Data.setHorseStyle(uuid, "none");
                     Data.setHorseArmour(uuid, "none");
+                    Data.setHasHorse(uuid, true);
 
-                } else if (theItemToAdd.getType().equals(Material.GOLD_BARDING)) {
+                } else if (theItemToAdd.getType().equals(Material.GOLD_CHESTPLATE)) {
                     Data.setHorseColor(uuid, "black");
                     Data.setHorseName(uuid, "Default Name");
-                    Data.setHorseJump(uuid, 1.5);
-                    Data.setHorseSpeed(uuid, 2.8);
+                    Data.setHorseJump(uuid, 1.2);
+                    Data.setHorseSpeed(uuid, 1.4);
                     Data.setHorseStyle(uuid, "none");
                     Data.setHorseArmour(uuid, "gold");
+                    Data.setHasHorse(uuid, true);
 
-                } else if (theItemToAdd.getType().equals(Material.IRON_BARDING)) {
+                } else if (theItemToAdd.getType().equals(Material.IRON_CHESTPLATE)) {
                     Data.setHorseColor(uuid, "black");
                     Data.setHorseName(uuid, "Default Name");
-                    Data.setHorseJump(uuid, 2.0);
-                    Data.setHorseSpeed(uuid, 3.2);
+                    Data.setHorseJump(uuid, 1.4);
+                    Data.setHorseSpeed(uuid, 1.7);
                     Data.setHorseStyle(uuid, "none");
                     Data.setHorseArmour(uuid, "iron");
-                } else if (theItemToAdd.getType().equals(Material.DIAMOND_BARDING)) {
+                    Data.setHasHorse(uuid, true);
+                } else if (theItemToAdd.getType().equals(Material.DIAMOND_CHESTPLATE)) {
                     Data.setHorseColor(uuid, "black");
                     Data.setHorseName(uuid, "Default Name");
-                    Data.setHorseJump(uuid, 3.0);
-                    Data.setHorseSpeed(uuid, 4.0);
+                    Data.setHorseJump(uuid, 1.7);
+                    Data.setHorseSpeed(uuid, 2.1);
                     Data.setHorseStyle(uuid, "none");
                     Data.setHorseArmour(uuid, "diamond");
+                    Data.setHasHorse(uuid, true);
                 }
-                Data.setHasHorse(uuid, true);
-                entityPlayer.sendMessage(ChatColor.AQUA + "You have successfully bought a horse!");
-                entityPlayer.sendMessage(ChatColor.AQUA + "Use /Horse for summoning, customization and help!");
+                entityPlayer.sendMessage(ChatColor.DARK_RED + "[" + ChatColor.RED + "Trade" + ChatColor.DARK_RED + "]" + ChatColor.YELLOW + "You have successfully bought a horse!");
+                entityPlayer.sendMessage(ChatColor.DARK_RED + "[" + ChatColor.RED + "Trade" + ChatColor.DARK_RED + "]" + ChatColor.YELLOW + "Use " + ChatColor.GOLD + "/Horse" + ChatColor.YELLOW + " for commands and summoning!");
                 player.closeInventory();
             }
 
@@ -150,7 +150,7 @@ public class HorseShopListener implements Listener {
 
     public enum RewardItem {
 
-        Horse1(new ItemStack(Material.SADDLE, 1) {
+        Horse1(new ItemStack(Material.LEATHER_CHESTPLATE, 1) {
             {
                 ItemMeta meta = getItemMeta();
                 List<String> lore = Lists.newArrayList();
@@ -160,7 +160,7 @@ public class HorseShopListener implements Listener {
                 setItemMeta(meta);
             }
         }, 450, Lists.newArrayList(ChatColor.LIGHT_PURPLE + "Cost: " + ChatColor.AQUA + "450 points.", ChatColor.GOLD + "FattySteed")),
-        Horse2(new ItemStack(Material.GOLD_BARDING, 1) {
+        Horse2(new ItemStack(Material.GOLD_CHESTPLATE, 1) {
             {
                 ItemMeta meta = getItemMeta();
                 List<String> lore = Lists.newArrayList();
@@ -170,7 +170,7 @@ public class HorseShopListener implements Listener {
                 setItemMeta(meta);
             }
         }, 600, Lists.newArrayList(ChatColor.LIGHT_PURPLE + "Cost: " + ChatColor.AQUA + "600 points.", ChatColor.GOLD + "Normal Horse")),
-        Horse3(new ItemStack(Material.IRON_BARDING, 1) {
+        Horse3(new ItemStack(Material.IRON_CHESTPLATE, 1) {
             {
                 ItemMeta meta = getItemMeta();
                 List<String> lore = Lists.newArrayList();
@@ -180,7 +180,7 @@ public class HorseShopListener implements Listener {
                 setItemMeta(meta);
             }
         }, 800, Lists.newArrayList(ChatColor.LIGHT_PURPLE + "Cost: " + ChatColor.AQUA + "800 points.", ChatColor.GOLD + "Good Steed")),
-        Horse4(new ItemStack(Material.DIAMOND_BARDING, 1) {
+        Horse4(new ItemStack(Material.DIAMOND_CHESTPLATE, 1) {
             {
                 ItemMeta meta = getItemMeta();
                 List<String> lore = Lists.newArrayList();

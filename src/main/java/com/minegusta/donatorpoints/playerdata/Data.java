@@ -3,6 +3,7 @@ package com.minegusta.donatorpoints.playerdata;
 import org.bukkit.configuration.file.FileConfiguration;
 
 import java.util.UUID;
+import java.util.concurrent.TimeUnit;
 
 public class Data {
 
@@ -70,7 +71,11 @@ public class Data {
     }
 
     public static long getLastCallHorse(UUID mojangID) {
-        if (!getConfig().isSet(mojangID + ".horse.lastcallhorse")) return System.currentTimeMillis();
+        long timeNow = System.currentTimeMillis();
+        long coolDownTime = TimeUnit.MINUTES.toMillis(15);
+        long resetCooldown = timeNow - coolDownTime;
+
+        if (!getConfig().isSet(mojangID + ".horse.lastcallhorse")) return resetCooldown;
         return getConfig().getLong(mojangID + ".horse.lastcallhorse");
     }
 

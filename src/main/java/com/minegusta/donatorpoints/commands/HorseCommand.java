@@ -3,6 +3,7 @@ package com.minegusta.donatorpoints.commands;
 import com.google.common.base.Joiner;
 import com.google.common.collect.Lists;
 import com.minegusta.donatorpoints.DonatorPointsPlugin;
+import com.minegusta.donatorpoints.listeners.HorseListener;
 import com.minegusta.donatorpoints.playerdata.Data;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -58,18 +59,25 @@ public class HorseCommand implements CommandExecutor {
                 long remainingCoolDown = coolDownTime - difference;
 
                 //Did they wait 15 minutes?
-                if (difference > coolDownTime) {
+                if (difference >= coolDownTime) {
                     Entity entityHorse = player.getWorld().spawnEntity(location, EntityType.HORSE);
                     Horse horse = (Horse) entityHorse;
 
                     horse.setVariant(Horse.Variant.HORSE);
                     horse.setAdult();
+                    horse.setTamed(true);
+                    horse.getInventory().setSaddle(new ItemStack(Material.SADDLE, 1));
                     horse.setCustomName(name);
                     horse.setCustomNameVisible(true);
                     horse.setJumpStrength(jump);
                     horse.setStyle(getStyle(style));
                     horse.setColor(getHorseColor(color));
                     horse.getInventory().setArmor(getArmour(armour));
+                    Data.setLastCallHorse(uuid);
+                    UUID horseUUID = horse.getUniqueId();
+                    UUID playerUUID = player.getUniqueId();
+                    HorseListener.horseMap.put(horseUUID, playerUUID);
+                    HorseListener.playerMap.put(playerUUID, horseUUID);
                     player.sendMessage(ChatColor.AQUA + "You summoned your steed!");
                 } else {
                     List<String> horseTimer = Lists.newArrayList("You have to wait another " + getRemainingCooldown(remainingCoolDown) + " before you can summon again.");
@@ -84,8 +92,9 @@ public class HorseCommand implements CommandExecutor {
                 long remainingCoolDown = coolDownTime - difference;
 
                 //Did they wait 15 minutes?
-                if (difference > coolDownTime) {
+                if (difference >= coolDownTime) {
                     List<String> canSummon = Lists.newArrayList("You can summon your horse.");
+                    sendText(player, canSummon);
                 } else {
                     List<String> horseTimer = Lists.newArrayList("You have to wait another " + getRemainingCooldown(remainingCoolDown) + " before you can summon again.");
                     sendText(player, horseTimer);

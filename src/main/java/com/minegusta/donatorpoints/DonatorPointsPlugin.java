@@ -104,6 +104,7 @@ public class DonatorPointsPlugin extends CensoredJavaPlugin {
 
             //Kill all mobs that still have more HP.
             MobSpawnManager.killRemainingMobs();
+            HorseListener.killAllHorses();
 
             // undo listener
             HandlerList.unregisterAll(this);
