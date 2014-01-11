@@ -134,6 +134,7 @@ public class HorseShopListener implements Listener {
                     Data.setHorseStyle(uuid, "none");
                     Data.setHorseArmour(uuid, "diamond");
                 }
+                Data.setHasHorse(uuid, true);
                 entityPlayer.sendMessage(ChatColor.AQUA + "You have successfully bought a horse!");
                 entityPlayer.sendMessage(ChatColor.AQUA + "Use /Horse for summoning, customization and help!");
                 player.closeInventory();

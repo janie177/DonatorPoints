@@ -1,13 +1,14 @@
 hbfb38fg387fg3g87f3gf:
   playername: janie177
   horse:
-    horsename: LeHorse xD lelelele
+    horsename: Default Name
     horsecolor: color
     lastcallhorse: 0
     horsejump: 0
     horsestyle: style
     horsespeed: 2
     horsearmor: none
+    hashorse: false
   level:
     level: 1
     experience: 405

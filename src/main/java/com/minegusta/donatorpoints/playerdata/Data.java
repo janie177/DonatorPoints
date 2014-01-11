@@ -52,6 +52,10 @@ public class Data {
         getConfig().set(mojangID + ".horse.horsearmor", armourType);
     }
 
+    public static void setHasHorse(UUID mojangID, Boolean hasHorse) {
+        getConfig().set(mojangID + ".horse.hashorse", hasHorse);
+    }
+
 
     public static String getHorseName(UUID mojangID) {
         if (!getConfig().isSet(mojangID + ".horse.horsename")) return "Error MissingNo.";
@@ -84,6 +88,10 @@ public class Data {
 
     public static String getHorseArmour(UUID mojangID) {
         return getConfig().getString(mojangID + ".horse.horsearmor");
+    }
+
+    public static boolean getHasHorse(UUID mojangID) {
+        return getConfig().getBoolean(mojangID + ".horse.hashorse");
     }
 
 
