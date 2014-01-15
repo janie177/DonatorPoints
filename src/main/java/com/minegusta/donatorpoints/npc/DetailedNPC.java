@@ -4,6 +4,7 @@ import com.censoredsoftware.censoredlib.util.Randoms;
 import com.google.common.collect.Maps;
 import com.minegusta.donatorpoints.DonatorPointsPlugin;
 import com.minegusta.donatorpoints.data.DataManager;
+import com.minegusta.donatorpoints.playerdata.Data;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -134,6 +135,7 @@ public class DetailedNPC implements NPC {
                 int oldPoints = DataManager.getPointsFromPlayer(player);
                 int newPoints = oldPoints + getRewardPoints();
                 DataManager.setPointsFromPlayer(player, newPoints);
+                Data.addQuestsDone(player.getUniqueId(), 1);
                 return true;
 
             }

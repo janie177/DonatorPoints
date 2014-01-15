@@ -3,6 +3,7 @@ package com.minegusta.donatorpoints.listeners;
 import com.minegusta.donatorpoints.DonatorPointsPlugin;
 import com.minegusta.donatorpoints.DropTable;
 import com.minegusta.donatorpoints.data.DataManager;
+import com.minegusta.donatorpoints.playerdata.Data;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.World;
@@ -103,6 +104,7 @@ public class PointsListener implements Listener {
                         points = 0;
                         break;
                     default:
+                        Data.addMobsKilled(damager.getUniqueId(), 1);
                         if (level < 5) points = 1;
                         else if (level > 4 && level < 10) points = 1;
                         else if (level > 9 && level < 15) points = 2;

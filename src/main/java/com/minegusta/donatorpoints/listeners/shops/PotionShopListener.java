@@ -100,6 +100,7 @@ public class PotionShopListener implements Listener {
 
         }
     }
+
     public enum RewardItem {
         regenII(new ItemStack(Material.POTION, 1, (short) 8225) {
             {
@@ -210,8 +211,7 @@ public class PotionShopListener implements Listener {
                 meta.setDisplayName(ChatColor.YELLOW + "Splash Potion of Weakness");
                 setItemMeta(meta);
             }
-        }, 25, Lists.newArrayList(ChatColor.LIGHT_PURPLE + "Cost: " + ChatColor.AQUA + "25 points.", ChatColor.YELLOW + "Splash Potion of Weakness"))
-        ;
+        }, 25, Lists.newArrayList(ChatColor.LIGHT_PURPLE + "Cost: " + ChatColor.AQUA + "25 points.", ChatColor.YELLOW + "Splash Potion of Weakness"));
 
 
         private ItemStack itemStack, shopItem;

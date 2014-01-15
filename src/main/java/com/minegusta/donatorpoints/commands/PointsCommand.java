@@ -47,7 +47,7 @@ public class PointsCommand implements CommandExecutor {
                     int amount = Integer.parseInt(args[2]);
                     final int oldPoints = DataManager.getPointsFromPlayer(player);
                     DataManager.setPointsFromPlayer(player, amount + oldPoints);
-                    player.sendMessage(ChatColor.AQUA + "[Points]" + ChatColor.AQUA + amount + ChatColor.GRAY + " Points added!");
+                    player.sendMessage(ChatColor.AQUA + "[Points] " + ChatColor.AQUA + amount + ChatColor.GRAY + " Points added!");
                 } catch (Exception e) {
                     return true;
                 }

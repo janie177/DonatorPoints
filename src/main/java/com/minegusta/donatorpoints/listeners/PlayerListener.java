@@ -1,11 +1,22 @@
 package com.minegusta.donatorpoints.listeners;
 
 
+import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 import com.minegusta.donatorpoints.DonatorPointsPlugin;
+import com.minegusta.donatorpoints.playerdata.Data;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
+import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
+import org.bukkit.event.player.PlayerRespawnEvent;
+import org.bukkit.inventory.ItemStack;
+
+import java.util.List;
+import java.util.UUID;
+import java.util.concurrent.ConcurrentMap;
 
 public class PlayerListener implements Listener {
 
@@ -18,6 +29,41 @@ public class PlayerListener implements Listener {
             }
         } else if (e.getMessage().toLowerCase().contains("stoplag")) {
             e.setCancelled(true);
+        }
+    }
+
+    ConcurrentMap<String, List<ItemStack>> invMap = Maps.newConcurrentMap();
+
+    //Add deaths to player.
+    @EventHandler
+    public void onPlayerDeath(PlayerDeathEvent e) {
+        if (e.getEntity().getWorld().getName().toLowerCase().equals(DonatorPointsPlugin.world)) {
+            Player player = e.getEntity();
+            UUID uuid = player.getUniqueId();
+            Data.addDeaths(uuid, 1);
+
+            //player inv managing.
+
+            List<ItemStack> inv = Lists.newArrayList();
+
+
+            for (ItemStack i : player.getInventory().getArmorContents()) {
+                inv.add(i);
+            }
+            inv.add(player.getInventory().getItem(0));
+            invMap.put(player.getName(), inv);
+        }
+    }
+
+    //Adding armor back after dead.
+    @EventHandler
+    public void onPlayerRespawn(PlayerRespawnEvent e) {
+        if (!e.getPlayer().getWorld().getName().toLowerCase().equals(DonatorPointsPlugin.world)) return;
+        Player player = e.getPlayer();
+        List<ItemStack> inv = invMap.get(player.getName());
+        if (invMap.containsKey(player.getName())) {
+            for (ItemStack i : inv)
+                player.getInventory().addItem(i);
         }
     }
 }

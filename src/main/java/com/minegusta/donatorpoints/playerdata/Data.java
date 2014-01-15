@@ -116,21 +116,21 @@ public class Data {
     //LEVELS
 
     public static void setLevel(UUID mojangID, Integer level) {
-        getLevelConfig().set(mojangID + ".level.level", level);
+        getLevelConfig().set(mojangID + ".level", level);
     }
 
     public static void setExperience(UUID mojangID, Integer experience) {
-        getLevelConfig().set(mojangID + ".level.experience", experience);
+        getLevelConfig().set(mojangID + ".experience", experience);
     }
 
     public static int getLevel(UUID mojangID) {
-        if (!getLevelConfig().isSet(mojangID + ".level.level")) return 0;
-        return getLevelConfig().getInt(mojangID + ".level.level");
+        if (!getLevelConfig().isSet(mojangID + ".level")) return 0;
+        return getLevelConfig().getInt(mojangID + ".level");
     }
 
     public static int getExperience(UUID mojangID) {
-        if (!getLevelConfig().isSet(mojangID + ".level.experience")) return 0;
-        return getLevelConfig().getInt(mojangID + ".level.experience");
+        if (!getLevelConfig().isSet(mojangID + ".experience")) return 0;
+        return getLevelConfig().getInt(mojangID + ".experience");
     }
 
     //RACE
@@ -150,8 +150,20 @@ public class Data {
         getStatusConfig().set(mojangID + ".data.deaths", amount);
     }
 
+    public static void addDeaths(UUID mojangID, Integer amount) {
+        getStatusConfig().set(mojangID + ".data.deaths", getDeaths(mojangID) + amount);
+    }
+
+    public static void addQuestsDone(UUID mojangID, Integer amount) {
+        getStatusConfig().set(mojangID + ".data.questsdone", getQuestsDone(mojangID) + amount);
+    }
+
     public static void setQuestsDone(UUID mojangID, Integer amount) {
         getStatusConfig().set(mojangID + ".data.questsdone", amount);
+    }
+
+    public static void addMobsKilled(UUID mojangID, Integer amount) {
+        getStatusConfig().set(mojangID + ".data.mobskilled", getMobsKilled(mojangID) + amount);
     }
 
     public static void setMobsKilled(UUID mojangID, Integer amount) {
