@@ -1,22 +1,16 @@
-package com.minegusta.donatorpoints.listeners;
+package com.minegusta.donatorpoints.listeners.shops;
 
-import com.censoredsoftware.censoredlib.util.Items;
-import com.google.common.base.Function;
-import com.google.common.collect.Collections2;
 import com.google.common.collect.Lists;
-import com.google.common.collect.Sets;
 import com.minegusta.donatorpoints.DonatorPointsPlugin;
 import com.minegusta.donatorpoints.data.DataManager;
 import com.minegusta.donatorpoints.playerdata.Data;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.Effect;
 import org.bukkit.Material;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.HumanEntity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
-import org.bukkit.event.Event;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
@@ -24,9 +18,7 @@ import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-import org.bukkit.potion.PotionEffect;
 
-import java.util.Collection;
 import java.util.List;
 import java.util.UUID;
 
@@ -83,7 +75,7 @@ public class HorseShopListener implements Listener {
                 ItemStack theItemToAdd = null;
                 int points = 0;
                 for (RewardItem item : RewardItem.values()) {
-                    if (!Items.areEqual(item.getShopItem(), e.getCurrentItem())) continue;
+                    if (!item.getShopItem().getType().equals(e.getCurrentItem().getType())) continue;
                     points = item.getPoints();
                     theItemToAdd = item.getItem();
                     break;
@@ -103,7 +95,7 @@ public class HorseShopListener implements Listener {
                 }
                 DataManager.setPointsFromPlayer(entityPlayer, pointsPresent - points);
                 UUID uuid = entityPlayer.getUniqueId();
-                if (theItemToAdd.getType().equals(Material.LEATHER_CHESTPLATE)) {
+                if (theItemToAdd.getType().equals(Material.SADDLE)) {
                     Data.setHorseColor(uuid, "black");
                     Data.setHorseName(uuid, "Default Name");
                     Data.setHorseJump(uuid, 1.0);
@@ -112,7 +104,7 @@ public class HorseShopListener implements Listener {
                     Data.setHorseArmour(uuid, "none");
                     Data.setHasHorse(uuid, true);
 
-                } else if (theItemToAdd.getType().equals(Material.GOLD_CHESTPLATE)) {
+                } else if (theItemToAdd.getType().equals(Material.GOLD_BARDING)) {
                     Data.setHorseColor(uuid, "black");
                     Data.setHorseName(uuid, "Default Name");
                     Data.setHorseJump(uuid, 1.2);
@@ -121,7 +113,7 @@ public class HorseShopListener implements Listener {
                     Data.setHorseArmour(uuid, "gold");
                     Data.setHasHorse(uuid, true);
 
-                } else if (theItemToAdd.getType().equals(Material.IRON_CHESTPLATE)) {
+                } else if (theItemToAdd.getType().equals(Material.IRON_BARDING)) {
                     Data.setHorseColor(uuid, "black");
                     Data.setHorseName(uuid, "Default Name");
                     Data.setHorseJump(uuid, 1.4);
@@ -129,7 +121,7 @@ public class HorseShopListener implements Listener {
                     Data.setHorseStyle(uuid, "none");
                     Data.setHorseArmour(uuid, "iron");
                     Data.setHasHorse(uuid, true);
-                } else if (theItemToAdd.getType().equals(Material.DIAMOND_CHESTPLATE)) {
+                } else if (theItemToAdd.getType().equals(Material.DIAMOND_BARDING)) {
                     Data.setHorseColor(uuid, "black");
                     Data.setHorseName(uuid, "Default Name");
                     Data.setHorseJump(uuid, 1.7);
@@ -150,7 +142,7 @@ public class HorseShopListener implements Listener {
 
     public enum RewardItem {
 
-        Horse1(new ItemStack(Material.LEATHER_CHESTPLATE, 1) {
+        Horse1(new ItemStack(Material.SADDLE, 1) {
             {
                 ItemMeta meta = getItemMeta();
                 List<String> lore = Lists.newArrayList();
@@ -160,7 +152,7 @@ public class HorseShopListener implements Listener {
                 setItemMeta(meta);
             }
         }, 450, Lists.newArrayList(ChatColor.LIGHT_PURPLE + "Cost: " + ChatColor.AQUA + "450 points.", ChatColor.GOLD + "FattySteed")),
-        Horse2(new ItemStack(Material.GOLD_CHESTPLATE, 1) {
+        Horse2(new ItemStack(Material.GOLD_BARDING, 1) {
             {
                 ItemMeta meta = getItemMeta();
                 List<String> lore = Lists.newArrayList();
@@ -170,7 +162,7 @@ public class HorseShopListener implements Listener {
                 setItemMeta(meta);
             }
         }, 600, Lists.newArrayList(ChatColor.LIGHT_PURPLE + "Cost: " + ChatColor.AQUA + "600 points.", ChatColor.GOLD + "Normal Horse")),
-        Horse3(new ItemStack(Material.IRON_CHESTPLATE, 1) {
+        Horse3(new ItemStack(Material.IRON_BARDING, 1) {
             {
                 ItemMeta meta = getItemMeta();
                 List<String> lore = Lists.newArrayList();
@@ -180,7 +172,7 @@ public class HorseShopListener implements Listener {
                 setItemMeta(meta);
             }
         }, 800, Lists.newArrayList(ChatColor.LIGHT_PURPLE + "Cost: " + ChatColor.AQUA + "800 points.", ChatColor.GOLD + "Good Steed")),
-        Horse4(new ItemStack(Material.DIAMOND_CHESTPLATE, 1) {
+        Horse4(new ItemStack(Material.DIAMOND_BARDING, 1) {
             {
                 ItemMeta meta = getItemMeta();
                 List<String> lore = Lists.newArrayList();
@@ -194,9 +186,6 @@ public class HorseShopListener implements Listener {
 
         private ItemStack itemStack, shopItem;
         private int points;
-        private PotionEffect potionEffect;
-        private Effect effect;
-        private Collection<String> events;
 
         private RewardItem(ItemStack itemStack, int points, List<String> saleInfo) {
             this.itemStack = itemStack;
@@ -205,23 +194,6 @@ public class HorseShopListener implements Listener {
             ItemMeta meta = shopItem.getItemMeta();
             meta.setLore(saleInfo);
             shopItem.setItemMeta(meta);
-        }
-
-        private RewardItem(ItemStack itemStack, int points, List<String> saleInfo, PotionEffect potionEffect, Effect effect, Event... events) {
-            this.itemStack = itemStack;
-            this.points = points;
-            shopItem = getItem().clone();
-            ItemMeta meta = shopItem.getItemMeta();
-            meta.setLore(saleInfo);
-            shopItem.setItemMeta(meta);
-            this.potionEffect = potionEffect;
-            this.effect = effect;
-            this.events = Collections2.transform(Sets.newHashSet(events), new Function<Event, String>() {
-                @Override
-                public String apply(Event event) {
-                    return event.getEventName();
-                }
-            });
         }
 
         public ItemStack getItem() {
@@ -234,18 +206,6 @@ public class HorseShopListener implements Listener {
 
         public ItemStack getShopItem() {
             return shopItem;
-        }
-
-        public boolean hasEffects() {
-            return potionEffect != null && effect != null;
-        }
-
-        public PotionEffect getPotionEffect() {
-            return potionEffect;
-        }
-
-        public Effect getEffect() {
-            return effect;
         }
     }
 }

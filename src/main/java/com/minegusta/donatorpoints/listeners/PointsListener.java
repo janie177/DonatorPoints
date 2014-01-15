@@ -1,8 +1,11 @@
 package com.minegusta.donatorpoints.listeners;
 
 import com.minegusta.donatorpoints.DonatorPointsPlugin;
+import com.minegusta.donatorpoints.DropTable;
 import com.minegusta.donatorpoints.data.DataManager;
 import org.bukkit.ChatColor;
+import org.bukkit.Location;
+import org.bukkit.World;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
@@ -102,23 +105,23 @@ public class PointsListener implements Listener {
                     default:
                         if (level < 5) points = 1;
                         else if (level > 4 && level < 10) points = 1;
-                        else if (level > 9 && level < 15) points = 1;
-                        else if (level > 14 && level < 20) points = 2;
-                        else if (level > 19 && level < 25) points = 2;
-                        else if (level > 24 && level < 30) points = 3;
-                        else if (level == 30) points = 4;
-                        break;
-                }
-                Random rand = new Random();
-                if (points > 0)
-                    if (points == 1) {
-                        if (rand.nextInt(3) == 2)
-                            DataManager.setPointsFromPlayer(superMan, DataManager.getPointsFromPlayer(superMan) + points);
+                        else if (level > 9 && level < 15) points = 2;
+                        else if (level > 14 && level < 20) points = 3;
+                        else if (level > 19 && level < 25) points = 4;
+                        else if (level > 24 && level < 30) points = 5;
+                        else if (level == 30) points = 6;
+                        event.getDrops().clear();
+                        Random rand = new Random();
+                        int chance = rand.nextInt(101);
+                        if (chance < 15) {
+                            Location location = entity.getLocation();
+                            World world = entity.getWorld();
+                            world.dropItemNaturally(location, DropTable.selectDrop(level, entity.getType()));
+                            break;
+                        }
+                        DataManager.setPointsFromPlayer(superMan, DataManager.getPointsFromPlayer(superMan) + points);
 
-                    } else if (points > 1) {
-                        if (rand.nextInt(2) == 1)
-                            DataManager.setPointsFromPlayer(superMan, DataManager.getPointsFromPlayer(superMan) + points);
-                    }
+                }
             }
         }
     }

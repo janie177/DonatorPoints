@@ -50,7 +50,7 @@ public class DataManager {
         pointsSave.saveToFile();
         nPCSave.saveToFile();
         timedDataSave.saveToFile();
-        PlayerData.savePlayerData();
+        PlayerData.saveData();
     }
 
     public static int startSaveTask() {

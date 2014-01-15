@@ -8,7 +8,12 @@ import com.minegusta.donatorpoints.commands.NPCSpawnCommand;
 import com.minegusta.donatorpoints.commands.PointsCommand;
 import com.minegusta.donatorpoints.data.DataManager;
 import com.minegusta.donatorpoints.data.TimedDatas;
-import com.minegusta.donatorpoints.listeners.*;
+import com.minegusta.donatorpoints.listeners.HorseListener;
+import com.minegusta.donatorpoints.listeners.PlayerListener;
+import com.minegusta.donatorpoints.listeners.PointsListener;
+import com.minegusta.donatorpoints.listeners.QuitListener;
+import com.minegusta.donatorpoints.listeners.items.ItemListener;
+import com.minegusta.donatorpoints.listeners.shops.*;
 import com.minegusta.donatorpoints.playerdata.PlayerData;
 import com.sk89q.worldguard.bukkit.WorldGuardPlugin;
 import org.bukkit.Bukkit;
@@ -46,14 +51,7 @@ public class DonatorPointsPlugin extends CensoredJavaPlugin {
             WORLD_GUARD_ENABLED = manager.isPluginEnabled("WorldGuard") && manager.getPlugin("WorldGuard") instanceof WorldGuardPlugin;
 
             // listener
-            manager.registerEvents(new PointsListener(), this);
-            manager.registerEvents(new MobHealthManager(), this);
-            manager.registerEvents(new ShopListener(), this);
-            manager.registerEvents(new MobSpawnManager(), this);
-            manager.registerEvents(new NPCManager(), this);
-            manager.registerEvents(new PlayerListener(), this);
-            manager.registerEvents(new HorseShopListener(), this);
-            manager.registerEvents(new HorseListener(), this);
+            registerListeners();
 
             // command
             getCommand("points").setExecutor(new PointsCommand());
@@ -111,6 +109,25 @@ public class DonatorPointsPlugin extends CensoredJavaPlugin {
         }
 
         getLogger().info("Disabled!");
+    }
+
+    public void registerListeners() {
+        PluginManager manager = Bukkit.getPluginManager();
+
+        manager.registerEvents(new PointsListener(), this);
+        manager.registerEvents(new MobHealthManager(), this);
+        manager.registerEvents(new ShopListener(), this);
+        manager.registerEvents(new MobSpawnManager(), this);
+        manager.registerEvents(new NPCManager(), this);
+        manager.registerEvents(new PlayerListener(), this);
+        manager.registerEvents(new HorseShopListener(), this);
+        manager.registerEvents(new HorseListener(), this);
+        manager.registerEvents(new WeaponShopListener(), this);
+        manager.registerEvents(new MiscShopListener(), this);
+        manager.registerEvents(new PotionShopListener(), this);
+        manager.registerEvents(new FoodShopListener(), this);
+        manager.registerEvents(new ArmourShopListener(), this);
+        manager.registerEvents(new ItemListener(), this);
     }
 
 

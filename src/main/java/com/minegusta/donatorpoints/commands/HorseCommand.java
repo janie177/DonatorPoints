@@ -60,6 +60,11 @@ public class HorseCommand implements CommandExecutor {
 
                 //Did they wait 15 minutes?
                 if (difference >= coolDownTime) {
+
+                    //Kill old horse.
+                    HorseListener.killHorse(HorseListener.playerMap.get(uuid), player.getWorld());
+
+                    //Spawn new horse
                     Entity entityHorse = player.getWorld().spawnEntity(location, EntityType.HORSE);
                     Horse horse = (Horse) entityHorse;
 
@@ -150,6 +155,9 @@ public class HorseCommand implements CommandExecutor {
                     sendText(player, customizehelp);
 
                 }
+            } else {
+                List<String> helpMenu = Lists.newArrayList("/Horse " + ChatColor.GRAY + "- Shows this menu.", "/Horse Summon " + ChatColor.GRAY + "- Summon your horse. Has 15 minute cooldown.", "/Horse Cooldown " + ChatColor.GRAY + "- Shows cooldown time remaining.", "/Horse Info " + ChatColor.GRAY + "- Shows your horse's current look.", "/Horse Customize " + ChatColor.GRAY + "- Customize your horse's look.");
+                sendText(player, helpMenu);
             }
         }
         return true;

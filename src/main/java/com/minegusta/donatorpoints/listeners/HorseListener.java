@@ -3,7 +3,6 @@ package com.minegusta.donatorpoints.listeners;
 import com.google.common.collect.Maps;
 import com.minegusta.donatorpoints.DonatorPointsPlugin;
 import org.bukkit.Bukkit;
-import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Horse;
@@ -14,8 +13,8 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
+import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
-import org.bukkit.inventory.ItemStack;
 
 import java.util.UUID;
 import java.util.concurrent.ConcurrentMap;
@@ -25,16 +24,32 @@ public class HorseListener implements Listener {
     public static ConcurrentMap<UUID, UUID> horseMap = Maps.newConcurrentMap();
     public static ConcurrentMap<UUID, UUID> playerMap = Maps.newConcurrentMap();
 
+
+    //Stop people from taking horses items.
+
+    @EventHandler
+    public void onHorseInvOpen(InventoryOpenEvent e) {
+        if (!e.getPlayer().getWorld().getName().toLowerCase().equals(DonatorPointsPlugin.world)) return;
+        else if (e.getInventory().getHolder() instanceof Horse) {
+            e.setCancelled(true);
+        }
+    }
+
+
+    //Stop people from getting drops from horse.
+
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onHorseDeath(EntityDeathEvent e) {
         if (!e.getEntity().getWorld().getName().toLowerCase().equals(DonatorPointsPlugin.world)) return;
         LivingEntity entity = e.getEntity();
         if (entity instanceof Horse) {
             e.setDroppedExp(0);
-            e.getDrops().set(1, new ItemStack(Material.AIR, 1));
+            e.getDrops().clear();
             killHorse(entity.getUniqueId(), entity.getWorld());
         }
     }
+
+    //Remove horse on relog.
 
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onPlayerQuit(PlayerQuitEvent e) {
@@ -48,6 +63,8 @@ public class HorseListener implements Listener {
 
     }
 
+    //Remove horse on player death.
+
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onPlayerDeath(PlayerDeathEvent e) {
         if (!e.getEntity().getWorld().getName().toLowerCase().equals(DonatorPointsPlugin.world)) return;
@@ -59,9 +76,9 @@ public class HorseListener implements Listener {
 
     }
 
-    public static void killHorse(UUID uuid, World world) {
+    public static void killHorse(UUID horseUUID, World world) {
         for (Entity entity : Bukkit.getServer().getWorld(world.getName()).getEntities()) {
-            if (entity.getUniqueId().equals(uuid)) {
+            if (entity.getUniqueId().equals(horseUUID)) {
                 LivingEntity horse = (LivingEntity) entity;
                 UUID playerUUID = horseMap.get(horse.getUniqueId());
                 playerMap.remove(playerUUID);

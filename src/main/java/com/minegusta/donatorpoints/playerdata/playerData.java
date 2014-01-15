@@ -11,35 +11,77 @@ import java.io.File;
 
 public class PlayerData {
 
-    public static FileConfiguration playerData;
-    public static File playerDataFile;
+    public static FileConfiguration horseData;
+    public static File horseDataFile;
+    public static FileConfiguration statusData;
+    public static File statusDataFile;
+    public static FileConfiguration levelData;
+    public static File levelDataFile;
 
 
-    public static void loadPlayerData(Plugin p) {
+    public static void loadHorseData(Plugin p) {
         try {
-            playerDataFile = new File(p.getDataFolder(), "playerdata.yml");
 
+            horseDataFile = new File(p.getDataFolder(), "horsedata.yml");
 
-            if (!playerDataFile.exists()) {
-                p.saveResource("playerdata.yml", false);
-                playerData = YamlConfiguration.loadConfiguration(playerDataFile);
-                playerData.options().copyDefaults(true);
-                playerData.save(playerDataFile);
-
-                Bukkit.getLogger().info("Successfully created playerdata.yml");
+            if (!horseDataFile.exists()) {
+                p.saveResource("horsedata.yml", false);
+                Bukkit.getLogger().info("Successfully created " + horseDataFile.getName() + ".");
             }
-            playerData = YamlConfiguration.loadConfiguration(playerDataFile);
+            horseData = YamlConfiguration.loadConfiguration(horseDataFile);
+
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-
-    public static void savePlayerData() {
+    public static void loadStatusData(Plugin p) {
         try {
-            playerData.save(playerDataFile);
+
+            statusDataFile = new File(p.getDataFolder(), "statusdata.yml");
+
+            if (!statusDataFile.exists()) {
+                p.saveResource("statusdata.yml", false);
+                Bukkit.getLogger().info("Successfully created " + statusDataFile.getName() + ".");
+            }
+            statusData = YamlConfiguration.loadConfiguration(statusDataFile);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void loadLevelData(Plugin p) {
+        try {
+
+            levelDataFile = new File(p.getDataFolder(), "leveldata.yml");
+
+            if (!levelDataFile.exists()) {
+                p.saveResource("leveldata.yml", false);
+                Bukkit.getLogger().info("Successfully created " + levelDataFile.getName() + ".");
+            }
+            levelData = YamlConfiguration.loadConfiguration(levelDataFile);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void loadPlayerData(Plugin p) {
+        loadLevelData(p);
+        loadHorseData(p);
+        loadStatusData(p);
+    }
+
+
+    public static void saveData() {
+        try {
+            horseData.save(horseDataFile);
+            statusData.save(statusDataFile);
+            levelData.save(levelDataFile);
+
         } catch (Exception ignored) {
-            Bukkit.getLogger().severe(ChatColor.RED + "Could not save playerData!");
+            Bukkit.getLogger().severe(ChatColor.RED + "Could not save Data!");
         }
     }
 }

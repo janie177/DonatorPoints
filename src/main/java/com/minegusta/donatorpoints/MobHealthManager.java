@@ -21,8 +21,7 @@ public class MobHealthManager implements Listener {
         Entity entity = e.getEntity();
         if (!entity.getWorld().getName().toLowerCase().equals(DonatorPointsPlugin.world)) {
             return;
-        }
-        if (entity instanceof LivingEntity) {
+        } else if (entity instanceof LivingEntity) {
             LivingEntity mob = (LivingEntity) entity;
             String name = mob.getCustomName();
 
@@ -33,7 +32,7 @@ public class MobHealthManager implements Listener {
             double mobHitPoints = mob.getHealth();
             double maxHealth = mob.getMaxHealth();
 
-            if (mobHitPoints <= (maxHealth / 2) && MobSpawnManager.monsterHealth.containsKey(mob.getUniqueId())) {
+            if (mobHitPoints <= ((maxHealth / 3) * 2) && MobSpawnManager.monsterHealth.containsKey(mob.getUniqueId())) {
                 int refillLife = MobSpawnManager.monsterHealth.get(mob.getUniqueId());
                 if (refillLife == 1) {
                     MobSpawnManager.monsterHealth.remove(mob.getUniqueId());
