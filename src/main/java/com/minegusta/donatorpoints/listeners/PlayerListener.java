@@ -33,7 +33,6 @@ public class PlayerListener implements Listener {
     }
 
     ConcurrentMap<String, List<ItemStack>> invMap = Maps.newConcurrentMap();
-
     //Add deaths to player.
     @EventHandler
     public void onPlayerDeath(PlayerDeathEvent e) {
@@ -45,13 +44,24 @@ public class PlayerListener implements Listener {
             //player inv managing.
 
             List<ItemStack> inv = Lists.newArrayList();
+            List<ItemStack> remainingInv = Lists.newArrayList();
 
+            for (ItemStack i : player.getInventory().getContents()) {
+                remainingInv.add(i);
+            }
 
             for (ItemStack i : player.getInventory().getArmorContents()) {
                 inv.add(i);
+                remainingInv.remove(i);
             }
             inv.add(player.getInventory().getItem(0));
             invMap.put(player.getName(), inv);
+            e.getDrops().clear();
+            for (ItemStack i : remainingInv) {
+                e.getDrops().add(i);
+            }
+
+
         }
     }
 
