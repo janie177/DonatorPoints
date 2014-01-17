@@ -4,14 +4,12 @@ import com.censoredsoftware.censoredlib.CensoredLibPlugin;
 import com.censoredsoftware.censoredlib.helper.CensoredJavaPlugin;
 import com.censoredsoftware.censoredlib.helper.QuitReasonHandler;
 import com.minegusta.donatorpoints.commands.HorseCommand;
+import com.minegusta.donatorpoints.commands.LevelCommand;
 import com.minegusta.donatorpoints.commands.NPCSpawnCommand;
 import com.minegusta.donatorpoints.commands.PointsCommand;
 import com.minegusta.donatorpoints.data.DataManager;
 import com.minegusta.donatorpoints.data.TimedDatas;
-import com.minegusta.donatorpoints.listeners.HorseListener;
-import com.minegusta.donatorpoints.listeners.PlayerListener;
-import com.minegusta.donatorpoints.listeners.PointsListener;
-import com.minegusta.donatorpoints.listeners.QuitListener;
+import com.minegusta.donatorpoints.listeners.*;
 import com.minegusta.donatorpoints.listeners.items.ItemListener;
 import com.minegusta.donatorpoints.listeners.shops.*;
 import com.minegusta.donatorpoints.playerdata.PlayerData;
@@ -57,6 +55,7 @@ public class DonatorPointsPlugin extends CensoredJavaPlugin {
             getCommand("points").setExecutor(new PointsCommand());
             getCommand("npc").setExecutor(new NPCSpawnCommand());
             getCommand("horse").setExecutor(new HorseCommand());
+            getCommand("level").setExecutor(new LevelCommand());
 
             // data
             DataManager.load();
@@ -128,6 +127,7 @@ public class DonatorPointsPlugin extends CensoredJavaPlugin {
         manager.registerEvents(new FoodShopListener(), this);
         manager.registerEvents(new ArmourShopListener(), this);
         manager.registerEvents(new ItemListener(), this);
+        manager.registerEvents(new LevelListener(), this);
     }
 
 

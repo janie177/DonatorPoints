@@ -119,18 +119,39 @@ public class Data {
         getLevelConfig().set(mojangID + ".level", level);
     }
 
+    public static void addLevelPoints(UUID mojangID, Integer amount) {
+        getLevelConfig().set(mojangID + ".skillpoints", getLevelPoints(mojangID) + amount);
+    }
+
+    public static void removeLevelPoints(UUID mojangID, Integer amount) {
+        getLevelConfig().set(mojangID + ".skillpoints", getLevelPoints(mojangID) - amount);
+    }
+
+    public static void addLevel(UUID mojangID, Integer level) {
+        getLevelConfig().set(mojangID + ".level", getLevel(mojangID) + level);
+    }
+
     public static void setExperience(UUID mojangID, Integer experience) {
         getLevelConfig().set(mojangID + ".experience", experience);
     }
 
+    public static void addExperience(UUID mojangID, Integer experience) {
+        getLevelConfig().set(mojangID + ".experience", getExperience(mojangID) + experience);
+    }
+
     public static int getLevel(UUID mojangID) {
-        if (!getLevelConfig().isSet(mojangID + ".level")) return 0;
+        if (!getLevelConfig().isSet(mojangID + ".level")) return 1;
         return getLevelConfig().getInt(mojangID + ".level");
     }
 
     public static int getExperience(UUID mojangID) {
         if (!getLevelConfig().isSet(mojangID + ".experience")) return 0;
         return getLevelConfig().getInt(mojangID + ".experience");
+    }
+
+    public static int getLevelPoints(UUID mojangID) {
+        if (!getLevelConfig().isSet(mojangID + ".skillpoints")) return 0;
+        return getLevelConfig().getInt(mojangID + ".skillpoints");
     }
 
     //RACE

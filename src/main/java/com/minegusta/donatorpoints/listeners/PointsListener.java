@@ -2,6 +2,7 @@ package com.minegusta.donatorpoints.listeners;
 
 import com.minegusta.donatorpoints.DonatorPointsPlugin;
 import com.minegusta.donatorpoints.DropTable;
+import com.minegusta.donatorpoints.LevelManager;
 import com.minegusta.donatorpoints.data.DataManager;
 import com.minegusta.donatorpoints.playerdata.Data;
 import org.bukkit.ChatColor;
@@ -18,6 +19,7 @@ import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityDeathEvent;
 
 import java.util.Random;
+import java.util.UUID;
 
 public class PointsListener implements Listener {
     @EventHandler(priority = EventPriority.MONITOR)
@@ -113,6 +115,15 @@ public class PointsListener implements Listener {
                         else if (level > 24 && level < 30) points = 5;
                         else if (level == 30) points = 6;
                         event.getDrops().clear();
+
+                        //add experience.
+
+                        UUID uuid = superMan.getUniqueId();
+
+                        LevelManager.addExp(uuid, level);
+
+                        //Chance for drops
+
                         Random rand = new Random();
                         int chance = rand.nextInt(101);
                         if (chance < 15) {
@@ -121,6 +132,7 @@ public class PointsListener implements Listener {
                             world.dropItemNaturally(location, DropTable.selectDrop(level, entity.getType()));
                             break;
                         }
+                        //add points.
                         DataManager.setPointsFromPlayer(superMan, DataManager.getPointsFromPlayer(superMan) + points);
 
                 }

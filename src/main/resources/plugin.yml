@@ -11,6 +11,9 @@ commands:
     usage: /NPC Name
   horse:
     usage: /Horse
+  level:
+    usage: /Level
+    aliases: [l, rpg, lv, lvl, exp, experience]
 permissions:
   minegusta.donator:
     default: op

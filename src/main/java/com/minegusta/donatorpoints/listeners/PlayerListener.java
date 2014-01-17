@@ -33,12 +33,16 @@ public class PlayerListener implements Listener {
     }
 
     ConcurrentMap<String, List<ItemStack>> invMap = Maps.newConcurrentMap();
+
     //Add deaths to player.
     @EventHandler
     public void onPlayerDeath(PlayerDeathEvent e) {
         if (e.getEntity().getWorld().getName().toLowerCase().equals(DonatorPointsPlugin.world)) {
             Player player = e.getEntity();
             UUID uuid = player.getUniqueId();
+
+            //add death
+
             Data.addDeaths(uuid, 1);
 
             //player inv managing.
