@@ -122,6 +122,10 @@ public class PointsListener implements Listener {
 
                         LevelManager.addExp(uuid, level);
 
+                        //Check for level up.
+
+                        LevelManager.levelUp(superMan);
+
                         //Chance for drops
 
                         Random rand = new Random();

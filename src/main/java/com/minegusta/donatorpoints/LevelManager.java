@@ -135,6 +135,7 @@ public class LevelManager {
         if (getExpForLevel(nextLevel) <= exp) {
 
             Data.setLevel(playerUUID, nextLevel);
+            Data.addLevelPoints(playerUUID, 1);
             player.sendMessage(ChatColor.DARK_AQUA + "[" + ChatColor.DARK_GREEN + "Level Up" + ChatColor.DARK_AQUA + "] " + ChatColor.YELLOW + "Congratulations! You are now level " + ChatColor.AQUA + nextLevel + ChatColor.YELLOW + ".");
             sendFireWork(player);
 
