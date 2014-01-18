@@ -21,7 +21,7 @@ public class MysteryBoxListener implements Listener {
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onBoxPlace(BlockPlaceEvent e) {
         ItemStack item = e.getItemInHand();
-        if (item.getType().equals(Material.CHEST) && item.getItemMeta().hasLore() && item.getItemMeta().getLore().contains("Rightclick the air to open!")) {
+        if (item.getType().equals(Material.CHEST) && item.getItemMeta().hasLore() && item.getItemMeta().getLore().toString().contains("Rightclick the air to open!")) {
             e.setCancelled(true);
         }
 
@@ -31,9 +31,9 @@ public class MysteryBoxListener implements Listener {
     @EventHandler
     public void onMysteryBoxOpen(PlayerInteractEvent e) {
         Player player = e.getPlayer();
-        if (e.getAction().equals(Action.RIGHT_CLICK_AIR) && player.getItemInHand().getType() != Material.AIR) {
+        if (e.getAction().equals(Action.RIGHT_CLICK_AIR) && player.getItemInHand().getType().equals(Material.CHEST)) {
             if (!player.getItemInHand().getItemMeta().hasLore()) return;
-            if (player.getItemInHand().getType().equals(Material.CHEST) && player.getItemInHand().getItemMeta().getLore().toString().contains("Rightclick the air to open!")) {
+            if (player.getItemInHand().getItemMeta().getLore().toString().contains("Rightclick the air to open!")) {
                 player.sendMessage(ChatColor.DARK_PURPLE + "[Mystery Box]" + ChatColor.AQUA + " You start opening the box....");
                 int oldAmount = player.getItemInHand().getAmount();
                 int newAmount = oldAmount - 1;

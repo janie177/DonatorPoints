@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="abad91f1-1a3d-48e5-bcab-a35a6579d945" name="Default" comment="Re-added check for null points to PointsCommand.">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/listeners/shops/HorseShopListener.java" afterPath="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/listeners/shops/HorseShopListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/listeners/LevelListener.java" afterPath="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/listeners/LevelListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/commands/PointsCommand.java" afterPath="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/commands/PointsCommand.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" />
+    <list default="true" id="abad91f1-1a3d-48e5-bcab-a35a6579d945" name="Default" comment="Fixed /points permission. Lowered horse jump. Better null check for offline players.">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/DonatorPointsPlugin.java" afterPath="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/DonatorPointsPlugin.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/DropTable.java" afterPath="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/DropTable.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/listeners/items/MysteryBoxListener.java" afterPath="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/listeners/items/MysteryBoxListener.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -79,7 +78,7 @@
       <file leaf-file-name="pom.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="18" selection-start="400" selection-end="400" vertical-scroll-proportion="0.21829855" vertical-offset="0" max-vertical-offset="2754">
+            <state line="8" column="18" selection-start="400" selection-end="400" vertical-scroll-proportion="0.21971253" vertical-offset="29" max-vertical-offset="2754">
               <folding />
             </state>
           </provider>
@@ -133,10 +132,8 @@
         <option value="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/listeners/items/ItemListener.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/commands/HorseCommand.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/listeners/HorseListener.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/listeners/items/MysteryBoxListener.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/data/DataManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/listeners/shops/ShopListener.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/DropTable.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/MobHealthManager.java" />
         <option value="$PROJECT_DIR$/src/main/resources/playerdata.yml" />
         <option value="$PROJECT_DIR$/src/main/resources/statusdata.yml" />
@@ -145,7 +142,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/playerdata/PlayerData.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/npc/DetailedNPC.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/listeners/scoreboard/ScoreBoardManager.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/DonatorPointsPlugin.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/listeners/PointsListener.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/LevelManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/listeners/shops/PotionShopListener.java" />
@@ -160,6 +156,9 @@
         <option value="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/commands/PointsCommand.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/listeners/shops/HorseShopListener.java" />
         <option value="$PROJECT_DIR$/src/main/resources/plugin.yml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/listeners/items/MysteryBoxListener.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/DonatorPointsPlugin.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/DropTable.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
@@ -923,7 +922,11 @@
       <created>1390052833227</created>
       <updated>1390052833227</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="Fixed /points permission. Lowered horse jump. Better null check for offline players.">
+      <created>1390060919443</created>
+      <updated>1390060919443</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -960,17 +963,17 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26937738" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23761117" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32909784" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16483517" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24297924" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17534943" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34815755" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3299363" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23761117" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="CVS" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32242423" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.249694" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -1014,7 +1017,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Added Color support to villager names and redid stack removing.&#10;" />
     <MESSAGE value="Fixed removing of itemstack for real now. Fixed messages mengling." />
     <MESSAGE value="Replaced Skeletal Warlord default spawning with wolves. A little less deadly." />
     <MESSAGE value="Replaced Skeletal Warlord default spawning with wolves. A little less deadly.&#10;" />
@@ -1039,7 +1041,8 @@
     <MESSAGE value="Redone /points command again. Now flawless." />
     <MESSAGE value="Added message for the receiver of money." />
     <MESSAGE value="Re-added check for null points to PointsCommand." />
-    <option name="LAST_COMMIT_MESSAGE" value="Re-added check for null points to PointsCommand." />
+    <MESSAGE value="Fixed /points permission. Lowered horse jump. Better null check for offline players." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed /points permission. Lowered horse jump. Better null check for offline players." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -1133,13 +1136,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/DropTable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="0" selection-start="2454" selection-end="2454" vertical-scroll-proportion="0.0" vertical-offset="285" max-vertical-offset="4505">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/playerdata.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="15" column="20" selection-start="393" selection-end="393" vertical-scroll-proportion="0.44894367" vertical-offset="0" max-vertical-offset="568" />
@@ -1196,20 +1192,6 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/playerdata/PlayerData.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="20" column="0" selection-start="558" selection-end="558" vertical-scroll-proportion="-0.13403417" vertical-offset="340" max-vertical-offset="1479">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/DonatorPointsPlugin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="121" column="98" selection-start="4612" selection-end="4612" vertical-scroll-proportion="0.55321944" vertical-offset="1262" max-vertical-offset="2057">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/listeners/PointsListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="126" column="55" selection-start="4908" selection-end="4908" vertical-scroll-proportion="0.5308804" vertical-offset="1415" max-vertical-offset="2261">
           <folding />
         </state>
       </provider>
@@ -1291,13 +1273,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/listeners/items/MysteryBoxListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="0" selection-start="694" selection-end="694" vertical-scroll-proportion="0.272" vertical-offset="0" max-vertical-offset="2737">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/commands/LevelCommand.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="33" column="348" selection-start="2739" selection-end="2739" vertical-scroll-proportion="0.544" vertical-offset="153" max-vertical-offset="1734">
@@ -1310,13 +1285,6 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/commands/HorseCommand.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="156" column="59" selection-start="8565" selection-end="8565" vertical-scroll-proportion="2.9266667" vertical-offset="117" max-vertical-offset="3910">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/listeners/LevelListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="76" column="33" selection-start="3630" selection-end="3630" vertical-scroll-proportion="1.3826667" vertical-offset="0" max-vertical-offset="3400">
           <folding />
         </state>
       </provider>
@@ -1358,14 +1326,49 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/commands/PointsCommand.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="26" selection-start="4295" selection-end="4295" vertical-scroll-proportion="1.5327868" vertical-offset="0" max-vertical-offset="1632">
+        <state line="33" column="101" selection-start="2075" selection-end="2075" vertical-scroll-proportion="0.6131148" vertical-offset="0" max-vertical-offset="1632">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/listeners/items/MysteryBoxListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="46" selection-start="936" selection-end="936" vertical-scroll-proportion="0.50163937" vertical-offset="0" max-vertical-offset="2737">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/DonatorPointsPlugin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="131" column="10" selection-start="5186" selection-end="5186" vertical-scroll-proportion="0.0" vertical-offset="1447" max-vertical-offset="2074">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/DropTable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="248" column="44" selection-start="10411" selection-end="10411" vertical-scroll-proportion="0.57425743" vertical-offset="3882" max-vertical-offset="4505">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/listeners/PointsListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="135" column="58" selection-start="5246" selection-end="5246" vertical-scroll-proportion="0.8267327" vertical-offset="1638" max-vertical-offset="2261">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/listeners/LevelListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="90" column="30" selection-start="4323" selection-end="4323" vertical-scroll-proportion="2.6898735" vertical-offset="0" max-vertical-offset="3400">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="18" selection-start="400" selection-end="400" vertical-scroll-proportion="0.21829855" vertical-offset="0" max-vertical-offset="2754">
+        <state line="8" column="18" selection-start="400" selection-end="400" vertical-scroll-proportion="0.21971253" vertical-offset="29" max-vertical-offset="2754">
           <folding />
         </state>
       </provider>

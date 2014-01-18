@@ -11,6 +11,7 @@ import com.minegusta.donatorpoints.data.DataManager;
 import com.minegusta.donatorpoints.data.TimedDatas;
 import com.minegusta.donatorpoints.listeners.*;
 import com.minegusta.donatorpoints.listeners.items.ItemListener;
+import com.minegusta.donatorpoints.listeners.items.MysteryBoxListener;
 import com.minegusta.donatorpoints.listeners.shops.*;
 import com.minegusta.donatorpoints.playerdata.PlayerData;
 import com.sk89q.worldguard.bukkit.WorldGuardPlugin;
@@ -128,6 +129,7 @@ public class DonatorPointsPlugin extends CensoredJavaPlugin {
         manager.registerEvents(new ArmourShopListener(), this);
         manager.registerEvents(new ItemListener(), this);
         manager.registerEvents(new LevelListener(), this);
+        manager.registerEvents(new MysteryBoxListener(), this);
     }
 
 

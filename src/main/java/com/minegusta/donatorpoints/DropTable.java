@@ -258,7 +258,7 @@ public class DropTable {
             }
             break;
         }
-        int number = rand.nextInt(dropList.size() + 1);
+        int number = rand.nextInt(dropList.size());
         return dropList.get(number);
     }
 
