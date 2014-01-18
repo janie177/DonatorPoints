@@ -20,7 +20,7 @@ public class PointsCommand implements CommandExecutor {
             if (s instanceof ConsoleCommandSender) return true;
 
             Player p = (Player) s;
-
+            if (DataManager.getPointsFromPlayer(p) == null) DataManager.setPointsFromPlayer(p, 0);
             List<String> help = Lists.newArrayList(" ", "You currently have " + ChatColor.AQUA + DataManager.getPointsFromPlayer(p) + ChatColor.YELLOW + " Points.", " ", ChatColor.GOLD + " - - - - - - - - - - - - - - - - - - - - - - -", "/Points" + ChatColor.GRAY + " - Shows this menu", "/Points Pay <Name> <Amount>" + ChatColor.GRAY + " - Pay a player points.", "/Points Set <Name> <Amount>" + ChatColor.GRAY + " - Set someone's points.", "/Points Add <Name> <Amount>" + ChatColor.GRAY + " - Add points to a player.");
             List<String> insufficientFunds = Lists.newArrayList(ChatColor.RED + "You do not have that many points!");
             List<String> wrongPlayer = Lists.newArrayList(ChatColor.RED + "Player is not online or does not exist!");
