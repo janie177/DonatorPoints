@@ -1,8 +1,10 @@
 package com.minegusta.donatorpoints.listeners;
 
 
+import com.google.common.collect.Lists;
 import com.minegusta.donatorpoints.DonatorPointsPlugin;
 import com.minegusta.donatorpoints.playerdata.Data;
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
@@ -13,9 +15,12 @@ import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 
+import java.util.List;
+
 public class LevelListener implements Listener {
 
     //Listen for equiping of items. Check for the level and see if it is possible.
+    List<String> help = Lists.newArrayList("You cannot equip this armour piece.", "Your level is not high enough.", "Use " + ChatColor.AQUA + "/levels" + ChatColor.YELLOW + " for more help.");
 
     public void onInteractArmour(PlayerInteractEvent e) {
         if (!e.getPlayer().getWorld().getName().toLowerCase().equals(DonatorPointsPlugin.world)) return;
@@ -38,6 +43,9 @@ public class LevelListener implements Listener {
             } else if (m.equals(Material.DIAMOND_CHESTPLATE) || m.equals(Material.DIAMOND_BOOTS) || m.equals(Material.DIAMOND_HELMET) || m.equals(Material.DIAMOND_LEGGINGS)) {
                 if (!canEquip(p, i)) e.setCancelled(true);
             }
+            if (e.isCancelled()) {
+                sendText(p, help);
+            }
         }
     }
 
@@ -52,13 +60,18 @@ public class LevelListener implements Listener {
         ItemStack r = e.getClickedInventory().getItem(e.getSlot());
 
         if (clickType.equals(ClickType.SHIFT_LEFT) || clickType.equals(ClickType.SHIFT_RIGHT)) {
-            if (!canEquip(p, i)) e.setCancelled(true);
+            if (!canEquip(p, i)) {
+                sendText(p, help);
+                e.setCancelled(true);
+            }
         } else if (clickType.equals(ClickType.LEFT)) {
             InventoryType.SlotType s = e.getSlotType();
             if (s.equals(InventoryType.SlotType.ARMOR)) {
-                if (!canReplaceEquipment(p, i, r)) e.setCancelled(true);
+                if (!canReplaceEquipment(p, i, r)) {
+                    e.setCancelled(true);
+                    sendText(p, help);
+                }
             }
-
         }
     }
 
@@ -163,6 +176,13 @@ public class LevelListener implements Listener {
                 break;
         }
         return points;
+    }
+
+    private void sendText(Player p, List<String> l) {
+        for (String s : l) {
+            p.sendMessage(ChatColor.DARK_RED + "[" + ChatColor.GOLD + "RPG" + ChatColor.DARK_RED + "]" + ChatColor.YELLOW + s);
+
+        }
     }
 
 
