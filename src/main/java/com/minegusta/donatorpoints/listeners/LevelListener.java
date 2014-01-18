@@ -8,6 +8,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.inventory.ClickType;
@@ -21,13 +22,17 @@ import java.util.List;
 public class LevelListener implements Listener {
 
     //Listen for equiping of items. Check for the level and see if it is possible.
-    List<String> help = Lists.newArrayList("You cannot equip this armour piece.", "Your level is not high enough.", "Use " + ChatColor.AQUA + "/levels" + ChatColor.YELLOW + " for more help.");
+    List<String> help = Lists.newArrayList("You cannot equip this armour piece.", "Your level is not high enough.", "Use " + ChatColor.AQUA + "/level" + ChatColor.YELLOW + " for more help.");
 
+    @EventHandler
     public void onInteractArmour(PlayerInteractEvent e) {
         if (!e.getPlayer().getWorld().getName().toLowerCase().equals(DonatorPointsPlugin.world)) return;
-        else if (!e.getAction().equals(Action.RIGHT_CLICK_AIR) || !e.getAction().equals(Action.RIGHT_CLICK_BLOCK))
+        else if (!e.getAction().equals(Action.RIGHT_CLICK_AIR) || !e.getAction().equals(Action.RIGHT_CLICK_BLOCK)) {
+            //TODO REMOVE
+            Bukkit.getServer().broadcastMessage("Debug: PlayerInteractEvent not the right action type! " + e.getAction().toString());
+            //TODO REMOVE
             return;
-        else {
+        } else {
 
             //TODO REMOVE
             Bukkit.getServer().broadcastMessage("Debug: PlayerInteractEvent innitiated.");
@@ -75,34 +80,34 @@ public class LevelListener implements Listener {
         }
     }
 
+    @EventHandler
     public void onClickArmour(InventoryClickEvent e) {
         if (!e.getWhoClicked().getWorld().getName().toLowerCase().equals(DonatorPointsPlugin.world)) return;
         else if (!e.getClickedInventory().getType().equals(InventoryType.PLAYER)) return;
-        else if (e.getCurrentItem().getType().equals(Material.AIR)) return;
 
         //TODO REMOVE
         Bukkit.getServer().broadcastMessage("Debug: Inventory Click initiated.");
         //TODO REMOVE
         ClickType clickType = e.getClick();
         Player p = (Player) e.getWhoClicked();
-        ItemStack i = e.getCurrentItem();
-        ItemStack r = e.getClickedInventory().getItem(e.getSlot());
+        ItemStack replacement = e.getCurrentItem();
+        ItemStack oldItem = e.getClickedInventory().getItem(e.getSlot());
 
         if (clickType.equals(ClickType.SHIFT_LEFT) || clickType.equals(ClickType.SHIFT_RIGHT)) {
-            if (!canEquip(p, i)) {
+            if (!canEquip(p, replacement)) {
                 sendText(p, help);
                 e.setCancelled(true);
             }
-        } else if (clickType.equals(ClickType.LEFT) && !r.getType().equals(Material.AIR)) {
+        } else if ((clickType.equals(ClickType.LEFT) || clickType.equals(ClickType.RIGHT)) && !oldItem.getType().equals(Material.AIR)) {
             InventoryType.SlotType s = e.getSlotType();
             if (s.equals(InventoryType.SlotType.ARMOR)) {
-                if (!canReplaceEquipment(p, i, r)) {
+                if (!canReplaceEquipment(p, oldItem, replacement)) {
                     e.setCancelled(true);
                     sendText(p, help);
                 }
             }
-        } else if (clickType.equals(ClickType.LEFT)) {
-            if (canEquip(p, i)) {
+        } else if (clickType.equals(ClickType.LEFT) || clickType.equals(ClickType.RIGHT)) {
+            if (!canEquip(p, replacement)) {
                 sendText(p, help);
                 e.setCancelled(true);
             }

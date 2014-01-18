@@ -60,6 +60,7 @@ public class PlayerListener implements Listener {
             }
             inv.add(player.getInventory().getItem(0));
             invMap.put(player.getName(), inv);
+            remainingInv.remove(player.getInventory().getItem(0));
             e.getDrops().clear();
             for (ItemStack i : remainingInv) {
                 e.getDrops().add(i);
