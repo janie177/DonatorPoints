@@ -6,7 +6,6 @@ softdepend: [CensoredLib, WorldEdit, WorldGuard]
 commands:
   points:
     usage: /Points
-    permission: minegusta.donator
   npc:
     usage: /NPC Name
   horse:

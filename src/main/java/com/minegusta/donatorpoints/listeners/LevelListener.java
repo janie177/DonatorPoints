@@ -35,19 +35,35 @@ public class LevelListener implements Listener {
             if (m.equals(Material.AIR)) return;
 
             if (m.equals(Material.LEATHER_CHESTPLATE) || m.equals(Material.LEATHER_BOOTS) || m.equals(Material.LEATHER_HELMET) || m.equals(Material.LEATHER_LEGGINGS)) {
-                if (!canEquip(p, i)) e.setCancelled(true);
+                if (!canEquip(p, i)) {
+                    p.updateInventory();
+                    sendText(p, help);
+                    e.setCancelled(true);
+                }
             } else if (m.equals(Material.GOLD_CHESTPLATE) || m.equals(Material.GOLD_BOOTS) || m.equals(Material.GOLD_HELMET) || m.equals(Material.GOLD_LEGGINGS)) {
-                if (!canEquip(p, i)) e.setCancelled(true);
+                if (!canEquip(p, i)) {
+                    p.updateInventory();
+                    sendText(p, help);
+                    e.setCancelled(true);
+                }
             } else if (m.equals(Material.CHAINMAIL_CHESTPLATE) || m.equals(Material.CHAINMAIL_BOOTS) || m.equals(Material.CHAINMAIL_HELMET) || m.equals(Material.CHAINMAIL_LEGGINGS)) {
-                if (!canEquip(p, i)) e.setCancelled(true);
+                if (!canEquip(p, i)) {
+                    p.updateInventory();
+                    sendText(p, help);
+                    e.setCancelled(true);
+                }
             } else if (m.equals(Material.IRON_CHESTPLATE) || m.equals(Material.IRON_BOOTS) || m.equals(Material.IRON_HELMET) || m.equals(Material.IRON_LEGGINGS)) {
-                if (!canEquip(p, i)) e.setCancelled(true);
+                if (!canEquip(p, i)) {
+                    p.updateInventory();
+                    sendText(p, help);
+                    e.setCancelled(true);
+                }
             } else if (m.equals(Material.DIAMOND_CHESTPLATE) || m.equals(Material.DIAMOND_BOOTS) || m.equals(Material.DIAMOND_HELMET) || m.equals(Material.DIAMOND_LEGGINGS)) {
-                if (!canEquip(p, i)) e.setCancelled(true);
-            }
-            if (e.isCancelled()) {
-                p.updateInventory();
-                sendText(p, help);
+                if (!canEquip(p, i)) {
+                    p.updateInventory();
+                    sendText(p, help);
+                    e.setCancelled(true);
+                }
             }
         }
     }

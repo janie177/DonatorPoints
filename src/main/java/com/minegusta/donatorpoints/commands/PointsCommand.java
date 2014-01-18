@@ -30,6 +30,7 @@ public class PointsCommand implements CommandExecutor {
             else if (args[0].equalsIgnoreCase("Pay") || args[0].equalsIgnoreCase("give")) {
                 try {
                     OfflinePlayer person = Bukkit.getOfflinePlayer(args[1]);
+                    if (DataManager.getPointsFromPlayer(person) == null) DataManager.setPointsFromPlayer(person, 0);
                     long personPoints = (long) DataManager.getPointsFromPlayer(person);
                     long points = (long) Integer.parseInt(args[2]);
                     List<String> success = Lists.newArrayList("You successfully paid " + person.getName() + ChatColor.AQUA + " " + points + ChatColor.YELLOW + " points.");
@@ -54,6 +55,7 @@ public class PointsCommand implements CommandExecutor {
             } else if (args[0].equalsIgnoreCase("add") && p.isOp()) {
                 try {
                     OfflinePlayer person = Bukkit.getOfflinePlayer(args[1]);
+                    if (DataManager.getPointsFromPlayer(person) == null) DataManager.setPointsFromPlayer(person, 0);
                     long personPoints = (long) DataManager.getPointsFromPlayer(person);
                     long points = (long) Integer.parseInt(args[2]);
                     List<String> success = Lists.newArrayList("You successfully added " + ChatColor.AQUA + points + ChatColor.YELLOW + " points to " + person.getName());
@@ -69,6 +71,7 @@ public class PointsCommand implements CommandExecutor {
             } else if (args[0].equalsIgnoreCase("set") && p.isOp()) {
                 try {
                     OfflinePlayer person = Bukkit.getOfflinePlayer(args[1]);
+                    if (DataManager.getPointsFromPlayer(person) == null) DataManager.setPointsFromPlayer(person, 0);
                     long personPoints = (long) DataManager.getPointsFromPlayer(person);
                     long points = (long) Integer.parseInt(args[2]);
                     List<String> success = Lists.newArrayList("You successfully set " + person.getName() + "'s points to " + ChatColor.AQUA + points);

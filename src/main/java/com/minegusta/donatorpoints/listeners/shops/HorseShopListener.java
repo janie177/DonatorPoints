@@ -107,7 +107,7 @@ public class HorseShopListener implements Listener {
                 } else if (theItemToAdd.getType().equals(Material.GOLD_BARDING)) {
                     Data.setHorseColor(uuid, "black");
                     Data.setHorseName(uuid, "Default Name");
-                    Data.setHorseJump(uuid, 1.2);
+                    Data.setHorseJump(uuid, 1.1);
                     Data.setHorseSpeed(uuid, 1.4);
                     Data.setHorseStyle(uuid, "none");
                     Data.setHorseArmour(uuid, "gold");
@@ -116,15 +116,15 @@ public class HorseShopListener implements Listener {
                 } else if (theItemToAdd.getType().equals(Material.IRON_BARDING)) {
                     Data.setHorseColor(uuid, "black");
                     Data.setHorseName(uuid, "Default Name");
-                    Data.setHorseJump(uuid, 1.4);
-                    Data.setHorseSpeed(uuid, 1.7);
+                    Data.setHorseJump(uuid, 1.15);
+                    Data.setHorseSpeed(uuid, 1.6);
                     Data.setHorseStyle(uuid, "none");
                     Data.setHorseArmour(uuid, "iron");
                     Data.setHasHorse(uuid, true);
                 } else if (theItemToAdd.getType().equals(Material.DIAMOND_BARDING)) {
                     Data.setHorseColor(uuid, "black");
                     Data.setHorseName(uuid, "Default Name");
-                    Data.setHorseJump(uuid, 1.7);
+                    Data.setHorseJump(uuid, 1.2);
                     Data.setHorseSpeed(uuid, 2.1);
                     Data.setHorseStyle(uuid, "none");
                     Data.setHorseArmour(uuid, "diamond");
