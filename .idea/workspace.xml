@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="abad91f1-1a3d-48e5-bcab-a35a6579d945" name="Default" comment="Fixed horse path for real. Added debug messages to armour listener.">
+    <list default="true" id="abad91f1-1a3d-48e5-bcab-a35a6579d945" name="Default" comment="Added death command info. Removed 1st itemstack dupe. Removed air check at LevelListener InventoryClickEvent.">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/commands/LevelCommand.java" afterPath="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/commands/LevelCommand.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/listeners/LevelListener.java" afterPath="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/listeners/LevelListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/listeners/PlayerListener.java" afterPath="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/listeners/PlayerListener.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -78,7 +76,7 @@
       <file leaf-file-name="LevelListener.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/listeners/LevelListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="115" column="9" selection-start="5471" selection-end="5471" vertical-scroll-proportion="0.0" vertical-offset="1275" max-vertical-offset="4267">
+            <state line="114" column="9" selection-start="5464" selection-end="5464" vertical-scroll-proportion="0.0" vertical-offset="1938" max-vertical-offset="4250">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -89,7 +87,7 @@
       <file leaf-file-name="LevelCommand.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/commands/LevelCommand.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="68" column="29" selection-start="3994" selection-end="3994" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1258">
+            <state line="31" column="340" selection-start="2600" selection-end="2600" vertical-scroll-proportion="0.0" vertical-offset="836" max-vertical-offset="1734">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -100,7 +98,7 @@
       <file leaf-file-name="pom.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="18" selection-start="400" selection-end="400" vertical-scroll-proportion="0.17824377" vertical-offset="0" max-vertical-offset="2754">
+            <state line="8" column="18" selection-start="400" selection-end="400" vertical-scroll-proportion="0.1923621" vertical-offset="0" max-vertical-offset="2754">
               <folding />
             </state>
           </provider>
@@ -908,7 +906,11 @@
       <created>1390008898951</created>
       <updated>1390008898951</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Added death command info. Removed 1st itemstack dupe. Removed air check at LevelListener InventoryClickEvent.">
+      <created>1390035899069</created>
+      <updated>1390035899069</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -945,17 +947,17 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26937738" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23761117" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32909784" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14652015" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27045178" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15628971" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.068615" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3299363" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23761117" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="CVS" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32242423" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.249694" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -999,7 +1001,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Small name change because I can.&#10;From Fallen Villager to Fallen Citizen.&#10;" />
     <MESSAGE value="New mob system with worldguard regions.&#10;Fixed some other things aswell like an unregistered listener." />
     <MESSAGE value="Fixed custom spawning of entities calling the event over and over." />
     <MESSAGE value="Added a free shop as well. Still gotta add items.&#10;Stopped /butcher -n in the Donator world&#10;" />
@@ -1024,7 +1025,8 @@
     <MESSAGE value="Added check for leveling up on receicing exp." />
     <MESSAGE value="Fixed &quot;horse&quot; typo in shop messages. Lowered firework duration on level. Fixed horse path." />
     <MESSAGE value="Fixed horse path for real. Added debug messages to armour listener." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed horse path for real. Added debug messages to armour listener." />
+    <MESSAGE value="Added death command info. Removed 1st itemstack dupe. Removed air check at LevelListener InventoryClickEvent." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added death command info. Removed 1st itemstack dupe. Removed air check at LevelListener InventoryClickEvent." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -1328,7 +1330,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/listeners/LevelListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="115" column="9" selection-start="5471" selection-end="5471" vertical-scroll-proportion="0.0" vertical-offset="1275" max-vertical-offset="4267">
+        <state line="114" column="9" selection-start="5464" selection-end="5464" vertical-scroll-proportion="0.0" vertical-offset="1938" max-vertical-offset="4250">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1337,7 +1339,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/commands/LevelCommand.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="68" column="29" selection-start="3994" selection-end="3994" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1258">
+        <state line="31" column="340" selection-start="2600" selection-end="2600" vertical-scroll-proportion="0.0" vertical-offset="836" max-vertical-offset="1734">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1346,7 +1348,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="18" selection-start="400" selection-end="400" vertical-scroll-proportion="0.17824377" vertical-offset="0" max-vertical-offset="2754">
+        <state line="8" column="18" selection-start="400" selection-end="400" vertical-scroll-proportion="0.1923621" vertical-offset="0" max-vertical-offset="2754">
           <folding />
         </state>
       </provider>
