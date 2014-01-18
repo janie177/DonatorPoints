@@ -27,7 +27,7 @@ public class LevelListener implements Listener {
     @EventHandler
     public void onInteractArmour(PlayerInteractEvent e) {
         if (!e.getPlayer().getWorld().getName().toLowerCase().equals(DonatorPointsPlugin.world)) return;
-        else if (!e.getAction().equals(Action.RIGHT_CLICK_AIR) || !e.getAction().equals(Action.RIGHT_CLICK_BLOCK)) {
+        else if (!(e.getAction().equals(Action.RIGHT_CLICK_AIR)) || !(e.getAction().equals(Action.RIGHT_CLICK_BLOCK))) {
             //TODO REMOVE
             Bukkit.getServer().broadcastMessage("Debug: PlayerInteractEvent not the right action type! " + e.getAction().toString());
             //TODO REMOVE
@@ -90,28 +90,23 @@ public class LevelListener implements Listener {
         //TODO REMOVE
         ClickType clickType = e.getClick();
         Player p = (Player) e.getWhoClicked();
-        ItemStack replacement = e.getCurrentItem();
-        ItemStack oldItem = e.getClickedInventory().getItem(e.getSlot());
+        ItemStack itemClicked = e.getCurrentItem();
+        ItemStack heldItem = e.getCursor();
 
         if (clickType.equals(ClickType.SHIFT_LEFT) || clickType.equals(ClickType.SHIFT_RIGHT)) {
-            if (!canEquip(p, replacement)) {
+            if (!canEquip(p, itemClicked)) {
                 sendText(p, help);
                 e.setCancelled(true);
             }
-        } else if ((clickType.equals(ClickType.LEFT) || clickType.equals(ClickType.RIGHT)) && !oldItem.getType().equals(Material.AIR)) {
+        } else if ((clickType.equals(ClickType.LEFT) || clickType.equals(ClickType.RIGHT))) {
             InventoryType.SlotType s = e.getSlotType();
             if (s.equals(InventoryType.SlotType.ARMOR)) {
-                if (!canReplaceEquipment(p, oldItem, replacement)) {
+                if (heldItem == null) ;
+                else if (!canReplaceEquipment(p, itemClicked, heldItem)) {
                     e.setCancelled(true);
                     sendText(p, help);
                 }
             }
-        } else if (clickType.equals(ClickType.LEFT) || clickType.equals(ClickType.RIGHT)) {
-            if (!canEquip(p, replacement)) {
-                sendText(p, help);
-                e.setCancelled(true);
-            }
-
         }
     }
 

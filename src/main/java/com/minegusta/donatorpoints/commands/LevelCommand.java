@@ -68,22 +68,22 @@ public class LevelCommand implements CommandExecutor {
 
 
         if (p.getInventory().getChestplate() != null) {
-            body = ChatColor.YELLOW + " - " + ChatColor.AQUA + inv.getChestplate().toString();
+            body = ChatColor.YELLOW + " - " + ChatColor.AQUA + inv.getChestplate().getType().toString();
         }
         if (p.getInventory().getBoots() != null) {
-            boots = ChatColor.YELLOW + " - " + ChatColor.AQUA + inv.getBoots().toString();
+            boots = ChatColor.YELLOW + " - " + ChatColor.AQUA + inv.getBoots().getType().toString();
 
         }
         if (p.getInventory().getHelmet() != null) {
-            helmet = ChatColor.YELLOW + " - " + ChatColor.AQUA + inv.getHelmet().toString();
+            helmet = ChatColor.YELLOW + " - " + ChatColor.AQUA + inv.getHelmet().getType().toString();
 
         }
         if (p.getInventory().getLeggings() != null) {
-            pants = ChatColor.YELLOW + " - " + ChatColor.AQUA + inv.getLeggings().toString();
+            pants = ChatColor.YELLOW + " - " + ChatColor.AQUA + inv.getLeggings().getType().toString();
 
         }
         if (p.getInventory().getItem(0) != null) {
-            slot = ChatColor.YELLOW + " - " + ChatColor.AQUA + p.getInventory().getItem(0).toString();
+            slot = ChatColor.YELLOW + " - " + ChatColor.AQUA + p.getInventory().getItem(0).getType().toString();
         }
         list.add(body);
         list.add(boots);
