@@ -144,7 +144,7 @@ public class LevelManager {
     }
 
     public static void addExp(UUID playerUUID, int monsterLevel) {
-        int expToAdd = monsterLevel * 3 + Data.getLevel(playerUUID);
+        int expToAdd = (monsterLevel * 2) + 4;
         Data.addExperience(playerUUID, expToAdd);
     }
 

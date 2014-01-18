@@ -130,7 +130,7 @@ public class PointsListener implements Listener {
 
                         Random rand = new Random();
                         int chance = rand.nextInt(101);
-                        if (chance < 15) {
+                        if (chance < 28) {
                             Location location = entity.getLocation();
                             World world = entity.getWorld();
                             world.dropItemNaturally(location, DropTable.selectDrop(level, entity.getType()));
