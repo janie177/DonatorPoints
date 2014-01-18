@@ -4,6 +4,7 @@ import com.google.common.collect.Lists;
 import com.minegusta.donatorpoints.data.DataManager;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.OfflinePlayer;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -17,74 +18,67 @@ public class PointsCommand implements CommandExecutor {
     public boolean onCommand(CommandSender s, Command cmd, String label, String[] args) {
         if (cmd.getName().equalsIgnoreCase("points")) {
             if (s instanceof ConsoleCommandSender) return true;
+
             Player p = (Player) s;
-            int points = Integer.parseInt(args[2]);
-            int senderPoints = DataManager.getPointsFromPlayer(p);
-            Player receiver = Bukkit.getOfflinePlayer(args[1]).getPlayer();
-            int receiverPoints = DataManager.getPointsFromPlayer(receiver);
 
-
-            List<String> help = Lists.newArrayList("Your currently have " + ChatColor.AQUA + DataManager.getPointsFromPlayer(p) + ChatColor.YELLOW + "Points.", ChatColor.GOLD + " - - - - - - - - - - - - - ", "/Points" + ChatColor.GRAY + " - Shows this menu", "/Points Pay <Name> <Amount>" + ChatColor.GRAY + " - Pay a player points.", "/Points <Name>" + ChatColor.GRAY + " - See someone's points.", "/Points Set <Name> <Amount>" + ChatColor.GRAY + " - Set someone's points.", "/Points Add <Name> <Amount>" + ChatColor.GRAY + " - Add points to a player.");
+            List<String> help = Lists.newArrayList(" ", "You currently have " + ChatColor.AQUA + DataManager.getPointsFromPlayer(p) + ChatColor.YELLOW + " Points.", " ", ChatColor.GOLD + " - - - - - - - - - - - - - - - - - - - - - - -", "/Points" + ChatColor.GRAY + " - Shows this menu", "/Points Pay <Name> <Amount>" + ChatColor.GRAY + " - Pay a player points.", "/Points Set <Name> <Amount>" + ChatColor.GRAY + " - Set someone's points.", "/Points Add <Name> <Amount>" + ChatColor.GRAY + " - Add points to a player.");
             List<String> insufficientFunds = Lists.newArrayList(ChatColor.RED + "You do not have that many points!");
             List<String> wrongPlayer = Lists.newArrayList(ChatColor.RED + "Player is not online or does not exist!");
-            List<String> success = Lists.newArrayList("Sucessfully added " + ChatColor.AQUA + points + ChatColor.YELLOW + " points to " + receiver.getName());
-            List<String> pointsFromPlayer = Lists.newArrayList(receiver.getName() + " has " + ChatColor.AQUA + receiverPoints + ChatColor.YELLOW + " points.");
 
 
             if (args.length == 0) sendText(p, help);
             else if (args[0].equalsIgnoreCase("Pay") || args[0].equalsIgnoreCase("give")) {
-                if (args.length < 3) sendText(p, help);
-                else {
-
-
+                try {
+                    OfflinePlayer person = Bukkit.getOfflinePlayer(args[1]);
+                    long personPoints = (long) DataManager.getPointsFromPlayer(person);
+                    long points = (long) Integer.parseInt(args[2]);
+                    List<String> success = Lists.newArrayList("You successfully paid " + person.getName() + ChatColor.AQUA + " " + points + ChatColor.YELLOW + " points.");
+                    List<String> self = Lists.newArrayList(ChatColor.RED + "You cannot pay yourself.");
                     for (Player player : Bukkit.getOnlinePlayers()) {
-                        if (player.equals(receiver)) {
-                            if (points > senderPoints) sendText(p, insufficientFunds);
+                        if (player.equals(person)) {
+                            if (p.equals(person)) sendText(p, self);
                             else {
-
-                                DataManager.setPointsFromPlayer(receiver, receiverPoints + points);
-                                DataManager.setPointsFromPlayer(p, senderPoints - points);
+                                DataManager.setPointsFromPlayer(p, DataManager.getPointsFromPlayer(p) - (int) points);
+                                DataManager.setPointsFromPlayer(person, DataManager.getPointsFromPlayer(person) + (int) points);
                                 sendText(p, success);
-                                return true;
                             }
                         }
                     }
+
+                } catch (Exception error) {
                     sendText(p, wrongPlayer);
-
                 }
 
-            } else if (args[0].equalsIgnoreCase("add")) {
-                if (args.length < 3) sendText(p, help);
-                else {
+            } else if (args[0].equalsIgnoreCase("add") && p.isOp()) {
+                try {
+                    OfflinePlayer person = Bukkit.getOfflinePlayer(args[1]);
+                    long personPoints = (long) DataManager.getPointsFromPlayer(person);
+                    long points = (long) Integer.parseInt(args[2]);
+                    List<String> success = Lists.newArrayList("You successfully added " + ChatColor.AQUA + points + ChatColor.YELLOW + " points to " + person.getName());
                     for (Player player : Bukkit.getOnlinePlayers()) {
-                        if (player.equals(receiver)) {
-                            DataManager.setPointsFromPlayer(receiver, receiverPoints + points);
+                        if (player.equals(person)) {
+                            DataManager.setPointsFromPlayer(person, (int) personPoints + (int) points);
                             sendText(p, success);
-                            return true;
                         }
                     }
+                } catch (Exception error) {
+                    sendText(p, wrongPlayer);
                 }
-                sendText(p, wrongPlayer);
-            } else if (args[0].equalsIgnoreCase("set")) {
-                if (args.length < 3) sendText(p, help);
-                else {
+            } else if (args[0].equalsIgnoreCase("set") && p.isOp()) {
+                try {
+                    OfflinePlayer person = Bukkit.getOfflinePlayer(args[1]);
+                    long personPoints = (long) DataManager.getPointsFromPlayer(person);
+                    long points = (long) Integer.parseInt(args[2]);
+                    List<String> success = Lists.newArrayList("You successfully set " + person.getName() + "'s points to " + ChatColor.AQUA + points);
                     for (Player player : Bukkit.getOnlinePlayers()) {
-                        if (player.equals(receiver)) {
-                            DataManager.setPointsFromPlayer(receiver, points);
+                        if (player.equals(person)) {
+                            DataManager.setPointsFromPlayer(person, (int) points);
                             sendText(p, success);
-                            return true;
                         }
                     }
+                } catch (Exception error) {
+                    sendText(p, wrongPlayer);
                 }
-                sendText(p, wrongPlayer);
-            } else if (args.length == 1) {
-                for (Player player : Bukkit.getOnlinePlayers()) {
-                    if (player.equals(receiver)) {
-                        sendText(p, pointsFromPlayer);
-                    }
-                }
-                sendText(p, wrongPlayer);
-
             } else {
                 sendText(p, help);
             }
