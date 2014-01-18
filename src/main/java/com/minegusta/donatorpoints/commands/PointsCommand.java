@@ -40,6 +40,8 @@ public class PointsCommand implements CommandExecutor {
                             else {
                                 DataManager.setPointsFromPlayer(p, DataManager.getPointsFromPlayer(p) - (int) points);
                                 DataManager.setPointsFromPlayer(person, DataManager.getPointsFromPlayer(person) + (int) points);
+                                Player lePlayer = (Player) person;
+                                lePlayer.sendMessage(ChatColor.YELLOW + p.getName() + " paid you " + ChatColor.AQUA + points + ChatColor.YELLOW + " points.");
                                 sendText(p, success);
                             }
                         }
