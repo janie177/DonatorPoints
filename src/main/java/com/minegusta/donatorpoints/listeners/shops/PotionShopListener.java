@@ -86,7 +86,7 @@ public class PotionShopListener implements Listener {
                 int pointsPresent = DataManager.getPointsFromPlayer(entityPlayer);
 
                 if (points > pointsPresent) {
-                    entityPlayer.sendMessage(ChatColor.RED + "You do not have enough points to buy that horse. Use " + ChatColor.AQUA + "/points" + ChatColor.RED + ".");
+                    entityPlayer.sendMessage(ChatColor.RED + "You do not have enough points to buy that. Use " + ChatColor.AQUA + "/points" + ChatColor.RED + ".");
                     player.closeInventory();
                     return;
                 }
@@ -136,7 +136,7 @@ public class PotionShopListener implements Listener {
             {
                 ItemMeta meta = getItemMeta();
                 List<String> lore = Lists.newArrayList();
-                lore.add(ChatColor.GRAY + "An apple a day didn't keep the doctor away.");
+                lore.add(ChatColor.GRAY + "An apple a day didn't keeps the doctor away.");
                 meta.setLore(lore);
                 meta.setDisplayName(ChatColor.YELLOW + "Potion of Health II");
                 setItemMeta(meta);
@@ -176,7 +176,7 @@ public class PotionShopListener implements Listener {
             {
                 ItemMeta meta = getItemMeta();
                 List<String> lore = Lists.newArrayList();
-                lore.add(ChatColor.GRAY + "Also effective against fleas... And your pet. Anything living really.");
+                lore.add(ChatColor.GRAY + "Also effective against fleas...");
                 meta.setLore(lore);
                 meta.setDisplayName(ChatColor.YELLOW + "Splash Potion of Damage");
                 setItemMeta(meta);

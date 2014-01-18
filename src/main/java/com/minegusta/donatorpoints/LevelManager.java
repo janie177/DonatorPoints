@@ -155,7 +155,7 @@ public class LevelManager {
     }
 
     private static void sendFireWork(final Player player) {
-        for (int i = 0; i < 61; i++) {
+        for (int i = 0; i < 5; i++) {
             Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(DonatorPointsPlugin.PLUGIN, new Runnable() {
                 @Override
                 public void run() {

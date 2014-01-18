@@ -86,7 +86,7 @@ public class ArmourShopListener implements Listener {
                 int pointsPresent = DataManager.getPointsFromPlayer(entityPlayer);
 
                 if (points > pointsPresent) {
-                    entityPlayer.sendMessage(ChatColor.RED + "You do not have enough points to buy that horse. Use " + ChatColor.AQUA + "/points" + ChatColor.RED + ".");
+                    entityPlayer.sendMessage(ChatColor.RED + "You do not have enough points to buy that. Use " + ChatColor.AQUA + "/points" + ChatColor.RED + ".");
                     player.closeInventory();
                     return;
                 }
