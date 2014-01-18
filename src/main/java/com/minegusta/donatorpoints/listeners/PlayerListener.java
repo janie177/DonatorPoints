@@ -58,9 +58,12 @@ public class PlayerListener implements Listener {
                 inv.add(i);
                 remainingInv.remove(i);
             }
-            inv.add(player.getInventory().getItem(0));
+            if (player.getInventory().getItem(0) != null) {
+                inv.add(player.getInventory().getItem(0));
+                remainingInv.remove(player.getInventory().getItem(0));
+            }
+
             invMap.put(player.getName(), inv);
-            remainingInv.remove(player.getInventory().getItem(0));
             e.getDrops().clear();
             for (ItemStack i : remainingInv) {
                 e.getDrops().add(i);
@@ -79,6 +82,8 @@ public class PlayerListener implements Listener {
         if (invMap.containsKey(player.getName())) {
             for (ItemStack i : inv)
                 player.getInventory().addItem(i);
+            invMap.remove(player.getName());
         }
+
     }
 }
