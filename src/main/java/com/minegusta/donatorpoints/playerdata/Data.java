@@ -108,7 +108,7 @@ public class Data {
     }
 
     public static boolean getHasHorse(UUID mojangID) {
-        if (!getHorseConfig().isSet(mojangID + ".horse.hashorse")) return false;
+        if (!getHorseConfig().isSet(mojangID + ".hashorse")) return false;
         return getHorseConfig().getBoolean(mojangID + ".hashorse");
     }
 

@@ -22,9 +22,9 @@ public class LevelCommand implements CommandExecutor {
             Player p = (Player) s;
             UUID uuid = p.getUniqueId();
 
-            List<String> helpList = Lists.newArrayList("/Level Info" + ChatColor.YELLOW + " - Show your account's details.", "/Level Armour" + ChatColor.YELLOW + " - Armour Information.", "/Horse" + ChatColor.YELLOW + " - Horse Help.");
-            List<String> info = Lists.newArrayList("Race: " + ChatColor.YELLOW + Data.getRace(uuid), "Level: " + ChatColor.YELLOW + Data.getLevel(uuid), "Kills: " + ChatColor.YELLOW + Data.getMobsKilled(uuid), "Deaths: " + ChatColor.YELLOW + Data.getDeaths(uuid), "Quests Completed: " + ChatColor.YELLOW + Data.getQuestsDone(uuid), "Experience Points: " + ChatColor.YELLOW + Data.getExperience(uuid), "Experience Till Next Level: " + ChatColor.YELLOW + LevelManager.getExpLeftTillNextLevel(uuid));
-            List<String> armourHelp = Lists.newArrayList(ChatColor.YELLOW + "Your level determines what you can wear.", ChatColor.YELLOW + "Each armour piece has a required amount of levels.", ChatColor.YELLOW + "Your level is the total amount all your armour can have.", ChatColor.GOLD + "- - - - - - -", "Leather: " + ChatColor.AQUA + "1 level.", "Gold: " + ChatColor.AQUA + "5 levels.", "ChainMail: " + ChatColor.AQUA + "10 levels.", "Iron: " + ChatColor.AQUA + "15 levels.", "Diamond: " + ChatColor.AQUA + "20 levels.", "Example:", ChatColor.YELLOW + "Wearing an iron helmet and leather boots would require level 16 (15 + 1).");
+            List<String> helpList = Lists.newArrayList("/Level Info" + ChatColor.GRAY + " - Show your account's details.", "/Level Armour" + ChatColor.GRAY + " - Armour Information.", "/Horse" + ChatColor.GRAY + " - Horse Help.");
+            List<String> info = Lists.newArrayList("Race: " + ChatColor.GRAY + Data.getRace(uuid), "Level: " + ChatColor.GRAY + Data.getLevel(uuid), "Kills: " + ChatColor.GRAY + Data.getMobsKilled(uuid), "Deaths: " + ChatColor.GRAY + Data.getDeaths(uuid), "Quests Completed: " + ChatColor.GRAY + Data.getQuestsDone(uuid), "Experience Points: " + ChatColor.GRAY + Data.getExperience(uuid), "Experience Till Next Level: " + ChatColor.GRAY + LevelManager.getExpLeftTillNextLevel(uuid));
+            List<String> armourHelp = Lists.newArrayList(ChatColor.GRAY + "Your level determines what you can wear.", ChatColor.GRAY + "Each armour piece has a required amount of levels.", ChatColor.GRAY + "Your level is the total amount all your armour can have.", ChatColor.GOLD + "- - - - - - -", "Leather: " + ChatColor.AQUA + "1 level.", "Gold: " + ChatColor.AQUA + "5 levels.", "ChainMail: " + ChatColor.AQUA + "10 levels.", "Iron: " + ChatColor.AQUA + "15 levels.", "Diamond: " + ChatColor.AQUA + "20 levels.", "Example:", ChatColor.GRAY + "Wearing an iron helmet and leather boots would require level 16 (15 + 1).");
             if (args.length == 0) sendText(p, helpList);
             else if (args[0].equalsIgnoreCase("info")) {
                 sendText(p, info);
@@ -42,7 +42,7 @@ public class LevelCommand implements CommandExecutor {
     public void sendText(Player p, List<String> text) {
         p.sendMessage(ChatColor.DARK_RED + "---------------" + ChatColor.GOLD + " RPG Help " + ChatColor.DARK_RED + "---------------");
         for (String s : text) {
-            p.sendMessage(ChatColor.RED + s);
+            p.sendMessage(ChatColor.YELLOW + s);
         }
         p.sendMessage(ChatColor.DARK_RED + "------------------------------------------");
     }

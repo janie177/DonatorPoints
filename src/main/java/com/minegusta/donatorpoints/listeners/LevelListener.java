@@ -4,6 +4,7 @@ package com.minegusta.donatorpoints.listeners;
 import com.google.common.collect.Lists;
 import com.minegusta.donatorpoints.DonatorPointsPlugin;
 import com.minegusta.donatorpoints.playerdata.Data;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -27,21 +28,46 @@ public class LevelListener implements Listener {
         else if (!e.getAction().equals(Action.RIGHT_CLICK_AIR) || !e.getAction().equals(Action.RIGHT_CLICK_BLOCK))
             return;
         else {
+
+            //TODO REMOVE
+            Bukkit.getServer().broadcastMessage("Debug: PlayerInteractEvent innitiated.");
+            //TODO REMOVE
+
+
             Player p = e.getPlayer();
             ItemStack i = p.getItemInHand();
             Material m = i.getType();
             if (m.equals(Material.AIR)) return;
 
+            //TODO REMOVE
+            Bukkit.getServer().broadcastMessage("Debug: Player: " + p.getName() + " ItemStack: " + i);
+            //TODO REMOVE
+
             if (m.equals(Material.LEATHER_CHESTPLATE) || m.equals(Material.LEATHER_BOOTS) || m.equals(Material.LEATHER_HELMET) || m.equals(Material.LEATHER_LEGGINGS)) {
                 if (!canEquip(p, i)) e.setCancelled(true);
+                //TODO REMOVE
+                Bukkit.getServer().broadcastMessage("Debug: it's leather!");
+                //TODO REMOVE
             } else if (m.equals(Material.GOLD_CHESTPLATE) || m.equals(Material.GOLD_BOOTS) || m.equals(Material.GOLD_HELMET) || m.equals(Material.GOLD_LEGGINGS)) {
                 if (!canEquip(p, i)) e.setCancelled(true);
+                //TODO REMOVE
+                Bukkit.getServer().broadcastMessage("Debug: it's Gold!");
+                //TODO REMOVE
             } else if (m.equals(Material.CHAINMAIL_CHESTPLATE) || m.equals(Material.CHAINMAIL_BOOTS) || m.equals(Material.CHAINMAIL_HELMET) || m.equals(Material.CHAINMAIL_LEGGINGS)) {
                 if (!canEquip(p, i)) e.setCancelled(true);
+                //TODO REMOVE
+                Bukkit.getServer().broadcastMessage("Debug: it's Chain!");
+                //TODO REMOVE
             } else if (m.equals(Material.IRON_CHESTPLATE) || m.equals(Material.IRON_BOOTS) || m.equals(Material.IRON_HELMET) || m.equals(Material.IRON_LEGGINGS)) {
                 if (!canEquip(p, i)) e.setCancelled(true);
+                //TODO REMOVE
+                Bukkit.getServer().broadcastMessage("Debug: it's Iron!");
+                //TODO REMOVE
             } else if (m.equals(Material.DIAMOND_CHESTPLATE) || m.equals(Material.DIAMOND_BOOTS) || m.equals(Material.DIAMOND_HELMET) || m.equals(Material.DIAMOND_LEGGINGS)) {
                 if (!canEquip(p, i)) e.setCancelled(true);
+                //TODO REMOVE
+                Bukkit.getServer().broadcastMessage("Debug: it's Diamond!");
+                //TODO REMOVE
             }
             if (e.isCancelled()) {
                 sendText(p, help);
@@ -54,6 +80,9 @@ public class LevelListener implements Listener {
         else if (!e.getClickedInventory().getType().equals(InventoryType.PLAYER)) return;
         else if (e.getCurrentItem().getType().equals(Material.AIR)) return;
 
+        //TODO REMOVE
+        Bukkit.getServer().broadcastMessage("Debug: Inventory Click initiated.");
+        //TODO REMOVE
         ClickType clickType = e.getClick();
         Player p = (Player) e.getWhoClicked();
         ItemStack i = e.getCurrentItem();
@@ -64,7 +93,7 @@ public class LevelListener implements Listener {
                 sendText(p, help);
                 e.setCancelled(true);
             }
-        } else if (clickType.equals(ClickType.LEFT)) {
+        } else if (clickType.equals(ClickType.LEFT) && !r.getType().equals(Material.AIR)) {
             InventoryType.SlotType s = e.getSlotType();
             if (s.equals(InventoryType.SlotType.ARMOR)) {
                 if (!canReplaceEquipment(p, i, r)) {
@@ -72,6 +101,12 @@ public class LevelListener implements Listener {
                     sendText(p, help);
                 }
             }
+        } else if (clickType.equals(ClickType.LEFT)) {
+            if (canEquip(p, i)) {
+                sendText(p, help);
+                e.setCancelled(true);
+            }
+
         }
     }
 
@@ -80,14 +115,21 @@ public class LevelListener implements Listener {
         for (ItemStack i : p.getInventory().getArmorContents()) {
             totalPoints = totalPoints + getPointsForItemStack(i);
         }
+        //TODO REMOVE
+        Bukkit.getServer().broadcastMessage("Debug: getTotalPoints:" + totalPoints);
+        //TODO REMOVE
         return totalPoints;
+
     }
 
     private boolean canEquip(Player p, ItemStack i) {
         int currentPoints = getTotalPoints(p);
         int addedPoints = getPointsForItemStack(i);
         int maxPoints = Data.getLevel(p.getUniqueId());
-
+        //TODO REMOVE
+        int pointle = currentPoints + addedPoints;
+        Bukkit.getServer().broadcastMessage("Debug: canEquip: " + pointle + " <= " + maxPoints);
+        //TODO REMOVE
 
         return ((currentPoints + addedPoints) <= maxPoints);
     }
@@ -97,6 +139,10 @@ public class LevelListener implements Listener {
         int itemRemoved = getPointsForItemStack(i);
         int itemAdded = getPointsForItemStack(replacement);
         int maxPoints = Data.getLevel(p.getUniqueId());
+        //TODO REMOVE
+        int pointle = currentlyEquipedPoints - itemRemoved + itemAdded;
+        Bukkit.getServer().broadcastMessage("Debug: canReplaceEquipment: " + pointle + " <= " + maxPoints);
+        //TODO REMOVE
         return ((currentlyEquipedPoints - itemRemoved) + itemAdded) <= maxPoints;
     }
 
@@ -175,6 +221,10 @@ public class LevelListener implements Listener {
                 points = 20;
                 break;
         }
+        //TODO REMOVE
+        Bukkit.getServer().broadcastMessage("Debug: getPointsForItemStack: " + points);
+        //TODO REMOVE
+
         return points;
     }
 
