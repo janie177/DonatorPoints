@@ -14,6 +14,7 @@ import com.minegusta.donatorpoints.listeners.items.ItemListener;
 import com.minegusta.donatorpoints.listeners.items.MysteryBoxListener;
 import com.minegusta.donatorpoints.listeners.shops.*;
 import com.minegusta.donatorpoints.playerdata.PlayerData;
+import com.minegusta.donatorpoints.scoreboard.ScoreBoardManager;
 import com.sk89q.worldguard.bukkit.WorldGuardPlugin;
 import org.bukkit.Bukkit;
 import org.bukkit.event.HandlerList;
@@ -27,7 +28,7 @@ public class DonatorPointsPlugin extends CensoredJavaPlugin {
     public static DonatorPointsPlugin PLUGIN;
     public static String SAVE_PATH;
     public static boolean WORLD_GUARD_ENABLED;
-    private static int SAVE_TASK, TIMED_TASK;
+    private static int SAVE_TASK, TIMED_TASK, SCOREBOARD_TASK;
     private static boolean READY = false;
 
     @Override
@@ -52,11 +53,17 @@ public class DonatorPointsPlugin extends CensoredJavaPlugin {
             // listener
             registerListeners();
 
+            //Set scoreboard
+            ScoreBoardManager.setScoreBoard();
+
             // command
             getCommand("points").setExecutor(new PointsCommand());
             getCommand("npc").setExecutor(new NPCSpawnCommand());
             getCommand("horse").setExecutor(new HorseCommand());
             getCommand("level").setExecutor(new LevelCommand());
+
+            //Run scoreboard updater
+            SCOREBOARD_TASK = ScoreBoardManager.enableScoreBoardTimer();
 
             // data
             DataManager.load();
@@ -98,6 +105,7 @@ public class DonatorPointsPlugin extends CensoredJavaPlugin {
             // data
             Bukkit.getScheduler().cancelTask(SAVE_TASK);
             Bukkit.getScheduler().cancelTask(TIMED_TASK);
+            Bukkit.getScheduler().cancelTask(SCOREBOARD_TASK);
             DataManager.save();
 
             //Kill all mobs that still have more HP.
@@ -130,6 +138,7 @@ public class DonatorPointsPlugin extends CensoredJavaPlugin {
         manager.registerEvents(new ItemListener(), this);
         manager.registerEvents(new LevelListener(), this);
         manager.registerEvents(new MysteryBoxListener(), this);
+        manager.registerEvents(new ScoreBoardListener(), this);
     }
 
 

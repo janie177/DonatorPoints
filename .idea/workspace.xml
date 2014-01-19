@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="abad91f1-1a3d-48e5-bcab-a35a6579d945" name="Default" comment="Less exp awarded, more drops.">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/commands/NPCSpawnCommand.java" afterPath="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/commands/NPCSpawnCommand.java" />
+    <list default="true" id="abad91f1-1a3d-48e5-bcab-a35a6579d945" name="Default" comment="Added villager profession support to /npc.">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/listeners/ScoreBoardListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/scoreboard/ScoreBoardManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/DonatorPointsPlugin.java" afterPath="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/DonatorPointsPlugin.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/listeners/PlayerListener.java" afterPath="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/listeners/PlayerListener.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/listeners/PointsListener.java" afterPath="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/listeners/PointsListener.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -73,10 +77,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="NPCSpawnCommand.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/commands/NPCSpawnCommand.java">
+      <file leaf-file-name="PointsListener.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/listeners/PointsListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="67" column="112" selection-start="2600" selection-end="2600" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1139">
+            <state line="125" column="82" selection-start="4812" selection-end="4812" vertical-scroll-proportion="0.0" vertical-offset="484" max-vertical-offset="2261">
               <folding />
             </state>
           </provider>
@@ -85,7 +89,7 @@
       <file leaf-file-name="pom.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="18" selection-start="400" selection-end="400" vertical-scroll-proportion="0.17824377" vertical-offset="0" max-vertical-offset="2754">
+            <state line="8" column="18" selection-start="400" selection-end="400" vertical-scroll-proportion="0.27091634" vertical-offset="0" max-vertical-offset="2754">
               <folding />
             </state>
           </provider>
@@ -116,8 +120,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/Songs.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/PointsCommand.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/NPCManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/npc/NPC.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/npc/DefaultNPC.java" />
@@ -154,18 +156,20 @@
         <option value="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/listeners/shops/WeaponShopListener.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/listeners/shops/MiscShopListener.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/playerdata/Data.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/listeners/PlayerListener.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/commands/LevelCommand.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/listeners/LevelListener.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/commands/PointsCommand.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/listeners/shops/HorseShopListener.java" />
         <option value="$PROJECT_DIR$/src/main/resources/plugin.yml" />
         <option value="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/listeners/items/MysteryBoxListener.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/DonatorPointsPlugin.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/DropTable.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/LevelManager.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/listeners/PointsListener.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/commands/NPCSpawnCommand.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/scoreboard/ScoreBoardManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/DonatorPointsPlugin.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/listeners/ScoreBoardListener.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/listeners/PlayerListener.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/listeners/PointsListener.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
@@ -324,41 +328,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="playerdata" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DonatorPoints" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DonatorPoints" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="donatorpoints" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="npc" />
+              <option name="myItemId" value="scoreboard" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -393,82 +363,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="listeners" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DonatorPoints" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DonatorPoints" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="donatorpoints" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="listeners" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="shops" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DonatorPoints" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DonatorPoints" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="donatorpoints" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="listeners" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="items" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -503,40 +397,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="data" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DonatorPoints" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DonatorPoints" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="donatorpoints" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="commands" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -941,7 +801,11 @@
       <created>1390066511133</created>
       <updated>1390066511133</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="Added villager profession support to /npc.">
+      <created>1390071620783</created>
+      <updated>1390071620783</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -978,17 +842,17 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26937738" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23761117" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32909784" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.093406595" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15201466" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20634921" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.0" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2802198" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32909784" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3299363" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23761117" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="CVS" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32242423" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.249694" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1032,7 +896,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Replaced Skeletal Warlord default spawning with wolves. A little less deadly.&#10;" />
     <MESSAGE value="Added a ton of things. Added a start for horses." />
     <MESSAGE value="Finished horse spawning commands.&#10;" />
     <MESSAGE value="Varous fixed around HorseCommands&#10;" />
@@ -1057,7 +920,8 @@
     <MESSAGE value="Fixed /points permission. Lowered horse jump. Better null check for offline players." />
     <MESSAGE value="Fixed DropTable. Registered MysteryBox listener." />
     <MESSAGE value="Less exp awarded, more drops." />
-    <option name="LAST_COMMIT_MESSAGE" value="Less exp awarded, more drops." />
+    <MESSAGE value="Added villager profession support to /npc." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added villager profession support to /npc." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -1069,16 +933,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/org/spigotmc/spigot-api/1.7.2-R0.1-SNAPSHOT/spigot-api-1.7.2-R0.1-SNAPSHOT.jar!/org/bukkit/scheduler/BukkitScheduler.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="4" selection-start="863" selection-end="884" vertical-scroll-proportion="0.3207547" vertical-offset="221" max-vertical-offset="1071" />
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/censoredsoftware/CensoredLib/1.0.0-SNAPSHOT/CensoredLib-1.0.0-SNAPSHOT.jar!/com/censoredsoftware/censoredlib/helper/MojangIdGrabber.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="42" selection-start="602" selection-end="609" vertical-scroll-proportion="0.3207547" vertical-offset="0" max-vertical-offset="1309" />
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/spigotmc/spigot-api/1.7.2-R0.1-SNAPSHOT/spigot-api-1.7.2-R0.1-SNAPSHOT.jar!/org/bukkit/entity/EntityType.class">
       <provider selected="true" editor-type-id="text-editor">
         <state line="29" column="28" selection-start="1821" selection-end="1821" vertical-scroll-proportion="0.34338138" vertical-offset="214" max-vertical-offset="1003" />
@@ -1139,11 +993,6 @@
         <state line="36" column="46" selection-start="1879" selection-end="1879" vertical-scroll-proportion="0.8073879" vertical-offset="0" max-vertical-offset="1105" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/data/TimedDatas.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="20" selection-start="509" selection-end="509" vertical-scroll-proportion="0.26736566" vertical-offset="0" max-vertical-offset="867" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/NPCManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="25" column="35" selection-start="958" selection-end="958" vertical-scroll-proportion="0.34" vertical-offset="0" max-vertical-offset="1088">
@@ -1186,13 +1035,6 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/WorldGuardManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="39" column="18" selection-start="1752" selection-end="1752" vertical-scroll-proportion="0.58933336" vertical-offset="0" max-vertical-offset="750">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/listeners/QuitListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="70" selection-start="1393" selection-end="1393" vertical-scroll-proportion="0.60315377" vertical-offset="0" max-vertical-offset="761">
           <folding />
         </state>
       </provider>
@@ -1265,26 +1107,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/listeners/PlayerListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="84" column="44" selection-start="3073" selection-end="3073" vertical-scroll-proportion="1.5413929" vertical-offset="0" max-vertical-offset="1360">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/commands/LevelCommand.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="33" column="348" selection-start="2739" selection-end="2739" vertical-scroll-proportion="0.544" vertical-offset="153" max-vertical-offset="1734">
           <folding>
             <element signature="imports" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/data/DataManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="23" selection-start="1986" selection-end="1986" vertical-scroll-proportion="-0.4901704" vertical-offset="884" max-vertical-offset="3978">
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1328,13 +1156,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/DonatorPointsPlugin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="131" column="10" selection-start="5186" selection-end="5186" vertical-scroll-proportion="0.0" vertical-offset="1447" max-vertical-offset="2074">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/DropTable.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="248" column="44" selection-start="10411" selection-end="10411" vertical-scroll-proportion="8.4476385" vertical-offset="0" max-vertical-offset="4505">
@@ -1349,13 +1170,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/LevelManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="146" column="24" selection-start="3315" selection-end="3315" vertical-scroll-proportion="0.0" vertical-offset="2144" max-vertical-offset="2873">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/commands/HorseCommand.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="132" column="82" selection-start="6926" selection-end="6926" vertical-scroll-proportion="2.5386667" vertical-offset="0" max-vertical-offset="3910">
@@ -1363,23 +1177,88 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/listeners/PointsListener.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/LevelManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="132" column="39" selection-start="5053" selection-end="5053" vertical-scroll-proportion="0.55439055" vertical-offset="1498" max-vertical-offset="2261">
+        <state line="146" column="24" selection-start="3315" selection-end="3315" vertical-scroll-proportion="0.36363637" vertical-offset="2074" max-vertical-offset="2873">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/commands/NPCSpawnCommand.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="67" column="112" selection-start="2600" selection-end="2600" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1139">
+        <state line="33" column="42" selection-start="1238" selection-end="1238" vertical-scroll-proportion="0.46911958" vertical-offset="0" max-vertical-offset="1020">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/data/TimedDatas.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="20" selection-start="509" selection-end="509" vertical-scroll-proportion="0.12877792" vertical-offset="106" max-vertical-offset="867">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/data/DataManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="63" column="49" selection-start="2317" selection-end="2317" vertical-scroll-proportion="0.5111695" vertical-offset="308" max-vertical-offset="4029">
+          <folding>
+            <element signature="e#2133#2297#0" expanded="true" />
+            <element signature="e#2286#2287#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/DonatorPointsPlugin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="137" column="22" selection-start="5383" selection-end="5383" vertical-scroll-proportion="2.5454545" vertical-offset="0" max-vertical-offset="2210">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/listeners/QuitListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="70" selection-start="1393" selection-end="1393" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="612">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/listeners/PlayerListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="83" column="53" selection-start="3055" selection-end="3055" vertical-scroll-proportion="0.0" vertical-offset="748" max-vertical-offset="1513">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/listeners/ScoreBoardListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="50" selection-start="839" selection-end="839" vertical-scroll-proportion="0.7788845" vertical-offset="0" max-vertical-offset="502">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/scoreboard/ScoreBoardManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="62" column="31" selection-start="2134" selection-end="2134" vertical-scroll-proportion="1.9143426" vertical-offset="93" max-vertical-offset="1564">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2447#2725#0" expanded="true" />
+            <element signature="e#2714#2715#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/listeners/PointsListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="125" column="82" selection-start="4812" selection-end="4812" vertical-scroll-proportion="0.0" vertical-offset="484" max-vertical-offset="2261">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="18" selection-start="400" selection-end="400" vertical-scroll-proportion="0.17824377" vertical-offset="0" max-vertical-offset="2754">
+        <state line="8" column="18" selection-start="400" selection-end="400" vertical-scroll-proportion="0.27091634" vertical-offset="0" max-vertical-offset="2754">
           <folding />
         </state>
       </provider>

@@ -5,12 +5,14 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.minegusta.donatorpoints.DonatorPointsPlugin;
 import com.minegusta.donatorpoints.playerdata.Data;
+import com.minegusta.donatorpoints.scoreboard.ScoreBoardManager;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
+import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.inventory.ItemStack;
 
@@ -85,5 +87,14 @@ public class PlayerListener implements Listener {
             invMap.remove(player.getName());
         }
 
+    }
+
+    //Add scoreboards on login to people in the right world.
+    @EventHandler
+    public void onJoin(PlayerJoinEvent e) {
+        Player p = e.getPlayer();
+        if (p.getWorld().getName().toLowerCase().equals(DonatorPointsPlugin.world)) {
+            ScoreBoardManager.setScoreboardForPlayer(p);
+        }
     }
 }
