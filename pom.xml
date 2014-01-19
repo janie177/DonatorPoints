@@ -5,10 +5,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.minegusta</groupId>
-    <artifactId>DonatorPoints</artifactId>
+    <artifactId>MinegustaRPG</artifactId>
     <version>1.7.7</version>
 
-    <name>DonatorPoints</name>
+    <name>MinegustaRPG</name>
 
     <properties> <!-- It is important to keep up to date manually. -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -111,7 +111,7 @@
     </dependencies>
 
     <build>
-        <finalName>DonatorPoints</finalName>
+        <finalName>MinegustaRPG</finalName>
         <defaultGoal>clean install</defaultGoal>
         <sourceDirectory>${basedir}/src/main/java/</sourceDirectory>
         <resources>
@@ -149,7 +149,7 @@
                 <artifactId>maven-jar-plugin</artifactId>
                 <version>2.4</version>
                 <configuration>
-                    <finalName>DonatorPoints</finalName>
+                    <finalName>MinegustaRPG</finalName>
                 </configuration>
             </plugin>
         </plugins>

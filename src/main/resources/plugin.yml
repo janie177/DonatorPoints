@@ -1,7 +1,7 @@
-main: com.minegusta.donatorpoints.DonatorPointsPlugin
+main: com.minegusta.minegustarpg.MinegustaRPGPlugin
 author: janie177
 version: ${project.version}
-name: DonatorPoints
+name: MinegustaRPG
 softdepend: [CensoredLib, WorldEdit, WorldGuard]
 commands:
   points:
