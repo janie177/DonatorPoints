@@ -15,12 +15,23 @@ public class ScoreBoardManager {
 
     static ScoreboardManager manager = Bukkit.getScoreboardManager();
     static Scoreboard sb = manager.getMainScoreboard();
+    static Objective data = setObjectives();
 
-    static Objective data = sb.registerNewObjective("playerData", "dummy");
+    public static Objective setObjectives() {
+        if (sb.getObjective("playerData") == null) {
+            data = sb.registerNewObjective("playerData", "dummy");
+        } else {
+            data = sb.getObjective("playerData");
+        }
+        return data;
+    }
+
+
     static Score level = data.getScore(Bukkit.getOfflinePlayer(ChatColor.YELLOW + "Level: "));
     static Score kills = data.getScore(Bukkit.getOfflinePlayer(ChatColor.YELLOW + "Kills: "));
     static Score deaths = data.getScore(Bukkit.getOfflinePlayer(ChatColor.YELLOW + "Deaths: "));
     static Score expLeft = data.getScore(Bukkit.getOfflinePlayer(ChatColor.YELLOW + "Exp.Left: "));
+
 
     public static String getWorldName() {
         String worldName = "noWorldGiven.";
@@ -54,6 +65,8 @@ public class ScoreBoardManager {
 
 
     public static void updateScoreboard(Player p) {
+
+
         UUID mojangID = p.getUniqueId();
         int pLevel = Data.getLevel(mojangID);
         int pDeaths = Data.getDeaths(mojangID);
