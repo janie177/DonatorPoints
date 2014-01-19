@@ -116,7 +116,7 @@ public class DropTable {
 
                 dropList.add(new ItemStack(Material.STRING, 2));
                 dropList.add(new ItemStack(Material.RAW_BEEF, 2));
-                dropList.add(new ItemStack(Material.SPIDER_EYE, 1));
+                dropList.add(new ItemStack(Material.SPIDER_EYE, 2));
 
 
                 if (monsterLevel > 4) {
@@ -124,7 +124,7 @@ public class DropTable {
                     dropList.add(new ItemStack(Material.GOLD_SWORD, 1));
                     dropList.add(new ItemStack(Material.CARROT, 2));
                     dropList.add(new ItemStack(Material.FERMENTED_SPIDER_EYE, 1));
-                    dropList.add(new ItemStack(Material.GLASS_BOTTLE, 1));
+                    dropList.add(new ItemStack(Material.GLASS_BOTTLE, 2));
 
                     if (monsterLevel > 9) {
 
