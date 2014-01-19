@@ -16,7 +16,7 @@ public class ScoreBoardManager {
     static ScoreboardManager manager = Bukkit.getScoreboardManager();
     static Scoreboard sb = manager.getMainScoreboard();
 
-    static Objective data = sb.registerNewObjective("data", "dummy");
+    static Objective data = sb.registerNewObjective("playerData", "dummy");
     static Score level = data.getScore(Bukkit.getOfflinePlayer(ChatColor.YELLOW + "Level: "));
     static Score kills = data.getScore(Bukkit.getOfflinePlayer(ChatColor.YELLOW + "Kills: "));
     static Score deaths = data.getScore(Bukkit.getOfflinePlayer(ChatColor.YELLOW + "Deaths: "));
@@ -35,7 +35,7 @@ public class ScoreBoardManager {
 
     public static void setScoreBoard() {
         data.setDisplaySlot(DisplaySlot.SIDEBAR);
-        data.setDisplayName(ChatColor.GOLD + "Data:");
+        data.setDisplayName(ChatColor.GOLD + "Your Data: ");
 
         String worldName = getWorldName();
 

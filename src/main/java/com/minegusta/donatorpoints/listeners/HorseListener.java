@@ -3,6 +3,7 @@ package com.minegusta.donatorpoints.listeners;
 import com.google.common.collect.Maps;
 import com.minegusta.donatorpoints.DonatorPointsPlugin;
 import org.bukkit.Bukkit;
+import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Horse;
@@ -15,6 +16,7 @@ import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.inventory.ItemStack;
 
 import java.util.UUID;
 import java.util.concurrent.ConcurrentMap;
@@ -43,8 +45,9 @@ public class HorseListener implements Listener {
         if (!e.getEntity().getWorld().getName().toLowerCase().equals(DonatorPointsPlugin.world)) return;
         LivingEntity entity = e.getEntity();
         if (entity instanceof Horse) {
-            e.setDroppedExp(0);
             e.getDrops().clear();
+            ((Horse) entity).getInventory().setSaddle(new ItemStack(Material.AIR, 1));
+            ((Horse) entity).getInventory().setArmor(new ItemStack(Material.AIR, 1));
             killHorse(entity.getUniqueId(), entity.getWorld());
         }
     }

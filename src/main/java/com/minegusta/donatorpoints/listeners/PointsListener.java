@@ -46,6 +46,12 @@ public class PointsListener implements Listener {
                 String name = event.getEntity().getCustomName();
                 // set points based on cause
                 String colorlessName = ChatColor.stripColor(name);
+                int level = 1;
+                try {
+                    level = Integer.parseInt(colorlessName.replaceAll("[\\D]", ""));
+                } catch (Exception ex) {
+                    return;
+                }
                 switch (entity.getType()) {
                     case ENDERMAN:
                         points = 0;
@@ -105,7 +111,6 @@ public class PointsListener implements Listener {
                         points = 0;
                         break;
                     default:
-                        int level = Integer.parseInt(colorlessName.replaceAll("[\\D]", ""));
                         Data.addMobsKilled(damager.getUniqueId(), 1);
                         if (level < 5) points = 1;
                         else if (level > 4 && level < 10) points = 1;
