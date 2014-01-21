@@ -32,6 +32,9 @@ public class PointsListener implements Listener {
             return;
         }
 
+        //set exp drops to 0 in the RPG world only
+        event.setDroppedExp(0);
+
         // get cause
         EntityDamageEvent damageEvent = entity.getLastDamageCause();
         if (damageEvent instanceof EntityDamageByEntityEvent) {
