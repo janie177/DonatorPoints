@@ -14,7 +14,7 @@ import java.util.UUID;
 public class ScoreBoardManager {
 
     static ScoreboardManager manager = Bukkit.getScoreboardManager();
-    static Scoreboard sb = manager.getMainScoreboard();
+    static Scoreboard sb = manager.getNewScoreboard();
     static Objective data = setObjectives();
 
     public static Objective setObjectives() {
@@ -56,7 +56,7 @@ public class ScoreBoardManager {
     }
 
     public static void setScoreboardForPlayer(Player p) {
-        if (p.getWorld().getName().equalsIgnoreCase("donator")) return;
+        if (!p.getWorld().getName().equalsIgnoreCase("donator")) return;
         p.setScoreboard(sb);
     }
 
