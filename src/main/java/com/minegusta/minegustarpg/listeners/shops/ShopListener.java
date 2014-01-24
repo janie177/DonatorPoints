@@ -72,6 +72,7 @@ public class ShopListener implements Listener {
     //Prevent traders from getting hurt by other non-op entities.
     @EventHandler
     public void onEntityDamageByNonOp(EntityDamageByEntityEvent e) {
+        if (!e.getEntity().getWorld().getName().equalsIgnoreCase(MinegustaRPGPlugin.world)) return;
         Entity entity = e.getEntity();
         if (entity.getType().equals(EntityType.VILLAGER)) {
 
