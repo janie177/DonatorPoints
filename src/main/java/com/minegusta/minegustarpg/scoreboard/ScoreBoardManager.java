@@ -56,6 +56,7 @@ public class ScoreBoardManager {
     }
 
     public static void setScoreboardForPlayer(Player p) {
+        if (p.getWorld().getName().equalsIgnoreCase("donator")) return;
         p.setScoreboard(sb);
     }
 
