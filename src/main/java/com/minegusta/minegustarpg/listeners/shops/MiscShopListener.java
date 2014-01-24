@@ -103,17 +103,6 @@ public class MiscShopListener implements Listener {
     }
 
     public enum RewardItem {
-
-        BOX(new ItemStack(Material.CHEST, 1) {
-            {
-                ItemMeta meta = getItemMeta();
-                List<String> lore = Lists.newArrayList();
-                lore.add(ChatColor.GRAY + "Rightclick the air to open!");
-                meta.setLore(lore);
-                meta.setDisplayName(ChatColor.GREEN + "Mystery Box");
-                setItemMeta(meta);
-            }
-        }, 300, Lists.newArrayList(ChatColor.LIGHT_PURPLE + "Cost: " + ChatColor.AQUA + "300 points.", ChatColor.GREEN + "Mystery Box")),
         STICK(new ItemStack(Material.STICK, 3) {
             {
                 ItemMeta meta = getItemMeta();

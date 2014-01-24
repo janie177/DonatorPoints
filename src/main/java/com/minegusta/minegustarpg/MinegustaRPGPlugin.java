@@ -11,7 +11,6 @@ import com.minegusta.minegustarpg.data.DataManager;
 import com.minegusta.minegustarpg.data.TimedDatas;
 import com.minegusta.minegustarpg.listeners.*;
 import com.minegusta.minegustarpg.listeners.items.ItemListener;
-import com.minegusta.minegustarpg.listeners.items.MysteryBoxListener;
 import com.minegusta.minegustarpg.listeners.shops.*;
 import com.minegusta.minegustarpg.playerdata.PlayerData;
 import com.minegusta.minegustarpg.scoreboard.ScoreBoardManager;
@@ -137,7 +136,6 @@ public class MinegustaRPGPlugin extends CensoredJavaPlugin {
         manager.registerEvents(new ArmourShopListener(), this);
         manager.registerEvents(new ItemListener(), this);
         manager.registerEvents(new LevelListener(), this);
-        manager.registerEvents(new MysteryBoxListener(), this);
         manager.registerEvents(new ScoreBoardListener(), this);
     }
 
