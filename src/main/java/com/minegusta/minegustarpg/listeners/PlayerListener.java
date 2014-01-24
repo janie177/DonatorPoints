@@ -96,6 +96,9 @@ public class PlayerListener implements Listener {
         Player p = e.getPlayer();
         if (p.getWorld().getName().toLowerCase().equals(MinegustaRPGPlugin.world)) {
             ScoreBoardManager.setScoreboardForPlayer(p);
+
+        } else {
+            ScoreBoardManager.clearScoreBoardForPlayer(p);
         }
     }
 
@@ -103,7 +106,7 @@ public class PlayerListener implements Listener {
     @EventHandler
     public void onQuit(PlayerQuitEvent e) {
         Player p = e.getPlayer();
-        if (p.getWorld().getName().toLowerCase().equals(MinegustaRPGPlugin.world)) {
+        if (!p.getWorld().getName().toLowerCase().equals(MinegustaRPGPlugin.world)) {
             ScoreBoardManager.clearScoreBoardForPlayer(p);
         }
     }
