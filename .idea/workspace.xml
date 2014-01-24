@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="abad91f1-1a3d-48e5-bcab-a35a6579d945" name="Default" comment="Fixed scoreboards in other worlds (I hope).">
+    <list default="true" id="abad91f1-1a3d-48e5-bcab-a35a6579d945" name="Default" comment="New scoreboard (Glitch with HealthBar?) and Only allow setting in RPG.">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/listeners/PlayerListener.java" afterPath="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/listeners/PlayerListener.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/scoreboard/ScoreBoardManager.java" afterPath="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/scoreboard/ScoreBoardManager.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -112,7 +113,16 @@
       <file leaf-file-name="ScoreBoardManager.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/scoreboard/ScoreBoardManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="59" column="28" selection-start="2014" selection-end="2014" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1598">
+            <state line="68" column="23" selection-start="2210" selection-end="2210" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1598">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PlayerListener.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/listeners/PlayerListener.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="106" column="58" selection-start="3837" selection-end="3837" vertical-scroll-proportion="0.0" vertical-offset="1128" max-vertical-offset="1666">
               <folding />
             </state>
           </provider>
@@ -161,7 +171,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/PlayerListener.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/player/PlayerData.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/player/PlayerSave.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/playerdata/playerData.java" />
@@ -211,6 +220,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/listeners/items/MysteryBoxListener.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/MinegustaRPGPlugin.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/scoreboard/ScoreBoardManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/listeners/PlayerListener.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
@@ -1026,7 +1036,11 @@
       <created>1390585638625</created>
       <updated>1390585638625</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="New scoreboard (Glitch with HealthBar?) and Only allow setting in RPG.">
+      <created>1390585989644</created>
+      <updated>1390585989644</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1117,7 +1131,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Added nice messages to LevelListener and added better messages to LevelCommand." />
     <MESSAGE value="Added check for leveling up on receicing exp." />
     <MESSAGE value="Fixed &quot;horse&quot; typo in shop messages. Lowered firework duration on level. Fixed horse path." />
     <MESSAGE value="Fixed horse path for real. Added debug messages to armour listener." />
@@ -1142,7 +1155,8 @@
     <MESSAGE value="Monsters no longer drop exp. Enchanted weapons are now more rare." />
     <MESSAGE value="Removed mystery box." />
     <MESSAGE value="Fixed scoreboards in other worlds (I hope)." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed scoreboards in other worlds (I hope)." />
+    <MESSAGE value="New scoreboard (Glitch with HealthBar?) and Only allow setting in RPG." />
+    <option name="LAST_COMMIT_MESSAGE" value="New scoreboard (Glitch with HealthBar?) and Only allow setting in RPG." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -1326,14 +1340,11 @@
         <state line="32" column="70" selection-start="1393" selection-end="1393" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="612" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/listeners/PlayerListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="83" column="53" selection-start="3055" selection-end="3055" vertical-scroll-proportion="0.0" vertical-offset="748" max-vertical-offset="1513" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/listeners/HorseListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="17" selection-start="1809" selection-end="1809" vertical-scroll-proportion="-0.67432153" vertical-offset="833" max-vertical-offset="1598" />
+        <state line="49" column="17" selection-start="1809" selection-end="1809" vertical-scroll-proportion="-0.67432153" vertical-offset="833" max-vertical-offset="1598">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/listeners/ScoreBoardListener.java">
@@ -1360,12 +1371,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/listeners/PointsListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="59" selection-start="1269" selection-end="1269" vertical-scroll-proportion="-1.9774011" vertical-offset="1689" max-vertical-offset="2397" />
+        <state line="36" column="59" selection-start="1269" selection-end="1269" vertical-scroll-proportion="-1.9774011" vertical-offset="1689" max-vertical-offset="2397">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/listeners/LevelListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="90" column="30" selection-start="4317" selection-end="4317" vertical-scroll-proportion="1.8008474" vertical-offset="0" max-vertical-offset="3400" />
+        <state line="90" column="30" selection-start="4317" selection-end="4317" vertical-scroll-proportion="1.8008474" vertical-offset="0" max-vertical-offset="3400">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/commands/HorseCommand.java">
@@ -1377,7 +1392,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/listeners/shops/MiscShopListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="166" column="33" selection-start="7630" selection-end="7630" vertical-scroll-proportion="0.6527571" vertical-offset="2078" max-vertical-offset="2788" />
+        <state line="166" column="33" selection-start="7630" selection-end="7630" vertical-scroll-proportion="0.6527571" vertical-offset="2078" max-vertical-offset="2788">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/commands/LevelCommand.java">
@@ -1417,7 +1434,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/scoreboard/ScoreBoardManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="28" selection-start="2014" selection-end="2014" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1598">
+        <state line="68" column="23" selection-start="2210" selection-end="2210" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1598">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/listeners/PlayerListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="106" column="58" selection-start="3837" selection-end="3837" vertical-scroll-proportion="0.0" vertical-offset="1128" max-vertical-offset="1666">
           <folding />
         </state>
       </provider>

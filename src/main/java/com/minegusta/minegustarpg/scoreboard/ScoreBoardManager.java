@@ -56,7 +56,7 @@ public class ScoreBoardManager {
     }
 
     public static void setScoreboardForPlayer(Player p) {
-        if (!p.getWorld().getName().equalsIgnoreCase("donator")) return;
+        if (!p.getWorld().getName().equalsIgnoreCase(MinegustaRPGPlugin.world)) return;
         p.setScoreboard(sb);
     }
 

@@ -13,6 +13,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.inventory.ItemStack;
 
@@ -95,6 +96,15 @@ public class PlayerListener implements Listener {
         Player p = e.getPlayer();
         if (p.getWorld().getName().toLowerCase().equals(MinegustaRPGPlugin.world)) {
             ScoreBoardManager.setScoreboardForPlayer(p);
+        }
+    }
+
+    //remove scoreboards on log out.
+    @EventHandler
+    public void onQuit(PlayerQuitEvent e) {
+        Player p = e.getPlayer();
+        if (p.getWorld().getName().toLowerCase().equals(MinegustaRPGPlugin.world)) {
+            ScoreBoardManager.clearScoreBoardForPlayer(p);
         }
     }
 }
