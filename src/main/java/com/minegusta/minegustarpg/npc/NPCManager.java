@@ -1,8 +1,8 @@
-package com.minegusta.minegustarpg;
+package com.minegusta.minegustarpg.npc;
 
 import com.google.common.collect.Sets;
+import com.minegusta.minegustarpg.MinegustaRPGPlugin;
 import com.minegusta.minegustarpg.data.DataManager;
-import com.minegusta.minegustarpg.npc.NPC;
 import org.bukkit.Material;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.LivingEntity;

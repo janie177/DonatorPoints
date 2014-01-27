@@ -5,6 +5,7 @@ import com.minegusta.minegustarpg.LevelManager;
 import com.minegusta.minegustarpg.MinegustaRPGPlugin;
 import com.minegusta.minegustarpg.data.DataManager;
 import com.minegusta.minegustarpg.playerdata.Data;
+import com.minegusta.minegustarpg.scoreboard.ScoreBoardManager;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.World;
@@ -114,7 +115,14 @@ public class PointsListener implements Listener {
                         points = 0;
                         break;
                     default:
+
+                        //Add a kill
                         Data.addMobsKilled(damager.getUniqueId(), 1);
+
+                        //Update scoreboard.
+                        ScoreBoardManager.updateScoreboard(superMan);
+
+                        //Awars points
                         if (level < 5) points = 1;
                         else if (level > 4 && level < 10) points = 1;
                         else if (level > 9 && level < 15) points = 2;

@@ -1,7 +1,6 @@
-package com.minegusta.minegustarpg.listeners;
+package com.minegusta.minegustarpg.scoreboard;
 
 import com.minegusta.minegustarpg.MinegustaRPGPlugin;
-import com.minegusta.minegustarpg.scoreboard.ScoreBoardManager;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
