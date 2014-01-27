@@ -28,7 +28,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-public class ShopListener implements Listener {
+public class DonatorShopListener implements Listener {
 
 
     //The Trader's inventory
@@ -48,22 +48,20 @@ public class ShopListener implements Listener {
     //Open Inventory when clicking the player.
     @EventHandler
     public void villagerRightClickEvent(PlayerInteractEntityEvent e) {
-        if (e.getRightClicked().getType() == EntityType.VILLAGER && e.getPlayer().getWorld().getName().toLowerCase().equals(MinegustaRPGPlugin.world)) {
-            LivingEntity villager = (LivingEntity) e.getRightClicked();
-            String name = villager.getCustomName();
-            if (name != null) {
-                e.setCancelled(true);
-                Player p = e.getPlayer();
+        LivingEntity villager = (LivingEntity) e.getRightClicked();
+        String name = villager.getCustomName();
+        if (name != null) {
+            e.setCancelled(true);
+            Player p = e.getPlayer();
 
-                if (name.contains("Donator Trader")) {
-                    if (!e.getPlayer().getItemInHand().getType().equals(Material.AIR)) {
-                        e.getPlayer().sendMessage(ChatColor.RED + "You can only trade with an empty hand!");
-                    } else {
-                        if (DataManager.getPointsFromPlayer(p) == null) DataManager.setPointsFromPlayer(p, 0);
-                        p.sendMessage(ChatColor.AQUA + "[Trader]" + ChatColor.GRAY + " You begin trading with the ShopKeeper.");
-                        p.sendMessage(ChatColor.AQUA + "[Trader]" + ChatColor.GRAY + " You have " + ChatColor.LIGHT_PURPLE + DataManager.getPointsFromPlayer(p) + ChatColor.GRAY + " points.");
-                        openInventoryOfTrader(e.getPlayer());
-                    }
+            if (name.contains("Donator Trader") && p.hasPermission("minegusta.donator")) {
+                if (!e.getPlayer().getItemInHand().getType().equals(Material.AIR)) {
+                    e.getPlayer().sendMessage(ChatColor.RED + "You can only trade with an empty hand!");
+                } else {
+                    if (DataManager.getPointsFromPlayer(p) == null) DataManager.setPointsFromPlayer(p, 0);
+                    p.sendMessage(ChatColor.AQUA + "[Trader]" + ChatColor.GRAY + " You begin trading with the ShopKeeper.");
+                    p.sendMessage(ChatColor.AQUA + "[Trader]" + ChatColor.GRAY + " You have " + ChatColor.LIGHT_PURPLE + DataManager.getPointsFromPlayer(p) + ChatColor.GRAY + " points.");
+                    openInventoryOfTrader(e.getPlayer());
                 }
             }
         }
@@ -72,7 +70,6 @@ public class ShopListener implements Listener {
     //Prevent traders from getting hurt by other non-op entities.
     @EventHandler
     public void onEntityDamageByNonOp(EntityDamageByEntityEvent e) {
-        if (!e.getEntity().getWorld().getName().equalsIgnoreCase(MinegustaRPGPlugin.world)) return;
         Entity entity = e.getEntity();
         if (entity.getType().equals(EntityType.VILLAGER)) {
 
@@ -84,6 +81,9 @@ public class ShopListener implements Listener {
 
             LivingEntity villager = (LivingEntity) e.getEntity();
             if (DataManager.isNPC(villager) || villager.getCustomName().contains("Trader")) {
+                if (!e.getEntity().getWorld().getName().equalsIgnoreCase(MinegustaRPGPlugin.world)) return;
+                e.setCancelled(true);
+            } else if (villager.getCustomName().contains("Donator Trader")) {
                 e.setCancelled(true);
             }
         }

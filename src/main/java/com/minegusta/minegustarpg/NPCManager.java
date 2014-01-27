@@ -30,6 +30,7 @@ public class NPCManager implements Listener {
                 return;
             }
 
+
             // get the NPC
             NPC nPC = DataManager.getNPC(villager.getCustomName());
 

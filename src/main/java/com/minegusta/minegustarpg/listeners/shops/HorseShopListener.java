@@ -181,7 +181,7 @@ public class HorseShopListener implements Listener {
                 meta.setDisplayName(ChatColor.GOLD + "Mighty Steed");
                 setItemMeta(meta);
             }
-        }, 1400, Lists.newArrayList(ChatColor.LIGHT_PURPLE + "Cost: " + ChatColor.AQUA + "1400 points.", ChatColor.GOLD + "Mighty Steed"));
+        }, 1400, Lists.newArrayList(ChatColor.LIGHT_PURPLE + "Cost: " + ChatColor.AQUA + "1400 points.", ChatColor.GOLD + "Mighty Steed")),;
 
 
         private ItemStack itemStack, shopItem;
