@@ -277,7 +277,7 @@ public class ShopManager implements Listener {
                 meta.setDisplayName(ChatColor.YELLOW + "Chainmail Chestplate");
                 setItemMeta(meta);
             }
-        }, 150, Lists.newArrayList(ChatColor.LIGHT_PURPLE + "Cost: " + ChatColor.AQUA + "70 points.", ChatColor.YELLOW + "Chainmail Chestplate")),
+        }, 150, Lists.newArrayList(ChatColor.LIGHT_PURPLE + "Cost: " + ChatColor.AQUA + "150 points.", ChatColor.YELLOW + "Chainmail Chestplate")),
         Armour18(new ItemStack(Material.CHAINMAIL_LEGGINGS, 1) {
             {
                 ItemMeta meta = getItemMeta();
@@ -287,7 +287,7 @@ public class ShopManager implements Listener {
                 meta.setDisplayName(ChatColor.YELLOW + "Chainmail Leggings");
                 setItemMeta(meta);
             }
-        }, 150, Lists.newArrayList(ChatColor.LIGHT_PURPLE + "Cost: " + ChatColor.AQUA + "70 points.", ChatColor.YELLOW + "Chainmail Leggings")),
+        }, 150, Lists.newArrayList(ChatColor.LIGHT_PURPLE + "Cost: " + ChatColor.AQUA + "150 points.", ChatColor.YELLOW + "Chainmail Leggings")),
         Armour19(new ItemStack(Material.CHAINMAIL_HELMET, 1) {
             {
                 ItemMeta meta = getItemMeta();
@@ -297,7 +297,7 @@ public class ShopManager implements Listener {
                 meta.setDisplayName(ChatColor.YELLOW + "Chainmail Helmet");
                 setItemMeta(meta);
             }
-        }, 100, Lists.newArrayList(ChatColor.LIGHT_PURPLE + "Cost: " + ChatColor.AQUA + "60 points.", ChatColor.YELLOW + "Chainmail Helmet")),
+        }, 100, Lists.newArrayList(ChatColor.LIGHT_PURPLE + "Cost: " + ChatColor.AQUA + "100 points.", ChatColor.YELLOW + "Chainmail Helmet")),
         Armour20(new ItemStack(Material.CHAINMAIL_BOOTS, 1) {
             {
                 ItemMeta meta = getItemMeta();
@@ -307,7 +307,7 @@ public class ShopManager implements Listener {
                 meta.setDisplayName(ChatColor.YELLOW + "Chainmail Boots");
                 setItemMeta(meta);
             }
-        }, 100, Lists.newArrayList(ChatColor.LIGHT_PURPLE + "Cost: " + ChatColor.AQUA + "60 points.", ChatColor.YELLOW + "Chainmail Boots")),
+        }, 100, Lists.newArrayList(ChatColor.LIGHT_PURPLE + "Cost: " + ChatColor.AQUA + "100 points.", ChatColor.YELLOW + "Chainmail Boots")),
         Food1(new ItemStack(Material.RAW_BEEF, 1) {
             {
                 ItemMeta meta = getItemMeta();
@@ -407,7 +407,7 @@ public class ShopManager implements Listener {
                 meta.setDisplayName(ChatColor.YELLOW + "Wooden Stick");
                 setItemMeta(meta);
             }
-        }, 10, Lists.newArrayList(ChatColor.LIGHT_PURPLE + "Cost: " + ChatColor.AQUA + "15 points.", ChatColor.YELLOW + "Wooden Stick")),
+        }, 15, Lists.newArrayList(ChatColor.LIGHT_PURPLE + "Cost: " + ChatColor.AQUA + "15 points.", ChatColor.YELLOW + "Wooden Stick")),
         General2(new ItemStack(Material.IRON_INGOT, 1) {
             {
                 ItemMeta meta = getItemMeta();
@@ -417,7 +417,7 @@ public class ShopManager implements Listener {
                 meta.setDisplayName(ChatColor.YELLOW + "Iron Bar");
                 setItemMeta(meta);
             }
-        }, 40, Lists.newArrayList(ChatColor.LIGHT_PURPLE + "Cost: " + ChatColor.AQUA + "15 points.", ChatColor.YELLOW + "Iron Bar")),
+        }, 40, Lists.newArrayList(ChatColor.LIGHT_PURPLE + "Cost: " + ChatColor.AQUA + "40 points.", ChatColor.YELLOW + "Iron Bar")),
         General3(new ItemStack(Material.LEATHER, 3) {
             {
                 ItemMeta meta = getItemMeta();
@@ -427,7 +427,7 @@ public class ShopManager implements Listener {
                 meta.setDisplayName(ChatColor.YELLOW + "Refined Leather");
                 setItemMeta(meta);
             }
-        }, 5, Lists.newArrayList(ChatColor.LIGHT_PURPLE + "Cost: " + ChatColor.AQUA + "25 points.", ChatColor.YELLOW + "Refined Leather")),
+        }, 25, Lists.newArrayList(ChatColor.LIGHT_PURPLE + "Cost: " + ChatColor.AQUA + "25 points.", ChatColor.YELLOW + "Refined Leather")),
         General4(new ItemStack(Material.GOLD_INGOT, 1) {
             {
                 ItemMeta meta = getItemMeta();
@@ -437,7 +437,7 @@ public class ShopManager implements Listener {
                 meta.setDisplayName(ChatColor.YELLOW + "Gold Stave");
                 setItemMeta(meta);
             }
-        }, 25, Lists.newArrayList(ChatColor.LIGHT_PURPLE + "Cost: " + ChatColor.AQUA + "30 points.", ChatColor.YELLOW + "Gold Stave")),
+        }, 30, Lists.newArrayList(ChatColor.LIGHT_PURPLE + "Cost: " + ChatColor.AQUA + "30 points.", ChatColor.YELLOW + "Gold Stave")),
         General5(new ItemStack(Material.COAL, 3) {
             {
                 ItemMeta meta = getItemMeta();
@@ -447,8 +447,8 @@ public class ShopManager implements Listener {
                 meta.setDisplayName(ChatColor.YELLOW + "Coal");
                 setItemMeta(meta);
             }
-        }, 10, Lists.newArrayList(ChatColor.LIGHT_PURPLE + "Cost: " + ChatColor.AQUA + "15 points.", ChatColor.YELLOW + "Coal")),
-        General6(ItemListener.getTeleportCrystal(), 15, Lists.newArrayList(ChatColor.LIGHT_PURPLE + "Cost: " + ChatColor.AQUA + "15 points.", ChatColor.DARK_AQUA + "Teleport Crystal")),
+        }, 10, Lists.newArrayList(ChatColor.LIGHT_PURPLE + "Cost: " + ChatColor.AQUA + "10 points.", ChatColor.YELLOW + "Coal")),
+        General6(ItemListener.getTeleportCrystal(), 20, Lists.newArrayList(ChatColor.LIGHT_PURPLE + "Cost: " + ChatColor.AQUA + "20 points.", ChatColor.DARK_AQUA + "Teleport Crystal")),
         PotionregenII(new ItemStack(Material.POTION, 1, (short) 8225) {
             {
                 ItemMeta meta = getItemMeta();

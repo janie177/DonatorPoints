@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="abad91f1-1a3d-48e5-bcab-a35a6579d945" name="Default" comment="Fixed adding EXP instead of points.">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/mobs/DropTable.java" afterPath="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/mobs/DropTable.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/items/ItemListener.java" afterPath="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/items/ItemListener.java" />
+    <list default="true" id="abad91f1-1a3d-48e5-bcab-a35a6579d945" name="Default" comment="Added teleport crystal. Added to shop and drops.">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/shops/ShopManager.java" afterPath="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/shops/ShopManager.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -78,7 +76,7 @@
       <file leaf-file-name="pom.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="16" selection-start="397" selection-end="397" vertical-scroll-proportion="0.20058997" vertical-offset="0" max-vertical-offset="2754">
+            <state line="8" column="18" selection-start="399" selection-end="399" vertical-scroll-proportion="0.20058997" vertical-offset="0" max-vertical-offset="2754">
               <folding />
             </state>
           </provider>
@@ -87,7 +85,7 @@
       <file leaf-file-name="ShopManager.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/shops/ShopManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="450" column="181" selection-start="23550" selection-end="23550" vertical-scroll-proportion="0.0" vertical-offset="1765" max-vertical-offset="11373">
+            <state line="460" column="13" selection-start="24004" selection-end="24004" vertical-scroll-proportion="0.0" vertical-offset="10438" max-vertical-offset="11373">
               <folding />
             </state>
           </provider>
@@ -807,7 +805,11 @@
       <created>1391093268022</created>
       <updated>1391093268022</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="Added teleport crystal. Added to shop and drops.">
+      <created>1391097992275</created>
+      <updated>1391097992275</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -898,7 +900,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Redone /Points command." />
     <MESSAGE value="Redone /points command again. Now flawless." />
     <MESSAGE value="Added message for the receiver of money." />
     <MESSAGE value="Re-added check for null points to PointsCommand." />
@@ -923,7 +924,8 @@
     <MESSAGE value="Added scoreboard possible fix for messing up on logging in." />
     <MESSAGE value="Added exp rewards to fetch quests." />
     <MESSAGE value="Fixed adding EXP instead of points." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed adding EXP instead of points." />
+    <MESSAGE value="Added teleport crystal. Added to shop and drops." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added teleport crystal. Added to shop and drops." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -1222,14 +1224,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/shops/ShopManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="450" column="181" selection-start="23550" selection-end="23550" vertical-scroll-proportion="0.0" vertical-offset="1765" max-vertical-offset="11373">
+        <state line="460" column="13" selection-start="24004" selection-end="24004" vertical-scroll-proportion="0.0" vertical-offset="10438" max-vertical-offset="11373">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="16" selection-start="397" selection-end="397" vertical-scroll-proportion="0.20058997" vertical-offset="0" max-vertical-offset="2754">
+        <state line="8" column="18" selection-start="399" selection-end="399" vertical-scroll-proportion="0.20058997" vertical-offset="0" max-vertical-offset="2754">
           <folding />
         </state>
       </provider>
