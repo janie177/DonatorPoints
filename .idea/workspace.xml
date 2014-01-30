@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="abad91f1-1a3d-48e5-bcab-a35a6579d945" name="Default" comment="Fixed NPE in EntityInteractEntity event.">
+    <list default="true" id="abad91f1-1a3d-48e5-bcab-a35a6579d945" name="Default" comment="Crystal better check for meta and type.">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/items/ItemListener.java" afterPath="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/items/ItemListener.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -76,7 +76,7 @@
       <file leaf-file-name="pom.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="20" selection-start="401" selection-end="401" vertical-scroll-proportion="0.18994413" vertical-offset="0" max-vertical-offset="2754">
+            <state line="8" column="20" selection-start="401" selection-end="401" vertical-scroll-proportion="0.20058997" vertical-offset="0" max-vertical-offset="2754">
               <folding />
             </state>
           </provider>
@@ -85,10 +85,9 @@
       <file leaf-file-name="ItemListener.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/items/ItemListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="37" column="20" selection-start="1377" selection-end="1377" vertical-scroll-proportion="0.0" vertical-offset="1014" max-vertical-offset="1717">
+            <state line="50" column="56" selection-start="2387" selection-end="2387" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="1768">
               <folding>
-                <element signature="e#1491#2022#0" expanded="true" />
-                <element signature="e#2003#2004#0" expanded="true" />
+                <element signature="e#1534#2405#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -891,7 +890,15 @@
       <created>1391112817377</created>
       <updated>1391112817377</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="Added better effect to tele crystals.">
+      <created>1391114326250</created>
+      <updated>1391114326251</updated>
+    </task>
+    <task id="LOCAL-00070" summary="Crystal better check for meta and type.">
+      <created>1391114585566</created>
+      <updated>1391114585566</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -935,7 +942,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24908425" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.0040268456" sideWeight="0.4993895" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.055033557" sideWeight="0.4993895" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32931727" sideWeight="0.49964914" order="1" side_tool="false" content_ui="tabs" />
@@ -982,8 +989,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Fixed scoreboard illigalargumentexception. (Already existing objective)." />
-    <MESSAGE value="All world refferences are now dependent on the main.world object." />
     <MESSAGE value="Slightly tweaked dropTable." />
     <MESSAGE value="Monsters no longer drop exp. Enchanted weapons are now more rare." />
     <MESSAGE value="Removed mystery box." />
@@ -1007,7 +1012,9 @@
     <MESSAGE value="Fixed NPE for inventory name." />
     <MESSAGE value="Removed debugging messages.&#10;" />
     <MESSAGE value="Fixed NPE in EntityInteractEntity event." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed NPE in EntityInteractEntity event." />
+    <MESSAGE value="Added better effect to tele crystals." />
+    <MESSAGE value="Crystal better check for meta and type." />
+    <option name="LAST_COMMIT_MESSAGE" value="Crystal better check for meta and type." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -1302,13 +1309,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/managers/LevelManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="168" column="45" selection-start="4275" selection-end="4275" vertical-scroll-proportion="0.0" vertical-offset="1938" max-vertical-offset="2941">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/commands/NPCSpawnCommand.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="33" column="42" selection-start="1237" selection-end="1237" vertical-scroll-proportion="0.49860334" vertical-offset="0" max-vertical-offset="1020">
@@ -1316,19 +1316,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/managers/LevelManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="168" column="45" selection-start="4275" selection-end="4275" vertical-scroll-proportion="0.0" vertical-offset="1938" max-vertical-offset="2941">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/items/ItemListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="20" selection-start="1377" selection-end="1377" vertical-scroll-proportion="0.0" vertical-offset="1014" max-vertical-offset="1717">
+        <state line="50" column="56" selection-start="2387" selection-end="2387" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="1768">
           <folding>
-            <element signature="e#1491#2022#0" expanded="true" />
-            <element signature="e#2003#2004#0" expanded="true" />
+            <element signature="e#1534#2405#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="20" selection-start="401" selection-end="401" vertical-scroll-proportion="0.18994413" vertical-offset="0" max-vertical-offset="2754">
+        <state line="8" column="20" selection-start="401" selection-end="401" vertical-scroll-proportion="0.20058997" vertical-offset="0" max-vertical-offset="2754">
           <folding />
         </state>
       </provider>

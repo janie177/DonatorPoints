@@ -39,7 +39,10 @@ public class ItemListener implements Listener {
                     @Override
                     public void run() {
 
-                        w.spigot().playEffect(l, Effect.POTION_SWIRL, 0, 0, 0F, (k / 25), 0F, 0F, 5 * k, 15);
+                        w.spigot().playEffect(l, Effect.POTION_SWIRL, 0, 0, 1F, (k / 25), 1F, 0F, 5 * k, 15);
+                        w.spigot().playEffect(l, Effect.POTION_SWIRL, 0, 0, 1F, (k / 25), -1F, 0F, 5 * k, 15);
+                        w.spigot().playEffect(l, Effect.POTION_SWIRL, 0, 0, -1F, (k / 25), 1F, 0F, 5 * k, 15);
+                        w.spigot().playEffect(l, Effect.POTION_SWIRL, 0, 0, -1F, (k / 25), -1F, 0F, 5 * k, 15);
                         if (k == 59) {
                             w.playSound(l, Sound.CHICKEN_EGG_POP, 1F, 1F);
                             p.teleport(w.getSpawnLocation());
