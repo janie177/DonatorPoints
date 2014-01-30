@@ -149,6 +149,10 @@ public class LevelManager {
         Data.addExperience(playerUUID, expToAdd);
     }
 
+    public static void addExpAmount(UUID playerUUID, int amount) {
+        Data.addExperience(playerUUID, amount);
+    }
+
     public static int getExpLeftTillNextLevel(UUID playerUUID) {
         int nextLevel = Data.getLevel(playerUUID) + 1;
         int exp = Data.getExperience(playerUUID);

@@ -4,6 +4,7 @@ import com.censoredsoftware.censoredlib.util.Randoms;
 import com.google.common.collect.Maps;
 import com.minegusta.minegustarpg.MinegustaRPGPlugin;
 import com.minegusta.minegustarpg.data.DataManager;
+import com.minegusta.minegustarpg.managers.LevelManager;
 import com.minegusta.minegustarpg.playerdata.Data;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -147,7 +148,7 @@ public class DetailedNPC implements NPC {
                     leItem.setAmount(newAmount);
                 }
                 if (hasExp) {
-                    DataManager.setPointsFromPlayer(player, DataManager.getPointsFromPlayer(player) + exp);
+                    LevelManager.addExpAmount(player.getUniqueId(), exp);
                 }
                 player.sendMessage(ChatColor.DARK_PURPLE + "[" + name + "] " + ChatColor.YELLOW + ChatColor.ITALIC + getRewardMessage());
                 player.sendMessage(ChatColor.DARK_RED + "[Trade] " + ChatColor.YELLOW + "Traded 1 " + meta + " for " + rewardPoints + " points.");
