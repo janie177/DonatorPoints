@@ -29,7 +29,7 @@ public class ItemListener implements Listener {
         final Player p = e.getPlayer();
         if (!p.getWorld().getName().toLowerCase().equalsIgnoreCase(MinegustaRPGPlugin.world)) return;
         else if (p.getItemInHand().getType().equals(Material.AIR)) return;
-        else if (p.getItemInHand().getItemMeta().hasLore() && p.getItemInHand().getItemMeta().getLore().toString().contains("right click")) {
+        else if (p.getItemInHand().getType().equals(Material.INK_SACK) && p.getItemInHand().getItemMeta().hasLore() && p.getItemInHand().getItemMeta().getLore().toString().contains("Right click to teleport to the spawn")) {
             final Location l = p.getLocation();
             final World w = p.getWorld();
 
