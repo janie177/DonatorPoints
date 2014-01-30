@@ -26,16 +26,28 @@ public class ItemListener implements Listener {
     @EventHandler
     public void onTeleportCrystal(PlayerInteractEvent e) {
 
-        Player p = e.getPlayer();
+        final Player p = e.getPlayer();
         if (!p.getWorld().getName().toLowerCase().equalsIgnoreCase(MinegustaRPGPlugin.world)) return;
         else if (p.getItemInHand().getType().equals(Material.AIR)) return;
-        else if (p.getItemInHand().equals(getTeleportCrystal())) {
-            Location l = p.getLocation();
-            World w = p.getWorld();
-            w.spigot().playEffect(l, Effect.CRIT, 0, 0, 0F, 0F, 0F, 0F, 180, 15);
-            w.playSound(l, Sound.CHICKEN_EGG_POP, 1F, 1F);
-            p.teleport(w.getSpawnLocation());
-            p.sendMessage(ChatColor.AQUA + "You teleported to the world spawn!");
+        else if (p.getItemInHand().getItemMeta().hasLore() && p.getItemInHand().getItemMeta().getLore().toString().contains("right click")) {
+            final Location l = p.getLocation();
+            final World w = p.getWorld();
+
+            for (int i = 0; i < 60; i++) {
+                final int k = i;
+                Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(MinegustaRPGPlugin.PLUGIN, new Runnable() {
+                    @Override
+                    public void run() {
+
+                        w.spigot().playEffect(l, Effect.POTION_SWIRL, 0, 0, 0F, (k / 25), 0F, 0F, 5 * k, 15);
+                        if (k == 59) {
+                            w.playSound(l, Sound.CHICKEN_EGG_POP, 1F, 1F);
+                            p.teleport(w.getSpawnLocation());
+                            p.sendMessage(ChatColor.AQUA + "You teleported to the world spawn!");
+                        }
+                    }
+                }, i);
+            }
             if (p.getItemInHand().getAmount() > 1) {
                 p.getItemInHand().setAmount(p.getItemInHand().getAmount() - 1);
             } else {
@@ -88,7 +100,7 @@ public class ItemListener implements Listener {
         ItemStack i = new ItemStack(Material.INK_SACK, 1, (short) 4);
         List<String> lore = Lists.newArrayList();
         lore.add(ChatColor.AQUA + "A magic crystal emitting energy.");
-        lore.add(ChatColor.AQUA + "Right click to teleport to the spawn.");
+        lore.add(ChatColor.BLUE + "" + ChatColor.ITALIC + "Right click to teleport to the spawn.");
         ItemMeta meta = i.getItemMeta();
         meta.setLore(lore);
         meta.setDisplayName(ChatColor.DARK_AQUA + "Teleport Crystal");
