@@ -6,6 +6,8 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
+import java.util.List;
+
 public class BankInv {
 
     public static void saveItems(String mojangID, Inventory i) {
@@ -13,15 +15,19 @@ public class BankInv {
         FileConfiguration conf = PlayerFiles.createAndLoadBankFile(mojangID);
         conf.set("items", itemsToSave);
         PlayerFiles.saveBankFile(mojangID, conf);
+        //TODO REMOVE
+        Bukkit.broadcastMessage("Debug: saveItems done.");
+        //TODO REMOVE
     }
 
     public static Inventory loadItemsToInv(String mojangID, String playerName) {
         Inventory inv = Bukkit.getServer().createInventory(null, 126, ChatColor.YELLOW + playerName + "'s Bank");
-        ItemStack[] itemsInBank = null;
+        List<ItemStack> itemsInBank = null;
 
         try {
-            itemsInBank = (ItemStack[]) PlayerFiles.createAndLoadBankFile(mojangID).get("items");
+            itemsInBank = (List<ItemStack>) PlayerFiles.createAndLoadBankFile(mojangID).get("items");
         } catch (Exception e) {
+            e.printStackTrace();
         }
 
         if (itemsInBank == null) return inv;

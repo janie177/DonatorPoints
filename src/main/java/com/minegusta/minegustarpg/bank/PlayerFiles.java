@@ -37,9 +37,19 @@ public class PlayerFiles {
             file = getBankFile(mojangID);
             f.save(file);
 
-
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    public static void createBankDirectory() {
+        File banks = new File(p.getDataFolder() + "/banks/");
+        if (!banks.exists()) {
+            try {
+                banks.mkdir();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 }

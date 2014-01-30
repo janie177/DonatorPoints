@@ -4,6 +4,7 @@ import com.censoredsoftware.censoredlib.CensoredLibPlugin;
 import com.censoredsoftware.censoredlib.helper.CensoredJavaPlugin;
 import com.censoredsoftware.censoredlib.helper.QuitReasonHandler;
 import com.minegusta.minegustarpg.bank.BankListener;
+import com.minegusta.minegustarpg.bank.PlayerFiles;
 import com.minegusta.minegustarpg.commands.HorseCommand;
 import com.minegusta.minegustarpg.commands.LevelCommand;
 import com.minegusta.minegustarpg.commands.NPCSpawnCommand;
@@ -58,6 +59,10 @@ public class MinegustaRPGPlugin extends CensoredJavaPlugin {
 
             // listener
             registerListeners();
+
+            //Create bank inventory
+
+            PlayerFiles.createBankDirectory();
 
             //Set scoreboard
             ScoreBoardManager.setScoreBoard();

@@ -1,6 +1,7 @@
 package com.minegusta.minegustarpg.bank;
 
 import com.minegusta.minegustarpg.MinegustaRPGPlugin;
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -23,7 +24,15 @@ public class BankListener implements Listener {
     @EventHandler
     public void onBankClose(InventoryCloseEvent e) {
         if (!e.getPlayer().getWorld().getName().toLowerCase().equalsIgnoreCase(MinegustaRPGPlugin.world)) return;
-        else if (e.getInventory().getName().contains(e.getPlayer().getName() + "'s Bank")) {
+
+        //TODO REMOVE
+        Bukkit.broadcastMessage("Debug: inv close event!!");
+        //TODO REMOVE
+
+        if (e.getInventory().getName().contains(e.getPlayer().getName() + "'s Bank")) {
+            //TODO REMOVE
+            Bukkit.broadcastMessage("Debug: inv close name is: " + e.getPlayer().getName() + "'s Bank");
+            //TODO REMOVE
             BankInv.saveItems(e.getPlayer().getUniqueId().toString(), e.getInventory());
         }
     }
