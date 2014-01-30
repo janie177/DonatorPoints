@@ -34,6 +34,8 @@ public class ItemListener implements Listener {
             World w = p.getWorld();
             w.spigot().playEffect(l, Effect.CRIT, 0, 0, 0F, 0F, 0F, 0F, 180, 15);
             w.playSound(l, Sound.CHICKEN_EGG_POP, 1F, 1F);
+            p.teleport(w.getSpawnLocation());
+            p.sendMessage(ChatColor.AQUA + "You teleported to the world spawn!");
             if (p.getItemInHand().getAmount() > 1) {
                 p.getItemInHand().setAmount(p.getItemInHand().getAmount() - 1);
             } else {
