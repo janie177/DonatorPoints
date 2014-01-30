@@ -71,7 +71,9 @@ public class LevelListener implements Listener {
     @EventHandler
     public void onClickArmour(InventoryClickEvent e) {
         if (!e.getWhoClicked().getWorld().getName().toLowerCase().equals(MinegustaRPGPlugin.world)) return;
-        else if ((e.getInventory().getName() != null && e.getInventory().getName().contains(e.getWhoClicked().getName() + "'s Bank")) || !e.getClickedInventory().getType().equals(InventoryType.PLAYER))
+        else if (e.getInventory().getName() != null && e.getInventory().getName().contains(e.getWhoClicked().getName() + "'s Bank"))
+            return;
+        else if (!(e.getClickedInventory().getType() == null) && e.getClickedInventory().getType().equals(InventoryType.PLAYER))
             return;
         ClickType clickType = e.getClick();
         Player p = (Player) e.getWhoClicked();

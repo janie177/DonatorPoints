@@ -50,6 +50,7 @@ public class DonatorShopListener implements Listener {
     public void villagerRightClickEvent(PlayerInteractEntityEvent e) {
         if (!(e.getRightClicked() instanceof LivingEntity)) return;
         LivingEntity villager = (LivingEntity) e.getRightClicked();
+        if (!(villager instanceof Villager)) return;
         String name = villager.getCustomName();
         if (name != null) {
             e.setCancelled(true);
