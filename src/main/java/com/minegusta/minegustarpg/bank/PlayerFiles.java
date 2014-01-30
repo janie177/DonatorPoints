@@ -18,7 +18,7 @@ public class PlayerFiles {
         try {
             file = new File(p.getDataFolder() + "/banks/", mojangID + ".yml");
             if (!file.exists()) {
-                p.saveResource(p.getDataFolder() + "/banks/" + mojangID + ".yml", false);
+                file.createNewFile();
             }
             conf = YamlConfiguration.loadConfiguration(file);
 
