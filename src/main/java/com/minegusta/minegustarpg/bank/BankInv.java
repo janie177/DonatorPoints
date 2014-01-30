@@ -15,9 +15,6 @@ public class BankInv {
         FileConfiguration conf = PlayerFiles.createAndLoadBankFile(mojangID);
         conf.set("items", itemsToSave);
         PlayerFiles.saveBankFile(mojangID, conf);
-        //TODO REMOVE
-        Bukkit.broadcastMessage("Debug: saveItems done.");
-        //TODO REMOVE
     }
 
     public static Inventory loadItemsToInv(String mojangID, String playerName) {
