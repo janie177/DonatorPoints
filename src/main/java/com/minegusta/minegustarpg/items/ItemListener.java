@@ -39,10 +39,15 @@ public class ItemListener implements Listener {
                     @Override
                     public void run() {
 
-                        w.spigot().playEffect(l, Effect.POTION_SWIRL, 0, 0, 1F, (k / 25), 1F, 0F, 5 * k, 15);
-                        w.spigot().playEffect(l, Effect.POTION_SWIRL, 0, 0, 1F, (k / 25), -1F, 0F, 5 * k, 15);
-                        w.spigot().playEffect(l, Effect.POTION_SWIRL, 0, 0, -1F, (k / 25), 1F, 0F, 5 * k, 15);
-                        w.spigot().playEffect(l, Effect.POTION_SWIRL, 0, 0, -1F, (k / 25), -1F, 0F, 5 * k, 15);
+                        final Location l1 = l.add(1, 0, 0);
+                        final Location l2 = l.add(-1, 0, 0);
+                        final Location l3 = l.add(0, 0, 1);
+                        final Location l4 = l.add(0, 0, -1);
+
+                        w.spigot().playEffect(l1, Effect.POTION_SWIRL, 0, 0, 0F, (k / 25), 0F, 0F, 5 * k, 15);
+                        w.spigot().playEffect(l2, Effect.POTION_SWIRL, 0, 0, 0F, (k / 25), 0F, 0F, 5 * k, 15);
+                        w.spigot().playEffect(l3, Effect.POTION_SWIRL, 0, 0, 0F, (k / 25), 0F, 0F, 5 * k, 15);
+                        w.spigot().playEffect(l4, Effect.POTION_SWIRL, 0, 0, 0F, (k / 25), 0F, 0F, 5 * k, 15);
                         if (k == 59) {
                             w.playSound(l, Sound.CHICKEN_EGG_POP, 1F, 1F);
                             p.teleport(w.getSpawnLocation());
