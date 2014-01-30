@@ -3,6 +3,7 @@ package com.minegusta.minegustarpg;
 import com.censoredsoftware.censoredlib.CensoredLibPlugin;
 import com.censoredsoftware.censoredlib.helper.CensoredJavaPlugin;
 import com.censoredsoftware.censoredlib.helper.QuitReasonHandler;
+import com.minegusta.minegustarpg.bank.BankListener;
 import com.minegusta.minegustarpg.commands.HorseCommand;
 import com.minegusta.minegustarpg.commands.LevelCommand;
 import com.minegusta.minegustarpg.commands.NPCSpawnCommand;
@@ -139,6 +140,7 @@ public class MinegustaRPGPlugin extends CensoredJavaPlugin {
         manager.registerEvents(new ItemListener(), this);
         manager.registerEvents(new LevelListener(), this);
         manager.registerEvents(new ScoreBoardListener(), this);
+        manager.registerEvents(new BankListener(), this);
     }
 
 
