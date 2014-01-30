@@ -10,7 +10,7 @@ import java.util.Map;
 
 public enum DefaultNPC implements NPC {
 
-    TOWN_GUARD(new DetailedNPC(DetailedNPC.Type.RANDOM, "Town Guard", Lists.newArrayList("These vampires are becoming a real menace.", "No lollygaggin'.", "Helgen... destroyed by a dragon. Hard to believe, isn't it?", "Wait... I know you.", "I used to be an adventurer like you. Then I took an arrow in the knee....", "Let me guess... someone stole your sweetroll.", "Citizen.", "Disrespect the law, you disrespect me.", "Trouble?"), false, null, null, null, null)),
+    TOWN_GUARD(new DetailedNPC(DetailedNPC.Type.RANDOM, "Town Guard", Lists.newArrayList("These vampires are becoming a real menace.", "No lollygaggin'.", "Helgen... destroyed by a dragon. Hard to believe, isn't it?", "Wait... I know you.", "I used to be an adventurer like you. Then I took an arrow in the knee....", "Let me guess... someone stole your sweetroll.", "Citizen.", "Disrespect the law, you disrespect me.", "Trouble?"), false, null, null, null, null, false, 0)),
     VETERAN_STINKY_JOE(new DetailedNPC(DetailedNPC.Type.NORMAL, "Veteran StinkyJoe", new ArrayList<String>() {
         {
             add("When I was young, nobody wore clothes.");
@@ -23,7 +23,7 @@ public enum DefaultNPC implements NPC {
             add("%beat%");  // wait twice as long
             add("Oh, and check out /points because I was paid a few emeralds to say that.");
         }
-    }, false, null, null, null, null)),
+    }, false, null, null, null, null, false, 0)),
     MAGIC_STORE_OWNER(new DetailedNPC(DetailedNPC.Type.NORMAL, "Magic Store Owner", new ArrayList<String>() {
         {
             add("Hello there adventurer!");
@@ -34,7 +34,7 @@ public enum DefaultNPC implements NPC {
             add("Just click me with the DeathWeed when you have obtained it.");
             add("Good day lad!");
         }
-    }, true, 31, 3, "DeathWeed", "Well done! Here's 3 points for the efford!"));
+    }, true, 31, 3, "DeathWeed", "Well done! Here's 3 points and 10 exp for the efford!", true, 10));
 
     private DetailedNPC nPC;
 
@@ -89,6 +89,16 @@ public enum DefaultNPC implements NPC {
     @Override
     public boolean awardItem(Player player, LivingEntity villager) {
         return nPC.awardItem(player, villager);
+    }
+
+    @Override
+    public boolean hasExp() {
+        return nPC.hasExp();
+    }
+
+    @Override
+    public int getExp() {
+        return nPC.getExp();
     }
 
     @Override

@@ -26,6 +26,8 @@ public class DetailedNPC implements NPC {
     private Integer item;
     private String rewardMessage;
     private String meta;
+    private int exp;
+    private boolean hasExp;
 
     public enum Type {
         RANDOM, NORMAL
@@ -40,9 +42,11 @@ public class DetailedNPC implements NPC {
         rewardPoints = conf.getInt("rewardPoints");
         meta = conf.getString("meta");
         rewardMessage = conf.getString("rewardMessage");
+        exp = conf.getInt("exp");
+        hasExp = conf.getBoolean("hasExp");
     }
 
-    public DetailedNPC(Type type, String name, List<String> dialog, Boolean trader, Integer item, Integer rewardPoints, String meta, String rewardMessage) {
+    public DetailedNPC(Type type, String name, List<String> dialog, Boolean trader, Integer item, Integer rewardPoints, String meta, String rewardMessage, Boolean hasExp, int exp) {
         this.type = type;
         this.name = name;
         this.dialog = dialog;
@@ -51,6 +55,8 @@ public class DetailedNPC implements NPC {
         this.rewardPoints = rewardPoints;
         this.meta = meta;
         this.rewardMessage = rewardMessage;
+        this.exp = exp;
+        this.hasExp = hasExp;
 
     }
 
@@ -96,6 +102,16 @@ public class DetailedNPC implements NPC {
     }
 
     @Override
+    public boolean hasExp() {
+        return hasExp;
+    }
+
+    @Override
+    public int getExp() {
+        return exp;
+    }
+
+    @Override
     public String getRewardMeta() {
         return meta;
     }
@@ -130,6 +146,9 @@ public class DetailedNPC implements NPC {
                 } else {
                     leItem.setAmount(newAmount);
                 }
+                if (hasExp) {
+                    DataManager.setPointsFromPlayer(player, DataManager.getPointsFromPlayer(player) + exp);
+                }
                 player.sendMessage(ChatColor.DARK_PURPLE + "[" + name + "] " + ChatColor.YELLOW + ChatColor.ITALIC + getRewardMessage());
                 player.sendMessage(ChatColor.DARK_RED + "[Trade] " + ChatColor.YELLOW + "Traded 1 " + meta + " for " + rewardPoints + " points.");
                 int oldPoints = DataManager.getPointsFromPlayer(player);
@@ -153,6 +172,8 @@ public class DetailedNPC implements NPC {
         map.put("rewardPoints", rewardPoints);
         map.put("meta", meta);
         map.put("rewardMessage", rewardMessage);
+        map.put("hasExp", hasExp);
+        map.put("exp", exp);
         return map;
     }
 }

@@ -23,7 +23,11 @@ public interface NPC extends ConfigurationSerializable {
 
     public int getRewardItem();
 
+    public int getExp();
+
     public boolean isTrader();
+
+    public boolean hasExp();
 
     public boolean awardItem(Player player, LivingEntity villager);
 
