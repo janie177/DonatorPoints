@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="abad91f1-1a3d-48e5-bcab-a35a6579d945" name="Default" comment="Added scoreboard possible fix for messing up on logging in.">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/npc/DefaultNPC.java" afterPath="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/npc/DefaultNPC.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/npc/DetailedNPC.java" afterPath="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/npc/DetailedNPC.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/npc/NPC.java" afterPath="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/npc/NPC.java" />
+    <list default="true" id="abad91f1-1a3d-48e5-bcab-a35a6579d945" name="Default" comment="Fixed adding EXP instead of points.">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/mobs/DropTable.java" afterPath="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/mobs/DropTable.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/items/ItemListener.java" afterPath="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/items/ItemListener.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/shops/ShopManager.java" afterPath="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/shops/ShopManager.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -78,28 +78,16 @@
       <file leaf-file-name="pom.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="18" selection-start="399" selection-end="399" vertical-scroll-proportion="0.19428572" vertical-offset="0" max-vertical-offset="2754">
+            <state line="8" column="16" selection-start="397" selection-end="397" vertical-scroll-proportion="0.20058997" vertical-offset="0" max-vertical-offset="2754">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DetailedNPC.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/npc/DetailedNPC.java">
+      <file leaf-file-name="ShopManager.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/shops/ShopManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="148" column="71" selection-start="4982" selection-end="4982" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2533">
-              <folding>
-                <element signature="e#3481#3482#0" expanded="true" />
-                <element signature="e#3495#3496#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NPC.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/npc/NPC.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="49" selection-start="641" selection-end="641" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="612">
+            <state line="450" column="181" selection-start="23550" selection-end="23550" vertical-scroll-proportion="0.0" vertical-offset="1765" max-vertical-offset="11373">
               <folding />
             </state>
           </provider>
@@ -130,11 +118,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/listeners/shops/ShopListener.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/MobHealthManager.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/playerdata.yml" />
-        <option value="$PROJECT_DIR$/src/main/resources/statusdata.yml" />
-        <option value="$PROJECT_DIR$/src/main/resources/leveldata.yml" />
         <option value="$PROJECT_DIR$/src/main/resources/horsedata.yml" />
         <option value="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/playerdata/PlayerData.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/npc/DetailedNPC.java" />
@@ -179,7 +162,12 @@
         <option value="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/listeners/PlayerListener.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/npc/NPC.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/npc/DefaultNPC.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/managers/LevelManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/npc/DetailedNPC.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/commands/HorseCommand.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/items/ItemListener.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/mobs/DropTable.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/shops/ShopManager.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
@@ -338,41 +326,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="scoreboard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MinegustaRPG" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MinegustaRPG" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="minegustarpg" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="npc" />
+              <option name="myItemId" value="shops" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -419,7 +373,7 @@
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Minecraft-MausWasHere" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.4052478" />
@@ -845,7 +799,15 @@
       <created>1391091038130</created>
       <updated>1391091038130</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="Added exp rewards to fetch quests.">
+      <created>1391093009810</created>
+      <updated>1391093009810</updated>
+    </task>
+    <task id="LOCAL-00058" summary="Fixed adding EXP instead of points.">
+      <created>1391093268022</created>
+      <updated>1391093268022</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -885,11 +847,11 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23761117" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32909784" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24945295" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.0946276" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.00976801" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24908425" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.025503356" sideWeight="0.4993895" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.055033557" sideWeight="0.4993895" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32931727" sideWeight="0.49964914" order="1" side_tool="false" content_ui="tabs" />
@@ -936,8 +898,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="From ItemStack to Material in /lv Death. Attempted fix in ArmourListener." />
-    <MESSAGE value="Fixed armour equip listening." />
     <MESSAGE value="Redone /Points command." />
     <MESSAGE value="Redone /points command again. Now flawless." />
     <MESSAGE value="Added message for the receiver of money." />
@@ -961,7 +921,9 @@
     <MESSAGE value="made shops more compact." />
     <MESSAGE value="Scoreboards now update instantly." />
     <MESSAGE value="Added scoreboard possible fix for messing up on logging in." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added scoreboard possible fix for messing up on logging in." />
+    <MESSAGE value="Added exp rewards to fetch quests." />
+    <MESSAGE value="Fixed adding EXP instead of points." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed adding EXP instead of points." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -1053,11 +1015,6 @@
         <state line="52" column="20" selection-start="1571" selection-end="1571" vertical-scroll-proportion="1.1585845" vertical-offset="0" max-vertical-offset="2295" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/items/ItemListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="46" selection-start="1879" selection-end="1879" vertical-scroll-proportion="0.8073879" vertical-offset="0" max-vertical-offset="1105" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/playerdata.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="15" column="20" selection-start="393" selection-end="393" vertical-scroll-proportion="0.44894367" vertical-offset="0" max-vertical-offset="568" />
@@ -1108,11 +1065,6 @@
         <state line="49" column="17" selection-start="1809" selection-end="1809" vertical-scroll-proportion="-0.67432153" vertical-offset="833" max-vertical-offset="1598" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/mobs/DropTable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="118" column="65" selection-start="5027" selection-end="5027" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4505" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/managers/WorldGuardManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="39" column="18" selection-start="1751" selection-end="1751" vertical-scroll-proportion="0.59090906" vertical-offset="0" max-vertical-offset="748" />
@@ -1143,11 +1095,6 @@
         <state line="44" column="60" selection-start="1231" selection-end="1231" vertical-scroll-proportion="-0.21220528" vertical-offset="748" max-vertical-offset="3536" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/commands/HorseCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="132" column="82" selection-start="6920" selection-end="6920" vertical-scroll-proportion="0.0" vertical-offset="718" max-vertical-offset="3910" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/commands/NPCSpawnCommand.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="33" column="42" selection-start="1237" selection-end="1237" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1020" />
@@ -1166,16 +1113,6 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/shops/DonatorShopListener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="89" column="53" selection-start="3611" selection-end="3611" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4386" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/shops/HorseShopListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="141" column="36" selection-start="6788" selection-end="6788" vertical-scroll-proportion="4.6325" vertical-offset="204" max-vertical-offset="3247" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/shops/ShopManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="398" column="129" selection-start="20595" selection-end="20595" vertical-scroll-proportion="0.0425" vertical-offset="6749" max-vertical-offset="11764" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/npc/NPCManager.java">
@@ -1199,23 +1136,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/managers/LevelManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="129" column="75" selection-start="2630" selection-end="2630" vertical-scroll-proportion="-0.1724138" vertical-offset="2177" max-vertical-offset="2873">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/MinegustaRPGPlugin.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="130" column="58" selection-start="4976" selection-end="4976" vertical-scroll-proportion="0.42454162" vertical-offset="1416" max-vertical-offset="2125">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/scoreboard/ScoreBoardListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="56" selection-start="616" selection-end="616" vertical-scroll-proportion="0.2877292" vertical-offset="0" max-vertical-offset="709">
           <folding />
         </state>
       </provider>
@@ -1248,19 +1171,65 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/managers/LevelManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="147" column="43" selection-start="3395" selection-end="3395" vertical-scroll-proportion="0.0" vertical-offset="2088" max-vertical-offset="2941">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/commands/HorseCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="78" column="57" selection-start="3678" selection-end="3678" vertical-scroll-proportion="1.403904" vertical-offset="51" max-vertical-offset="3910">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/scoreboard/ScoreBoardListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="56" selection-start="612" selection-end="612" vertical-scroll-proportion="0.30044183" vertical-offset="0" max-vertical-offset="679">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/shops/HorseShopListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="141" column="36" selection-start="6778" selection-end="6778" vertical-scroll-proportion="3.0885885" vertical-offset="0" max-vertical-offset="3247">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/mobs/DropTable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="214" column="64" selection-start="9049" selection-end="9049" vertical-scroll-proportion="1.8512518" vertical-offset="2262" max-vertical-offset="4573">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/items/ItemListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="53" selection-start="1529" selection-end="1529" vertical-scroll-proportion="0.5870871" vertical-offset="0" max-vertical-offset="1479">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/npc/DetailedNPC.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="148" column="71" selection-start="4982" selection-end="4982" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2533">
-          <folding>
-            <element signature="e#3481#3482#0" expanded="true" />
-            <element signature="e#3495#3496#0" expanded="true" />
-          </folding>
+        <state line="156" column="47" selection-start="5293" selection-end="5293" vertical-scroll-proportion="0.5405405" vertical-offset="1697" max-vertical-offset="2567">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/shops/ShopManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="450" column="181" selection-start="23550" selection-end="23550" vertical-scroll-proportion="0.0" vertical-offset="1765" max-vertical-offset="11373">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="18" selection-start="399" selection-end="399" vertical-scroll-proportion="0.19428572" vertical-offset="0" max-vertical-offset="2754">
+        <state line="8" column="16" selection-start="397" selection-end="397" vertical-scroll-proportion="0.20058997" vertical-offset="0" max-vertical-offset="2754">
           <folding />
         </state>
       </provider>

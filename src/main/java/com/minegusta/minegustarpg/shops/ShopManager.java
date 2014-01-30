@@ -3,6 +3,7 @@ package com.minegusta.minegustarpg.shops;
 import com.google.common.collect.Lists;
 import com.minegusta.minegustarpg.MinegustaRPGPlugin;
 import com.minegusta.minegustarpg.data.DataManager;
+import com.minegusta.minegustarpg.items.ItemListener;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -443,10 +444,11 @@ public class ShopManager implements Listener {
                 List<String> lore = Lists.newArrayList();
                 lore.add(ChatColor.GRAY + "Used for cooking food.");
                 meta.setLore(lore);
-                meta.setDisplayName(ChatColor.BLACK + "Coal");
+                meta.setDisplayName(ChatColor.YELLOW + "Coal");
                 setItemMeta(meta);
             }
-        }, 10, Lists.newArrayList(ChatColor.LIGHT_PURPLE + "Cost: " + ChatColor.AQUA + "15 points.", ChatColor.BLACK + "Coal")),
+        }, 10, Lists.newArrayList(ChatColor.LIGHT_PURPLE + "Cost: " + ChatColor.AQUA + "15 points.", ChatColor.YELLOW + "Coal")),
+        General6(ItemListener.getTeleportCrystal(), 15, Lists.newArrayList(ChatColor.LIGHT_PURPLE + "Cost: " + ChatColor.AQUA + "15 points.", ChatColor.DARK_AQUA + "Teleport Crystal")),
         PotionregenII(new ItemStack(Material.POTION, 1, (short) 8225) {
             {
                 ItemMeta meta = getItemMeta();

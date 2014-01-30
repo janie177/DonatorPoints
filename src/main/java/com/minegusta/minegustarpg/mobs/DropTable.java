@@ -1,6 +1,7 @@
 package com.minegusta.minegustarpg.mobs;
 
 import com.google.common.collect.Lists;
+import com.minegusta.minegustarpg.items.ItemListener;
 import org.bukkit.Material;
 import org.bukkit.entity.EntityType;
 import org.bukkit.inventory.ItemStack;
@@ -26,6 +27,7 @@ public class DropTable {
 
                         dropList.add(new ItemStack(Material.ARROW, 1));
                         dropList.add(new ItemStack(Material.FLINT, 1));
+                        dropList.add(ItemListener.getTeleportCrystal());
                         dropList.add(new ItemStack(Material.FEATHER, 1));
                         dropList.add(new ItemStack(Material.COAL, 1));
                         dropList.add(new ItemStack(Material.COAL, 2));
@@ -89,6 +91,7 @@ public class DropTable {
                     dropList.add(new ItemStack(Material.LEATHER_LEGGINGS, 1));
                     dropList.add(new ItemStack(Material.LEATHER_BOOTS, 1));
                     dropList.add(new ItemStack(Material.LEATHER_HELMET, 1));
+                    dropList.add(ItemListener.getTeleportCrystal());
 
                     if (monsterLevel > 9) {
 
@@ -135,6 +138,7 @@ public class DropTable {
 
                             dropList.add(new ItemStack(Material.LEATHER_HELMET, 1));
                             dropList.add(new ItemStack(Material.LEATHER_CHESTPLATE, 1));
+                            dropList.add(ItemListener.getTeleportCrystal());
 
                             if (monsterLevel > 24) {
                                 dropList.add(new ItemStack(Material.DIAMOND_AXE, 1));
@@ -208,6 +212,7 @@ public class DropTable {
                 dropList.add(new ItemStack(Material.SUGAR, 2));
                 dropList.add(new ItemStack(Material.GLOWSTONE_DUST, 2));
                 dropList.add(new ItemStack(Material.GLASS_BOTTLE, 2));
+                dropList.add(ItemListener.getTeleportCrystal());
 
             }
             break;
