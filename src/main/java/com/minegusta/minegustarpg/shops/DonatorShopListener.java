@@ -48,6 +48,7 @@ public class DonatorShopListener implements Listener {
     //Open Inventory when clicking the player.
     @EventHandler
     public void villagerRightClickEvent(PlayerInteractEntityEvent e) {
+        if (!(e.getRightClicked() instanceof LivingEntity)) return;
         LivingEntity villager = (LivingEntity) e.getRightClicked();
         String name = villager.getCustomName();
         if (name != null) {

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="abad91f1-1a3d-48e5-bcab-a35a6579d945" name="Default" comment="Bank system working. No more errors.">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/listeners/LevelListener.java" afterPath="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/listeners/LevelListener.java" />
+    <list default="true" id="abad91f1-1a3d-48e5-bcab-a35a6579d945" name="Default" comment="Removed debugging messages.&#10;">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/shops/DonatorShopListener.java" afterPath="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/shops/DonatorShopListener.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="DonatorPoints.iws" />
@@ -81,48 +82,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PlayerFiles.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/bank/PlayerFiles.java">
+      <file leaf-file-name="DonatorShopListener.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/shops/DonatorShopListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="50" column="36" selection-start="1485" selection-end="1485" vertical-scroll-proportion="0.0" vertical-offset="850" max-vertical-offset="1037">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MinegustaRPGPlugin.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/MinegustaRPGPlugin.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="65" column="44" selection-start="2714" selection-end="2714" vertical-scroll-proportion="0.0" vertical-offset="141" max-vertical-offset="2210">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BankInv.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/bank/BankInv.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="5" selection-start="1400" selection-end="1400" vertical-scroll-proportion="0.0" vertical-offset="612" max-vertical-offset="748">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LevelListener.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/listeners/LevelListener.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="73" column="121" selection-start="3536" selection-end="3536" vertical-scroll-proportion="0.0" vertical-offset="725" max-vertical-offset="3417">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BankListener.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/bank/BankListener.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="80" selection-start="698" selection-end="698" vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="646">
+            <state line="60" column="38" selection-start="2263" selection-end="2263" vertical-scroll-proportion="0.0" vertical-offset="198" max-vertical-offset="4386">
               <folding />
             </state>
           </provider>
@@ -153,7 +116,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/listeners/shops/PotionShopListener.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/listeners/shops/FoodShopListener.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/listeners/shops/ArmourShopListener.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minegusta/donatorpoints/listeners/shops/WeaponShopListener.java" />
@@ -198,11 +160,12 @@
         <option value="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/mobs/DropTable.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/shops/ShopManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/items/ItemListener.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/bank/BankListener.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/bank/BankInv.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/bank/PlayerFiles.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/MinegustaRPGPlugin.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/listeners/LevelListener.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/bank/BankListener.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/bank/BankInv.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/shops/DonatorShopListener.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
@@ -328,6 +291,40 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="minegustarpg" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MinegustaRPG" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MinegustaRPG" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="minegustarpg" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shops" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -836,7 +833,15 @@
       <created>1391111675262</created>
       <updated>1391111675262</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="Fixed NPE for inventory name.">
+      <created>1391112166248</created>
+      <updated>1391112166248</updated>
+    </task>
+    <task id="LOCAL-00067" summary="Removed debugging messages.&#10;">
+      <created>1391112335742</created>
+      <updated>1391112335742</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -927,8 +932,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Added villager profession support to /npc." />
-    <MESSAGE value="Added scoreboards. Fixed pointsListener level variable causing errors." />
     <MESSAGE value="Attempt to fix NPE for pointsListener. Attempt to stop hortses from dropping armour." />
     <MESSAGE value="Fixed scoreboard illigalargumentexception. (Already existing objective)." />
     <MESSAGE value="All world refferences are now dependent on the main.world object." />
@@ -952,7 +955,9 @@
     <MESSAGE value="Small change in creating of new files." />
     <MESSAGE value="NPE fix in LevelListener and added directory banks." />
     <MESSAGE value="Bank system working. No more errors." />
-    <option name="LAST_COMMIT_MESSAGE" value="Bank system working. No more errors." />
+    <MESSAGE value="Fixed NPE for inventory name." />
+    <MESSAGE value="Removed debugging messages.&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed debugging messages.&#10;" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -1201,13 +1206,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/shops/DonatorShopListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="89" column="53" selection-start="3597" selection-end="3597" vertical-scroll-proportion="1.6105263" vertical-offset="0" max-vertical-offset="4369">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/scoreboard/ScoreBoardManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="51" column="43" selection-start="1789" selection-end="1789" vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="1615">
@@ -1219,22 +1217,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="867">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/bank/BankListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="80" selection-start="698" selection-end="698" vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="646">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/bank/PlayerFiles.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="36" selection-start="1485" selection-end="1485" vertical-scroll-proportion="0.0" vertical-offset="850" max-vertical-offset="1037">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1252,16 +1234,39 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/bank/BankInv.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/listeners/LevelListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="5" selection-start="1400" selection-end="1400" vertical-scroll-proportion="0.0" vertical-offset="612" max-vertical-offset="748">
+        <state line="73" column="122" selection-start="3537" selection-end="3537" vertical-scroll-proportion="0.0" vertical-offset="986" max-vertical-offset="3417">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/listeners/LevelListener.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/bank/PlayerFiles.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="73" column="121" selection-start="3536" selection-end="3536" vertical-scroll-proportion="0.0" vertical-offset="725" max-vertical-offset="3417">
+        <state line="50" column="36" selection-start="1485" selection-end="1485" vertical-scroll-proportion="1.1871508" vertical-offset="0" max-vertical-offset="1037">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/bank/BankListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="113" selection-start="1075" selection-end="1075" vertical-scroll-proportion="0.4273743" vertical-offset="0" max-vertical-offset="716">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/bank/BankInv.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="22" selection-start="1002" selection-end="1002" vertical-scroll-proportion="0.5223464" vertical-offset="0" max-vertical-offset="716">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/shops/DonatorShopListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="60" column="38" selection-start="2263" selection-end="2263" vertical-scroll-proportion="0.0" vertical-offset="198" max-vertical-offset="4386">
           <folding />
         </state>
       </provider>
