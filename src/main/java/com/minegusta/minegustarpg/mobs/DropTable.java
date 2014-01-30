@@ -1,4 +1,4 @@
-package com.minegusta.minegustarpg;
+package com.minegusta.minegustarpg.mobs;
 
 import com.google.common.collect.Lists;
 import org.bukkit.Material;

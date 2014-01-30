@@ -1,4 +1,4 @@
-package com.minegusta.minegustarpg.listeners.shops;
+package com.minegusta.minegustarpg.shops;
 
 import com.google.common.collect.Lists;
 import com.minegusta.minegustarpg.MinegustaRPGPlugin;

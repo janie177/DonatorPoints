@@ -1,5 +1,6 @@
-package com.minegusta.minegustarpg;
+package com.minegusta.minegustarpg.managers;
 
+import com.minegusta.minegustarpg.MinegustaRPGPlugin;
 import com.minegusta.minegustarpg.playerdata.Data;
 import org.bukkit.*;
 import org.bukkit.entity.Firework;

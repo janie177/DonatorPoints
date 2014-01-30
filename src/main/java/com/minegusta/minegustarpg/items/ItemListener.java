@@ -1,4 +1,4 @@
-package com.minegusta.minegustarpg.listeners.items;
+package com.minegusta.minegustarpg.items;
 
 
 import org.bukkit.Effect;

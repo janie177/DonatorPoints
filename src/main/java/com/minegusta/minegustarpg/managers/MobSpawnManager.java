@@ -1,6 +1,7 @@
-package com.minegusta.minegustarpg;
+package com.minegusta.minegustarpg.managers;
 
 import com.google.common.collect.Maps;
+import com.minegusta.minegustarpg.MinegustaRPGPlugin;
 import org.bukkit.*;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.*;

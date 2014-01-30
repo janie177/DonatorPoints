@@ -34,7 +34,7 @@ public enum DefaultNPC implements NPC {
             add("Just click me with the DeathWeed when you have obtained it.");
             add("Good day lad!");
         }
-    }, true, 31, 3, "DeathWeed", "Well done! Here is 3 points for the efford!"));
+    }, true, 31, 3, "DeathWeed", "Well done! Here's 3 points for the efford!"));
 
     private DetailedNPC nPC;
 

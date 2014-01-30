@@ -83,8 +83,9 @@ public class PlayerListener implements Listener {
         Player player = e.getPlayer();
         List<ItemStack> inv = invMap.get(player.getName());
         if (invMap.containsKey(player.getName())) {
-            for (ItemStack i : inv)
+            for (ItemStack i : inv) {
                 player.getInventory().addItem(i);
+            }
             invMap.remove(player.getName());
         }
 
@@ -94,7 +95,7 @@ public class PlayerListener implements Listener {
     @EventHandler
     public void onJoin(PlayerJoinEvent e) {
         Player p = e.getPlayer();
-        if (p.getWorld().getName().toLowerCase().equals(MinegustaRPGPlugin.world)) {
+        if (p.getWorld().getName().toLowerCase().equalsIgnoreCase(MinegustaRPGPlugin.world)) {
             ScoreBoardManager.setScoreboardForPlayer(p);
 
         } else {
@@ -106,8 +107,6 @@ public class PlayerListener implements Listener {
     @EventHandler
     public void onQuit(PlayerQuitEvent e) {
         Player p = e.getPlayer();
-        if (!p.getWorld().getName().toLowerCase().equals(MinegustaRPGPlugin.world)) {
-            ScoreBoardManager.clearScoreBoardForPlayer(p);
-        }
+        ScoreBoardManager.clearScoreBoardForPlayer(p);
     }
 }

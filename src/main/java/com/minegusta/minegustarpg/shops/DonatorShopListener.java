@@ -1,4 +1,4 @@
-package com.minegusta.minegustarpg.listeners.shops;
+package com.minegusta.minegustarpg.shops;
 
 import com.censoredsoftware.censoredlib.util.Items;
 import com.google.common.base.Function;

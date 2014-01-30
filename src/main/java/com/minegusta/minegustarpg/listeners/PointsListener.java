@@ -1,9 +1,9 @@
 package com.minegusta.minegustarpg.listeners;
 
-import com.minegusta.minegustarpg.DropTable;
-import com.minegusta.minegustarpg.LevelManager;
 import com.minegusta.minegustarpg.MinegustaRPGPlugin;
 import com.minegusta.minegustarpg.data.DataManager;
+import com.minegusta.minegustarpg.managers.LevelManager;
+import com.minegusta.minegustarpg.mobs.DropTable;
 import com.minegusta.minegustarpg.playerdata.Data;
 import com.minegusta.minegustarpg.scoreboard.ScoreBoardManager;
 import org.bukkit.ChatColor;

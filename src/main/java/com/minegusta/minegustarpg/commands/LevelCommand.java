@@ -2,7 +2,7 @@ package com.minegusta.minegustarpg.commands;
 
 
 import com.google.common.collect.Lists;
-import com.minegusta.minegustarpg.LevelManager;
+import com.minegusta.minegustarpg.managers.LevelManager;
 import com.minegusta.minegustarpg.playerdata.Data;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;

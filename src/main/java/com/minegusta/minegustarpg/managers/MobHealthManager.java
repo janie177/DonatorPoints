@@ -1,5 +1,6 @@
-package com.minegusta.minegustarpg;
+package com.minegusta.minegustarpg.managers;
 
+import com.minegusta.minegustarpg.MinegustaRPGPlugin;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Skeleton;

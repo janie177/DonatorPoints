@@ -8,6 +8,8 @@ import org.bukkit.event.player.PlayerChangedWorldEvent;
 
 public class ScoreBoardListener implements Listener {
 
+    //On world switch.
+
     @EventHandler
     public void onGoToDonatorWorld(PlayerChangedWorldEvent e) {
         Player p = e.getPlayer();

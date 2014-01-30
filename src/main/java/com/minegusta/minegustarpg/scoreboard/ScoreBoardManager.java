@@ -1,7 +1,7 @@
 package com.minegusta.minegustarpg.scoreboard;
 
-import com.minegusta.minegustarpg.LevelManager;
 import com.minegusta.minegustarpg.MinegustaRPGPlugin;
+import com.minegusta.minegustarpg.managers.LevelManager;
 import com.minegusta.minegustarpg.playerdata.Data;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -25,7 +25,6 @@ public class ScoreBoardManager {
         }
         return data;
     }
-
 
     static Score level = data.getScore(Bukkit.getOfflinePlayer(ChatColor.YELLOW + "Level: "));
     static Score kills = data.getScore(Bukkit.getOfflinePlayer(ChatColor.YELLOW + "Kills: "));
@@ -57,7 +56,9 @@ public class ScoreBoardManager {
 
     public static void setScoreboardForPlayer(Player p) {
         if (!p.getWorld().getName().equalsIgnoreCase(MinegustaRPGPlugin.world)) return;
-        p.setScoreboard(sb);
+        else {
+            p.setScoreboard(sb);
+        }
     }
 
     public static void clearScoreBoardForPlayer(Player p) {
