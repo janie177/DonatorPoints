@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="abad91f1-1a3d-48e5-bcab-a35a6579d945" name="Default" comment="NPE fix in LevelListener and added directory banks.">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/bank/BankInv.java" afterPath="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/bank/BankInv.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/bank/BankListener.java" afterPath="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/bank/BankListener.java" />
+    <list default="true" id="abad91f1-1a3d-48e5-bcab-a35a6579d945" name="Default" comment="Bank system working. No more errors.">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/listeners/LevelListener.java" afterPath="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/listeners/LevelListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/MinegustaRPGPlugin.java" afterPath="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/MinegustaRPGPlugin.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/bank/PlayerFiles.java" afterPath="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/bank/PlayerFiles.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="DonatorPoints.iws" />
@@ -89,7 +84,7 @@
       <file leaf-file-name="PlayerFiles.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/bank/PlayerFiles.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="50" column="36" selection-start="1476" selection-end="1476" vertical-scroll-proportion="0.0" vertical-offset="325" max-vertical-offset="1037">
+            <state line="50" column="36" selection-start="1485" selection-end="1485" vertical-scroll-proportion="0.0" vertical-offset="850" max-vertical-offset="1037">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -109,7 +104,7 @@
       <file leaf-file-name="BankInv.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/bank/BankInv.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="5" selection-start="1399" selection-end="1399" vertical-scroll-proportion="0.0" vertical-offset="32" max-vertical-offset="748">
+            <state line="42" column="5" selection-start="1400" selection-end="1400" vertical-scroll-proportion="0.0" vertical-offset="612" max-vertical-offset="748">
               <folding />
             </state>
           </provider>
@@ -118,7 +113,7 @@
       <file leaf-file-name="LevelListener.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/listeners/LevelListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="82" column="32" selection-start="3959" selection-end="3959" vertical-scroll-proportion="0.0" vertical-offset="1836" max-vertical-offset="3417">
+            <state line="73" column="121" selection-start="3536" selection-end="3536" vertical-scroll-proportion="0.0" vertical-offset="725" max-vertical-offset="3417">
               <folding />
             </state>
           </provider>
@@ -127,7 +122,7 @@
       <file leaf-file-name="BankListener.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/bank/BankListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="82" selection-start="698" selection-end="698" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="646">
+            <state line="16" column="80" selection-start="698" selection-end="698" vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="646">
               <folding />
             </state>
           </provider>
@@ -837,7 +832,11 @@
       <created>1391108263815</created>
       <updated>1391108263815</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="Bank system working. No more errors.">
+      <created>1391111675262</created>
+      <updated>1391111675262</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -928,7 +927,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Less exp awarded, more drops." />
     <MESSAGE value="Added villager profession support to /npc." />
     <MESSAGE value="Added scoreboards. Fixed pointsListener level variable causing errors." />
     <MESSAGE value="Attempt to fix NPE for pointsListener. Attempt to stop hortses from dropping armour." />
@@ -953,7 +951,8 @@
     <MESSAGE value="First attempt of adding banks." />
     <MESSAGE value="Small change in creating of new files." />
     <MESSAGE value="NPE fix in LevelListener and added directory banks." />
-    <option name="LAST_COMMIT_MESSAGE" value="NPE fix in LevelListener and added directory banks." />
+    <MESSAGE value="Bank system working. No more errors." />
+    <option name="LAST_COMMIT_MESSAGE" value="Bank system working. No more errors." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -1225,14 +1224,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/bank/BankListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="82" selection-start="698" selection-end="698" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="646">
+        <state line="16" column="80" selection-start="698" selection-end="698" vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="646">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/bank/PlayerFiles.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="36" selection-start="1476" selection-end="1476" vertical-scroll-proportion="0.0" vertical-offset="325" max-vertical-offset="1037">
+        <state line="50" column="36" selection-start="1485" selection-end="1485" vertical-scroll-proportion="0.0" vertical-offset="850" max-vertical-offset="1037">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1255,14 +1254,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/bank/BankInv.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="5" selection-start="1399" selection-end="1399" vertical-scroll-proportion="0.0" vertical-offset="36" max-vertical-offset="748">
+        <state line="42" column="5" selection-start="1400" selection-end="1400" vertical-scroll-proportion="0.0" vertical-offset="612" max-vertical-offset="748">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/listeners/LevelListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="82" column="32" selection-start="3959" selection-end="3959" vertical-scroll-proportion="0.0" vertical-offset="1836" max-vertical-offset="3417">
+        <state line="73" column="121" selection-start="3536" selection-end="3536" vertical-scroll-proportion="0.0" vertical-offset="725" max-vertical-offset="3417">
           <folding />
         </state>
       </provider>
