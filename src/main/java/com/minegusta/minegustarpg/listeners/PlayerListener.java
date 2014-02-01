@@ -6,6 +6,7 @@ import com.google.common.collect.Maps;
 import com.minegusta.minegustarpg.MinegustaRPGPlugin;
 import com.minegusta.minegustarpg.playerdata.Data;
 import com.minegusta.minegustarpg.scoreboard.ScoreBoardManager;
+import com.minegusta.minegustarpg.skilltree.SkillTreeData;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -95,6 +96,7 @@ public class PlayerListener implements Listener {
     @EventHandler
     public void onJoin(PlayerJoinEvent e) {
         Player p = e.getPlayer();
+        SkillTreeData.loadPlayerToMaps(p.getUniqueId().toString());
         if (p.getWorld().getName().toLowerCase().equalsIgnoreCase(MinegustaRPGPlugin.world)) {
             ScoreBoardManager.setScoreboardForPlayer(p);
 
@@ -107,6 +109,7 @@ public class PlayerListener implements Listener {
     @EventHandler
     public void onQuit(PlayerQuitEvent e) {
         Player p = e.getPlayer();
+        SkillTreeData.unloadPlayerFromMaps(p.getUniqueId().toString());
         ScoreBoardManager.clearScoreBoardForPlayer(p);
     }
 }
