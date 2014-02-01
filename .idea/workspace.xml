@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="abad91f1-1a3d-48e5-bcab-a35a6579d945" name="Default" comment="Added max levels for skill trees.">
+    <list default="true" id="abad91f1-1a3d-48e5-bcab-a35a6579d945" name="Default" comment="Fixed some colors and lengthy messages.">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/skilltree/SkillTreeGui.java" afterPath="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/skilltree/SkillTreeGui.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -76,7 +76,7 @@
       <file leaf-file-name="SkillTreeGui.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/skilltree/SkillTreeGui.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="356" selection-start="5921" selection-end="5921" vertical-scroll-proportion="0.0" vertical-offset="314" max-vertical-offset="2992">
+            <state line="17" column="154" selection-start="1416" selection-end="1416" vertical-scroll-proportion="0.0" vertical-offset="110" max-vertical-offset="2992">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -87,7 +87,7 @@
       <file leaf-file-name="SkillTreeListener.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/skilltree/SkillTreeListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="120" column="107" selection-start="6673" selection-end="6673" vertical-scroll-proportion="0.0" vertical-offset="1266" max-vertical-offset="3400">
+            <state line="120" column="107" selection-start="6673" selection-end="6673" vertical-scroll-proportion="0.0" vertical-offset="144" max-vertical-offset="3400">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -948,7 +948,11 @@
       <created>1391276627248</created>
       <updated>1391276627248</updated>
     </task>
-    <option name="localTasksCounter" value="77" />
+    <task id="LOCAL-00077" summary="Fixed some colors and lengthy messages.">
+      <created>1391277450143</created>
+      <updated>1391277450143</updated>
+    </task>
+    <option name="localTasksCounter" value="78" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1039,7 +1043,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Player join and quit listener scoreboard fix." />
     <MESSAGE value="World check for trading Traders. (On damage event)." />
     <MESSAGE value="made shops more compact." />
     <MESSAGE value="Scoreboards now update instantly." />
@@ -1064,7 +1067,8 @@
     <MESSAGE value="Attempted fix for NPE on inventory click and Horse click." />
     <MESSAGE value="Added skill tree basics." />
     <MESSAGE value="Added max levels for skill trees." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added max levels for skill trees." />
+    <MESSAGE value="Fixed some colors and lengthy messages." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed some colors and lengthy messages." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -1341,7 +1345,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/skilltree/SkillTreeGui.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="356" selection-start="5921" selection-end="5921" vertical-scroll-proportion="0.0" vertical-offset="314" max-vertical-offset="2992">
+        <state line="17" column="154" selection-start="1416" selection-end="1416" vertical-scroll-proportion="0.0" vertical-offset="110" max-vertical-offset="2992">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
