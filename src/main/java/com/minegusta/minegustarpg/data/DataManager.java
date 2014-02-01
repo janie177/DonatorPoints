@@ -12,6 +12,7 @@ import com.minegusta.minegustarpg.npc.DefaultNPC;
 import com.minegusta.minegustarpg.npc.DetailedNPC;
 import com.minegusta.minegustarpg.npc.NPC;
 import com.minegusta.minegustarpg.playerdata.PlayerData;
+import com.minegusta.minegustarpg.skilltree.SkillTreeFileManager;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.OfflinePlayer;
@@ -51,6 +52,7 @@ public class DataManager {
         nPCSave.saveToFile();
         timedDataSave.saveToFile();
         PlayerData.saveData();
+        SkillTreeFileManager.saveSkillTreeFile();
     }
 
     public static int startSaveTask() {

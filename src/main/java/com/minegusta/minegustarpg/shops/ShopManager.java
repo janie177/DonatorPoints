@@ -483,7 +483,7 @@ public class ShopManager implements Listener {
             {
                 ItemMeta meta = getItemMeta();
                 List<String> lore = Lists.newArrayList();
-                lore.add(ChatColor.GRAY + "An apple a day didn't keeps the doctor away.");
+                lore.add(ChatColor.GRAY + "An apple a day didn't keep the doctor away.");
                 meta.setLore(lore);
                 meta.setDisplayName(ChatColor.YELLOW + "Potion of Health II");
                 setItemMeta(meta);

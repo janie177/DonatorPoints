@@ -22,6 +22,8 @@ import com.minegusta.minegustarpg.scoreboard.ScoreBoardManager;
 import com.minegusta.minegustarpg.shops.DonatorShopListener;
 import com.minegusta.minegustarpg.shops.HorseShopListener;
 import com.minegusta.minegustarpg.shops.ShopManager;
+import com.minegusta.minegustarpg.skilltree.SkillTreeFileManager;
+import com.minegusta.minegustarpg.skilltree.SkillTreeListener;
 import com.sk89q.worldguard.bukkit.WorldGuardPlugin;
 import org.bukkit.Bukkit;
 import org.bukkit.event.HandlerList;
@@ -75,6 +77,10 @@ public class MinegustaRPGPlugin extends CensoredJavaPlugin {
 
             //Run scoreboard updater
             SCOREBOARD_TASK = ScoreBoardManager.enableScoreBoardTimer();
+
+            //Load skill tree file.
+
+            SkillTreeFileManager.loadSkillTreeFile();
 
             // data
             DataManager.load();
@@ -146,6 +152,7 @@ public class MinegustaRPGPlugin extends CensoredJavaPlugin {
         manager.registerEvents(new LevelListener(), this);
         manager.registerEvents(new ScoreBoardListener(), this);
         manager.registerEvents(new BankListener(), this);
+        manager.registerEvents(new SkillTreeListener(), this);
     }
 
 

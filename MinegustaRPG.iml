@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
-  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_6" inherit-compiler-output="false">
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_7" inherit-compiler-output="false">
     <output url="file://$MODULE_DIR$/target/classes" />
     <output-test url="file://$MODULE_DIR$/target/test-classes" />
     <content url="file://$MODULE_DIR$">
@@ -13,7 +13,7 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="spigot-api-1.7.2-R0.1-20131206.093300-32" level="project" />
     <orderEntry type="library" name="Maven: com.censoredsoftware:CensoredLib:1.0.0-SNAPSHOT" level="project" />
-    <orderEntry type="library" name="Maven: org.spigotmc:spigot-api:1.7.2-R0.1-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: org.spigotmc:spigot-api:1.7.2-R0.2-SNAPSHOT" level="project" />
     <orderEntry type="library" name="Maven: com.sk89q:worldguard:5.8.1-SNAPSHOT" level="project" />
     <orderEntry type="library" name="Maven: com.sk89q:worldedit:5.5.8" level="project" />
     <orderEntry type="library" name="Maven: javax.servlet:servlet-api:3.0-alpha-1" level="project" />
