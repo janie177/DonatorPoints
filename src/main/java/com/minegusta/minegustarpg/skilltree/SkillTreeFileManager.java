@@ -31,17 +31,14 @@ public class SkillTreeFileManager {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            conf = YamlConfiguration.loadConfiguration(file);
-        }
-    }
 
-    private static File getFile() {
-        return new File(p.getDataFolder() + "/skilltree/" + "skilltree.yml");
+        }
+        conf = YamlConfiguration.loadConfiguration(file);
     }
 
     public static void saveSkillTreeFile() {
         try {
-            conf.save(getFile());
+            conf.save(file);
         } catch (Exception e) {
             e.printStackTrace();
         }
