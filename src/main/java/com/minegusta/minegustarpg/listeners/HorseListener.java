@@ -82,11 +82,13 @@ public class HorseListener implements Listener {
     public static void killHorse(UUID horseUUID, World world) {
         for (Entity entity : Bukkit.getServer().getWorld(world.getName()).getEntities()) {
             if (entity.getUniqueId().equals(horseUUID)) {
-                LivingEntity horse = (LivingEntity) entity;
-                UUID playerUUID = horseMap.get(horse.getUniqueId());
-                playerMap.remove(playerUUID);
-                horse.remove();
-                horseMap.remove(entity.getUniqueId());
+                if (horseMap.containsKey(entity.getUniqueId())) {
+                    LivingEntity horse = (LivingEntity) entity;
+                    UUID playerUUID = horseMap.get(horse.getUniqueId());
+                    playerMap.remove(playerUUID);
+                    horse.remove();
+                    horseMap.remove(entity.getUniqueId());
+                }
             }
         }
     }

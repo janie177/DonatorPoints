@@ -327,14 +327,16 @@ public class SkillTreeListener implements Listener {
             Player p = (Player) e.getEntity().getShooter();
             Random rand = new Random();
             int i = rand.nextInt(100);
+            double randomDouble = rand.nextDouble();
             if (SkillTreeData.alchemist.containsKey(p.getUniqueId().toString())) {
                 if ((SkillTreeData.alchemist.get(p.getUniqueId().toString()) * 10) + 1 < i) {
                     ThrownPotion potion = e.getPotion();
                     World world = e.getEntity().getWorld();
-                    ThrownPotion clone = (ThrownPotion) world.spawnEntity(e.getEntity().getLocation(), EntityType.SPLASH_POTION);
-                    clone = potion;
-                    ThrownPotion clone2 = (ThrownPotion) world.spawnEntity(e.getEntity().getLocation(), EntityType.SPLASH_POTION);
-                    clone2 = potion;
+                    for (int le = 0; le < 4; le++) {
+                        ThrownPotion clone = (ThrownPotion) world.spawnEntity(e.getEntity().getLocation(), EntityType.SPLASH_POTION);
+                        Vector v = new Vector(rand.nextDouble() / 10, 2, rand.nextDouble() / 10);
+                        clone.setVelocity(v);
+                    }
                 }
             }
 
@@ -382,7 +384,7 @@ public class SkillTreeListener implements Listener {
             if ((SkillTreeData.bowman.get(p.getUniqueId().toString()) * 8) + 1 > random) {
                 Entity a = e.getProjectile();
                 World w = e.getEntity().getWorld();
-                Entity b = w.spawnEntity(e.getEntity().getLocation(), EntityType.ARROW);
+                Entity b = w.spawnEntity(a.getLocation(), EntityType.ARROW);
                 b.setVelocity(a.getLocation().getDirection());
             }
         }
@@ -463,6 +465,7 @@ public class SkillTreeListener implements Listener {
                         Player p = (Player) e;
                         if (k == 1) p.sendMessage(ChatColor.RED + "You are bleeding!");
                     }
+                    e.getWorld().spigot().playEffect(e.getLocation(), Effect.CRIT);
                     if (k == 20) e.damage(1.0);
                     if (k == 40) e.damage(1.0);
                     if (k == 59) e.damage(1.0);
