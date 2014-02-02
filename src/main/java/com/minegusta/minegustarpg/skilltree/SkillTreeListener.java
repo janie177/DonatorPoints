@@ -426,7 +426,7 @@ public class SkillTreeListener implements Listener {
             if (healerCooldown.containsKey(p.getUniqueId().toString())) {
                 long remainingTime = System.currentTimeMillis() - healerCooldown.get(p.getUniqueId().toString());
                 if (!(remainingTime >= coolDownTime)) {
-                    p.sendMessage(ChatColor.YELLOW + "You have to wait another " + ChatColor.RED + getRemainingCooldown(remainingTime - remainingTime) + ChatColor.YELLOW + " before you can heal again.");
+                    p.sendMessage(ChatColor.YELLOW + "You have to wait another " + ChatColor.RED + getRemainingCooldown(coolDownTime - remainingTime) + ChatColor.YELLOW + " before you can heal again.");
                     return;
                 }
             }
