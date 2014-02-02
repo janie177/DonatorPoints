@@ -38,7 +38,7 @@ public class SkillTreeGui {
 
         items.add(addItemMeta(Branches.LUCK.getItemStack(), Lists.newArrayList(ChatColor.GOLD + "Next rank: " + ChatColor.YELLOW + "+6% chance for monster drops.", ChatColor.GOLD + "Current rank: +" + ChatColor.YELLOW + "+" + SkillTreeData.getLuckFromFile(uuid) * 6 + "% chance for monster drops.", ChatColor.GREEN + "" + SkillTreeData.getLuckFromFile(uuid) + ChatColor.YELLOW + "/" + ChatColor.DARK_GREEN + "3" + ChatColor.YELLOW + " unlocked.")));
 
-        items.add(addItemMeta(Branches.BLOODBATH.getItemStack(), Lists.newArrayList(ChatColor.GOLD + "Next rank: " + ChatColor.YELLOW + "+5% chance to make your enemy bleed.", ChatColor.GOLD + "Current rank: " + ChatColor.YELLOW + SkillTreeData.getBloodbathFromFile(uuid) * 15 + "% chance to make your enemy bleed.", ChatColor.GREEN + "" + SkillTreeData.getBloodbathFromFile(uuid) + ChatColor.YELLOW + "/" + ChatColor.DARK_GREEN + "3" + ChatColor.YELLOW + " unlocked.")));
+        items.add(addItemMeta(Branches.BLOODBATH.getItemStack(), Lists.newArrayList(ChatColor.GOLD + "Next rank: " + ChatColor.YELLOW + "+15% chance to make your enemy bleed in melee.", ChatColor.GOLD + "Current rank: " + ChatColor.YELLOW + SkillTreeData.getBloodbathFromFile(uuid) * 15 + "% chance to make your enemy bleed in melee.", ChatColor.GREEN + "" + SkillTreeData.getBloodbathFromFile(uuid) + ChatColor.YELLOW + "/" + ChatColor.DARK_GREEN + "3" + ChatColor.YELLOW + " unlocked.")));
         return items;
     }
 
