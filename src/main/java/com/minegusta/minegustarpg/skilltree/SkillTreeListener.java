@@ -491,7 +491,7 @@ public class SkillTreeListener implements Listener {
                 double maxAdded = le.getMaxHealth() - le.getHealth();
                 double healthToAdd = 5 * amount;
                 if (maxAdded < healthToAdd) healthToAdd = maxAdded;
-                le.setHealth(healthToAdd);
+                le.setHealth(le.getHealth() + healthToAdd);
                 playHearts(le);
             }
         }
