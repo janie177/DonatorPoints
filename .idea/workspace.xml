@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="abad91f1-1a3d-48e5-bcab-a35a6579d945" name="Default" comment="Fixed healing number being too big.">
+    <list default="true" id="abad91f1-1a3d-48e5-bcab-a35a6579d945" name="Default" comment="Alot more healing for the healing skill.">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/skilltree/SkillTreeGui.java" afterPath="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/skilltree/SkillTreeGui.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -76,7 +76,7 @@
       <file leaf-file-name="SkillTreeListener.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/skilltree/SkillTreeListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="433" column="36" selection-start="22709" selection-end="22709" vertical-scroll-proportion="0.0" vertical-offset="7361" max-vertical-offset="8908">
+            <state line="485" column="38" selection-start="24739" selection-end="24739" vertical-scroll-proportion="0.0" vertical-offset="8194" max-vertical-offset="8908">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -87,7 +87,7 @@
       <file leaf-file-name="SkillTreeGui.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/skilltree/SkillTreeGui.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="137" column="43" selection-start="10996" selection-end="10996" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3026">
+            <state line="45" column="40" selection-start="7585" selection-end="7585" vertical-scroll-proportion="0.0" vertical-offset="289" max-vertical-offset="2992">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -98,7 +98,7 @@
       <file leaf-file-name="pom.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="20" selection-start="401" selection-end="401" vertical-scroll-proportion="0.20389806" vertical-offset="0" max-vertical-offset="2720">
+            <state line="11" column="51" selection-start="443" selection-end="443" vertical-scroll-proportion="0.27219796" vertical-offset="0" max-vertical-offset="2720">
               <folding />
             </state>
           </provider>
@@ -1062,7 +1062,15 @@
       <created>1391368447734</created>
       <updated>1391368447734</updated>
     </task>
-    <option name="localTasksCounter" value="98" />
+    <task id="LOCAL-00098" summary="Removed unwanted Lore from vanilla.">
+      <created>1391368544406</created>
+      <updated>1391368544406</updated>
+    </task>
+    <task id="LOCAL-00099" summary="Alot more healing for the healing skill.">
+      <created>1391368872314</created>
+      <updated>1391368872314</updated>
+    </task>
+    <option name="localTasksCounter" value="100" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1106,7 +1114,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24236874" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.069798656" sideWeight="0.4993895" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.04295302" sideWeight="0.4993895" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32931727" sideWeight="0.49964914" order="1" side_tool="false" content_ui="tabs" />
@@ -1153,8 +1161,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Fixed effect to be one smokescreen to avoid lagg. Also NPE fix @ levelListener." />
-    <MESSAGE value="Attempted fix for NPE on inventory click and Horse click." />
     <MESSAGE value="Added skill tree basics." />
     <MESSAGE value="Added max levels for skill trees." />
     <MESSAGE value="Fixed some colors and lengthy messages." />
@@ -1178,7 +1184,9 @@
     <MESSAGE value="Healing countdown now shows the time you have to wait. Not how long you waited." />
     <MESSAGE value="Loading players to maps works now." />
     <MESSAGE value="Fixed healing number being too big." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed healing number being too big." />
+    <MESSAGE value="Removed unwanted Lore from vanilla." />
+    <MESSAGE value="Alot more healing for the healing skill." />
+    <option name="LAST_COMMIT_MESSAGE" value="Alot more healing for the healing skill." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -1470,7 +1478,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/skilltree/SkillTreeListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="433" column="36" selection-start="22709" selection-end="22709" vertical-scroll-proportion="0.0" vertical-offset="7361" max-vertical-offset="8908">
+        <state line="485" column="38" selection-start="24739" selection-end="24739" vertical-scroll-proportion="0.0" vertical-offset="6341" max-vertical-offset="8908">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1479,7 +1487,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/skilltree/SkillTreeGui.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="137" column="43" selection-start="10996" selection-end="10996" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3026">
+        <state line="45" column="40" selection-start="7585" selection-end="7585" vertical-scroll-proportion="0.0" vertical-offset="289" max-vertical-offset="2992">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1488,7 +1496,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="20" selection-start="401" selection-end="401" vertical-scroll-proportion="0.20389806" vertical-offset="0" max-vertical-offset="2720">
+        <state line="11" column="51" selection-start="443" selection-end="443" vertical-scroll-proportion="0.27219796" vertical-offset="0" max-vertical-offset="2720">
           <folding />
         </state>
       </provider>
