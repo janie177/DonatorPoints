@@ -336,8 +336,9 @@ public class SkillTreeListener implements Listener {
                     World world = e.getEntity().getWorld();
                     for (int le = 0; le < 4; le++) {
                         ThrownPotion clone = (ThrownPotion) world.spawnEntity(e.getEntity().getLocation(), EntityType.SPLASH_POTION);
-                        Vector v = new Vector(rand.nextDouble() / 10, 2, rand.nextDouble() / 10);
+                        Vector v = new Vector(rand.nextDouble() / 10, 0.5, rand.nextDouble() / 10);
                         clone.setVelocity(v);
+                        clone.setItem(potion.getItem());
                     }
                 }
             }
@@ -487,7 +488,7 @@ public class SkillTreeListener implements Listener {
         for (Entity e : p.getNearbyEntities(3.0, 4.0, 3.0)) {
             if (e instanceof Player || e instanceof Horse) {
                 LivingEntity le = (LivingEntity) e;
-                double maxAdded = 20 - le.getHealth();
+                double maxAdded = le.getMaxHealth() - le.getHealth();
                 double healthToAdd = 5 * amount;
                 if (maxAdded < healthToAdd) healthToAdd = maxAdded;
                 le.setHealth(healthToAdd);
