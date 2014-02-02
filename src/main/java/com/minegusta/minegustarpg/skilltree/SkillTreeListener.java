@@ -239,16 +239,15 @@ public class SkillTreeListener implements Listener {
                 //Archer
                 if (SkillTreeData.archer.containsKey(uuid)) {
                     level = SkillTreeData.archer.get(uuid);
-                    if (level + 1 > rand.nextInt(100)) {
                         e.setDamage(e.getDamage() + level);
-                    }
 
                 }
 
 
                 //ArrowEfficiency
                 if (SkillTreeData.arrowefficiency.containsKey(uuid)) {
-                    if (rand.nextInt(100) < (SkillTreeData.arrowefficiency.get(uuid) * 40)) {
+                    int chance = rand.nextInt(100);
+                    if (chance < (SkillTreeData.arrowefficiency.get(uuid) * 40)) {
 
                         enemy.getWorld().dropItemNaturally(enemy.getLocation(), new ItemStack(Material.ARROW, 1));
                     }
