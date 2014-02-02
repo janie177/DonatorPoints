@@ -239,15 +239,21 @@ public class SkillTreeListener implements Listener {
                 //Archer
                 if (SkillTreeData.archer.containsKey(uuid)) {
                     level = SkillTreeData.archer.get(uuid);
-                        e.setDamage(e.getDamage() + level);
-
+                    e.setDamage(e.getDamage() + level);
+                    //TODO REMODE
+                    Bukkit.broadcastMessage("Debug: Archer works.");
                 }
 
 
                 //ArrowEfficiency
                 if (SkillTreeData.arrowefficiency.containsKey(uuid)) {
                     int chance = rand.nextInt(100);
+                    //TODO REMODE
+                    Bukkit.broadcastMessage("Debug: arrowefficiency contains you!");
                     if (chance < (SkillTreeData.arrowefficiency.get(uuid) * 40)) {
+
+                        //TODO REMODE
+                        Bukkit.broadcastMessage("Debug: Arrowefficiency is ran!");
 
                         enemy.getWorld().dropItemNaturally(enemy.getLocation(), new ItemStack(Material.ARROW, 1));
                     }
@@ -386,7 +392,7 @@ public class SkillTreeListener implements Listener {
                 Entity a = e.getProjectile();
                 Vector v = a.getLocation().getDirection().multiply(1.5);
                 World w = e.getEntity().getWorld();
-                Entity b = w.spawnEntity(a.getLocation().add(v), EntityType.ARROW);
+                Entity b = w.spawnEntity(e.getEntity().getLocation().add(v), EntityType.ARROW);
                 b.setVelocity(a.getLocation().getDirection().multiply(1.5));
             }
         }
