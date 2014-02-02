@@ -22,6 +22,7 @@ import com.minegusta.minegustarpg.scoreboard.ScoreBoardManager;
 import com.minegusta.minegustarpg.shops.DonatorShopListener;
 import com.minegusta.minegustarpg.shops.HorseShopListener;
 import com.minegusta.minegustarpg.shops.ShopManager;
+import com.minegusta.minegustarpg.skilltree.SkillTreeData;
 import com.minegusta.minegustarpg.skilltree.SkillTreeFileManager;
 import com.minegusta.minegustarpg.skilltree.SkillTreeListener;
 import com.sk89q.worldguard.bukkit.WorldGuardPlugin;
@@ -80,6 +81,7 @@ public class MinegustaRPGPlugin extends CensoredJavaPlugin {
 
             //Load skill tree file.
 
+            SkillTreeData.loadOnlineToMap();
             SkillTreeFileManager.loadSkillTreeFile();
 
             // data

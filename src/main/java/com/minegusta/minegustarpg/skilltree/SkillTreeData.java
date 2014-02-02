@@ -1,7 +1,9 @@
 package com.minegusta.minegustarpg.skilltree;
 
 import com.google.common.collect.Maps;
+import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.entity.Player;
 
 import java.util.concurrent.ConcurrentMap;
 
@@ -288,5 +290,12 @@ public class SkillTreeData {
 
     public static void addPower(String uuid, Integer amount) {
         conf.set(uuid + ".power", getPowerFromFile(uuid) + 1);
+    }
+
+    // On reload to be safe.
+    public static void loadOnlineToMap() {
+        for (Player p : Bukkit.getOnlinePlayers()) {
+            loadPlayerToMaps(p.getUniqueId().toString());
+        }
     }
 }

@@ -1,5 +1,6 @@
 package com.minegusta.minegustarpg.skilltree;
 
+import com.google.common.collect.Maps;
 import com.minegusta.minegustarpg.MinegustaRPGPlugin;
 import com.minegusta.minegustarpg.data.DataManager;
 import com.minegusta.minegustarpg.playerdata.Data;
@@ -19,8 +20,12 @@ import org.bukkit.potion.PotionEffectType;
 import org.bukkit.util.Vector;
 
 import java.util.Random;
+import java.util.concurrent.ConcurrentMap;
+import java.util.concurrent.TimeUnit;
 
 public class SkillTreeListener implements Listener {
+
+    public static ConcurrentMap<String, Long> healerCooldown = Maps.newConcurrentMap();
 
     //Updating skills
 
@@ -369,8 +374,17 @@ public class SkillTreeListener implements Listener {
         if (!p.isSneaking() || (!e.getAction().equals(Action.RIGHT_CLICK_AIR) && !e.getAction().equals(Action.RIGHT_CLICK_BLOCK)))
             return;
         if (SkillTreeData.healer.containsKey(p.getUniqueId().toString())) {
+            long coolDownTime = TimeUnit.SECONDS.toMillis(90);
+            long remainingTime = System.currentTimeMillis() - healerCooldown.get(p.getUniqueId().toString());
+            if (healerCooldown.containsKey(p.getUniqueId().toString())) {
+                if (!(remainingTime >= coolDownTime)) {
+                    p.sendMessage(ChatColor.YELLOW + "You have to wait another " + ChatColor.RED + getRemainingCooldown(remainingTime) + ChatColor.YELLOW + " before you can heal again.");
+                    return;
+                }
+            }
             int amount = SkillTreeData.healer.get(p.getUniqueId().toString());
             healEntities(p, amount);
+            healerCooldown.put(p.getUniqueId().toString(), System.currentTimeMillis());
         }
 
     }
@@ -381,8 +395,17 @@ public class SkillTreeListener implements Listener {
         Player p = e.getPlayer();
         if (!p.isSneaking()) return;
         if (SkillTreeData.healer.containsKey(p.getUniqueId().toString())) {
+            long coolDownTime = TimeUnit.SECONDS.toMillis(90);
+            long remainingTime = System.currentTimeMillis() - healerCooldown.get(p.getUniqueId().toString());
+            if (healerCooldown.containsKey(p.getUniqueId().toString())) {
+                if (!(remainingTime >= coolDownTime)) {
+                    p.sendMessage(ChatColor.YELLOW + "You have to wait another " + ChatColor.RED + getRemainingCooldown(remainingTime) + ChatColor.YELLOW + " before you can heal again.");
+                    return;
+                }
+            }
             int amount = SkillTreeData.healer.get(p.getUniqueId().toString());
             healEntities(p, amount);
+            healerCooldown.put(p.getUniqueId().toString(), System.currentTimeMillis());
         }
     }
 
@@ -439,6 +462,25 @@ public class SkillTreeListener implements Listener {
             Player p = (Player) e;
             p.sendMessage(ChatColor.DARK_RED + "You have been healed!");
         }
+    }
+
+    public static String getRemainingCooldown(long millis) {
+        long minutes = TimeUnit.MILLISECONDS.toMinutes(millis);
+        millis -= TimeUnit.MINUTES.toMillis(minutes);
+        long seconds = TimeUnit.MILLISECONDS.toSeconds(millis);
+
+        StringBuilder sb = new StringBuilder();
+        if (minutes != 0L) {
+            sb.append(minutes);
+            sb.append(" minutes ");
+        }
+
+        if (seconds != 0L) {
+            sb.append(seconds);
+            sb.append(" seconds.");
+        }
+
+        return sb.toString();
     }
 
 }
