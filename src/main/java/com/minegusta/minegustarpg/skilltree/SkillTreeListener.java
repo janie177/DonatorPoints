@@ -311,7 +311,7 @@ public class SkillTreeListener implements Listener {
                 Random rand = new Random();
                 int i = rand.nextInt(100);
                 if (i < amount * 10) {
-                    e.setDamage(damage - ((damage / 10) * 10 - amount));
+                    e.setDamage(0);
                 }
             }
         }
