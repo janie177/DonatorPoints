@@ -385,10 +385,10 @@ public class SkillTreeListener implements Listener {
         if (SkillTreeData.bowman.containsKey(p.getUniqueId().toString())) {
             if ((SkillTreeData.bowman.get(p.getUniqueId().toString()) * 8) + 1 > random) {
                 Entity a = e.getProjectile();
-                Vector v = e.getEntity().getLocation().getDirection().multiply(1.01);
+                Vector v = e.getEntity().getLocation().getDirection().multiply(1.1);
                 World w = e.getEntity().getWorld();
                 Entity b = w.spawnEntity(a.getLocation().add(v), EntityType.ARROW);
-                b.setVelocity(a.getLocation().getDirection());
+                b.setVelocity(a.getLocation().getDirection().multiply(1.5));
             }
         }
 
