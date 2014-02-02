@@ -90,7 +90,7 @@ public class SkillTreeListener implements Listener {
                 int points = 3;
 
                 if (points > pointsPresent) {
-                    entityPlayer.sendMessage(ChatColor.RED + "You do not have enough points to buy an upgrade.");
+                    entityPlayer.sendMessage(ChatColor.RED + "You do not have enough skill-points to buy an upgrade.");
                     player.closeInventory();
                     return;
                 }
@@ -250,8 +250,7 @@ public class SkillTreeListener implements Listener {
                 if (SkillTreeData.arrowefficiency.containsKey(uuid)) {
                     if (rand.nextInt(100) < (SkillTreeData.arrowefficiency.get(uuid) * 40)) {
 
-                        player.getInventory().addItem(new ItemStack(Material.ARROW, 1));
-                        player.updateInventory();
+                        enemy.getWorld().dropItemNaturally(enemy.getLocation(), new ItemStack(Material.ARROW, 1));
                     }
                 }
             } else {
@@ -386,8 +385,9 @@ public class SkillTreeListener implements Listener {
         if (SkillTreeData.bowman.containsKey(p.getUniqueId().toString())) {
             if ((SkillTreeData.bowman.get(p.getUniqueId().toString()) * 8) + 1 > random) {
                 Entity a = e.getProjectile();
+                Vector v = e.getEntity().getLocation().getDirection().multiply(1.01);
                 World w = e.getEntity().getWorld();
-                Entity b = w.spawnEntity(a.getLocation(), EntityType.ARROW);
+                Entity b = w.spawnEntity(a.getLocation().add(v), EntityType.ARROW);
                 b.setVelocity(a.getLocation().getDirection());
             }
         }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="abad91f1-1a3d-48e5-bcab-a35a6579d945" name="Default" comment="Some skills changes and horse death event fix.">
+    <list default="true" id="abad91f1-1a3d-48e5-bcab-a35a6579d945" name="Default" comment="Healing and Alchemist Tweak">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/skilltree/SkillTreeListener.java" afterPath="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/skilltree/SkillTreeListener.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -76,7 +76,7 @@
       <file leaf-file-name="SkillTreeListener.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/skilltree/SkillTreeListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="254" column="21" selection-start="14561" selection-end="14561" vertical-scroll-proportion="0.0" vertical-offset="3876" max-vertical-offset="8993">
+            <state line="393" column="57" selection-start="20464" selection-end="20464" vertical-scroll-proportion="0.0" vertical-offset="6230" max-vertical-offset="9010">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -84,19 +84,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HorseListener.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/listeners/HorseListener.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="89" column="20" selection-start="3471" selection-end="3471" vertical-scroll-proportion="0.0" vertical-offset="1190" max-vertical-offset="1632">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="pom.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="20" selection-start="401" selection-end="401" vertical-scroll-proportion="0.19796215" vertical-offset="0" max-vertical-offset="2720">
+            <state line="8" column="20" selection-start="401" selection-end="401" vertical-scroll-proportion="0.1891516" vertical-offset="0" max-vertical-offset="2720">
               <folding />
             </state>
           </provider>
@@ -1080,7 +1071,15 @@
       <created>1391371886992</created>
       <updated>1391371886992</updated>
     </task>
-    <option name="localTasksCounter" value="103" />
+    <task id="LOCAL-00103" summary="Fix for ArrowEfficiency checks.">
+      <created>1391372024879</created>
+      <updated>1391372024879</updated>
+    </task>
+    <task id="LOCAL-00104" summary="Healing and Alchemist Tweak">
+      <created>1391372751215</created>
+      <updated>1391372751215</updated>
+    </task>
+    <option name="localTasksCounter" value="105" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1124,7 +1123,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24236874" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.04295302" sideWeight="0.4993895" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.0" sideWeight="0.4993895" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32931727" sideWeight="0.49964914" order="1" side_tool="false" content_ui="tabs" />
@@ -1171,8 +1170,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Melee instead of sword for knockback skill." />
-    <MESSAGE value="New exp formula. Delete old level files!" />
     <MESSAGE value="Added skill tree listening." />
     <MESSAGE value="Added Healer cooldown and reload safety." />
     <MESSAGE value="Attempted fix for NPE in file manager." />
@@ -1196,7 +1193,9 @@
     <MESSAGE value="Removed the clearing of lore before setting new lore." />
     <MESSAGE value="Fixed cooldown message not showing at EntityInteractEntity event." />
     <MESSAGE value="Some skills changes and horse death event fix." />
-    <option name="LAST_COMMIT_MESSAGE" value="Some skills changes and horse death event fix." />
+    <MESSAGE value="Fix for ArrowEfficiency checks." />
+    <MESSAGE value="Healing and Alchemist Tweak" />
+    <option name="LAST_COMMIT_MESSAGE" value="Healing and Alchemist Tweak" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -1492,14 +1491,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/listeners/HorseListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="89" column="20" selection-start="3471" selection-end="3471" vertical-scroll-proportion="0.0" vertical-offset="1190" max-vertical-offset="1632">
+        <state line="89" column="20" selection-start="3471" selection-end="3471" vertical-scroll-proportion="0.6689847" vertical-offset="709" max-vertical-offset="1632">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/skilltree/SkillTreeListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="254" column="21" selection-start="14561" selection-end="14561" vertical-scroll-proportion="0.0" vertical-offset="3876" max-vertical-offset="8993">
+        <state line="393" column="57" selection-start="20464" selection-end="20464" vertical-scroll-proportion="0.0" vertical-offset="6230" max-vertical-offset="9010">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1508,7 +1507,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="20" selection-start="401" selection-end="401" vertical-scroll-proportion="0.19796215" vertical-offset="0" max-vertical-offset="2720">
+        <state line="8" column="20" selection-start="401" selection-end="401" vertical-scroll-proportion="0.1891516" vertical-offset="0" max-vertical-offset="2720">
           <folding />
         </state>
       </provider>
