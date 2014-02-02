@@ -30,7 +30,7 @@ public class SkillTreeListener implements Listener {
     //Updating skills
 
     public void openSkillMenu(Player user) {
-        String title = ChatColor.DARK_RED + "SkillPoints to spend: " + ChatColor.RED + Data.getLevelPoints(user.getUniqueId());
+        String title = ChatColor.DARK_RED + "SkillPoints to spend: " + ChatColor.RED + Data.getLevelPoints(user.getUniqueId()) / 3;
         Inventory inv = Bukkit.getServer().createInventory(null, 18, title);
         user.openInventory(inv);
 
@@ -57,8 +57,8 @@ public class SkillTreeListener implements Listener {
                     } else {
                         if (DataManager.getPointsFromPlayer(p) == null) DataManager.setPointsFromPlayer(p, 0);
                         p.sendMessage(ChatColor.YELLOW + "[Skill Trainer]" + ChatColor.GRAY + " Click an item to buy that upgrade. Upgrades are permanent!");
-                        p.sendMessage(ChatColor.YELLOW + "[Skill Trainer]" + ChatColor.GRAY + " You have " + ChatColor.LIGHT_PURPLE + Data.getLevelPoints(p.getUniqueId()) + ChatColor.GRAY + " skill points.");
-                        p.sendMessage(ChatColor.YELLOW + "[Skill Trainer]" + ChatColor.GRAY + " An upgrade costs 3 skill points.");
+                        p.sendMessage(ChatColor.YELLOW + "[Skill Trainer]" + ChatColor.GRAY + " You have " + ChatColor.LIGHT_PURPLE + Data.getLevelPoints(p.getUniqueId()) / 3 + ChatColor.GRAY + " skill points.");
+                        p.sendMessage(ChatColor.YELLOW + "[Skill Trainer]" + ChatColor.GRAY + " An upgrade costs 1 skill point.");
                         openSkillMenu(e.getPlayer());
                     }
                 }
@@ -72,7 +72,7 @@ public class SkillTreeListener implements Listener {
         try {
             String invName = e.getClickedInventory().getName();
             Player user = (Player) e.getWhoClicked();
-            if (invName != null && invName.equals(ChatColor.DARK_RED + "SkillPoints to spend: " + ChatColor.RED + Data.getLevelPoints(user.getUniqueId()))) {
+            if (invName != null && invName.equals(ChatColor.DARK_RED + "SkillPoints to spend: " + ChatColor.RED + Data.getLevelPoints(user.getUniqueId()) / 3)) {
                 if (e.getCurrentItem().getType() == Material.AIR) return;
                 if (e.getCurrentItem() == null || e.getCurrentItem().getItemMeta().getDisplayName() == null) return;
 
@@ -98,105 +98,105 @@ public class SkillTreeListener implements Listener {
 
                 if (clickedItem.getType().equals(SkillTreeGui.Branches.WARRIOR.getItemStack().getType())) {
                     if (SkillTreeData.getWarriorFromFile(uuid) > 4) {
-                        entityPlayer.sendMessage(ChatColor.YELLOW + "[Skill Trainer]" + ChatColor.GRAY + " You already have the maximum level in that skill.");
+                        entityPlayer.sendMessage(ChatColor.YELLOW + "[Skill Trainer]" + ChatColor.RED + " You already have the maximum level in that skill.");
                         player.closeInventory();
                         return;
                     }
                     SkillTreeData.addWarrior(entityPlayer.getUniqueId().toString(), 1);
                 } else if (clickedItem.getType().equals(SkillTreeGui.Branches.POWER.getItemStack().getType())) {
                     if (SkillTreeData.getPowerFromFile(uuid) > 2) {
-                        entityPlayer.sendMessage(ChatColor.YELLOW + "[Skill Trainer]" + ChatColor.GRAY + " You already have the maximum level in that skill.");
+                        entityPlayer.sendMessage(ChatColor.YELLOW + "[Skill Trainer]" + ChatColor.RED + " You already have the maximum level in that skill.");
                         player.closeInventory();
                         return;
                     }
                     SkillTreeData.addPower(entityPlayer.getUniqueId().toString(), 1);
                 } else if (clickedItem.getType().equals(SkillTreeGui.Branches.ATHLETE.getItemStack().getType())) {
                     if (SkillTreeData.getAthleteFromFile(uuid) > 4) {
-                        entityPlayer.sendMessage(ChatColor.YELLOW + "[Skill Trainer]" + ChatColor.GRAY + " You already have the maximum level in that skill.");
+                        entityPlayer.sendMessage(ChatColor.YELLOW + "[Skill Trainer]" + ChatColor.RED + " You already have the maximum level in that skill.");
                         player.closeInventory();
                         return;
                     }
                     SkillTreeData.addAthlete(entityPlayer.getUniqueId().toString(), 1);
                 } else if (clickedItem.getType().equals(SkillTreeGui.Branches.RUNNER.getItemStack().getType())) {
                     if (SkillTreeData.getRunnerFromFile(uuid) > 2) {
-                        entityPlayer.sendMessage(ChatColor.YELLOW + "[Skill Trainer]" + ChatColor.GRAY + " You already have the maximum level in that skill.");
+                        entityPlayer.sendMessage(ChatColor.YELLOW + "[Skill Trainer]" + ChatColor.RED + " You already have the maximum level in that skill.");
                         player.closeInventory();
                         return;
                     }
                     SkillTreeData.addRunner(entityPlayer.getUniqueId().toString(), 1);
                 } else if (clickedItem.getType().equals(SkillTreeGui.Branches.ARCHER.getItemStack().getType())) {
                     if (SkillTreeData.getArcherFromFile(uuid) > 2) {
-                        entityPlayer.sendMessage(ChatColor.YELLOW + "[Skill Trainer]" + ChatColor.GRAY + " You already have the maximum level in that skill.");
+                        entityPlayer.sendMessage(ChatColor.YELLOW + "[Skill Trainer]" + ChatColor.RED + " You already have the maximum level in that skill.");
                         player.closeInventory();
                         return;
                     }
                     SkillTreeData.addArcher(entityPlayer.getUniqueId().toString(), 1);
                 } else if (clickedItem.getType().equals(SkillTreeGui.Branches.ARROWEFFICIENCY.getItemStack().getType())) {
                     if (SkillTreeData.getArrowEfficiencyFromFile(uuid) > 1) {
-                        entityPlayer.sendMessage(ChatColor.YELLOW + "[Skill Trainer]" + ChatColor.GRAY + " You already have the maximum level in that skill.");
+                        entityPlayer.sendMessage(ChatColor.YELLOW + "[Skill Trainer]" + ChatColor.RED + " You already have the maximum level in that skill.");
                         player.closeInventory();
                         return;
                     }
                     SkillTreeData.addArrowEfficiency(entityPlayer.getUniqueId().toString(), 1);
                 } else if (clickedItem.getType().equals(SkillTreeGui.Branches.BOWMAN.getItemStack().getType())) {
                     if (SkillTreeData.getBowManFromFile(uuid) > 2) {
-                        entityPlayer.sendMessage(ChatColor.YELLOW + "[Skill Trainer]" + ChatColor.GRAY + " You already have the maximum level in that skill.");
+                        entityPlayer.sendMessage(ChatColor.YELLOW + "[Skill Trainer]" + ChatColor.RED + " You already have the maximum level in that skill.");
                         player.closeInventory();
                         return;
                     }
                     SkillTreeData.addBowMan(entityPlayer.getUniqueId().toString(), 1);
                 } else if (clickedItem.getType().equals(SkillTreeGui.Branches.ASSASSIN.getItemStack().getType())) {
                     if (SkillTreeData.getAssassinFromFile(uuid) > 2) {
-                        entityPlayer.sendMessage(ChatColor.YELLOW + "[Skill Trainer]" + ChatColor.GRAY + " You already have the maximum level in that skill.");
+                        entityPlayer.sendMessage(ChatColor.YELLOW + "[Skill Trainer]" + ChatColor.RED + " You already have the maximum level in that skill.");
                         player.closeInventory();
                         return;
                     }
                     SkillTreeData.addAssassin(entityPlayer.getUniqueId().toString(), 1);
                 } else if (clickedItem.getType().equals(SkillTreeGui.Branches.TANK.getItemStack().getType())) {
                     if (SkillTreeData.getTankFromFile(uuid) > 4) {
-                        entityPlayer.sendMessage(ChatColor.YELLOW + "[Skill Trainer]" + ChatColor.GRAY + " You already have the maximum level in that skill.");
+                        entityPlayer.sendMessage(ChatColor.YELLOW + "[Skill Trainer]" + ChatColor.RED + " You already have the maximum level in that skill.");
                         player.closeInventory();
                         return;
                     }
                     SkillTreeData.addTank(entityPlayer.getUniqueId().toString(), 1);
                 } else if (clickedItem.getType().equals(SkillTreeGui.Branches.STUNNER.getItemStack().getType())) {
                     if (SkillTreeData.getStunnerFromFile(uuid) > 2) {
-                        entityPlayer.sendMessage(ChatColor.YELLOW + "[Skill Trainer]" + ChatColor.GRAY + " You already have the maximum level in that skill.");
+                        entityPlayer.sendMessage(ChatColor.YELLOW + "[Skill Trainer]" + ChatColor.RED + " You already have the maximum level in that skill.");
                         player.closeInventory();
                         return;
                     }
                     SkillTreeData.addStunner(entityPlayer.getUniqueId().toString(), 1);
                 } else if (clickedItem.getType().equals(SkillTreeGui.Branches.HEALER.getItemStack().getType())) {
                     if (SkillTreeData.getHealerFromFile(uuid) > 3) {
-                        entityPlayer.sendMessage(ChatColor.YELLOW + "[Skill Trainer]" + ChatColor.GRAY + " You already have the maximum level in that skill.");
+                        entityPlayer.sendMessage(ChatColor.YELLOW + "[Skill Trainer]" + ChatColor.RED + " You already have the maximum level in that skill.");
                         player.closeInventory();
                         return;
                     }
                     SkillTreeData.addHealer(entityPlayer.getUniqueId().toString(), 1);
                 } else if (clickedItem.getType().equals(SkillTreeGui.Branches.SCOUT.getItemStack().getType())) {
                     if (SkillTreeData.getScoutFromFile(uuid) > 3) {
-                        entityPlayer.sendMessage(ChatColor.YELLOW + "[Skill Trainer]" + ChatColor.GRAY + " You already have the maximum level in that skill.");
+                        entityPlayer.sendMessage(ChatColor.YELLOW + "[Skill Trainer]" + ChatColor.RED + " You already have the maximum level in that skill.");
                         player.closeInventory();
                         return;
                     }
                     SkillTreeData.addScout(entityPlayer.getUniqueId().toString(), 1);
                 } else if (clickedItem.getType().equals(SkillTreeGui.Branches.ALCHEMIST.getItemStack().getType())) {
                     if (SkillTreeData.getAlchemistFromFile(uuid) > 3) {
-                        entityPlayer.sendMessage(ChatColor.YELLOW + "[Skill Trainer]" + ChatColor.GRAY + " You already have the maximum level in that skill.");
+                        entityPlayer.sendMessage(ChatColor.YELLOW + "[Skill Trainer]" + ChatColor.RED + " You already have the maximum level in that skill.");
                         player.closeInventory();
                         return;
                     }
                     SkillTreeData.addAlchemist(entityPlayer.getUniqueId().toString(), 1);
                 } else if (clickedItem.getType().equals(SkillTreeGui.Branches.LUCK.getItemStack().getType())) {
                     if (SkillTreeData.getLuckFromFile(uuid) > 2) {
-                        entityPlayer.sendMessage(ChatColor.YELLOW + "[Skill Trainer]" + ChatColor.GRAY + " You already have the maximum level in that skill.");
+                        entityPlayer.sendMessage(ChatColor.YELLOW + "[Skill Trainer]" + ChatColor.RED + " You already have the maximum level in that skill.");
                         player.closeInventory();
                         return;
                     }
                     SkillTreeData.addLuck(entityPlayer.getUniqueId().toString(), 1);
                 } else if (clickedItem.getType().equals(SkillTreeGui.Branches.BLOODBATH.getItemStack().getType())) {
                     if (SkillTreeData.getBloodbathFromFile(uuid) > 2) {
-                        entityPlayer.sendMessage(ChatColor.YELLOW + "[Skill Trainer]" + ChatColor.GRAY + " You already have the maximum level in that skill.");
+                        entityPlayer.sendMessage(ChatColor.YELLOW + "[Skill Trainer]" + ChatColor.RED + " You already have the maximum level in that skill.");
                         player.closeInventory();
                         return;
                     }
