@@ -73,9 +73,8 @@ public class LevelListener implements Listener {
         if (!e.getWhoClicked().getWorld().getName().toLowerCase().equals(MinegustaRPGPlugin.world)) return;
         else if (e.getInventory().getName() != null && e.getInventory().getName().contains(e.getWhoClicked().getName() + "'s Bank"))
             return;
-        else if (!e.getClickedInventory().getType().equals(InventoryType.PLAYER)) {
-            return;
-        }
+        else if (e.getCurrentItem() == null) return;
+        else if (!e.getClickedInventory().getType().equals(InventoryType.PLAYER)) return;
         ClickType clickType = e.getClick();
         Player p = (Player) e.getWhoClicked();
         ItemStack itemClicked = e.getCurrentItem();
