@@ -221,6 +221,7 @@ public class SkillTreeListener implements Listener {
     @EventHandler
     public void onEntityDamageByEntity(EntityDamageByEntityEvent e) {
         if (!e.getEntity().getWorld().getName().toLowerCase().equalsIgnoreCase(MinegustaRPGPlugin.world)) return;
+        if (e.isCancelled()) return;
         Player player;
         LivingEntity enemy;
 
@@ -263,7 +264,7 @@ public class SkillTreeListener implements Listener {
                     int random = rand.nextInt(10);
                     if (random < SkillTreeData.power.get(uuid) + 1) {
                         Vector direction = player.getLocation().getDirection();
-                        enemy.setVelocity(direction.multiply(1.5));
+                        enemy.setVelocity(direction.multiply(1.0));
                     }
                 }
 
@@ -409,8 +410,6 @@ public class SkillTreeListener implements Listener {
             }
             int amount = SkillTreeData.healer.get(p.getUniqueId().toString());
             healEntities(p, amount);
-            p.setHealth(p.getHealth() + 2.5 * amount);
-            playHearts(p);
             healerCooldown.put(p.getUniqueId().toString(), System.currentTimeMillis());
         }
 
@@ -433,8 +432,6 @@ public class SkillTreeListener implements Listener {
             }
             int amount = SkillTreeData.healer.get(p.getUniqueId().toString());
             healEntities(p, amount);
-            p.setHealth(p.getHealth() + 2.5 * amount);
-            playHearts(p);
             healerCooldown.put(p.getUniqueId().toString(), System.currentTimeMillis());
         }
     }
@@ -477,10 +474,18 @@ public class SkillTreeListener implements Listener {
     }
 
     private void healEntities(Player p, int amount) {
+        double pMaxAdded = 20 - p.getHealth();
+        double pHealthToAdd = 2.5 * amount;
+        if (pMaxAdded < pHealthToAdd) pHealthToAdd = pMaxAdded;
+        p.setHealth(p.getHealth() + pHealthToAdd);
+        playHearts(p);
         for (Entity e : p.getNearbyEntities(3.0, 4.0, 3.0)) {
             if (e instanceof Player || e instanceof Horse) {
                 LivingEntity le = (LivingEntity) e;
-                le.setHealth(le.getHealth() + 2.5 * amount);
+                double maxAdded = 20 - le.getHealth();
+                double healthToAdd = 2.5 * amount;
+                if (maxAdded < healthToAdd) healthToAdd = maxAdded;
+                le.setHealth(healthToAdd);
                 playHearts(le);
             }
         }
