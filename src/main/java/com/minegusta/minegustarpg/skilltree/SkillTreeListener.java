@@ -30,7 +30,7 @@ public class SkillTreeListener implements Listener {
     //Updating skills
 
     public void openSkillMenu(Player user) {
-        String title = ChatColor.YELLOW + "Skill Tree Trainer";
+        String title = ChatColor.DARK_RED + "SkillPoints to spend: " + ChatColor.RED + Data.getLevelPoints(user.getUniqueId());
         Inventory inv = Bukkit.getServer().createInventory(null, 18, title);
         user.openInventory(inv);
 
@@ -68,9 +68,11 @@ public class SkillTreeListener implements Listener {
 
     @EventHandler
     public void onBuyItem(InventoryClickEvent e) {
+        if (!e.getWhoClicked().getWorld().getName().toLowerCase().equalsIgnoreCase(MinegustaRPGPlugin.world)) return;
         try {
             String invName = e.getClickedInventory().getName();
-            if (invName != null && invName.equals(ChatColor.YELLOW + "Skill Tree Trainer")) {
+            Player user = (Player) e.getWhoClicked();
+            if (invName != null && invName.equals(ChatColor.DARK_RED + "SkillPoints to spend: " + ChatColor.RED + Data.getLevelPoints(user.getUniqueId()))) {
                 if (e.getCurrentItem().getType() == Material.AIR) return;
                 if (e.getCurrentItem() == null || e.getCurrentItem().getItemMeta().getDisplayName() == null) return;
 

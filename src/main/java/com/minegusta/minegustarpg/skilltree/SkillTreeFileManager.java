@@ -8,8 +8,8 @@ import org.bukkit.plugin.Plugin;
 import java.io.File;
 
 public class SkillTreeFileManager {
-    private static File file;
-    private static FileConfiguration conf;
+    public static File file;
+    public static FileConfiguration conf;
     private static Plugin p = MinegustaRPGPlugin.PLUGIN;
 
     public static void loadSkillTreeFile() {

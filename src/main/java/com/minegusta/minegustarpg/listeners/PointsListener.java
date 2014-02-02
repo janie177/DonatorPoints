@@ -6,6 +6,7 @@ import com.minegusta.minegustarpg.managers.LevelManager;
 import com.minegusta.minegustarpg.mobs.DropTable;
 import com.minegusta.minegustarpg.playerdata.Data;
 import com.minegusta.minegustarpg.scoreboard.ScoreBoardManager;
+import com.minegusta.minegustarpg.skilltree.SkillTreeData;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.World;
@@ -145,8 +146,14 @@ public class PointsListener implements Listener {
                         //Chance for drops
 
                         Random rand = new Random();
+                        int bonus = 0;
                         int chance = rand.nextInt(101);
-                        if (chance < 28) {
+
+                        if (SkillTreeData.luck.containsKey(uuid.toString())) {
+                            bonus = SkillTreeData.luck.get(uuid.toString()) * 8;
+
+                        }
+                        if (chance < 28 + bonus) {
                             Location location = entity.getLocation();
                             World world = entity.getWorld();
                             world.dropItemNaturally(location, DropTable.selectDrop(level, entity.getType()));
@@ -154,7 +161,6 @@ public class PointsListener implements Listener {
                         }
                         //add points.
                         DataManager.setPointsFromPlayer(superMan, DataManager.getPointsFromPlayer(superMan) + points);
-
                 }
             }
         }
