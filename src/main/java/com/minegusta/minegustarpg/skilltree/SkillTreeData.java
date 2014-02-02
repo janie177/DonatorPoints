@@ -31,49 +31,49 @@ public class SkillTreeData {
 
     public static void loadPlayerToMaps(String uuid) {
         if (getConf().isSet(uuid + ".warrior") && getConf().getInt(uuid + ".warrior") != 0) {
-            warrior.put(uuid, getConf().getInt(uuid + warrior));
+            warrior.put(uuid, getConf().getInt(uuid + ".warrior"));
         }
         if (getConf().isSet(uuid + ".athlete") && getConf().getInt(uuid + ".athlete") != 0) {
-            athlete.put(uuid, getConf().getInt(uuid + athlete));
+            athlete.put(uuid, getConf().getInt(uuid + ".athlete"));
         }
         if (getConf().isSet(uuid + ".archer") && getConf().getInt(uuid + ".archer") != 0) {
-            archer.put(uuid, getConf().getInt(uuid + archer));
+            archer.put(uuid, getConf().getInt(uuid + ".archer"));
         }
         if (getConf().isSet(uuid + ".assassin") && getConf().getInt(uuid + ".assassin") != 0) {
-            assassin.put(uuid, getConf().getInt(uuid + assassin));
+            assassin.put(uuid, getConf().getInt(uuid + ".assassin"));
         }
         if (getConf().isSet(uuid + ".tank") && getConf().getInt(uuid + ".tank") != 0) {
-            tank.put(uuid, getConf().getInt(uuid + tank));
+            tank.put(uuid, getConf().getInt(uuid + ".tank"));
         }
         if (getConf().isSet(uuid + ".stunner") && getConf().getInt(uuid + ".stunner") != 0) {
-            stunner.put(uuid, getConf().getInt(uuid + stunner));
+            stunner.put(uuid, getConf().getInt(uuid + ".stunner"));
         }
         if (getConf().isSet(uuid + ".healer") && getConf().getInt(uuid + ".healer") != 0) {
-            healer.put(uuid, getConf().getInt(uuid + healer));
+            healer.put(uuid, getConf().getInt(uuid + ".healer"));
         }
         if (getConf().isSet(uuid + ".scout") && getConf().getInt(uuid + ".scout") != 0) {
-            scout.put(uuid, getConf().getInt(uuid + scout));
+            scout.put(uuid, getConf().getInt(uuid + ".scout"));
         }
         if (getConf().isSet(uuid + ".alchemist") && getConf().getInt(uuid + ".alchemist") != 0) {
-            alchemist.put(uuid, getConf().getInt(uuid + alchemist));
+            alchemist.put(uuid, getConf().getInt(uuid + ".alchemist"));
         }
         if (getConf().isSet(uuid + ".luck") && getConf().getInt(uuid + ".luck") != 0) {
-            luck.put(uuid, getConf().getInt(uuid + luck));
+            luck.put(uuid, getConf().getInt(uuid + ".luck"));
         }
         if (getConf().isSet(uuid + ".bloodbath") && getConf().getInt(uuid + ".bloodbath") != 0) {
-            bloodbath.put(uuid, getConf().getInt(uuid + bloodbath));
+            bloodbath.put(uuid, getConf().getInt(uuid + ".bloodbath"));
         }
         if (getConf().isSet(uuid + ".bowman") && getConf().getInt(uuid + ".bowman") != 0) {
-            bowman.put(uuid, getConf().getInt(uuid + bowman));
+            bowman.put(uuid, getConf().getInt(uuid + ".bowman"));
         }
         if (getConf().isSet(uuid + ".arrowefficiency") && getConf().getInt(uuid + ".arrowefficiency") != 0) {
-            arrowefficiency.put(uuid, getConf().getInt(uuid + arrowefficiency));
+            arrowefficiency.put(uuid, getConf().getInt(uuid + ".arrowefficiency"));
         }
         if (getConf().isSet(uuid + ".power") && getConf().getInt(uuid + ".power") != 0) {
-            power.put(uuid, getConf().getInt(uuid + power));
+            power.put(uuid, getConf().getInt(uuid + ".power"));
         }
         if (getConf().isSet(uuid + ".runner") && getConf().getInt(uuid + ".runner") != 0) {
-            runner.put(uuid, getConf().getInt(uuid + runner));
+            runner.put(uuid, getConf().getInt(uuid + ".runner"));
         }
     }
 
