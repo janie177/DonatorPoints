@@ -3,19 +3,22 @@ package com.minegusta.minegustarpg.skilltree;
 import com.minegusta.minegustarpg.MinegustaRPGPlugin;
 import com.minegusta.minegustarpg.data.DataManager;
 import com.minegusta.minegustarpg.playerdata.Data;
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
-import org.bukkit.Material;
-import org.bukkit.entity.EntityType;
-import org.bukkit.entity.HumanEntity;
-import org.bukkit.entity.LivingEntity;
-import org.bukkit.entity.Player;
+import org.bukkit.*;
+import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.block.Action;
+import org.bukkit.event.entity.*;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
+import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
+import org.bukkit.util.Vector;
+
+import java.util.Random;
 
 public class SkillTreeListener implements Listener {
 
@@ -179,7 +182,7 @@ public class SkillTreeListener implements Listener {
                     SkillTreeData.addBloodbath(entityPlayer.getUniqueId().toString(), 1);
                 }
 
-
+                SkillTreeData.loadPlayerToMaps(uuid);
                 entityPlayer.sendMessage(ChatColor.DARK_RED + "[" + ChatColor.RED + "Trade" + ChatColor.DARK_RED + "]" + ChatColor.YELLOW + "You have successfully bought an upgrade!");
                 player.closeInventory();
             }
@@ -190,7 +193,252 @@ public class SkillTreeListener implements Listener {
     }
 
 
-    //Listening for events that alter gameplay.
+//Listening for events that alter gameplay.
 
+    //Entity damage by entity: Warrior, Power, Runner, Archer, ArrowEfficieny, Assassin, Tank, Stunner, Scout, BloodBath.
+
+    @EventHandler
+    public void onEntityDamageByEntity(EntityDamageByEntityEvent e) {
+        if (!e.getEntity().getWorld().getName().toLowerCase().equalsIgnoreCase(MinegustaRPGPlugin.world)) return;
+        Player player;
+        LivingEntity enemy;
+
+        if (e.getDamager() instanceof Player && e.getEntity() instanceof LivingEntity) {
+            player = (Player) e.getDamager();
+            enemy = (LivingEntity) e.getEntity();
+            int level;
+            double damage = e.getDamage();
+            String uuid = player.getUniqueId().toString();
+            Random rand = new Random();
+
+            //Archer
+            if (e.getCause().equals(EntityDamageEvent.DamageCause.PROJECTILE)) {
+                if (SkillTreeData.archer.containsKey(uuid)) {
+                    level = SkillTreeData.archer.get(uuid) * 15;
+                    if (level + 1 > rand.nextInt(100)) {
+                        e.setDamage(e.getDamage() + (e.getDamage() / 100) * level);
+                    }
+
+                }
+
+                //ArrowEfficiency
+                if (SkillTreeData.arrowefficiency.containsKey(uuid)) {
+                    if (rand.nextInt(100) < (SkillTreeData.arrowefficiency.get(uuid) * 40) + 1) {
+                        if (player.getInventory().firstEmpty() != -1)
+                            player.getInventory().addItem(new ItemStack(Material.ARROW, 1));
+                        player.updateInventory();
+                    }
+                }
+            } else {
+                //Warrior
+                if (SkillTreeData.warrior.containsKey(uuid)) {
+
+                    level = SkillTreeData.warrior.get(uuid);
+                    e.setDamage(damage + ((damage / 10) * level));
+                }
+                //Power
+                if (SkillTreeData.power.containsKey(uuid)) {
+                    int random = rand.nextInt(10);
+                    if (random < SkillTreeData.power.get(uuid) + 1) {
+                        Vector direction = player.getVelocity();
+                        enemy.setVelocity(direction.multiply(1.1));
+                    }
+                }
+
+
+                //Bloodbath
+                if (SkillTreeData.bloodbath.containsKey(uuid)) {
+                    int random = rand.nextInt(100);
+                    if (random < (SkillTreeData.bloodbath.get(uuid) * 5) + 1) {
+                        bleedEntity(enemy);
+                    }
+                }
+
+                //Stunner
+                if (SkillTreeData.stunner.containsKey(uuid)) {
+                    int random = rand.nextInt(100);
+                    if (random < (SkillTreeData.stunner.get(uuid) * 5) + 1) {
+                        enemy.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 40, 0));
+                    }
+                }
+                //Assassin
+                if (SkillTreeData.assassin.containsKey(uuid)) {
+                    int random = rand.nextInt(100);
+                    if (random < (SkillTreeData.assassin.get(uuid) * 5) + 1) {
+                        e.setDamage(e.getDamage() * 2);
+                    }
+                }
+            }
+        }
+        if (e.getEntity() instanceof Player && e.getDamager() instanceof LivingEntity) {
+            player = (Player) e.getEntity();
+            enemy = (LivingEntity) e.getDamager();
+            String uuid = player.getUniqueId().toString();
+
+            //Runner
+            if (SkillTreeData.runner.containsKey(uuid)) {
+                int amount = SkillTreeData.runner.get(uuid);
+                if (player.getHealth() < 3) {
+                    player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 3 * amount, 1));
+                }
+            }
+            //Tank
+            if (SkillTreeData.tank.containsKey(uuid)) {
+                int amount = SkillTreeData.tank.get(uuid);
+                double damage = e.getDamage();
+                e.setDamage(damage - ((damage / 10) * 10 - amount));
+            }
+        }
+    }
+
+    //Potion splash: Alchemist.
+
+    @EventHandler
+    public void onPotionSplash(PotionSplashEvent e) {
+        if (!e.getEntity().getWorld().getName().toLowerCase().equalsIgnoreCase(MinegustaRPGPlugin.world)) return;
+        if (e.getEntity().getShooter() instanceof Player) {
+            Player p = (Player) e.getEntity().getShooter();
+            Random rand = new Random();
+            int i = rand.nextInt(100);
+            if (SkillTreeData.alchemist.containsKey(p.getUniqueId().toString())) {
+                if ((SkillTreeData.alchemist.get(p.getUniqueId().toString()) * 10) + 1 < i) {
+                    ThrownPotion potion = e.getPotion();
+                    World world = e.getEntity().getWorld();
+                    ThrownPotion clone = (ThrownPotion) world.spawnEntity(e.getEntity().getLocation(), EntityType.SPLASH_POTION);
+                    clone = potion;
+                    ThrownPotion clone2 = (ThrownPotion) world.spawnEntity(e.getEntity().getLocation(), EntityType.SPLASH_POTION);
+                    clone2 = potion;
+                }
+            }
+
+        }
+
+    }
+
+    //Entity Damage: Athlete, Runner.
+
+    @EventHandler
+    public void onEnvironmentalDamage(EntityDamageEvent e) {
+        if (!e.getEntity().getWorld().getName().toLowerCase().equalsIgnoreCase(MinegustaRPGPlugin.world)) return;
+        if (e.getEntity() instanceof Player) {
+            Player player = (Player) e.getEntity();
+            String uuid = player.getUniqueId().toString();
+            //Runner
+            if (SkillTreeData.runner.containsKey(uuid)) {
+                int amount = SkillTreeData.runner.get(uuid);
+                if (player.getHealth() < 3) {
+                    player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 3 * amount, 1));
+                }
+            }
+            //Athlete
+            if (e.getCause().equals(EntityDamageEvent.DamageCause.FALL)) {
+                if (SkillTreeData.athlete.containsKey(uuid)) {
+                    double damage = e.getDamage();
+                    e.setDamage(damage - (damage / 100) * (SkillTreeData.athlete.get(uuid) * 15));
+                }
+            }
+        }
+    }
+
+    //Bow fire: bowMan
+
+    @EventHandler
+    public void bowFireEvent(EntityShootBowEvent e) {
+        if (!e.getEntity().getWorld().getName().toLowerCase().equalsIgnoreCase(MinegustaRPGPlugin.world)) return;
+        if (!(e.getEntity() instanceof Player)) return;
+        Player p = (Player) e.getEntity();
+        Random rand = new Random();
+        int random = rand.nextInt(100);
+        if (SkillTreeData.bowman.containsKey(p.getUniqueId().toString())) {
+            if ((SkillTreeData.bowman.get(p.getUniqueId().toString()) * 8) + 1 < random) {
+                Entity a = e.getProjectile();
+                World w = e.getEntity().getWorld();
+                Entity b = w.spawnEntity(e.getEntity().getLocation(), EntityType.ARROW);
+                b = a;
+            }
+        }
+
+    }
+
+    //InteractEvent InteractEntityEvent: healing
+
+    @EventHandler
+    public void interactAirOrBlock(PlayerInteractEvent e) {
+        if (!e.getPlayer().getWorld().getName().toLowerCase().equalsIgnoreCase(MinegustaRPGPlugin.world)) return;
+        Player p = e.getPlayer();
+        if (!p.isSneaking() || (!e.getAction().equals(Action.RIGHT_CLICK_AIR) && !e.getAction().equals(Action.RIGHT_CLICK_BLOCK)))
+            return;
+        if (SkillTreeData.healer.containsKey(p.getUniqueId().toString())) {
+            int amount = SkillTreeData.healer.get(p.getUniqueId().toString());
+            healEntities(p, amount);
+        }
+
+    }
+
+    @EventHandler
+    public void interactEntity(PlayerInteractEntityEvent e) {
+        if (!e.getPlayer().getWorld().getName().toLowerCase().equalsIgnoreCase(MinegustaRPGPlugin.world)) return;
+        Player p = e.getPlayer();
+        if (!p.isSneaking()) return;
+        if (SkillTreeData.healer.containsKey(p.getUniqueId().toString())) {
+            int amount = SkillTreeData.healer.get(p.getUniqueId().toString());
+            healEntities(p, amount);
+        }
+    }
+
+    //EntityDeath: Scout.
+    @EventHandler
+    public void entityDeath(EntityDeathEvent e) {
+        if (!e.getEntity().getWorld().getName().toLowerCase().equalsIgnoreCase(MinegustaRPGPlugin.world)) return;
+        if (e.getEntity().getKiller() != null) {
+            Player p = e.getEntity().getKiller();
+            if (SkillTreeData.scout.containsKey(p.getUniqueId().toString())) {
+                int level = SkillTreeData.scout.get(p.getUniqueId().toString());
+                p.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 20 * level, 0));
+            }
+        }
+
+    }
+
+    //Points Listener death event for luck.
+
+    private void bleedEntity(LivingEntity entity) {
+        final LivingEntity e = entity;
+        for (int i = 0; i < 60; i++) {
+            final int k = i;
+            Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(MinegustaRPGPlugin.PLUGIN, new Runnable() {
+                @Override
+                public void run() {
+                    if (e instanceof Player) {
+                        Player p = (Player) e;
+                        if (k == 1) p.sendMessage(ChatColor.RED + "You are bleeding!");
+                    }
+                    if (k == 20) e.damage(1.0);
+                    if (k == 40) e.damage(1.0);
+                    if (k == 59) e.damage(1.0);
+
+
+                }
+            }, i);
+        }
+    }
+
+    private void healEntities(Player p, int amount) {
+        for (Entity e : p.getNearbyEntities(3.0, 4.0, 3.0)) {
+            if (e instanceof Player || e instanceof Horse) {
+                LivingEntity le = (LivingEntity) e;
+                le.setHealth(le.getHealth() + 2.5 * amount);
+                playHearts(le);
+            }
+        }
+    }
+
+    private void playHearts(LivingEntity e) {
+        e.getWorld().spigot().playEffect(e.getLocation(), Effect.HEART, 0, 0, 0, 0, 0, 1F, 20, 25);
+        if (e instanceof Player) {
+            Player p = (Player) e;
+            p.sendMessage(ChatColor.DARK_RED + "You have been healed!");
+        }
+    }
 
 }
