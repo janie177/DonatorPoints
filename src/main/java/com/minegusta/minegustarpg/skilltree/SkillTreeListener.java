@@ -233,8 +233,10 @@ public class SkillTreeListener implements Listener {
             String uuid = player.getUniqueId().toString();
             Random rand = new Random();
 
-            //Archer
+
             if (e.getCause().equals(EntityDamageEvent.DamageCause.PROJECTILE)) {
+
+                //Archer
                 if (SkillTreeData.archer.containsKey(uuid)) {
                     level = SkillTreeData.archer.get(uuid);
                     if (level + 1 > rand.nextInt(100)) {
@@ -243,13 +245,13 @@ public class SkillTreeListener implements Listener {
 
                 }
 
+
                 //ArrowEfficiency
                 if (SkillTreeData.arrowefficiency.containsKey(uuid)) {
-                    if (rand.nextInt(100) < (SkillTreeData.arrowefficiency.get(uuid) * 40) + 1) {
-                        if (player.getInventory().firstEmpty() != -1) {
-                            player.getInventory().addItem(new ItemStack(Material.ARROW, 1));
-                            player.updateInventory();
-                        }
+                    if (rand.nextInt(100) < (SkillTreeData.arrowefficiency.get(uuid) * 40)) {
+
+                        player.getInventory().addItem(new ItemStack(Material.ARROW, 1));
+                        player.updateInventory();
                     }
                 }
             } else {
