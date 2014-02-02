@@ -35,9 +35,13 @@ public class SkillTreeFileManager {
         }
     }
 
+    private static File getFile() {
+        return new File(p.getDataFolder() + "/skilltree/" + "skilltree.yml");
+    }
+
     public static void saveSkillTreeFile() {
         try {
-            conf.save(file);
+            conf.save(getFile());
         } catch (Exception e) {
             e.printStackTrace();
         }
