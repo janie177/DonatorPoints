@@ -125,7 +125,7 @@ public class SkillTreeListener implements Listener {
                     }
                     SkillTreeData.addRunner(entityPlayer.getUniqueId().toString(), 1);
                 } else if (clickedItem.getType().equals(SkillTreeGui.Branches.ARCHER.getItemStack().getType())) {
-                    if (SkillTreeData.getArcherFromFile(uuid) > 2) {
+                    if (SkillTreeData.getArcherFromFile(uuid) > 4) {
                         entityPlayer.sendMessage(ChatColor.YELLOW + "[Skill Trainer]" + ChatColor.RED + " You already have the maximum level in that skill.");
                         player.closeInventory();
                         return;
@@ -235,9 +235,9 @@ public class SkillTreeListener implements Listener {
             //Archer
             if (e.getCause().equals(EntityDamageEvent.DamageCause.PROJECTILE)) {
                 if (SkillTreeData.archer.containsKey(uuid)) {
-                    level = SkillTreeData.archer.get(uuid) * 15;
+                    level = SkillTreeData.archer.get(uuid);
                     if (level + 1 > rand.nextInt(100)) {
-                        e.setDamage(e.getDamage() + (e.getDamage() / 100) * level);
+                        e.setDamage(e.getDamage() + level);
                     }
 
                 }
@@ -245,9 +245,10 @@ public class SkillTreeListener implements Listener {
                 //ArrowEfficiency
                 if (SkillTreeData.arrowefficiency.containsKey(uuid)) {
                     if (rand.nextInt(100) < (SkillTreeData.arrowefficiency.get(uuid) * 40) + 1) {
-                        if (player.getInventory().firstEmpty() != -1)
+                        if (player.getInventory().firstEmpty() != -1) {
                             player.getInventory().addItem(new ItemStack(Material.ARROW, 1));
-                        player.updateInventory();
+                            player.updateInventory();
+                        }
                     }
                 }
             } else {
@@ -255,14 +256,14 @@ public class SkillTreeListener implements Listener {
                 if (SkillTreeData.warrior.containsKey(uuid)) {
 
                     level = SkillTreeData.warrior.get(uuid);
-                    e.setDamage(damage + ((damage / 10) * level));
+                    e.setDamage(damage + level);
                 }
                 //Power
                 if (SkillTreeData.power.containsKey(uuid)) {
                     int random = rand.nextInt(10);
                     if (random < SkillTreeData.power.get(uuid) + 1) {
-                        Vector direction = player.getVelocity();
-                        enemy.setVelocity(direction.multiply(1.1));
+                        Vector direction = player.getLocation().getDirection();
+                        enemy.setVelocity(direction.multiply(1.5));
                     }
                 }
 
@@ -307,7 +308,11 @@ public class SkillTreeListener implements Listener {
             if (SkillTreeData.tank.containsKey(uuid)) {
                 int amount = SkillTreeData.tank.get(uuid);
                 double damage = e.getDamage();
-                e.setDamage(damage - ((damage / 10) * 10 - amount));
+                Random rand = new Random();
+                int i = rand.nextInt(100);
+                if (i < amount * 10) {
+                    e.setDamage(damage - ((damage / 10) * 10 - amount));
+                }
             }
         }
     }
@@ -355,7 +360,9 @@ public class SkillTreeListener implements Listener {
             if (e.getCause().equals(EntityDamageEvent.DamageCause.FALL)) {
                 if (SkillTreeData.athlete.containsKey(uuid)) {
                     double damage = e.getDamage();
-                    e.setDamage(damage - (damage / 100) * (SkillTreeData.athlete.get(uuid) * 15));
+                    double damageToSet = damage - (SkillTreeData.athlete.get(uuid) * 2);
+                    if (damageToSet < 0) damageToSet = 1;
+                    e.setDamage(damageToSet);
                 }
             }
         }
@@ -371,11 +378,11 @@ public class SkillTreeListener implements Listener {
         Random rand = new Random();
         int random = rand.nextInt(100);
         if (SkillTreeData.bowman.containsKey(p.getUniqueId().toString())) {
-            if ((SkillTreeData.bowman.get(p.getUniqueId().toString()) * 8) + 1 < random) {
+            if ((SkillTreeData.bowman.get(p.getUniqueId().toString()) * 8) + 1 > random) {
                 Entity a = e.getProjectile();
                 World w = e.getEntity().getWorld();
                 Entity b = w.spawnEntity(e.getEntity().getLocation(), EntityType.ARROW);
-                b = a;
+                b.setVelocity(a.getLocation().getDirection());
             }
         }
 
@@ -387,7 +394,7 @@ public class SkillTreeListener implements Listener {
     public void interactAirOrBlock(PlayerInteractEvent e) {
         if (!e.getPlayer().getWorld().getName().toLowerCase().equalsIgnoreCase(MinegustaRPGPlugin.world)) return;
         Player p = e.getPlayer();
-        if (!p.isSneaking() || (!e.getAction().equals(Action.RIGHT_CLICK_AIR) && !e.getAction().equals(Action.RIGHT_CLICK_BLOCK)))
+        if (!p.isSneaking() || ((!e.getAction().equals(Action.RIGHT_CLICK_AIR)) && (!e.getAction().equals(Action.RIGHT_CLICK_BLOCK))))
             return;
         if (SkillTreeData.healer.containsKey(p.getUniqueId().toString())) {
             long coolDownTime = TimeUnit.SECONDS.toMillis(90);
