@@ -9,7 +9,7 @@ import java.util.concurrent.ConcurrentMap;
 
 public class SkillTreeData {
 
-    private static FileConfiguration getConf() {
+    public static FileConfiguration getConf() {
         return SkillTreeFileManager.conf;
     }
 
