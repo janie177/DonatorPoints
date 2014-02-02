@@ -157,10 +157,10 @@ public class PointsListener implements Listener {
                             Location location = entity.getLocation();
                             World world = entity.getWorld();
                             world.dropItemNaturally(location, DropTable.selectDrop(level, entity.getType()));
-                            break;
                         }
                         //add points.
                         DataManager.setPointsFromPlayer(superMan, DataManager.getPointsFromPlayer(superMan) + points);
+                        break;
                 }
             }
         }
