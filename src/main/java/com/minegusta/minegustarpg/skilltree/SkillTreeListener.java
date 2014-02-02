@@ -409,6 +409,8 @@ public class SkillTreeListener implements Listener {
             }
             int amount = SkillTreeData.healer.get(p.getUniqueId().toString());
             healEntities(p, amount);
+            p.setHealth(p.getHealth() + 2.5 * amount);
+            playHearts(p);
             healerCooldown.put(p.getUniqueId().toString(), System.currentTimeMillis());
         }
 
@@ -431,6 +433,8 @@ public class SkillTreeListener implements Listener {
             }
             int amount = SkillTreeData.healer.get(p.getUniqueId().toString());
             healEntities(p, amount);
+            p.setHealth(p.getHealth() + 2.5 * amount);
+            playHearts(p);
             healerCooldown.put(p.getUniqueId().toString(), System.currentTimeMillis());
         }
     }
