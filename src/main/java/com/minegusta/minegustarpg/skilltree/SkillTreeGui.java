@@ -54,6 +54,7 @@ public class SkillTreeGui {
         WARRIOR(new ItemStack(Material.DIAMOND_SWORD, 1) {
             {
                 ItemMeta meta = getItemMeta();
+                meta.getLore().clear();
                 meta.setDisplayName(ChatColor.DARK_RED + "" + ChatColor.BOLD + "[Warrior]");
                 setItemMeta(meta);
             }
@@ -131,6 +132,7 @@ public class SkillTreeGui {
         POWER(new ItemStack(Material.DIAMOND_AXE, 1) {
             {
                 ItemMeta meta = getItemMeta();
+                meta.getLore().clear();
                 meta.setDisplayName(ChatColor.DARK_RED + "" + ChatColor.BOLD + "[Power]");
                 setItemMeta(meta);
             }
