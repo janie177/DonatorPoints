@@ -398,8 +398,10 @@ public class SkillTreeListener implements Listener {
             return;
         if (SkillTreeData.healer.containsKey(p.getUniqueId().toString())) {
             long coolDownTime = TimeUnit.SECONDS.toMillis(90);
-            long remainingTime = System.currentTimeMillis() - healerCooldown.get(p.getUniqueId().toString());
+
+
             if (healerCooldown.containsKey(p.getUniqueId().toString())) {
+                long remainingTime = System.currentTimeMillis() - healerCooldown.get(p.getUniqueId().toString());
                 if (!(remainingTime >= coolDownTime)) {
                     p.sendMessage(ChatColor.YELLOW + "You have to wait another " + ChatColor.RED + getRemainingCooldown(remainingTime) + ChatColor.YELLOW + " before you can heal again.");
                     return;
@@ -419,8 +421,9 @@ public class SkillTreeListener implements Listener {
         if (!p.isSneaking()) return;
         if (SkillTreeData.healer.containsKey(p.getUniqueId().toString())) {
             long coolDownTime = TimeUnit.SECONDS.toMillis(90);
-            long remainingTime = System.currentTimeMillis() - healerCooldown.get(p.getUniqueId().toString());
+
             if (healerCooldown.containsKey(p.getUniqueId().toString())) {
+                long remainingTime = System.currentTimeMillis() - healerCooldown.get(p.getUniqueId().toString());
                 if (!(remainingTime >= coolDownTime)) {
                     p.sendMessage(ChatColor.YELLOW + "You have to wait another " + ChatColor.RED + getRemainingCooldown(remainingTime) + ChatColor.YELLOW + " before you can heal again.");
                     return;
