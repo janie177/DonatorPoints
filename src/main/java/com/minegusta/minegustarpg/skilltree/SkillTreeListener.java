@@ -475,7 +475,7 @@ public class SkillTreeListener implements Listener {
 
     private void healEntities(Player p, int amount) {
         double pMaxAdded = 20 - p.getHealth();
-        double pHealthToAdd = 2.5 * amount;
+        double pHealthToAdd = 5 * amount;
         if (pMaxAdded < pHealthToAdd) pHealthToAdd = pMaxAdded;
         p.setHealth(p.getHealth() + pHealthToAdd);
         playHearts(p);
@@ -483,7 +483,7 @@ public class SkillTreeListener implements Listener {
             if (e instanceof Player || e instanceof Horse) {
                 LivingEntity le = (LivingEntity) e;
                 double maxAdded = 20 - le.getHealth();
-                double healthToAdd = 2.5 * amount;
+                double healthToAdd = 5 * amount;
                 if (maxAdded < healthToAdd) healthToAdd = maxAdded;
                 le.setHealth(healthToAdd);
                 playHearts(le);
