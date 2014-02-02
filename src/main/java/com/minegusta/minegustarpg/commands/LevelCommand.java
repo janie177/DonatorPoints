@@ -4,6 +4,7 @@ package com.minegusta.minegustarpg.commands;
 import com.google.common.collect.Lists;
 import com.minegusta.minegustarpg.managers.LevelManager;
 import com.minegusta.minegustarpg.playerdata.Data;
+import com.minegusta.minegustarpg.skilltree.SkillTreeData;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -22,15 +23,16 @@ public class LevelCommand implements CommandExecutor {
         if (cmd.getName().equalsIgnoreCase("level")) {
             Player p = (Player) s;
             UUID uuid = p.getUniqueId();
+            String id = uuid.toString();
 
             List<String> itemsKept = getArmourNames(p);
 
 
-            List<String> helpList = Lists.newArrayList("/Level Info" + ChatColor.GRAY + " - Show your account's details.", "/Level Armour" + ChatColor.GRAY + " - Armour Information.", "/Level Death" + ChatColor.GRAY + " - Help on dieing. (No, not what it sounds like).", "/Horse" + ChatColor.GRAY + " - Horse Help.", "/Points" + ChatColor.GRAY + " - Points help.");
+            List<String> helpList = Lists.newArrayList("/Level Info" + ChatColor.GRAY + " - Show your account's details.", "/Level Armour" + ChatColor.GRAY + " - Armour Information.", "/Level Death" + ChatColor.GRAY + " - Help on dieing. (No, not what it sounds like).", "/Horse" + ChatColor.GRAY + " - Horse Help.", "/Points" + ChatColor.GRAY + " - Points help.", "/Level Skills" + ChatColor.GRAY + " - Show your skills.");
             List<String> info = Lists.newArrayList("Race: " + ChatColor.GRAY + Data.getRace(uuid), "Level: " + ChatColor.GRAY + Data.getLevel(uuid), "Kills: " + ChatColor.GRAY + Data.getMobsKilled(uuid), "Deaths: " + ChatColor.GRAY + Data.getDeaths(uuid), "Quests Completed: " + ChatColor.GRAY + Data.getQuestsDone(uuid), "Experience Points: " + ChatColor.GRAY + Data.getExperience(uuid), "Experience Till Next Level: " + ChatColor.GRAY + LevelManager.getExpLeftTillNextLevel(uuid));
             List<String> armourHelp = Lists.newArrayList(ChatColor.GRAY + "Your level determines what you can wear.", ChatColor.GRAY + "Each armour piece has a required amount of levels.", ChatColor.GRAY + "Your level is the total amount all your armour can have.", ChatColor.GOLD + "- - - - - - -", "Leather: " + ChatColor.AQUA + "1 level.", "Gold: " + ChatColor.AQUA + "5 levels.", "ChainMail: " + ChatColor.AQUA + "10 levels.", "Iron: " + ChatColor.AQUA + "15 levels.", "Diamond: " + ChatColor.AQUA + "20 levels.", "Example:", ChatColor.GRAY + "Wearing an iron helmet and leather boots would require level 16 (15 + 1).");
             List<String> deathHelp = Lists.newArrayList("When you die, you keep a few items:", " - " + ChatColor.GRAY + "All your armour.", " - " + ChatColor.GRAY + "The itemstack in your first hotbar slot.", "For you, those are the following items:", itemsKept.get(0), itemsKept.get(1), itemsKept.get(2), itemsKept.get(3), itemsKept.get(4));
-
+            List<String> skillHelp = Lists.newArrayList("Archer: " + ChatColor.GRAY + SkillTreeData.archer.get(id), "Warrior: " + ChatColor.GRAY + SkillTreeData.warrior.get(id), "Assassin: " + ChatColor.GRAY + SkillTreeData.assassin.get(id), "Tank: " + ChatColor.GRAY + SkillTreeData.tank.get(id), "Stunner: " + ChatColor.GRAY + SkillTreeData.stunner.get(id), "Healer: " + ChatColor.GRAY + SkillTreeData.healer.get(id), "Scout: " + ChatColor.GRAY + SkillTreeData.scout.get(id), "Alchemist: " + ChatColor.GRAY + SkillTreeData.alchemist.get(id), "Luck: " + ChatColor.GRAY + SkillTreeData.luck.get(id), "Bloodbath: " + ChatColor.GRAY + SkillTreeData.bloodbath.get(id), "Bowman: " + ChatColor.GRAY + SkillTreeData.bowman.get(id), "Power: " + ChatColor.GRAY + SkillTreeData.power.get(id), "ArrowEfficiency: " + ChatColor.GRAY + SkillTreeData.arrowefficiency.get(id), "Runner: " + ChatColor.GRAY + SkillTreeData.runner.get(id), "Athlete: " + ChatColor.GRAY + SkillTreeData.athlete.get(id));
 
             if (args.length == 0) sendText(p, helpList);
             else if (args[0].equalsIgnoreCase("info")) {
@@ -39,6 +41,8 @@ public class LevelCommand implements CommandExecutor {
                 sendText(p, armourHelp);
             } else if (args[0].equalsIgnoreCase("death")) {
                 sendText(p, deathHelp);
+            } else if (args[0].equalsIgnoreCase("skills")) {
+                sendText(p, skillHelp);
             } else {
                 sendText(p, helpList);
             }
