@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="abad91f1-1a3d-48e5-bcab-a35a6579d945" name="Default" comment="Fixed losing items in skill trader menu.">
+    <list default="true" id="abad91f1-1a3d-48e5-bcab-a35a6579d945" name="Default" comment="Undone some previous changes.">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/skilltree/SkillTreeListener.java" afterPath="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/skilltree/SkillTreeListener.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -76,7 +76,7 @@
       <file leaf-file-name="SkillTreeListener.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/skilltree/SkillTreeListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="38" selection-start="1353" selection-end="1353" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="8755">
+            <state line="232" column="56" selection-start="13826" selection-end="13826" vertical-scroll-proportion="0.0" vertical-offset="3740" max-vertical-offset="8738">
               <folding />
             </state>
           </provider>
@@ -1109,7 +1109,11 @@
       <created>1391423775493</created>
       <updated>1391423775493</updated>
     </task>
-    <option name="localTasksCounter" value="113" />
+    <task id="LOCAL-00113" summary="Undone some previous changes.">
+      <created>1391424093665</created>
+      <updated>1391424093665</updated>
+    </task>
+    <option name="localTasksCounter" value="114" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1200,7 +1204,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Points / 3 to make it more easier to understand." />
     <MESSAGE value="Changed some things in SkillTreeListener so they might work better." />
     <MESSAGE value="Added help command for skills. Added info for healing." />
     <MESSAGE value="Fixed NPE for healer skill." />
@@ -1225,7 +1228,8 @@
     <MESSAGE value="Archer and Bowman fix." />
     <MESSAGE value="Added debug messages (Remove later!) and a tweak to Bowman." />
     <MESSAGE value="Fixed losing items in skill trader menu." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed losing items in skill trader menu." />
+    <MESSAGE value="Undone some previous changes." />
+    <option name="LAST_COMMIT_MESSAGE" value="Undone some previous changes." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -1406,7 +1410,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/shops/DonatorShopListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="84" selection-start="1603" selection-end="1603" vertical-scroll-proportion="-1.2871429" vertical-offset="1275" max-vertical-offset="4403" />
+        <state line="48" column="84" selection-start="1603" selection-end="1603" vertical-scroll-proportion="-1.2871429" vertical-offset="1275" max-vertical-offset="4403">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/MinegustaRPGPlugin.java">
@@ -1438,7 +1444,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/shops/HorseShopListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="44" selection-start="877" selection-end="877" vertical-scroll-proportion="-0.90997565" vertical-offset="459" max-vertical-offset="3247" />
+        <state line="25" column="44" selection-start="877" selection-end="877" vertical-scroll-proportion="-0.90997565" vertical-offset="459" max-vertical-offset="3247">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/listeners/LevelListener.java">
@@ -1488,7 +1496,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/skilltree/SkillTreeListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="38" selection-start="1353" selection-end="1353" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="8755">
+        <state line="232" column="56" selection-start="13826" selection-end="13826" vertical-scroll-proportion="0.0" vertical-offset="3740" max-vertical-offset="8738">
           <folding />
         </state>
       </provider>

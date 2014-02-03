@@ -226,7 +226,7 @@ public class SkillTreeListener implements Listener {
         Player player;
         LivingEntity enemy;
 
-        if (e.getDamager() instanceof Player && e.getEntity() instanceof LivingEntity) {
+        if ((e.getDamager() instanceof Player || e.getDamager() instanceof Arrow) && e.getEntity() instanceof LivingEntity) {
             player = (Player) e.getDamager();
             enemy = (LivingEntity) e.getEntity();
             int level;
@@ -235,7 +235,7 @@ public class SkillTreeListener implements Listener {
             Random rand = new Random();
 
 
-            if (e.getCause().equals(EntityDamageEvent.DamageCause.PROJECTILE)) {
+            if (e.getDamager() instanceof Arrow) {
 
                 //Archer
                 if (SkillTreeData.archer.containsKey(uuid)) {
@@ -300,9 +300,8 @@ public class SkillTreeListener implements Listener {
                 }
             }
         }
-        if (e.getEntity() instanceof Player && e.getDamager() instanceof LivingEntity) {
+        if (e.getEntity() instanceof Player && (e.getDamager() instanceof LivingEntity || e.getDamager() instanceof Arrow)) {
             player = (Player) e.getEntity();
-            enemy = (LivingEntity) e.getDamager();
             String uuid = player.getUniqueId().toString();
 
             //Runner
