@@ -66,6 +66,7 @@ public class HorseShopListener implements Listener {
         try {
             String invName = e.getClickedInventory().getName();
             if (invName != null && invName.equals("Horse Trader")) {
+                if (e.getCursor() != null && e.getCurrentItem().getType().equals(Material.AIR)) e.setCancelled(true);
                 if (e.getCurrentItem().getType() == Material.AIR) return;
                 if (e.getCurrentItem() == null || e.getCurrentItem().getItemMeta().getDisplayName() == null) return;
 

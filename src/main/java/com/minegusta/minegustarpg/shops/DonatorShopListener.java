@@ -69,7 +69,7 @@ public class DonatorShopListener implements Listener {
         }
     }
 
-    //Prevent traders from getting hurt by other non-op entities.
+    //Prevent traders from getting hurt by other non-op entities.  (Also all other trader classes!!).
     @EventHandler
     public void onEntityDamageByNonOp(EntityDamageByEntityEvent e) {
         Entity entity = e.getEntity();
@@ -82,7 +82,7 @@ public class DonatorShopListener implements Listener {
             }
 
             LivingEntity villager = (LivingEntity) e.getEntity();
-            if (DataManager.isNPC(villager) || villager.getCustomName().contains("Trader")) {
+            if (DataManager.isNPC(villager) || villager.getCustomName().contains("Trader") || villager.getCustomName().contains("Trainer")) {
                 if (!e.getEntity().getWorld().getName().equalsIgnoreCase(MinegustaRPGPlugin.world)) return;
                 e.setCancelled(true);
             } else if (villager.getCustomName().contains("Donator Trader")) {
@@ -100,6 +100,7 @@ public class DonatorShopListener implements Listener {
         try {
             String invName = e.getClickedInventory().getName();
             if (invName != null && invName.equals("ShopKeeper's inventory") && e.getWhoClicked().hasPermission("minegusta.donator")) {
+                if (e.getCursor() != null && e.getCurrentItem().getType().equals(Material.AIR)) e.setCancelled(true);
                 if (e.getCurrentItem().getType() == Material.AIR) return;
                 if (e.getCurrentItem() == null || e.getCurrentItem().getItemMeta().getDisplayName() == null) return;
 
