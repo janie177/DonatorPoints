@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="abad91f1-1a3d-48e5-bcab-a35a6579d945" name="Default" comment="Check for shops to stop item glitching.">
+    <list default="true" id="abad91f1-1a3d-48e5-bcab-a35a6579d945" name="Default" comment="Fixed casting and checks for arrows and players for archery/arrowefficiency skill.">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/skilltree/SkillTreeListener.java" afterPath="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/skilltree/SkillTreeListener.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -76,34 +76,7 @@
       <file leaf-file-name="SkillTreeListener.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/skilltree/SkillTreeListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="76" column="73" selection-start="3754" selection-end="3754" vertical-scroll-proportion="0.0" vertical-offset="697" max-vertical-offset="8755">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DonatorShopListener.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/shops/DonatorShopListener.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="103" column="73" selection-start="4304" selection-end="4304" vertical-scroll-proportion="0.0" vertical-offset="1309" max-vertical-offset="4420">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HorseShopListener.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/shops/HorseShopListener.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="69" column="73" selection-start="3181" selection-end="3181" vertical-scroll-proportion="0.0" vertical-offset="833" max-vertical-offset="3264">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ShopManager.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/shops/ShopManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="71" column="73" selection-start="3263" selection-end="3263" vertical-scroll-proportion="0.0" vertical-offset="884" max-vertical-offset="11390">
+            <state line="247" column="59" selection-start="14388" selection-end="14388" vertical-scroll-proportion="0.0" vertical-offset="3706" max-vertical-offset="8755">
               <folding />
             </state>
           </provider>
@@ -1182,7 +1155,15 @@
       <created>1391424893779</created>
       <updated>1391424893779</updated>
     </task>
-    <option name="localTasksCounter" value="116" />
+    <task id="LOCAL-00116" summary="Fixed anti-shop-glitch for skilltree shop.">
+      <created>1391425121290</created>
+      <updated>1391425121290</updated>
+    </task>
+    <task id="LOCAL-00117" summary="Fixed casting and checks for arrows and players for archery/arrowefficiency skill.">
+      <created>1391425483462</created>
+      <updated>1391425483463</updated>
+    </task>
+    <option name="localTasksCounter" value="118" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1273,8 +1254,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Fixed NPE for healer skill." />
-    <MESSAGE value="Added healing to self to healer skill." />
     <MESSAGE value="Tank now actually blocks damage." />
     <MESSAGE value="Fixed nulls at getting skills in LevelCommand" />
     <MESSAGE value="Healing countdown now shows the time you have to wait. Not how long you waited." />
@@ -1298,7 +1277,9 @@
     <MESSAGE value="Undone some previous changes." />
     <MESSAGE value="Check if damager is an arrow." />
     <MESSAGE value="Check for shops to stop item glitching." />
-    <option name="LAST_COMMIT_MESSAGE" value="Check for shops to stop item glitching." />
+    <MESSAGE value="Fixed anti-shop-glitch for skilltree shop." />
+    <MESSAGE value="Fixed casting and checks for arrows and players for archery/arrowefficiency skill." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed casting and checks for arrows and players for archery/arrowefficiency skill." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -1561,13 +1542,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/shops/DonatorShopListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="103" column="73" selection-start="4304" selection-end="4304" vertical-scroll-proportion="0.0" vertical-offset="1173" max-vertical-offset="4420">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/shops/ShopManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="71" column="73" selection-start="3263" selection-end="3263" vertical-scroll-proportion="0.0" vertical-offset="781" max-vertical-offset="11390">
@@ -1575,9 +1549,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/shops/DonatorShopListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="103" column="73" selection-start="4304" selection-end="4304" vertical-scroll-proportion="-4.978308" vertical-offset="3604" max-vertical-offset="4420">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/skilltree/SkillTreeListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="76" column="73" selection-start="3754" selection-end="3754" vertical-scroll-proportion="0.0" vertical-offset="697" max-vertical-offset="8755">
+        <state line="247" column="59" selection-start="14388" selection-end="14388" vertical-scroll-proportion="0.0" vertical-offset="3706" max-vertical-offset="8755">
           <folding />
         </state>
       </provider>
