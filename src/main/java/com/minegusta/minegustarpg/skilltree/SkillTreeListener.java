@@ -228,39 +228,47 @@ public class SkillTreeListener implements Listener {
         LivingEntity enemy;
 
         if ((e.getDamager() instanceof Player || e.getDamager() instanceof Arrow) && e.getEntity() instanceof LivingEntity) {
-            player = (Player) e.getDamager();
+
+
             enemy = (LivingEntity) e.getEntity();
             int level;
             double damage = e.getDamage();
-            String uuid = player.getUniqueId().toString();
             Random rand = new Random();
 
 
             if (e.getDamager() instanceof Arrow) {
+                Arrow arrow = (Arrow) e.getDamager();
+                if (arrow.getShooter() instanceof Player) {
+                    player = (Player) arrow.getShooter();
+                    String uuid = player.getUniqueId().toString();
 
-                //Archer
-                if (SkillTreeData.archer.containsKey(uuid)) {
-                    level = SkillTreeData.archer.get(uuid);
-                    e.setDamage(e.getDamage() + level);
-                    //TODO REMODE
-                    Bukkit.broadcastMessage("Debug: Archer works.");
-                }
-
-
-                //ArrowEfficiency
-                if (SkillTreeData.arrowefficiency.containsKey(uuid)) {
-                    int chance = rand.nextInt(100);
-                    //TODO REMODE
-                    Bukkit.broadcastMessage("Debug: arrowefficiency contains you!");
-                    if (chance < (SkillTreeData.arrowefficiency.get(uuid) * 40)) {
-
+                    //Archer
+                    if (SkillTreeData.archer.containsKey(uuid)) {
+                        level = SkillTreeData.archer.get(uuid);
+                        e.setDamage(e.getDamage() + level);
                         //TODO REMODE
-                        Bukkit.broadcastMessage("Debug: Arrowefficiency is ran!");
+                        Bukkit.broadcastMessage("Debug: Archer works.");
+                    }
 
-                        enemy.getWorld().dropItemNaturally(enemy.getLocation(), new ItemStack(Material.ARROW, 1));
+
+                    //ArrowEfficiency
+                    if (SkillTreeData.arrowefficiency.containsKey(uuid)) {
+                        int chance = rand.nextInt(100);
+                        //TODO REMODE
+                        Bukkit.broadcastMessage("Debug: arrowefficiency contains you!");
+                        if (chance < (SkillTreeData.arrowefficiency.get(uuid) * 40)) {
+
+                            //TODO REMODE
+                            Bukkit.broadcastMessage("Debug: Arrowefficiency is ran!");
+
+                            enemy.getWorld().dropItemNaturally(enemy.getLocation(), new ItemStack(Material.ARROW, 1));
+                        }
                     }
                 }
             } else {
+                player = (Player) e.getDamager();
+                String uuid = player.getUniqueId().toString();
+
                 //Warrior
                 if (SkillTreeData.warrior.containsKey(uuid)) {
 
