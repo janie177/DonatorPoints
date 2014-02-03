@@ -248,8 +248,8 @@ public class SkillTreeListener implements Listener {
                     //Bowman
                     if (SkillTreeData.bowman.containsKey(uuid)) {
                         if (rand.nextInt(100) < SkillTreeData.bowman.get(uuid) * 8) {
-                            for (int i = 0; i < 6; i++) {
-                                Entity entity = enemy.getWorld().spawnEntity(enemy.getLocation().add(rand.nextDouble(), 6, rand.nextDouble()), EntityType.ARROW);
+                            for (int i = 0; i < 8; i++) {
+                                Entity entity = enemy.getWorld().spawnEntity(enemy.getLocation().add(rand.nextDouble(), 8, rand.nextDouble()), EntityType.ARROW);
                             }
                         }
                     }

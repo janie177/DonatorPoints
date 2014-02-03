@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="abad91f1-1a3d-48e5-bcab-a35a6579d945" name="Default" comment="Removed debugging messages.">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/skilltree/SkillTreeGui.java" afterPath="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/skilltree/SkillTreeGui.java" />
+    <list default="true" id="abad91f1-1a3d-48e5-bcab-a35a6579d945" name="Default" comment="Completely changed bowman.">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/skilltree/SkillTreeListener.java" afterPath="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/skilltree/SkillTreeListener.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -77,7 +76,7 @@
       <file leaf-file-name="SkillTreeListener.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/skilltree/SkillTreeListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="248" column="161" selection-start="14564" selection-end="14564" vertical-scroll-proportion="0.0" vertical-offset="3604" max-vertical-offset="8551">
+            <state line="251" column="140" selection-start="14722" selection-end="14722" vertical-scroll-proportion="0.0" vertical-offset="3706" max-vertical-offset="8551">
               <folding />
             </state>
           </provider>
@@ -86,7 +85,7 @@
       <file leaf-file-name="SkillTreeGui.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/skilltree/SkillTreeGui.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="314" selection-start="3421" selection-end="3421" vertical-scroll-proportion="0.0" vertical-offset="238" max-vertical-offset="2992">
+            <state line="24" column="314" selection-start="3421" selection-end="3421" vertical-scroll-proportion="0.0" vertical-offset="408" max-vertical-offset="2992">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -1179,7 +1178,11 @@
       <created>1391425834361</created>
       <updated>1391425834361</updated>
     </task>
-    <option name="localTasksCounter" value="119" />
+    <task id="LOCAL-00119" summary="Completely changed bowman.">
+      <created>1391426225769</created>
+      <updated>1391426225769</updated>
+    </task>
+    <option name="localTasksCounter" value="120" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1270,7 +1273,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Fixed nulls at getting skills in LevelCommand" />
     <MESSAGE value="Healing countdown now shows the time you have to wait. Not how long you waited." />
     <MESSAGE value="Loading players to maps works now." />
     <MESSAGE value="Fixed healing number being too big." />
@@ -1295,7 +1297,8 @@
     <MESSAGE value="Fixed anti-shop-glitch for skilltree shop." />
     <MESSAGE value="Fixed casting and checks for arrows and players for archery/arrowefficiency skill." />
     <MESSAGE value="Removed debugging messages." />
-    <option name="LAST_COMMIT_MESSAGE" value="Removed debugging messages." />
+    <MESSAGE value="Completely changed bowman." />
+    <option name="LAST_COMMIT_MESSAGE" value="Completely changed bowman." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -1580,7 +1583,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/skilltree/SkillTreeListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="248" column="161" selection-start="14564" selection-end="14564" vertical-scroll-proportion="0.0" vertical-offset="3604" max-vertical-offset="8551">
+        <state line="251" column="140" selection-start="14722" selection-end="14722" vertical-scroll-proportion="0.0" vertical-offset="3706" max-vertical-offset="8551">
           <folding />
         </state>
       </provider>
