@@ -73,9 +73,10 @@ public class SkillTreeListener implements Listener {
             String invName = e.getClickedInventory().getName();
             Player user = (Player) e.getWhoClicked();
             if (invName != null && invName.equals(ChatColor.DARK_RED + "SkillPoints to spend: " + ChatColor.RED + Data.getLevelPoints(user.getUniqueId()) / 3)) {
-                if (e.getCurrentItem() == null || e.getCurrentItem().getItemMeta().getDisplayName() == null) return;
                 if (e.getCursor() != null && e.getCurrentItem().getType().equals(Material.AIR)) e.setCancelled(true);
                 if (e.getCurrentItem().getType() == Material.AIR) return;
+                if (e.getCurrentItem() == null || e.getCurrentItem().getItemMeta().getDisplayName() == null) return;
+
 
                 e.setCancelled(true);
                 HumanEntity player = e.getWhoClicked();
