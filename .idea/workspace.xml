@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="abad91f1-1a3d-48e5-bcab-a35a6579d945" name="Default" comment="Fixed casting and checks for arrows and players for archery/arrowefficiency skill.">
+    <list default="true" id="abad91f1-1a3d-48e5-bcab-a35a6579d945" name="Default" comment="Removed debugging messages.">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/skilltree/SkillTreeGui.java" afterPath="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/skilltree/SkillTreeGui.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/skilltree/SkillTreeListener.java" afterPath="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/skilltree/SkillTreeListener.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -76,8 +77,19 @@
       <file leaf-file-name="SkillTreeListener.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/skilltree/SkillTreeListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="247" column="59" selection-start="14388" selection-end="14388" vertical-scroll-proportion="0.0" vertical-offset="3706" max-vertical-offset="8755">
+            <state line="248" column="161" selection-start="14564" selection-end="14564" vertical-scroll-proportion="0.0" vertical-offset="3604" max-vertical-offset="8551">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SkillTreeGui.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/skilltree/SkillTreeGui.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="24" column="314" selection-start="3421" selection-end="3421" vertical-scroll-proportion="0.0" vertical-offset="238" max-vertical-offset="2992">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -85,7 +97,7 @@
       <file leaf-file-name="pom.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="20" selection-start="401" selection-end="401" vertical-scroll-proportion="0.03586498" vertical-offset="119" max-vertical-offset="2720">
+            <state line="8" column="20" selection-start="401" selection-end="401" vertical-scroll-proportion="0.14345992" vertical-offset="68" max-vertical-offset="2720">
               <folding />
             </state>
           </provider>
@@ -160,11 +172,11 @@
         <option value="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/listeners/PointsListener.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/commands/LevelCommand.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/listeners/HorseListener.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/skilltree/SkillTreeGui.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/skilltree/SkillTreeData.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/shops/DonatorShopListener.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/shops/HorseShopListener.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/shops/ShopManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/skilltree/SkillTreeGui.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/skilltree/SkillTreeListener.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
       </list>
@@ -1163,7 +1175,11 @@
       <created>1391425483462</created>
       <updated>1391425483463</updated>
     </task>
-    <option name="localTasksCounter" value="118" />
+    <task id="LOCAL-00118" summary="Removed debugging messages.">
+      <created>1391425834361</created>
+      <updated>1391425834361</updated>
+    </task>
+    <option name="localTasksCounter" value="119" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1254,7 +1270,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Tank now actually blocks damage." />
     <MESSAGE value="Fixed nulls at getting skills in LevelCommand" />
     <MESSAGE value="Healing countdown now shows the time you have to wait. Not how long you waited." />
     <MESSAGE value="Loading players to maps works now." />
@@ -1279,7 +1294,8 @@
     <MESSAGE value="Check for shops to stop item glitching." />
     <MESSAGE value="Fixed anti-shop-glitch for skilltree shop." />
     <MESSAGE value="Fixed casting and checks for arrows and players for archery/arrowefficiency skill." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed casting and checks for arrows and players for archery/arrowefficiency skill." />
+    <MESSAGE value="Removed debugging messages." />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed debugging messages." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -1527,12 +1543,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/skilltree/SkillTreeData.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="42" selection-start="1730" selection-end="1730" vertical-scroll-proportion="0.2364395" vertical-offset="255" max-vertical-offset="5151" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/skilltree/SkillTreeGui.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="181" selection-start="6164" selection-end="6164" vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="2992" />
+        <state line="32" column="42" selection-start="1730" selection-end="1730" vertical-scroll-proportion="0.2364395" vertical-offset="255" max-vertical-offset="5151">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/shops/HorseShopListener.java">
@@ -1556,16 +1569,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/skilltree/SkillTreeGui.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="314" selection-start="3421" selection-end="3421" vertical-scroll-proportion="0.0" vertical-offset="238" max-vertical-offset="2992">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/skilltree/SkillTreeListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="247" column="59" selection-start="14388" selection-end="14388" vertical-scroll-proportion="0.0" vertical-offset="3706" max-vertical-offset="8755">
+        <state line="248" column="161" selection-start="14564" selection-end="14564" vertical-scroll-proportion="0.0" vertical-offset="3604" max-vertical-offset="8551">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="20" selection-start="401" selection-end="401" vertical-scroll-proportion="0.03586498" vertical-offset="119" max-vertical-offset="2720">
+        <state line="8" column="20" selection-start="401" selection-end="401" vertical-scroll-proportion="0.14345992" vertical-offset="68" max-vertical-offset="2720">
           <folding />
         </state>
       </provider>

@@ -9,7 +9,10 @@ import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
-import org.bukkit.event.entity.*;
+import org.bukkit.event.entity.EntityDamageByEntityEvent;
+import org.bukkit.event.entity.EntityDamageEvent;
+import org.bukkit.event.entity.EntityDeathEvent;
+import org.bukkit.event.entity.PotionSplashEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
@@ -242,6 +245,15 @@ public class SkillTreeListener implements Listener {
                     player = (Player) arrow.getShooter();
                     String uuid = player.getUniqueId().toString();
 
+                    //Bowman
+                    if (SkillTreeData.bowman.containsKey(uuid)) {
+                        if (rand.nextInt(100) < SkillTreeData.bowman.get(uuid) * 8) {
+                            for (int i = 0; i < 6; i++) {
+                                Entity entity = enemy.getWorld().spawnEntity(enemy.getLocation().add(rand.nextDouble(), 6, rand.nextDouble()), EntityType.ARROW);
+                            }
+                        }
+                    }
+
                     //Archer
                     if (SkillTreeData.archer.containsKey(uuid)) {
                         level = SkillTreeData.archer.get(uuid);
@@ -377,27 +389,6 @@ public class SkillTreeListener implements Listener {
                 }
             }
         }
-    }
-
-    //Bow fire: bowMan
-
-    @EventHandler
-    public void bowFireEvent(EntityShootBowEvent e) {
-        if (!e.getEntity().getWorld().getName().toLowerCase().equalsIgnoreCase(MinegustaRPGPlugin.world)) return;
-        if (!(e.getEntity() instanceof Player)) return;
-        Player p = (Player) e.getEntity();
-        Random rand = new Random();
-        int random = rand.nextInt(100);
-        if (SkillTreeData.bowman.containsKey(p.getUniqueId().toString())) {
-            if ((SkillTreeData.bowman.get(p.getUniqueId().toString()) * 8) + 1 > random) {
-                Entity a = e.getProjectile();
-                Vector v = a.getLocation().getDirection().multiply(1.5);
-                World w = e.getEntity().getWorld();
-                Entity b = w.spawnEntity(e.getEntity().getLocation().add(v), EntityType.ARROW);
-                b.setVelocity(a.getLocation().getDirection().multiply(1.5));
-            }
-        }
-
     }
 
     //InteractEvent InteractEntityEvent: healing
