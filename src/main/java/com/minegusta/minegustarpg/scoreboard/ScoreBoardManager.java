@@ -1,87 +1,81 @@
 package com.minegusta.minegustarpg.scoreboard;
 
+import com.google.common.collect.Maps;
 import com.minegusta.minegustarpg.MinegustaRPGPlugin;
 import com.minegusta.minegustarpg.managers.LevelManager;
 import com.minegusta.minegustarpg.playerdata.Data;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.World;
 import org.bukkit.entity.Player;
 import org.bukkit.scoreboard.*;
 
 import java.util.UUID;
+import java.util.concurrent.ConcurrentMap;
 
 public class ScoreBoardManager {
-
-    static ScoreboardManager manager = Bukkit.getScoreboardManager();
-    static Scoreboard sb = manager.getNewScoreboard();
-    static Objective data = setObjectives();
-
-    public static Objective setObjectives() {
-        if (sb.getObjective("playerData") == null) {
-            data = sb.registerNewObjective("playerData", "dummy");
-        } else {
-            data = sb.getObjective("playerData");
-        }
-        return data;
-    }
-
-    static Score level = data.getScore(Bukkit.getOfflinePlayer(ChatColor.YELLOW + "Level: "));
-    static Score kills = data.getScore(Bukkit.getOfflinePlayer(ChatColor.YELLOW + "Kills: "));
-    static Score deaths = data.getScore(Bukkit.getOfflinePlayer(ChatColor.YELLOW + "Deaths: "));
-    static Score expLeft = data.getScore(Bukkit.getOfflinePlayer(ChatColor.YELLOW + "Exp.Left: "));
+    private static ConcurrentMap<UUID, Scoreboard> scoreBoardMap = Maps.newConcurrentMap();
+    private static ConcurrentMap<UUID, Score> levelMap = Maps.newConcurrentMap();
+    private static ConcurrentMap<UUID, Score> expMap = Maps.newConcurrentMap();
+    private static ConcurrentMap<UUID, Score> levelUnderNameMap = Maps.newConcurrentMap();
 
 
-    public static String getWorldName() {
-        String worldName = "noWorldGiven.";
-
-        for (World w : Bukkit.getWorlds()) {
-            if (w.getName().equalsIgnoreCase(MinegustaRPGPlugin.world)) {
-                worldName = w.getName();
-            }
-        }
-        return worldName;
-    }
-
-    public static void setScoreBoard() {
+    public static void createScoreBoard(Player p) {
+        String scoreboardName = p.getName();
+        UUID uuid = p.getUniqueId();
+        ScoreboardManager manager = Bukkit.getScoreboardManager();
+        Scoreboard sb = manager.getNewScoreboard();
+        Objective data = sb.registerNewObjective(scoreboardName, "dummy");
+        Objective levelData = sb.registerNewObjective(scoreboardName + "undername", "dummy");
         data.setDisplaySlot(DisplaySlot.SIDEBAR);
-        data.setDisplayName(ChatColor.GOLD + "Your Data: ");
+        data.setDisplayName(ChatColor.RED + "Your Data:");
+        levelData.setDisplaySlot(DisplaySlot.BELOW_NAME);
+        levelData.setDisplayName("");
+        Score level = data.getScore(Bukkit.getOfflinePlayer(ChatColor.YELLOW + "Level: "));
+        Score expLeft = data.getScore(Bukkit.getOfflinePlayer(ChatColor.YELLOW + "Exp.Left: "));
+        Score levelUnderName = levelData.getScore(Bukkit.getOfflinePlayer(ChatColor.YELLOW + Data.getRace(uuid) + ChatColor.GREEN + " Level "));
 
-        String worldName = getWorldName();
+        level.setScore(0);
+        expLeft.setScore(0);
+        levelUnderName.setScore(0);
 
-        for (Player p : Bukkit.getWorld(worldName).getPlayers()) {
-            p.setScoreboard(sb);
-        }
+        levelMap.put(uuid, level);
+        expMap.put(uuid, expLeft);
+        scoreBoardMap.put(uuid, sb);
+        levelUnderNameMap.put(uuid, levelUnderName);
     }
 
-    public static void setScoreboardForPlayer(Player p) {
-        if (!p.getWorld().getName().equalsIgnoreCase(MinegustaRPGPlugin.world)) return;
-        else {
-            p.setScoreboard(sb);
-        }
+    public static void updateScoreboard(Player p) {
+        UUID uuid = p.getUniqueId();
+        Score expLeft = expMap.get(uuid);
+        Score level = levelMap.get(uuid);
+
+        level.setScore(Data.getLevel(uuid));
+        expLeft.setScore(LevelManager.getExpLeftTillNextLevel(uuid));
+
+
     }
 
-    public static void clearScoreBoardForPlayer(Player p) {
+    public static void setScoreboard(Player p) {
+        p.setScoreboard(scoreBoardMap.get(p.getUniqueId()));
+    }
+
+    public static void clearScoreboard(Player p) {
+        ScoreboardManager manager = Bukkit.getScoreboardManager();
         p.setScoreboard(manager.getNewScoreboard());
     }
 
-
-    public static void updateScoreboard(Player p) {
-
-
-        UUID mojangID = p.getUniqueId();
-        int pLevel = Data.getLevel(mojangID);
-        int pDeaths = Data.getDeaths(mojangID);
-        int pKills = Data.getMobsKilled(mojangID);
-        int pExpLeft = LevelManager.getExpLeftTillNextLevel(mojangID);
-
-        level.setScore(pLevel);
-        expLeft.setScore(pExpLeft);
-        kills.setScore(pKills);
-        deaths.setScore(pDeaths);
-
-        p.setScoreboard(sb);
+    public static void onReloadMakeScoreboards() {
+        for (Player p : Bukkit.getOnlinePlayers()) {
+            if (p.getWorld().getName().toLowerCase().equalsIgnoreCase(MinegustaRPGPlugin.world)) {
+                createScoreBoard(p);
+                updateScoreboard(p);
+                setScoreboard(p);
+            } else {
+                clearScoreboard(p);
+            }
+        }
     }
+
 
     //Scheduled task.
 
@@ -89,9 +83,11 @@ public class ScoreBoardManager {
         return Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(MinegustaRPGPlugin.PLUGIN, new Runnable() {
             @Override
             public void run() {
-                String worldName = getWorldName();
-                for (Player p : Bukkit.getWorld(worldName).getPlayers()) {
-                    updateScoreboard(p);
+                for (Player p : Bukkit.getOnlinePlayers()) {
+                    if (p.getWorld().getName().toLowerCase().equalsIgnoreCase(MinegustaRPGPlugin.world)) {
+                        updateScoreboard(p);
+                        setScoreboard(p);
+                    }
                 }
 
             }

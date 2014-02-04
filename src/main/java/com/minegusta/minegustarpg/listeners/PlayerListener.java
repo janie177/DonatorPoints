@@ -98,10 +98,10 @@ public class PlayerListener implements Listener {
         Player p = e.getPlayer();
         SkillTreeData.loadPlayerToMaps(p.getUniqueId().toString());
         if (p.getWorld().getName().toLowerCase().equalsIgnoreCase(MinegustaRPGPlugin.world)) {
-            ScoreBoardManager.setScoreboardForPlayer(p);
+            ScoreBoardManager.createScoreBoard(p);
 
         } else {
-            ScoreBoardManager.clearScoreBoardForPlayer(p);
+            ScoreBoardManager.clearScoreboard(p);
         }
     }
 
@@ -110,6 +110,6 @@ public class PlayerListener implements Listener {
     public void onQuit(PlayerQuitEvent e) {
         Player p = e.getPlayer();
         SkillTreeData.unloadPlayerFromMaps(p.getUniqueId().toString());
-        ScoreBoardManager.clearScoreBoardForPlayer(p);
+        ScoreBoardManager.clearScoreboard(p);
     }
 }

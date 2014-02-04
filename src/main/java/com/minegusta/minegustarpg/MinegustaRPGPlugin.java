@@ -67,8 +67,9 @@ public class MinegustaRPGPlugin extends CensoredJavaPlugin {
 
             PlayerFiles.createBankDirectory();
 
-            //Set scoreboard
-            ScoreBoardManager.setScoreBoard();
+            //Reload for scoreboards.
+
+            ScoreBoardManager.onReloadMakeScoreboards();
 
             // command
             getCommand("points").setExecutor(new PointsCommand());

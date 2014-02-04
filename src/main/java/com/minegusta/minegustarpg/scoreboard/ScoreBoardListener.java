@@ -14,10 +14,10 @@ public class ScoreBoardListener implements Listener {
     public void onGoToDonatorWorld(PlayerChangedWorldEvent e) {
         Player p = e.getPlayer();
         if (e.getPlayer().getWorld().getName().toLowerCase().equals(MinegustaRPGPlugin.world)) {
-            ScoreBoardManager.setScoreboardForPlayer(p);
+            ScoreBoardManager.setScoreboard(p);
 
         } else if (e.getFrom().getName().toLowerCase().equalsIgnoreCase(MinegustaRPGPlugin.world)) {
-            ScoreBoardManager.clearScoreBoardForPlayer(p);
+            ScoreBoardManager.clearScoreboard(p);
         }
     }
 }
