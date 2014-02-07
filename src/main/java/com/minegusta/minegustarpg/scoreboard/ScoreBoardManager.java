@@ -17,8 +17,6 @@ public class ScoreBoardManager {
     private static ConcurrentMap<UUID, Scoreboard> scoreBoardMap = Maps.newConcurrentMap();
     private static ConcurrentMap<UUID, Score> levelMap = Maps.newConcurrentMap();
     private static ConcurrentMap<UUID, Score> expMap = Maps.newConcurrentMap();
-    private static ConcurrentMap<UUID, Score> levelUnderNameMap = Maps.newConcurrentMap();
-
 
     public static void createScoreBoard(Player p) {
         String scoreboardName = p.getName().substring(0, p.getName().length() - 1);
@@ -30,18 +28,17 @@ public class ScoreBoardManager {
         data.setDisplaySlot(DisplaySlot.SIDEBAR);
         data.setDisplayName(ChatColor.RED + "Your Data:");
         levelData.setDisplaySlot(DisplaySlot.BELOW_NAME);
-        levelData.setDisplayName(ChatColor.GOLD + "Level ");
+        levelData.setDisplayName(ChatColor.YELLOW + " " + Data.getRace(uuid));
         Score level = data.getScore(Bukkit.getOfflinePlayer(ChatColor.YELLOW + "Level: "));
         Score expLeft = data.getScore(Bukkit.getOfflinePlayer(ChatColor.YELLOW + "Exp.Left: "));
-        Score levelUnderName = levelData.getScore(Bukkit.getOfflinePlayer(ChatColor.YELLOW + " " + Data.getRace(uuid)));
+        Score levelUnderName = levelData.getScore(Bukkit.getOfflinePlayer(ChatColor.GOLD + "Level "));
 
-        level.setScore(0);
+        level.setScore(1);
         expLeft.setScore(0);
         levelUnderName.setScore(0);
 
         levelMap.put(uuid, level);
         expMap.put(uuid, expLeft);
-        levelUnderNameMap.put(uuid, levelUnderName);
         scoreBoardMap.put(uuid, sb);
 
     }
@@ -50,7 +47,7 @@ public class ScoreBoardManager {
         UUID uuid = p.getUniqueId();
         Score expLeft = expMap.get(uuid);
         Score level = levelMap.get(uuid);
-        Score levelUnderName = levelUnderNameMap.get(uuid);
+        Score levelUnderName = levelMap.get(uuid);
 
         level.setScore(Data.getLevel(uuid));
         levelUnderName.setScore(Data.getLevel(uuid));

@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="abad91f1-1a3d-48e5-bcab-a35a6579d945" name="Default" comment="Change in scoreboards.">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/listeners/LevelListener.java" afterPath="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/listeners/LevelListener.java" />
+    <list default="true" id="abad91f1-1a3d-48e5-bcab-a35a6579d945" name="Default" comment="Check for air equipped. Fixed dropping items. Changed scoreboard u.">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/scoreboard/ScoreBoardManager.java" afterPath="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/scoreboard/ScoreBoardManager.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -77,7 +76,7 @@
       <file leaf-file-name="pom.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="18" selection-start="399" selection-end="399" vertical-scroll-proportion="0.1891516" vertical-offset="0" max-vertical-offset="2720">
+            <state line="29" column="26" selection-start="1157" selection-end="1157" vertical-scroll-proportion="0.73254085" vertical-offset="0" max-vertical-offset="2720">
               <folding />
             </state>
           </provider>
@@ -86,7 +85,7 @@
       <file leaf-file-name="ScoreBoardManager.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/scoreboard/ScoreBoardManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="44" column="87" selection-start="2119" selection-end="2119" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1649">
+            <state line="18" column="79" selection-start="782" selection-end="782" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1598">
               <folding />
             </state>
           </provider>
@@ -95,7 +94,7 @@
       <file leaf-file-name="LevelListener.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/listeners/LevelListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="221" column="55" selection-start="8293" selection-end="8293" vertical-scroll-proportion="0.0" vertical-offset="3289" max-vertical-offset="4046">
+            <state line="221" column="55" selection-start="8293" selection-end="8293" vertical-scroll-proportion="0.0" vertical-offset="3502" max-vertical-offset="4046">
               <folding />
             </state>
           </provider>
@@ -1157,7 +1156,11 @@
       <created>1391809317211</created>
       <updated>1391809317211</updated>
     </task>
-    <option name="localTasksCounter" value="131" />
+    <task id="LOCAL-00131" summary="Check for air equipped. Fixed dropping items. Changed scoreboard u.">
+      <created>1391809838095</created>
+      <updated>1391809838096</updated>
+    </task>
+    <option name="localTasksCounter" value="132" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1201,7 +1204,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24175824" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.0" sideWeight="0.7954823" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.061744966" sideWeight="0.7954823" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32931727" sideWeight="0.49964914" order="1" side_tool="false" content_ui="tabs" />
@@ -1248,7 +1251,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Small tweaks in skills." />
     <MESSAGE value="Healing is less deadly now." />
     <MESSAGE value="Bowman tweak, now more dependent on first arrow instead of player." />
     <MESSAGE value="Fixed alchemist description." />
@@ -1273,7 +1275,8 @@
     <MESSAGE value="Added a check to unequip armour." />
     <MESSAGE value="Shorter name for under name bar." />
     <MESSAGE value="Change in scoreboards." />
-    <option name="LAST_COMMIT_MESSAGE" value="Change in scoreboards." />
+    <MESSAGE value="Check for air equipped. Fixed dropping items. Changed scoreboard u." />
+    <option name="LAST_COMMIT_MESSAGE" value="Check for air equipped. Fixed dropping items. Changed scoreboard u." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -1546,14 +1549,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/scoreboard/ScoreBoardManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="87" selection-start="2119" selection-end="2119" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1649">
+        <state line="18" column="79" selection-start="782" selection-end="782" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1598">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="18" selection-start="399" selection-end="399" vertical-scroll-proportion="0.1891516" vertical-offset="0" max-vertical-offset="2720">
+        <state line="29" column="26" selection-start="1157" selection-end="1157" vertical-scroll-proportion="0.73254085" vertical-offset="0" max-vertical-offset="2720">
           <folding />
         </state>
       </provider>
