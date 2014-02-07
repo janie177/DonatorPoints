@@ -2,6 +2,7 @@ package com.minegusta.minegustarpg.scoreboard;
 
 import com.google.common.collect.Maps;
 import com.minegusta.minegustarpg.MinegustaRPGPlugin;
+import com.minegusta.minegustarpg.listeners.LevelListener;
 import com.minegusta.minegustarpg.managers.LevelManager;
 import com.minegusta.minegustarpg.playerdata.Data;
 import org.bukkit.Bukkit;
@@ -89,6 +90,9 @@ public class ScoreBoardManager {
                     if (p.getWorld().getName().toLowerCase().equalsIgnoreCase(MinegustaRPGPlugin.world)) {
                         updateScoreboard(p);
                         setScoreboard(p);
+
+                        //Use this task aswell for unequipping armour.
+                        LevelListener.unEquipGlitchedArmour(p);
                     }
                 }
 

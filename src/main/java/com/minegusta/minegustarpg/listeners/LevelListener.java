@@ -97,7 +97,7 @@ public class LevelListener implements Listener {
         }
     }
 
-    private int getTotalPoints(Player p) {
+    private static int getTotalPoints(Player p) {
         int totalPoints = 0;
         for (ItemStack i : p.getInventory().getArmorContents()) {
             totalPoints = totalPoints + getPointsForItemStack(i);
@@ -106,7 +106,7 @@ public class LevelListener implements Listener {
 
     }
 
-    private boolean canEquip(Player p, ItemStack i) {
+    private static boolean canEquip(Player p, ItemStack i) {
         int currentPoints = getTotalPoints(p);
         int addedPoints = getPointsForItemStack(i);
         int maxPoints = Data.getLevel(p.getUniqueId());
@@ -114,7 +114,14 @@ public class LevelListener implements Listener {
         return ((currentPoints + addedPoints) <= maxPoints);
     }
 
-    public boolean canReplaceEquipment(Player p, ItemStack i, ItemStack replacement) {
+    private static boolean canKeepEquipped(Player p, ItemStack i) {
+        int currentPoints = getTotalPoints(p);
+        int maxPoints = Data.getLevel(p.getUniqueId());
+
+        return (currentPoints <= maxPoints);
+    }
+
+    public static boolean canReplaceEquipment(Player p, ItemStack i, ItemStack replacement) {
         int currentlyEquipedPoints = getTotalPoints(p);
         int itemRemoved = getPointsForItemStack(i);
         int itemAdded = getPointsForItemStack(replacement);
@@ -122,7 +129,7 @@ public class LevelListener implements Listener {
         return ((currentlyEquipedPoints - itemRemoved) + itemAdded) <= maxPoints;
     }
 
-    public int getPointsForItemStack(ItemStack i) {
+    public static int getPointsForItemStack(ItemStack i) {
         Material m = i.getType();
         int points = 0;
 
@@ -206,6 +213,34 @@ public class LevelListener implements Listener {
             p.sendMessage(ChatColor.DARK_RED + "[" + ChatColor.GOLD + "RPG" + ChatColor.DARK_RED + "]" + ChatColor.YELLOW + s);
 
         }
+    }
+
+    public static void unEquipGlitchedArmour(Player p) {
+        for (ItemStack i : p.getEquipment().getArmorContents()) {
+            if (!canKeepEquipped(p, i)) {
+                if (i.equals(p.getInventory().getHelmet())) {
+                    p.getInventory().setHelmet(new ItemStack(Material.AIR, 1));
+
+                } else if (i.equals(p.getInventory().getBoots())) {
+                    p.getInventory().setBoots(new ItemStack(Material.AIR, 1));
+
+                } else if (i.equals(p.getInventory().getChestplate())) {
+                    p.getInventory().setChestplate(new ItemStack(Material.AIR, 1));
+
+                } else if (i.equals(p.getInventory().getLeggings())) {
+                    p.getInventory().setLeggings(new ItemStack(Material.AIR, 1));
+
+                }
+                if (p.getInventory().firstEmpty() == -1) {
+                    p.getWorld().dropItemNaturally(p.getLocation(), i);
+                } else {
+                    p.getInventory().addItem(i);
+                }
+
+                p.updateInventory();
+            }
+        }
+
     }
 
 
