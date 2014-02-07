@@ -25,7 +25,7 @@ public class ScoreBoardManager {
         ScoreboardManager manager = Bukkit.getScoreboardManager();
         Scoreboard sb = manager.getNewScoreboard();
         Objective data = sb.registerNewObjective(scoreboardName, "dummy");
-        Objective levelData = sb.registerNewObjective(scoreboardName + "undername", "dummy");
+        Objective levelData = sb.registerNewObjective(scoreboardName, "dummy");
         data.setDisplaySlot(DisplaySlot.SIDEBAR);
         data.setDisplayName(ChatColor.RED + "Your Data:");
         levelData.setDisplaySlot(DisplaySlot.BELOW_NAME);

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="abad91f1-1a3d-48e5-bcab-a35a6579d945" name="Default" comment="Fixed two small typo's">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/listeners/PlayerListener.java" afterPath="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/listeners/PlayerListener.java" />
+    <list default="true" id="abad91f1-1a3d-48e5-bcab-a35a6579d945" name="Default" comment="Moved scoreboard creation to always true.">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/scoreboard/ScoreBoardManager.java" afterPath="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/scoreboard/ScoreBoardManager.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -85,7 +85,7 @@
       <file leaf-file-name="ScoreBoardManager.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/scoreboard/ScoreBoardManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="70" column="49" selection-start="2908" selection-end="2908" vertical-scroll-proportion="0.0" vertical-offset="61" max-vertical-offset="1530">
+            <state line="27" column="68" selection-start="1213" selection-end="1213" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1530">
               <folding />
             </state>
           </provider>
@@ -103,7 +103,7 @@
       <file leaf-file-name="PlayerListener.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/listeners/PlayerListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="103" column="21" selection-start="3750" selection-end="3750" vertical-scroll-proportion="0.0" vertical-offset="977" max-vertical-offset="1683">
+            <state line="103" column="21" selection-start="3750" selection-end="3750" vertical-scroll-proportion="0.0" vertical-offset="1428" max-vertical-offset="1683">
               <folding />
             </state>
           </provider>
@@ -179,11 +179,11 @@
         <option value="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/shops/ShopManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/skilltree/SkillTreeListener.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/scoreboard/ScoreBoardListener.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/scoreboard/ScoreBoardManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/MinegustaRPGPlugin.java" />
         <option value="$PROJECT_DIR$/src/main/resources/plugin.yml" />
         <option value="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/skilltree/SkillTreeGui.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/listeners/PlayerListener.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/scoreboard/ScoreBoardManager.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
@@ -1137,7 +1137,11 @@
       <created>1391796365752</created>
       <updated>1391796365752</updated>
     </task>
-    <option name="localTasksCounter" value="124" />
+    <task id="LOCAL-00124" summary="Moved scoreboard creation to always true.">
+      <created>1391797671922</created>
+      <updated>1391797671922</updated>
+    </task>
+    <option name="localTasksCounter" value="125" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1171,7 +1175,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3278272" sideWeight="0.4993895" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24965517" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.0" sideWeight="0.50061053" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.6724832" sideWeight="0.2045177" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23761117" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -1181,7 +1185,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24175824" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.0" sideWeight="0.4993895" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.0" sideWeight="0.7954823" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32931727" sideWeight="0.49964914" order="1" side_tool="false" content_ui="tabs" />
@@ -1228,7 +1232,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Alot more healing for the healing skill." />
     <MESSAGE value="Removed the clearing of lore before setting new lore." />
     <MESSAGE value="Fixed cooldown message not showing at EntityInteractEntity event." />
     <MESSAGE value="Some skills changes and horse death event fix." />
@@ -1253,7 +1256,8 @@
     <MESSAGE value="Rewrote scoreboards. (Test the creating? Double objectives? And updating might not work. Also added under name level)." />
     <MESSAGE value="Removed registering of already registered permissions node." />
     <MESSAGE value="Fixed two small typo's" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed two small typo's" />
+    <MESSAGE value="Moved scoreboard creation to always true." />
+    <option name="LAST_COMMIT_MESSAGE" value="Moved scoreboard creation to always true." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -1519,16 +1523,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/scoreboard/ScoreBoardManager.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/listeners/PlayerListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="70" column="49" selection-start="2908" selection-end="2908" vertical-scroll-proportion="0.0" vertical-offset="61" max-vertical-offset="1530">
+        <state line="103" column="21" selection-start="3750" selection-end="3750" vertical-scroll-proportion="0.0" vertical-offset="977" max-vertical-offset="1683">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/listeners/PlayerListener.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/scoreboard/ScoreBoardManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="103" column="21" selection-start="3750" selection-end="3750" vertical-scroll-proportion="0.0" vertical-offset="977" max-vertical-offset="1683">
+        <state line="27" column="68" selection-start="1213" selection-end="1213" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1530">
           <folding />
         </state>
       </provider>
