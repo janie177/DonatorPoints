@@ -217,7 +217,7 @@ public class LevelListener implements Listener {
 
     public static void unEquipGlitchedArmour(Player p) {
         for (ItemStack i : p.getEquipment().getArmorContents()) {
-            if (!canKeepEquipped(p, i)) {
+            if (!i.getType().equals(Material.AIR) && !canKeepEquipped(p, i)) {
                 if (i.equals(p.getInventory().getHelmet())) {
                     p.getInventory().setHelmet(new ItemStack(Material.AIR, 1));
 
