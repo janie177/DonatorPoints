@@ -33,7 +33,7 @@ public class ScoreBoardManager {
         levelData.setDisplayName("");
         Score level = data.getScore(Bukkit.getOfflinePlayer(ChatColor.YELLOW + "Level: "));
         Score expLeft = data.getScore(Bukkit.getOfflinePlayer(ChatColor.YELLOW + "Exp.Left: "));
-        Score levelUnderName = levelData.getScore(Bukkit.getOfflinePlayer(ChatColor.YELLOW + Data.getRace(uuid) + ChatColor.GOLD + " Level: "));
+        Score levelUnderName = levelData.getScore(Bukkit.getOfflinePlayer(Data.getRace(uuid) + ChatColor.GOLD + " Lv. "));
 
         level.setScore(0);
         expLeft.setScore(0);
