@@ -32,7 +32,7 @@ public class ScoreBoardManager {
         levelData.setDisplayName("");
         Score level = data.getScore(Bukkit.getOfflinePlayer(ChatColor.YELLOW + "Level: "));
         Score expLeft = data.getScore(Bukkit.getOfflinePlayer(ChatColor.YELLOW + "Exp.Left: "));
-        Score levelUnderName = levelData.getScore(Bukkit.getOfflinePlayer(ChatColor.YELLOW + Data.getRace(uuid) + ChatColor.GREEN + " Level "));
+        Score levelUnderName = levelData.getScore(Bukkit.getOfflinePlayer(ChatColor.YELLOW + Data.getRace(uuid) + ChatColor.GOLD + " Level: "));
 
         level.setScore(0);
         expLeft.setScore(0);
@@ -48,8 +48,10 @@ public class ScoreBoardManager {
         UUID uuid = p.getUniqueId();
         Score expLeft = expMap.get(uuid);
         Score level = levelMap.get(uuid);
+        Score levelUnderName = levelUnderNameMap.get(uuid);
 
         level.setScore(Data.getLevel(uuid));
+        levelUnderName.setScore(Data.getLevel(uuid));
         expLeft.setScore(LevelManager.getExpLeftTillNextLevel(uuid));
 
 

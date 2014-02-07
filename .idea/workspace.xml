@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="abad91f1-1a3d-48e5-bcab-a35a6579d945" name="Default" comment="Moved scoreboard creation to always true.">
+    <list default="true" id="abad91f1-1a3d-48e5-bcab-a35a6579d945" name="Default" comment="Double objective names fixed.">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/scoreboard/ScoreBoardManager.java" afterPath="$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/scoreboard/ScoreBoardManager.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -85,7 +85,7 @@
       <file leaf-file-name="ScoreBoardManager.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/scoreboard/ScoreBoardManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="68" selection-start="1213" selection-end="1213" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1530">
+            <state line="56" column="42" selection-start="2474" selection-end="2474" vertical-scroll-proportion="0.0" vertical-offset="408" max-vertical-offset="1564">
               <folding />
             </state>
           </provider>
@@ -1141,7 +1141,15 @@
       <created>1391797671922</created>
       <updated>1391797671922</updated>
     </task>
-    <option name="localTasksCounter" value="125" />
+    <task id="LOCAL-00125" summary="IndexOutOfBoundException in name for scoreboard goal fixed.">
+      <created>1391797921716</created>
+      <updated>1391797921716</updated>
+    </task>
+    <task id="LOCAL-00126" summary="Double objective names fixed.">
+      <created>1391798347951</created>
+      <updated>1391798347951</updated>
+    </task>
+    <option name="localTasksCounter" value="127" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1232,8 +1240,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Removed the clearing of lore before setting new lore." />
-    <MESSAGE value="Fixed cooldown message not showing at EntityInteractEntity event." />
     <MESSAGE value="Some skills changes and horse death event fix." />
     <MESSAGE value="Fix for ArrowEfficiency checks." />
     <MESSAGE value="Healing and Alchemist Tweak" />
@@ -1257,7 +1263,9 @@
     <MESSAGE value="Removed registering of already registered permissions node." />
     <MESSAGE value="Fixed two small typo's" />
     <MESSAGE value="Moved scoreboard creation to always true." />
-    <option name="LAST_COMMIT_MESSAGE" value="Moved scoreboard creation to always true." />
+    <MESSAGE value="IndexOutOfBoundException in name for scoreboard goal fixed." />
+    <MESSAGE value="Double objective names fixed." />
+    <option name="LAST_COMMIT_MESSAGE" value="Double objective names fixed." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -1532,7 +1540,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/minegusta/minegustarpg/scoreboard/ScoreBoardManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="68" selection-start="1213" selection-end="1213" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1530">
+        <state line="56" column="42" selection-start="2474" selection-end="2474" vertical-scroll-proportion="0.0" vertical-offset="408" max-vertical-offset="1564">
           <folding />
         </state>
       </provider>
