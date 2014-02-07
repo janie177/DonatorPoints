@@ -13,6 +13,3 @@ commands:
   level:
     usage: /Level
     aliases: [l, rpg, lv, lvl, exp, experience]
-permissions:
-  minegusta.donator:
-    default: op
