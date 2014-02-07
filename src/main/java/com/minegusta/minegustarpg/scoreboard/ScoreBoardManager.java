@@ -30,7 +30,7 @@ public class ScoreBoardManager {
         data.setDisplaySlot(DisplaySlot.SIDEBAR);
         data.setDisplayName(ChatColor.RED + "Your Data:");
         levelData.setDisplaySlot(DisplaySlot.BELOW_NAME);
-        levelData.setDisplayName("");
+        levelData.setDisplayName(Data.getRace(uuid) + ChatColor.GOLD + " Lv. ");
         Score level = data.getScore(Bukkit.getOfflinePlayer(ChatColor.YELLOW + "Level: "));
         Score expLeft = data.getScore(Bukkit.getOfflinePlayer(ChatColor.YELLOW + "Exp.Left: "));
         Score levelUnderName = levelData.getScore(Bukkit.getOfflinePlayer(Data.getRace(uuid) + ChatColor.GOLD + " Lv. "));
@@ -41,8 +41,9 @@ public class ScoreBoardManager {
 
         levelMap.put(uuid, level);
         expMap.put(uuid, expLeft);
-        scoreBoardMap.put(uuid, sb);
         levelUnderNameMap.put(uuid, levelUnderName);
+        scoreBoardMap.put(uuid, sb);
+
     }
 
     public static void updateScoreboard(Player p) {
@@ -91,13 +92,14 @@ public class ScoreBoardManager {
                         updateScoreboard(p);
                         setScoreboard(p);
 
-                        //Use this task aswell for unequipping armour.
+                        //Use this task as well for un-equipping armour.
+
                         LevelListener.unEquipGlitchedArmour(p);
                     }
                 }
 
             }
-        }, 0, 60 * 20);
+        }, 0, 30 * 20);
     }
 
 }
