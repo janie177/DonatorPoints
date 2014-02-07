@@ -97,14 +97,11 @@ public class PlayerListener implements Listener {
     public void onJoin(PlayerJoinEvent e) {
         Player p = e.getPlayer();
         SkillTreeData.loadPlayerToMaps(p.getUniqueId().toString());
+        ScoreBoardManager.createScoreBoard(p);
         if (p.getWorld().getName().toLowerCase().equalsIgnoreCase(MinegustaRPGPlugin.world)) {
-            ScoreBoardManager.createScoreBoard(p);
-
-        } else {
-            ScoreBoardManager.clearScoreboard(p);
+            ScoreBoardManager.setScoreboard(p);
         }
     }
-
     //remove scoreboards on log out.
     @EventHandler
     public void onQuit(PlayerQuitEvent e) {
