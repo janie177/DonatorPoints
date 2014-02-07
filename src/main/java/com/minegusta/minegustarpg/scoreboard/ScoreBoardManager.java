@@ -20,12 +20,12 @@ public class ScoreBoardManager {
 
 
     public static void createScoreBoard(Player p) {
-        String scoreboardName = p.getName();
+        String scoreboardName = p.getName().substring(0, p.getName().length() - 1);
         UUID uuid = p.getUniqueId();
         ScoreboardManager manager = Bukkit.getScoreboardManager();
         Scoreboard sb = manager.getNewScoreboard();
         Objective data = sb.registerNewObjective(scoreboardName, "dummy");
-        Objective levelData = sb.registerNewObjective(scoreboardName, "dummy");
+        Objective levelData = sb.registerNewObjective(scoreboardName + "u", "dummy");
         data.setDisplaySlot(DisplaySlot.SIDEBAR);
         data.setDisplayName(ChatColor.RED + "Your Data:");
         levelData.setDisplaySlot(DisplaySlot.BELOW_NAME);
