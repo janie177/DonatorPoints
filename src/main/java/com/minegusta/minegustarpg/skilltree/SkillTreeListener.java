@@ -327,7 +327,6 @@ public class SkillTreeListener implements Listener {
             //Tank
             if (SkillTreeData.tank.containsKey(uuid)) {
                 int amount = SkillTreeData.tank.get(uuid);
-                double damage = e.getDamage();
                 Random rand = new Random();
                 int i = rand.nextInt(100);
                 if (i < amount * 10) {
