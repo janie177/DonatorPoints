@@ -16,7 +16,7 @@ public class ScoreBoardListener implements Listener {
         if (e.getPlayer().getWorld().getName().toLowerCase().equals(MinegustaRPGPlugin.world)) {
             ScoreBoardManager.setScoreboard(p);
 
-        } else if (e.getFrom().getName().toLowerCase().equalsIgnoreCase(MinegustaRPGPlugin.world)) {
+        } else {
             ScoreBoardManager.clearScoreboard(p);
         }
     }
