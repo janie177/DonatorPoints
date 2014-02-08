@@ -25,13 +25,16 @@ public class ScoreBoardManager {
         Scoreboard sb = manager.getNewScoreboard();
         Objective data = sb.registerNewObjective(scoreboardName, "dummy");
         Objective levelData = sb.registerNewObjective(scoreboardName + "u", "dummy");
+
+        String underNameText = ChatColor.YELLOW + Data.getRace(uuid);
+
         data.setDisplaySlot(DisplaySlot.SIDEBAR);
         data.setDisplayName(ChatColor.RED + "Your Data:");
         levelData.setDisplaySlot(DisplaySlot.BELOW_NAME);
-        levelData.setDisplayName(ChatColor.YELLOW + Data.getRace(uuid) + ": ");
+        levelData.setDisplayName(underNameText);
         Score level = data.getScore(Bukkit.getOfflinePlayer(ChatColor.YELLOW + "Level: "));
         Score expLeft = data.getScore(Bukkit.getOfflinePlayer(ChatColor.YELLOW + "Exp.Left: "));
-        Score levelUnderName = levelData.getScore(Bukkit.getOfflinePlayer(ChatColor.YELLOW + Data.getRace(uuid) + ": "));
+        Score levelUnderName = levelData.getScore(Bukkit.getOfflinePlayer(underNameText));
 
         level.setScore(1);
         expLeft.setScore(0);
