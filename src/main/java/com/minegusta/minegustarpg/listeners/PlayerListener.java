@@ -97,6 +97,7 @@ public class PlayerListener implements Listener {
     public void onJoin(PlayerJoinEvent e) {
         Player p = e.getPlayer();
         SkillTreeData.loadPlayerToMaps(p.getUniqueId().toString());
+        ScoreBoardManager.clearScoreboard(p);
         if (p.getWorld().getName().toLowerCase().equalsIgnoreCase(MinegustaRPGPlugin.world)) {
             ScoreBoardManager.createScoreBoard(p);
             ScoreBoardManager.setScoreboard(p);
