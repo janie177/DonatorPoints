@@ -26,7 +26,7 @@ public class ScoreBoardManager {
         Objective data = sb.registerNewObjective(scoreboardName, "dummy");
         Objective levelData = sb.registerNewObjective(scoreboardName + "u", "dummy");
 
-        String underNameText = ChatColor.YELLOW + Data.getRace(uuid);
+        String underNameText = ChatColor.YELLOW + " " + Data.getRace(uuid);
 
         data.setDisplaySlot(DisplaySlot.SIDEBAR);
         data.setDisplayName(ChatColor.RED + "Your Data:");
