@@ -14,6 +14,7 @@ public class ScoreBoardListener implements Listener {
     public void onGoToDonatorWorld(PlayerChangedWorldEvent e) {
         Player p = e.getPlayer();
         if (e.getPlayer().getWorld().getName().toLowerCase().equals(MinegustaRPGPlugin.world)) {
+            ScoreBoardManager.createScoreBoard(p);
             ScoreBoardManager.setScoreboard(p);
 
         } else {
