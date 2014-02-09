@@ -27,8 +27,9 @@ public class MobSpawnManager implements Listener {
         LivingEntity mob = e.getEntity();
         Location location = mob.getLocation();
         World world = location.getWorld();
+        e.setCancelled(true);
         if (WorldGuardManager.isInRegion(mob.getLocation(), "+")) {
-            e.setCancelled(true);
+
             EntityType type;
             String mobType;
             String mobName;
@@ -102,21 +103,20 @@ public class MobSpawnManager implements Listener {
 
             }
 
-            //is the mob in a mob-region?
+            //is the mob in a mob-region accepting that type?
             if (!WorldGuardManager.canSpawnMob(location, mobType)) {
                 e.setCancelled(true);
                 return;
             }
 
             //Define the max level from that region.
-            int levelCap = 10;
+            int levelCap = 0;
             for (String r : WorldGuardManager.getRegionNames(location)) {
-
-                int maxLevel = Integer.parseInt(r.replaceAll("[\\D]", ""));
-                for (int le = 0; le < 31; le++) {
-                    if (le == maxLevel) {
-                        levelCap = maxLevel;
+                try {
+                    if (levelCap < Integer.parseInt(r.replaceAll("[\\D]", ""))) {
+                        levelCap = Integer.parseInt(r.replaceAll("[\\D]", ""));
                     }
+                } catch (Exception ignored) {
                 }
             }
 
@@ -124,7 +124,7 @@ public class MobSpawnManager implements Listener {
             Random levelRandom = new Random();
             int monsterLevelMinus = levelRandom.nextInt(12);
             int monsterLevel = levelCap - monsterLevelMinus + 1;
-            if (monsterLevel < 1) monsterLevel = 1;
+            if (monsterLevel < 1) monsterLevel = levelRandom.nextInt(levelCap);
 
             //Spawn mobs
             defineMobs(mobType, monsterLevel, world, mobName, type, location);
