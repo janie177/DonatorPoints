@@ -6,12 +6,12 @@
 
     <groupId>com.minegusta</groupId>
     <artifactId>MinegustaRPG</artifactId>
-    <version>1.9.8.0</version>
+    <version>1.9.8.1</version>
 
     <name>MinegustaRPG</name>
 
     <properties> <!-- It is important to keep up to date manually. -->
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.build.sourceEncoding>UF-8</project.build.sourceEncoding>
         <censoredLib.version>1.0.0-SNAPSHOT</censoredLib.version>
         <spigot.version>1.7.2-R0.2-SNAPSHOT</spigot.version>
         <worldguard.version>5.8.1-SNAPSHOT</worldguard.version>

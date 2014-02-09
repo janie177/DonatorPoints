@@ -82,10 +82,10 @@ public class DonatorShopListener implements Listener {
             }
 
             LivingEntity villager = (LivingEntity) e.getEntity();
-            if (DataManager.isNPC(villager) || villager.getCustomName().contains("Trader") || villager.getCustomName().contains("Trainer")) {
-                if (!e.getEntity().getWorld().getName().equalsIgnoreCase(MinegustaRPGPlugin.world)) return;
+            if (villager.getCustomName().contains("Donator Trader")) {
                 e.setCancelled(true);
-            } else if (villager.getCustomName().contains("Donator Trader")) {
+            } else if (DataManager.isNPC(villager) || villager.getCustomName().contains("Trader") || villager.getCustomName().contains("Trainer")) {
+                if (!e.getEntity().getWorld().getName().equalsIgnoreCase(MinegustaRPGPlugin.world)) return;
                 e.setCancelled(true);
             }
         }
