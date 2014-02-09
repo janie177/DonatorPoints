@@ -38,7 +38,7 @@ public class ScoreBoardManager {
 
         level.setScore(1);
         expLeft.setScore(0);
-        levelUnderName.setScore(0);
+        levelUnderName.setScore(1);
 
         levelMap.put(uuid, level);
         expMap.put(uuid, expLeft);

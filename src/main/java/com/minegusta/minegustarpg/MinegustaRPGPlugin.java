@@ -156,6 +156,8 @@ public class MinegustaRPGPlugin extends CensoredJavaPlugin {
         manager.registerEvents(new ScoreBoardListener(), this);
         manager.registerEvents(new BankListener(), this);
         manager.registerEvents(new SkillTreeListener(), this);
+        manager.registerEvents(new BoostListener(), this);
+        manager.registerEvents(new RaceListener(), this);
     }
 
 
