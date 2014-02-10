@@ -28,22 +28,16 @@ public class LevelCommand implements CommandExecutor {
             List<String> itemsKept = getArmourNames(p);
 
 
-            List<String> helpList = Lists.newArrayList("/RPG Info" + ChatColor.GRAY + " - Show your account's details.", "/RPG Armour" + ChatColor.GRAY + " - Armour Information.", "/RPG Death" + ChatColor.GRAY + " - Help on dieing. (No, not what it sounds like).", "/Horse" + ChatColor.GRAY + " - Horse Help.", "/Points" + ChatColor.GRAY + " - Points help.", "/RPG Skills" + ChatColor.GRAY + " - Show your skills.");
+            List<String> helpList = Lists.newArrayList("/RPG Info" + ChatColor.GRAY + " - Show your account's details and skills.", "/RPG Armour" + ChatColor.GRAY + " - Armour Information.", "/RPG Death" + ChatColor.GRAY + " - Help on dieing. (No, not what it sounds like).", "/Horse" + ChatColor.GRAY + " - Horse Help.", "/Points" + ChatColor.GRAY + " - Points help.", "/RPG Skills" + ChatColor.GRAY + " - Show general skill information.");
             List<String> info = Lists.newArrayList("Race: " + ChatColor.GRAY + Data.getRace(uuid), "Level: " + ChatColor.GRAY + Data.getLevel(uuid), "Kills: " + ChatColor.GRAY + Data.getMobsKilled(uuid), "Deaths: " + ChatColor.GRAY + Data.getDeaths(uuid), "Quests Completed: " + ChatColor.GRAY + Data.getQuestsDone(uuid), "Experience Points: " + ChatColor.GRAY + Data.getExperience(uuid), "Experience Till Next Level: " + ChatColor.GRAY + LevelManager.getExpLeftTillNextLevel(uuid));
             List<String> armourHelp = Lists.newArrayList(ChatColor.GRAY + "Your level determines what you can wear.", ChatColor.GRAY + "Each armour piece has a required amount of levels.", ChatColor.GRAY + "Your level is the total amount all your armour can have.", ChatColor.GOLD + "- - - - - - -", "Leather: " + ChatColor.AQUA + "1 level.", "Gold: " + ChatColor.AQUA + "5 levels.", "ChainMail: " + ChatColor.AQUA + "10 levels.", "Iron: " + ChatColor.AQUA + "15 levels.", "Diamond: " + ChatColor.AQUA + "20 levels.", "Example:", ChatColor.GRAY + "Wearing an iron helmet and leather boots would require level 16 (15 + 1).");
             List<String> deathHelp = Lists.newArrayList("When you die, you keep a few items:", " - " + ChatColor.GRAY + "All your armour.", " - " + ChatColor.GRAY + "The itemstack in your first hotbar slot.", "For you, those are the following items:", itemsKept.get(0), itemsKept.get(1), itemsKept.get(2), itemsKept.get(3), itemsKept.get(4));
-            List<String> skillHelp = Lists.newArrayList();
+            List<String> skillHelp = Lists.newArrayList(ChatColor.DARK_RED + "Warrior: " + ChatColor.GRAY + "1 extra melee damage per hit.", ChatColor.DARK_RED + "Archer: " + ChatColor.GRAY + "1 extra bow damage per hit.", ChatColor.DARK_RED + "Power: " + ChatColor.GRAY + "10% chance for melee knockback each rank.", ChatColor.DARK_RED + "Athlete: " + ChatColor.GRAY + "-2 fall damage each rank.", ChatColor.DARK_RED + "Runner: " + ChatColor.GRAY + "When reaching 3HP, gain 3 seconds of speed II per rank.", ChatColor.DARK_RED + "Arrow-Efficiency: " + ChatColor.GRAY + "40% chance per rank to not lose an arrow on impact.", ChatColor.DARK_RED + "Bowman: " + ChatColor.GRAY + "8% chance to rain arrows on your enemy per rank.", ChatColor.DARK_RED + "Assassin: " + ChatColor.GRAY + "5% chance to deal double melee damage each rank.", ChatColor.DARK_RED + "Tank: " + ChatColor.GRAY + "10% chance to not get combat damage per rank.", ChatColor.DARK_RED + "Stunner: " + ChatColor.GRAY + "5% chance for each rank to slow your enemy down.", ChatColor.DARK_RED + "Healer: " + ChatColor.GRAY + "Heal allies and horses around you every 90 seconds.", ChatColor.GRAY + "        +2.5 healing power per rank. Crouch + right-click to activate.", ChatColor.DARK_RED + "Scout: " + ChatColor.GRAY + "get 2 seconds of speed I per rank on kills. ", ChatColor.DARK_RED + "Alchemist: " + ChatColor.GRAY + "10% chance to clone splash potions times 4 on impact per rank.", ChatColor.DARK_RED + "Luck: " + ChatColor.GRAY + "6% extra chance for drops on each rank.", ChatColor.DARK_RED + "Bloodbath: " + ChatColor.GRAY + "15% chance to make your enemy bleed 3 seconds for each rank.");
 
 
             if (args.length == 0) sendText(p, helpList);
             else if (args[0].equalsIgnoreCase("info")) {
                 sendText(p, info);
-            } else if (args[0].equalsIgnoreCase("armour") || args[0].equalsIgnoreCase("armor")) {
-                sendText(p, armourHelp);
-            } else if (args[0].equalsIgnoreCase("death")) {
-                sendText(p, deathHelp);
-            } else if (args[0].equalsIgnoreCase("skills")) {
-
                 if (SkillTreeData.archer.containsKey(id)) {
                     skillHelp.add("Archer: " + ChatColor.GRAY + SkillTreeData.archer.get(id));
                 }
@@ -94,6 +88,12 @@ public class LevelCommand implements CommandExecutor {
                     skillHelp.add("You have no skills! See a" + ChatColor.DARK_RED + " Skill Trainer " + ChatColor.YELLOW + "to get some!");
                     skillHelp.add("You get a skillpoint each 3 levels!");
                 }
+                sendText(p, skillHelp);
+            } else if (args[0].equalsIgnoreCase("armour") || args[0].equalsIgnoreCase("armor")) {
+                sendText(p, armourHelp);
+            } else if (args[0].equalsIgnoreCase("death")) {
+                sendText(p, deathHelp);
+            } else if (args[0].equalsIgnoreCase("skills")) {
                 sendText(p, skillHelp);
             } else {
                 sendText(p, helpList);
