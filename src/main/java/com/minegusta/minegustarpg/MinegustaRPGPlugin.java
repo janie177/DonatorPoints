@@ -2,7 +2,6 @@ package com.minegusta.minegustarpg;
 
 import com.censoredsoftware.censoredlib.CensoredLibPlugin;
 import com.censoredsoftware.censoredlib.helper.CensoredJavaPlugin;
-import com.censoredsoftware.censoredlib.helper.QuitReasonHandler;
 import com.minegusta.minegustarpg.bank.BankListener;
 import com.minegusta.minegustarpg.bank.PlayerFiles;
 import com.minegusta.minegustarpg.commands.HorseCommand;
@@ -15,9 +14,9 @@ import com.minegusta.minegustarpg.items.ItemListener;
 import com.minegusta.minegustarpg.listeners.*;
 import com.minegusta.minegustarpg.managers.MobHealthManager;
 import com.minegusta.minegustarpg.managers.MobSpawnManager;
+import com.minegusta.minegustarpg.managers.SaveManager;
 import com.minegusta.minegustarpg.npc.NPCManager;
 import com.minegusta.minegustarpg.playerdata.PlayerData;
-import com.minegusta.minegustarpg.scoreboard.ScoreBoardListener;
 import com.minegusta.minegustarpg.scoreboard.ScoreBoardManager;
 import com.minegusta.minegustarpg.shops.DonatorShopListener;
 import com.minegusta.minegustarpg.shops.HorseShopListener;
@@ -30,8 +29,6 @@ import org.bukkit.Bukkit;
 import org.bukkit.event.HandlerList;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
-
-import java.util.logging.Handler;
 
 public class MinegustaRPGPlugin extends CensoredJavaPlugin {
     private static final String CENSORED_LIBRARY_VERSION = "1.0";
@@ -82,7 +79,7 @@ public class MinegustaRPGPlugin extends CensoredJavaPlugin {
             getCommand("level").setExecutor(new LevelCommand());
 
             //Run scoreboard updater
-            SCOREBOARD_TASK = ScoreBoardManager.enableScoreBoardTimer();
+            SCOREBOARD_TASK = SaveManager.enableTimedTask();
 
             //Load skill tree file.
 
@@ -103,22 +100,12 @@ public class MinegustaRPGPlugin extends CensoredJavaPlugin {
 
             PlayerData.loadPlayerData(this);
 
-            // quit reason handler
-            boolean provideQuitReason = true;
-            for (Handler handler : Bukkit.getLogger().getHandlers())
-                if (handler instanceof QuitReasonHandler) provideQuitReason = false;
-            if (provideQuitReason) {
-                Bukkit.getLogger().addHandler(new QuitReasonHandler());
-                manager.registerEvents(new QuitListener(), this);
-                getLogger().info("Providing and listening for quit reasons.");
-            }
-
             getLogger().info("Enabled!");
             return;
         }
 
         // couldn't enable
-        getLogger().severe("DonatorPoints cannot enable without CensoredLib installed.");
+        getLogger().severe("MinegustaRPG cannot enable without CensoredLib installed.");
         manager.disablePlugin(this);
     }
 
@@ -157,7 +144,7 @@ public class MinegustaRPGPlugin extends CensoredJavaPlugin {
         manager.registerEvents(new ShopManager(), this);
         manager.registerEvents(new ItemListener(), this);
         manager.registerEvents(new LevelListener(), this);
-        manager.registerEvents(new ScoreBoardListener(), this);
+        manager.registerEvents(new WorldListener(), this);
         manager.registerEvents(new BankListener(), this);
         manager.registerEvents(new SkillTreeListener(), this);
         manager.registerEvents(new BoostListener(), this);

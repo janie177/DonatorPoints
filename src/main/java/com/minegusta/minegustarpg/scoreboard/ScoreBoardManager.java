@@ -2,7 +2,6 @@ package com.minegusta.minegustarpg.scoreboard;
 
 import com.google.common.collect.Maps;
 import com.minegusta.minegustarpg.MinegustaRPGPlugin;
-import com.minegusta.minegustarpg.listeners.LevelListener;
 import com.minegusta.minegustarpg.managers.LevelManager;
 import com.minegusta.minegustarpg.playerdata.Data;
 import org.bukkit.Bukkit;
@@ -79,27 +78,4 @@ public class ScoreBoardManager {
             }
         }
     }
-
-
-    //Scheduled task.
-
-    public static int enableScoreBoardTimer() {
-        return Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(MinegustaRPGPlugin.PLUGIN, new Runnable() {
-            @Override
-            public void run() {
-                for (Player p : Bukkit.getOnlinePlayers()) {
-                    if (p.getWorld().getName().toLowerCase().equalsIgnoreCase(MinegustaRPGPlugin.world)) {
-                        updateScoreboard(p);
-                        setScoreboard(p);
-
-                        //Use this task as well for un-equipping armour.
-
-                        LevelListener.unEquipGlitchedArmour(p);
-                    }
-                }
-
-            }
-        }, 0, 30 * 20);
-    }
-
 }

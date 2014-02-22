@@ -4,6 +4,7 @@ package com.minegusta.minegustarpg.listeners;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.minegusta.minegustarpg.MinegustaRPGPlugin;
+import com.minegusta.minegustarpg.managers.HealthManager;
 import com.minegusta.minegustarpg.playerdata.Data;
 import com.minegusta.minegustarpg.scoreboard.ScoreBoardManager;
 import com.minegusta.minegustarpg.skilltree.SkillTreeData;
@@ -99,9 +100,11 @@ public class PlayerListener implements Listener {
         SkillTreeData.loadPlayerToMaps(p.getUniqueId().toString());
         ScoreBoardManager.clearScoreboard(p);
         RaceListener.putPlayerRaceInMap(p.getUniqueId());
+        HealthManager.setNormalHealth(p);
         if (p.getWorld().getName().toLowerCase().equalsIgnoreCase(MinegustaRPGPlugin.world)) {
             ScoreBoardManager.createScoreBoard(p);
             ScoreBoardManager.setScoreboard(p);
+            HealthManager.setRPGHealth(p);
         }
     }
 
@@ -112,5 +115,6 @@ public class PlayerListener implements Listener {
         RaceListener.removePlayerRaceFromMap(p.getUniqueId());
         SkillTreeData.unloadPlayerFromMaps(p.getUniqueId().toString());
         ScoreBoardManager.clearScoreboard(p);
+        HealthManager.setNormalHealth(p);
     }
 }
