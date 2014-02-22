@@ -92,21 +92,24 @@ public class PlayerListener implements Listener {
 
     }
 
-    //Add scoreboards on login to people in the right world.
+    //Add scoreboards on login to people in the right world. Add to race map.
     @EventHandler
     public void onJoin(PlayerJoinEvent e) {
         Player p = e.getPlayer();
         SkillTreeData.loadPlayerToMaps(p.getUniqueId().toString());
         ScoreBoardManager.clearScoreboard(p);
+        RaceListener.putPlayerRaceInMap(p.getUniqueId());
         if (p.getWorld().getName().toLowerCase().equalsIgnoreCase(MinegustaRPGPlugin.world)) {
             ScoreBoardManager.createScoreBoard(p);
             ScoreBoardManager.setScoreboard(p);
         }
     }
-    //remove scoreboards on log out.
+
+    //remove scoreboards on log out.  Remove drom race map.
     @EventHandler
     public void onQuit(PlayerQuitEvent e) {
         Player p = e.getPlayer();
+        RaceListener.removePlayerRaceFromMap(p.getUniqueId());
         SkillTreeData.unloadPlayerFromMaps(p.getUniqueId().toString());
         ScoreBoardManager.clearScoreboard(p);
     }

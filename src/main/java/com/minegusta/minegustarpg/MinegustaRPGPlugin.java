@@ -67,6 +67,10 @@ public class MinegustaRPGPlugin extends CensoredJavaPlugin {
 
             PlayerFiles.createBankDirectory();
 
+            //Races map adding after reloads.
+
+            RaceListener.addPlayersToRaceMapAtStart();
+
             //Reload for scoreboards.
 
             ScoreBoardManager.onReloadMakeScoreboards();

@@ -261,6 +261,7 @@ public class BoostListener implements Listener {
 
     //TODO add race boosts here.
 
+
     //Points Listener death event for luck.
 
     private void bleedEntity(LivingEntity entity) {

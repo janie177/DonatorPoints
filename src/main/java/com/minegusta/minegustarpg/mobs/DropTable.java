@@ -267,4 +267,40 @@ public class DropTable {
         return dropList.get(number);
     }
 
+    //TODO Make a for loop that chooses from one of the drop tables. Have it check for mob type as well.
+
+    //Enums for drops. Low, Medium High. Then a rare and boss table. Also class specific tables like ingredients, or craftables.
+
+    public enum MediumDrops {
+        //Put items like: Itemstack, Level to get it
+
+        STONEAXE(new ItemStack(Material.STONE_AXE, 1), 1);
+
+        private int minimumLevel;
+        private ItemStack drop;
+
+        private MediumDrops(ItemStack drop, Integer minimumLevel) {
+            this.drop = drop;
+            this.minimumLevel = minimumLevel;
+        }
+
+        Random rand = new Random();
+        int number = rand.nextInt(MediumDrops.values().length);
+
+        private int getMinimumLevel() {
+            return minimumLevel;
+        }
+
+        public ItemStack getDrop(Integer monsterLevel) {
+            final int i = number;
+            if (MediumDrops.values()[i].getMinimumLevel() <= monsterLevel) {
+                return drop;
+            } else {
+                getDrop(monsterLevel);
+            }
+            return drop;
+        }
+
+    }
+
 }
