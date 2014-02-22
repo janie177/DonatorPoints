@@ -105,7 +105,7 @@ public class PlayerListener implements Listener {
         }
     }
 
-    //remove scoreboards on log out.  Remove drom race map.
+    //remove scoreboards on log out.  Remove from race map.
     @EventHandler
     public void onQuit(PlayerQuitEvent e) {
         Player p = e.getPlayer();

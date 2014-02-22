@@ -2,6 +2,7 @@ package com.minegusta.minegustarpg.commands;
 
 
 import com.google.common.collect.Lists;
+import com.minegusta.minegustarpg.listeners.RaceListener;
 import com.minegusta.minegustarpg.managers.LevelManager;
 import com.minegusta.minegustarpg.playerdata.Data;
 import com.minegusta.minegustarpg.skilltree.SkillTreeData;
@@ -28,8 +29,8 @@ public class LevelCommand implements CommandExecutor {
             List<String> itemsKept = getArmourNames(p);
 
 
-            List<String> helpList = Lists.newArrayList("/RPG Info" + ChatColor.GRAY + " - Show your account's details and skills.", "/RPG Armour" + ChatColor.GRAY + " - Armour Information.", "/RPG Death" + ChatColor.GRAY + " - Help on dieing. (No, not what it sounds like).", "/Horse" + ChatColor.GRAY + " - Horse Help.", "/Points" + ChatColor.GRAY + " - Points help.", "/RPG Skills" + ChatColor.GRAY + " - Show general skill information.", "/RPG Races" + ChatColor.GRAY + " - Show a list of races.", "/RPG Races <Race>" + ChatColor.GRAY + " - Show specific race info.");
-            List<String> raceList = Lists.newArrayList("Elf" + ChatColor.GRAY + " - /RPG Races Elf", "Human" + ChatColor.GRAY + " - /RPG Races Human", "Dwarf" + ChatColor.GRAY + " - /RPG Races Dwarf", "SnakeMan" + ChatColor.GRAY + " - /RPG Races SnakeMan");
+            List<String> helpList = Lists.newArrayList("/RPG Info" + ChatColor.GRAY + " - Show your account's details and skills.", "/RPG Armour" + ChatColor.GRAY + " - Armour Information.", "/RPG Death" + ChatColor.GRAY + " - Help on dieing. (No, not what it sounds like).", "/Horse" + ChatColor.GRAY + " - Horse Help.", "/Points" + ChatColor.GRAY + " - Points help.", "/RPG Skills" + ChatColor.GRAY + " - Show general skill information.", "/RPG Races" + ChatColor.GRAY + " - Show a list of races and race info.", "/RPG Races <Race>" + ChatColor.GRAY + " - Show specific race info.");
+            List<String> raceList = Lists.newArrayList("Use " + ChatColor.GOLD + "/RPG Races Set <Race>" + ChatColor.YELLOW + " to set your race for the first time!", "This only works once. Afterwards use a Race Crystal in cities for a high cost to switch race.", "Elf" + ChatColor.GRAY + " - /RPG Races Elf", "Human" + ChatColor.GRAY + " - /RPG Races Human", "Dwarf" + ChatColor.GRAY + " - /RPG Races Dwarf", "SnakeMan" + ChatColor.GRAY + " - /RPG Races SnakeMan");
             List<String> info = Lists.newArrayList("Race: " + ChatColor.GRAY + Data.getRace(uuid), "Level: " + ChatColor.GRAY + Data.getLevel(uuid), "Kills: " + ChatColor.GRAY + Data.getMobsKilled(uuid), "Deaths: " + ChatColor.GRAY + Data.getDeaths(uuid), "Quests Completed: " + ChatColor.GRAY + Data.getQuestsDone(uuid), "Experience Points: " + ChatColor.GRAY + Data.getExperience(uuid), "Experience Till Next Level: " + ChatColor.GRAY + LevelManager.getExpLeftTillNextLevel(uuid));
             List<String> armourHelp = Lists.newArrayList(ChatColor.GRAY + "Your level determines what you can wear.", ChatColor.GRAY + "Each armour piece has a required amount of levels.", ChatColor.GRAY + "Your level is the total amount all your armour can have.", ChatColor.GOLD + "- - - - - - -", "Leather: " + ChatColor.AQUA + "1 level.", "Gold: " + ChatColor.AQUA + "5 levels.", "ChainMail: " + ChatColor.AQUA + "10 levels.", "Iron: " + ChatColor.AQUA + "15 levels.", "Diamond: " + ChatColor.AQUA + "20 levels.", "Example:", ChatColor.GRAY + "Wearing an iron helmet and leather boots would require level 16 (15 + 1).");
             List<String> deathHelp = Lists.newArrayList("When you die, you keep a few items:", " - " + ChatColor.GRAY + "All your armour.", " - " + ChatColor.GRAY + "The itemstack in your first hotbar slot.", "For you, those are the following items:", itemsKept.get(0), itemsKept.get(1), itemsKept.get(2), itemsKept.get(3), itemsKept.get(4));
@@ -47,14 +48,28 @@ public class LevelCommand implements CommandExecutor {
                 if (args.length == 1) {
                     sendText(p, raceList);
                 } else if (args.length > 1) {
-                    if (args[2].equalsIgnoreCase("elf")) {
+                    if (args[1].equalsIgnoreCase("elf")) {
                         sendText(p, elfHelp, ChatColor.YELLOW);
-                    } else if (args[2].equalsIgnoreCase("human")) {
+                    } else if (args[1].equalsIgnoreCase("human")) {
                         sendText(p, humanHelp, ChatColor.YELLOW);
-                    } else if (args[2].equalsIgnoreCase("dwarf")) {
+                    } else if (args[1].equalsIgnoreCase("dwarf")) {
                         sendText(p, dwarfHelp, ChatColor.YELLOW);
-                    } else if (args[2].equalsIgnoreCase("snakeman")) {
+                    } else if (args[1].equalsIgnoreCase("snakeman")) {
                         sendText(p, snakemanHelp, ChatColor.YELLOW);
+                    } else if (args[1].equalsIgnoreCase("set") && args.length > 2) {
+                        List<String> races = Lists.newArrayList("elf", "dwarf", "human", "snakeman");
+                        if (races.contains(args[2].toLowerCase())) {
+                            if (!Data.getRace(uuid).equalsIgnoreCase("none")) {
+                                Data.setRace(uuid, args[2].toLowerCase());
+                                RaceListener.putPlayerRaceInMap(uuid);
+                                p.sendMessage(ChatColor.YELLOW + "[Race] " + ChatColor.GRAY + "You sucessfully set your race to " + args[2].toLowerCase() + ".");
+                                p.sendMessage(ChatColor.YELLOW + "[Race] " + ChatColor.GRAY + "if you want to switch race, look for a Race Crystal in cities.");
+                            } else {
+                                p.sendMessage(ChatColor.YELLOW + "[Race] " + ChatColor.GRAY + "You already chose a race! See a Race Crystal in cities to switch for a fee.");
+                            }
+                        } else {
+                            p.sendMessage(ChatColor.YELLOW + "[Race] " + ChatColor.GRAY + args[2] + " is not a valid race.");
+                        }
                     }
                 }
             } else if (args[0].equalsIgnoreCase("info")) {
