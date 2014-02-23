@@ -56,7 +56,7 @@ public class BoostListener implements Listener {
                     //Bowman
                     if (SkillTreeData.bowman.containsKey(uuid)) {
                         if (rand.nextInt(100) < SkillTreeData.bowman.get(uuid) * 8) {
-                            for (int i = 0; i < 8; i++) {
+                            for (int i = 0; i < 10; i++) {
                                 enemy.getWorld().spawnEntity(enemy.getLocation().add(rand.nextDouble(), 8, rand.nextDouble()), EntityType.ARROW);
                             }
                         }
@@ -65,7 +65,7 @@ public class BoostListener implements Listener {
                     //Archer
                     if (SkillTreeData.archer.containsKey(uuid)) {
                         level = SkillTreeData.archer.get(uuid);
-                        e.setDamage(e.getDamage() + level);
+                        e.setDamage(damage + level * 4);
                     }
 
 
@@ -275,10 +275,11 @@ public class BoostListener implements Listener {
                         Player p = (Player) e;
                         if (k == 1) p.sendMessage(ChatColor.RED + "You are bleeding!");
                     }
+                    double d = e.getMaxHealth() / 15;
                     e.getWorld().spigot().playEffect(e.getLocation(), Effect.CRIT);
-                    if (k == 20) e.damage(1.0);
-                    if (k == 40) e.damage(1.0);
-                    if (k == 59) e.damage(1.0);
+                    if (k == 20) e.damage(d);
+                    if (k == 40) e.damage(d);
+                    if (k == 59) e.damage(d);
 
 
                 }
@@ -287,8 +288,8 @@ public class BoostListener implements Listener {
     }
 
     private void healEntities(Player p, int amount) {
-        double pMaxAdded = 20 - p.getHealth();
-        double pHealthToAdd = 5 * amount;
+        double pMaxAdded = p.getMaxHealth() - p.getHealth();
+        double pHealthToAdd = (p.getMaxHealth() / 4) * amount;
         if (pMaxAdded < pHealthToAdd) pHealthToAdd = pMaxAdded;
         p.setHealth(p.getHealth() + pHealthToAdd);
         playHearts(p);
@@ -296,7 +297,7 @@ public class BoostListener implements Listener {
             if (e instanceof Player || e instanceof Horse) {
                 LivingEntity le = (LivingEntity) e;
                 double maxAdded = le.getMaxHealth() - le.getHealth();
-                double healthToAdd = 5 * amount;
+                double healthToAdd = (p.getMaxHealth() / 4) * amount;
                 if (maxAdded < healthToAdd) healthToAdd = maxAdded;
                 le.setHealth(le.getHealth() + healthToAdd);
                 playHearts(le);

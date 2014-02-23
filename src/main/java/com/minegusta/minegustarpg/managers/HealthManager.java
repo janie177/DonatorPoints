@@ -24,7 +24,7 @@ public class HealthManager {
 
     public static void checkForHaxedHealth() {
         for (Player p : Bukkit.getOnlinePlayers()) {
-            if (p.getWorld().getName().toLowerCase().equalsIgnoreCase(MinegustaRPGPlugin.world)) {
+            if (!p.getWorld().getName().toLowerCase().equalsIgnoreCase(MinegustaRPGPlugin.world)) {
                 setNormalHealth(p);
             }
         }
